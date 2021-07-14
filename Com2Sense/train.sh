@@ -7,7 +7,7 @@ python3 main.py --mode train \
 --model roberta-large \
 --dataset com2sense \
 --run bs_16 \
---batch 16 \
+--batch_size 16 \
 --gpu 0 --seq_len 128
 
 
@@ -19,7 +19,7 @@ python3 main.py \
 --model roberta-large \
 --dataset winogd \
 --run lr_1e5_bs_16 \
---batch 16 \
+--batch_size 16 \
 --gpu 0
 
 
@@ -31,7 +31,7 @@ python3 main.py \
 --model t5-large \
 --dataset semeval \
 --run bs_4 \
---batch 4  \
+--batch_size 4  \
 --seq_len 128 \
 --gpu 0 --use_amp F
 
@@ -44,7 +44,7 @@ python3 main.py \
 --model t5-large \
 --dataset siqa \
 --run bs_4 \
---batch 4  \
+--batch_size 4  \
 --seq_len 256 \
 --gpu 0 --use_amp F
 
@@ -57,7 +57,7 @@ python3 main.py \
 --model t5-large \
 --dataset piqa \
 --run bs_4_acc_2 \
---batch 4  \
+--batch_size 4  \
 --acc_step 2 \
 --seq_len 512 \
 --gpu 0 --use_amp F
@@ -71,6 +71,6 @@ python3 main.py \
 --model t5-large \
 --dataset winogd,cqa  \
 --run bs_8 \
---batch 8 \
+--batch_size 8 \
 --seq 128 \
 --gpu 0 --use_amp F
