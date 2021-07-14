@@ -7,7 +7,7 @@
 #--model t5-large \
 #--dataset semeval \
 #--batch_size 32 \
---gpu 0
+#--gpu 0
 
 # ** RoBerta-large || Com2Sense **
 python3 main.py \
