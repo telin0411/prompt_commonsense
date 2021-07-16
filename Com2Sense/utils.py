@@ -7,8 +7,35 @@ from tqdm import tqdm
 from sklearn.metrics import accuracy_score, classification_report
 
 
+def confusion_matrix(gt, pred):
+    """
+    :param   gt: a list
+    :param pred: a list
+    :return: the confusion matrix
+    """
+    """
+                true | false
+    positive     88  |  34
+    --------------------------
+    negative     24  |  69
+    """
+    assert len(gt) == len(pred), "The number of prediction and ground true doesn't match"
+    confusionMatrix = [[0, 0], [0, 0]]
+    for i in range(len(gt)):
+        if gt[i] and pred[i]:
+            confusionMatrix[0][0] += 1
+        if gt[i] and not pred[i]:
+            confusionMatrix[1][0] += 1
+        if not gt[i] and pred[i]:
+            confusionMatrix[0][1] += 1
+        if not gt[i] and not pred[i]:
+            confusionMatrix[1][1] += 1
+    return confusionMatrix
+
+
 @torch.no_grad()
-def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text = False, is_pairwise=False, is_test=False, parallel = False):
+def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=False, is_pairwise=False, is_test=False,
+                         parallel=False):
     """
     For the given model, computes accuracy & loss on validation/test set.
 
@@ -38,17 +65,18 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text =
     # Evaluate on mini-batches
     for batch in tqdm(dataloader):
         batch = {k: v.to(device) for k, v in batch.items()}
+
         # T5 inference
         if text2text:
             # Forward Pass (predict)
             if parallel:
                 label_pred = model.module.generate(input_ids=batch['input_tokens'],
-                                        attention_mask=batch['input_attn_mask'],
-                                        max_length=2)
+                                                   attention_mask=batch['input_attn_mask'],
+                                                   max_length=2)
             else:
                 label_pred = model.generate(input_ids=batch['input_tokens'],
-                                        attention_mask=batch['input_attn_mask'],
-                                        max_length=2)
+                                            attention_mask=batch['input_attn_mask'],
+                                            max_length=2)
             label_pred = [decode(x).strip() for x in label_pred]
 
             label_gt = batch['target_tokens']
@@ -68,7 +96,6 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text =
             label_pred = torch.argmax(label_logits, dim=1)
 
             input_decoded += [decode(x) for x in batch['tokens']]
-
             # Loss
             loss.append(F.cross_entropy(label_logits, label_gt, reduction='mean'))
 
@@ -85,14 +112,18 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text =
             break
 
     # Compute metrics
+
     accuracy = 100 * accuracy_score(ground_truth, predicted)
+    confusionMatrix = confusion_matrix(ground_truth, predicted)
+    # cf = confidence(ground_truth, predicted)
     pair_acc = 100 * _pairwise_acc(ground_truth, predicted) if is_pairwise else None
 
     loss = torch.tensor(loss).mean()
 
     metrics = {'loss': loss,
                'accuracy': accuracy,
-               'pair_acc': pair_acc}
+               'pair_acc': pair_acc,
+               'confusion_matrix': confusionMatrix}
 
     if is_test:
         metrics['meta'] = {'input': input_decoded,
@@ -102,7 +133,6 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text =
 
 
 def _pairwise_acc(y_gt, y_pred):
-
     assert len(y_gt) == len(y_pred) and len(y_gt) % 2 == 0, 'Invalid Inputs for Pairwise setup'
 
     res = [y_gt[i] == y_pred[i] for i in range(len(y_gt))]
@@ -180,7 +210,7 @@ def _shuffle(lst):
     return lst
 
 
-def train_val_split(data, train_ratio=0.6 , dev_ratio = 0.2, test_ratio = 0.2):
+def train_val_split(data, train_ratio=0.6, dev_ratio=0.2, test_ratio=0.2):
     # Shuffle & Split data
     _shuffle(data)
     split_idx = int(len(data) * train_ratio)
@@ -192,7 +222,7 @@ def train_val_split(data, train_ratio=0.6 , dev_ratio = 0.2, test_ratio = 0.2):
     rest = data[split_idx:]
     dev_split = int(dev_ratio * len(data))
     data_val = rest[:dev_split]
-    rest = rest[dev_split: ]
+    rest = rest[dev_split:]
     test_split = int(test_ratio * len(data))
     data_test = rest[:test_split]
     return data_train, data_val, data_test
