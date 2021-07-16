@@ -14,7 +14,10 @@ class BaseDataset(Dataset):
     """
     Base class for Datasets
     """
-    def __init__(self, split, tokenizer, max_seq_len=128, text2text=True, uniqa = False):
+
+    def __init__(self, split, tokenizer, max_seq_len=128,
+                 prompt="", promt_pos='head',
+                 text2text=True, uniqa=False):
         """
         Processes raw dataset
 
@@ -31,6 +34,8 @@ class BaseDataset(Dataset):
         self.uniqa = uniqa
         # Tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(self.tok_name)
+        self.prompt = prompt
+        self.prompt_pos = promt_pos
 
         # Process dataset (in subclass)
         self.data = None
@@ -76,8 +81,10 @@ class BaseDataset(Dataset):
         args = {'split': self.split,
                 'tokenizer': self.tok_name,
                 'max_seq_len': self.max_seq_len,
-                'text2text': self.text2text, 
-                'uniqa': self.uniqa}
+                'text2text': self.text2text,
+                'uniqa': self.uniqa,
+                'prompt': self.prompt,
+                'prompt_pos': self.prompt_pos}
 
         datasets = []
         for name in dataset_names:
@@ -120,11 +127,20 @@ class BaseDataset(Dataset):
         if self.text2text:
             # Format input & label
             text, label = self._prepare_text2text(record)
+
             if self.uniqa:
-              text = text.split(':')[1][1:]
-              text = 'Is the following sentence correct?\n' + text
-              label = label.replace('false', 'no')
-              label = label.replace('true', 'yes')
+                text = text.split(':')[1][1:]
+                """
+                head: Is the following sentence correct? bla bla...
+                tail: bla bla... Is the previous sentence correct?
+                """
+                if self.prompt_pos == 'head':
+                    text = self.prompt + text
+                elif self.prompt_pos == 'tail':
+                    text = text + self.prompt
+
+                label = label.replace('false', 'no')
+                label = label.replace('true', 'yes')
             target_len = 2
             # Tokenize
             input_encoded = self.tokenizer.encode_plus(text=text,
@@ -154,24 +170,28 @@ class BaseDataset(Dataset):
         else:
 
             text, label = record['text'], record['label']
-      
+
+            if self.prompt_pos == 'head':
+                text = self.prompt + text
+            elif self.prompt_pos == 'tail':
+                text = text + self.prompt
             cls = self.tokenizer.cls_token
- 
+
             text = f'{cls} {text}'
-  
+
             tokens = self.tokenizer(text=text,
-                              padding='max_length',
-                              max_length=self.max_seq_len,
-                              add_special_tokens=False,
-                              return_attention_mask=True)
+                                    padding='max_length',
+                                    max_length=self.max_seq_len,
+                                    add_special_tokens=False,
+                                    return_attention_mask=True)
 
             token_ids = torch.tensor(tokens['input_ids'])
             attn_mask = torch.tensor(tokens['attention_mask'])
 
-      # Output
+            # Output
             sample = {'tokens': token_ids,
-                'attn_mask': attn_mask,
-                'label': label}
+                      'attn_mask': attn_mask,
+                      'label': label}
         return sample
 
 
@@ -182,17 +202,21 @@ class Com2SenseDataset(BaseDataset):
     [True]  It's more comfortable to sleep on a mattress than the floor.
     [False] It's more comfortable to sleep on the floor than a mattress.
     """
-    def __init__(self, split, tokenizer, max_seq_len, text2text, uniqa = False):
 
-        super().__init__(split, tokenizer, max_seq_len, text2text)
-        
+    def __init__(self, split, tokenizer, max_seq_len, text2text,
+                 prompt="", prompt_pos='head', uniqa=False):
+
+        super().__init__(split, tokenizer, max_seq_len, text2text=text2text)
+
         self.uniqa = uniqa
         self.text2text = text2text
         # Read dataset
         data_dir = self._get_path('com2sense')
-        
+
         self.data = self._preprocess(data_dir)
-    
+        self.prompt = prompt
+        self.prompt_pos = prompt_pos
+
     def _preprocess(self, data_dir):
         """
         Parses raw dataset file (jsonl). \n
@@ -225,36 +249,35 @@ class Com2SenseDataset(BaseDataset):
 
         # Map labels
         label2int = {'True': 1, 'False': 0}
-
-        df['label_1'] = df['label_1'].apply(lambda l: label2int[l])
-        df['label_2'] = df['label_2'].apply(lambda l: label2int[l])
-
-        raw_data = df.to_dict(orient='records')
-
-        # add index for pairs       # TODO: Remove this, and use the database ID
-        for i, pair in enumerate(raw_data):
-            pair['_id'] = i
-
         data = []
-        for pair in raw_data:
-            sample_1 = dict(_id=pair['_id'], text=pair['sent_1'], label=pair['label_1'])
-            sample_2 = dict(_id=pair['_id'], text=pair['sent_2'], label=pair['label_2'])
-            if pair['label_1'] == 1: 
-                correct_sentence = pair['sent_1']
-                other_one = pair['sent_2']
-            else:
-                correct_sentence = pair['sent_2']
-                other_one = pair['sent_1']
-            # if self.mc:
-            #     sample = dict(_id = pair['_id'], correct= correct_sentence, incorrect = other_one)
-            #     data.append(sample)
-            # else:
-            data += [sample_1, sample_2]
-        
-        if self.split == 'train':
+        if self.split == 'train' or 'dev':
+            df['label_1'] = df['label_1'].apply(lambda l: label2int[l])
+            df['label_2'] = df['label_2'].apply(lambda l: label2int[l])
+
+            raw_data = df.to_dict(orient='records')
+
+            # add index for pairs       # TODO: Remove this, and use the database ID
+            for i, pair in enumerate(raw_data):
+                pair['_id'] = i
+
+            for pair in raw_data:
+                sample_1 = dict(_id=pair['_id'], text=pair['sent_1'], label=pair['label_1'])
+                sample_2 = dict(_id=pair['_id'], text=pair['sent_2'], label=pair['label_2'])
+                data += [sample_1, sample_2]
+
             random.seed(0)
             random.shuffle(data)
+        elif self.split == 'test':
+            raw_data = df.to_dict(orient='records')
 
+            # add index for pairs       # TODO: Remove this, and use the database ID
+            for i, pair in enumerate(raw_data):
+                pair['_id'] = i
+
+            for pair in raw_data:
+                sample_1 = dict(_id=pair['_id'], text=pair['sent_1'])
+                sample_2 = dict(_id=pair['_id'], text=pair['sent_2'])
+                data += [sample_1, sample_2]
         return data
 
     @staticmethod
@@ -278,4 +301,3 @@ class Com2SenseDataset(BaseDataset):
         label = f'{answer} </s>'
 
         return text, label
-
