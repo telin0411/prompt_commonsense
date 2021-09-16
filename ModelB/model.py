@@ -1,16 +1,56 @@
 """
-Model B:
-STATEMENT + "instead of <mask>" --Prompt Model--> e(STATEMENT) + e("instead of") + e("<mask>")
-                                                                                        ｜
-                                                                                         ‾‾‾‾‾‾‾‾‾‾‾‾｜
-STATEMENT + "instead of" --word embedding layer of Task Model--> e(STATEMENT) + e("instead of") + e("<mask>")
---Task Model--> T/F
+Model A and Model B
 """
-
-import torch
 import torch.nn as nn
-from transformers import AutoModel
-import torch.nn.functional as F
+from transformers import AutoModel, AutoTokenizer, RobertaForMaskedLM
+
+
+class ModelA(nn.Module):
+    def __init__(self,
+                 prompt_model_name,
+                 task_model_name,
+                 num_cls=2,
+                 num_prompt_model_layer=-1,
+                 num_task_model_layer=-1):
+        """
+        :param      prompt_model_name: The model used for prompt model, e.g., RoBERTa
+        :param        task_model_name: The model used for task model, e.g., RoBERTa
+        :param                num_cls: The number of class, default 2, because it's a T/F question
+        :param num_prompt_model_layer: The layer number of prompt model. Set -1 to use the pretrain model's default
+        :param   num_task_model_layer: The layer number of task model. Set -1 to use the pretrain model's default
+        """
+        super().__init__()
+        # configure Prompt Model
+        if num_prompt_model_layer > -1:
+            self.prompt_model = RobertaForMaskedLM.from_pretrained(prompt_model_name,
+                                                                   num_hidden_layers=num_prompt_model_layer)
+        else:
+            self.prompt_model = RobertaForMaskedLM.from_pretrained(prompt_model_name)
+
+        # configure Task Model
+        if num_task_model_layer > -1:
+            self.task_model = AutoModel.from_pretrained(task_model_name, num_hidden_layers=num_task_model_layer)
+        else:
+            self.task_model = AutoModel.from_pretrained(task_model_name)
+        self.task_classifier = nn.Linear(self.task_model.config.hidden_size, num_cls)
+
+    def forward(self, inp):
+        """
+        :param inp: The input of the Model B, a dict having 'input_ids' and 'attention_mask' keys,
+                    input_ids shape (batch_size, seq_len), i.e. (B, L)
+        :return: The logits, of shape (batch_size, num_cls)
+        """
+
+        # PROMPT MODEL
+        prompt_embeds = self.prompt_model(inp["input_ids"], inp['attention_mask'])["logits"]  # (B, L, V)
+        prompt_tokens = prompt_embeds.argmax(dim=2)                                           # (B, L)
+
+        # TASK MODEL
+        out_embeds = self.task_model(prompt_tokens, inp['attention_mask'])
+        cls_embeds = out_embeds['last_hidden_state'][:, 0, :]
+        logits = self.task_classifier(cls_embeds)
+
+        return logits
 
 
 class ModelB(nn.Module):
@@ -30,10 +70,18 @@ class ModelB(nn.Module):
         """
         super().__init__()
         # configure Prompt Model
-        self.prompt_model = AutoModel.from_pretrained(prompt_model_name)
+        if num_prompt_model_layer > -1:
+            self.prompt_model = AutoModel.from_pretrained(prompt_model_name, num_hidden_layers=num_prompt_model_layer)
+        else:
+            self.prompt_model = AutoModel.from_pretrained(prompt_model_name)
+
+        self.prompt_tokenizer = AutoTokenizer.from_pretrained(prompt_model_name)
 
         # configure Task Model
-        self.task_model = AutoModel.from_pretrained(task_model_name)
+        if num_task_model_layer > -1:
+            self.task_model = AutoModel.from_pretrained(task_model_name, num_hidden_layers=num_task_model_layer)
+        else:
+            self.task_model = AutoModel.from_pretrained(task_model_name)
         self.task_embedding_layer = self.task_model.get_input_embeddings()
         self.task_classifier = nn.Linear(self.task_model.config.hidden_size, num_cls)
 
@@ -42,15 +90,13 @@ class ModelB(nn.Module):
 
     def forward(self, inp):
         """
-        :param inp: The input of the Model B, input_ids shape (batch_size, seq_len) or (B, L)
-        :return: The binary T/F, of shape (2, )
+        :param inp: The input of the Model B, a dict having 'input_ids' and 'attention_mask' keys,
+                    input_ids shape (batch_size, seq_len), i.e. (B, L)
+        :return: The logits, of shape (batch_size, num_cls)
         """
-        # Assume the last token of a sentence is <mask>, so to get the position of <mask>,
-        # count how many tokens are in a sentence, that is the sum of 1 in attention mask.
-        pos_mask_row = inp["attention_mask"].sum(dim=1) - 1 if self.pos_mask == -1 else self.pos_mask
-
-        # To extract the mask, encode the position by one hot
-        pos_mask = F.one_hot(pos_mask_row, num_classes=inp["attention_mask"].shape[1])
+        # locate the <mask> in each text
+        mask_id = self.prompt_tokenizer.mask_token_id
+        pos_mask = (inp["input_ids"] == mask_id).long() if self.pos_mask == -1 else self.pos_mask
 
         # Extend the dimension from (B, L) to (B, L, D)
         pos_mask_ex = pos_mask.unsqueeze(2).repeat((1, 1, self.prompt_model.config.hidden_size))
@@ -70,4 +116,3 @@ class ModelB(nn.Module):
         logits = self.task_classifier(cls_embedding)
 
         return logits
-
