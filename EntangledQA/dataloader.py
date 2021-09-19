@@ -71,7 +71,7 @@ class BaseDataset(Dataset):
 
         paths = {
             'com2sense': './datasets/com2sense',
-            'cycic3': './cycic3',
+            'cycic3': './datasets/cycic3',
         }
 
         return paths[name]
