@@ -1,0 +1,11 @@
+python3 main.py \
+    --mode test \
+    --expt_dir results_log/semeval20 \
+    --expt_name roberta_reasons \
+    --data_dir ./datasets/semeval_2020_task4 \
+    --model t5-large \
+    --model roberta-large \
+    --run_name demo \
+    --lr 1e-6 \
+    --batch_size 64 \
+    --ckpt "model_ckpt/carl/carl_acc_87.29_v3.0.0.pth"

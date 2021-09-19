@@ -28,6 +28,8 @@ glove.*
 
 .DS_Store
 
+# models
+carl
 
 # outputs
 results_log

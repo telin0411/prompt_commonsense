@@ -1,0 +1,18 @@
+# Scenario A
+rose is a flower, 1
+cars can swim, 0
+
+# Scenario B
+metal is harder than wood, 1
+adults are taller than children, 1
+
+# Scenario C
+# swap entities -- *** these are comments ***
+football play boys, 0
+boys play football, 1
+
+car drives people, 0
+people drive cars, 1
+
+Cars are equipped with controls used for driving, passenger comfort and safety, 1
+vaccine causes disease, 0
