@@ -6,6 +6,7 @@ import numpy as np
 
 
 def compute_accuracy(args):
+    print(args)
     mapping = load_origin_entailed_mapping(args.map)
 
     origin_preds = load_predictions(args.cycic3a_preds)
