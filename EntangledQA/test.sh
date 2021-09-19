@@ -2,7 +2,7 @@
 
 # ** RoBerta-large || EntangledQA **
 python3 main.py \
---mode test_a \
+--mode test-a \
 --ckpt ./results_log/EntangledQA/roberta_large/0/ep_97_stp_389_acc_70.8333_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
@@ -11,7 +11,7 @@ python3 main.py \
 --gpu 0 &
 
 python3 main.py \
---mode test_a \
+--mode test-a \
 --ckpt ./results_log/EntangledQA/roberta_large/1/ep_57_stp_229_acc_65.6250_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
@@ -20,7 +20,7 @@ python3 main.py \
 --gpu 1 &
 
 python3 main.py \
---mode test_a \
+--mode test-a \
 --ckpt ./results_log/EntangledQA/roberta_large/2/ep_73_stp_293_acc_62.5000_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
@@ -29,7 +29,7 @@ python3 main.py \
 --gpu 2 &
 
 python3 main.py \
---mode test_a \
+--mode test-a \
 --ckpt ./results_log/EntangledQA/roberta_large/3/ep_12_stp_49_acc_61.9792_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
