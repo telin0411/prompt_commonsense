@@ -377,6 +377,13 @@ def main():
         df = pd.DataFrame(metrics['meta'])
         df.to_csv(args.pred_file)
 
+        # For EntangledQA only
+        pred_list = metrics['meta']['prediction']
+        with open("./pred.lst", "a") as fp:
+            for pred in pred_list:
+                fp.write(str(pred)+'\n')
+        fp.close()
+
         print(f'Results for model {args.model}')
         print(f'Results evaluated on file {args.test_file}')
         print('Sentence Accuracy: {:.4f}'.format(metrics['accuracy']))
