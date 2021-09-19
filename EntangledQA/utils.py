@@ -86,7 +86,6 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
             break
 
     # Compute metrics
-    print(len(ground_truth), len(predicted))
     accuracy = 100 * accuracy_score(ground_truth, predicted)
     pair_acc = 100 * _pairwise_acc(ground_truth, predicted) if is_pairwise else None
 
