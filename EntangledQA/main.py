@@ -142,7 +142,6 @@ def main():
         if len(dataset_names) > 1:
             for val_dset in dev_a_datasets.datasets:
                 loader = DataLoader(val_dset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
-
                 val_dataloaders.append(loader)
 
         # Tokenizer
@@ -245,7 +244,7 @@ def main():
                     # Validation set accuracy
                     if dev_a_datasets:
                         dev_a_metrics = compute_eval_metrics(model, dev_a_loader, device, val_used_size, tokenizer,
-                                                           text2text, parallel=args.data_parallel)
+                                                             text2text, parallel=args.data_parallel)
                         dev_b_metrics = compute_eval_metrics(model, dev_b_loader, device, val_used_size, tokenizer,
                                                              text2text, parallel=args.data_parallel)
 
@@ -254,9 +253,9 @@ def main():
 
                         log_msg = 'Dev-a Accuracy: {:.2f} %  || Validation Loss: {:.4f}'.format(
                             dev_a_metrics['accuracy'], dev_a_metrics['loss'])
+                        print_log(log_msg, log_file)
                         log_msg = 'Dev-a Accuracy: {:.2f} %  || Validation Loss: {:.4f}'.format(
                             dev_b_metrics['accuracy'], dev_b_metrics['loss'])
-
                         print_log(log_msg, log_file)
 
                         # Add summaries to TensorBoard
@@ -295,14 +294,14 @@ def main():
             if dev_a_datasets:
                 log_msg = '-------------------------------------------------------------------------\n'
                 dev_a_metrics = compute_eval_metrics(model, dev_a_loader, device, val_size, tokenizer, text2text,
-                                                   parallel=args.data_parallel)
+                                                     parallel=args.data_parallel)
                 dev_b_metrics = compute_eval_metrics(model, dev_b_loader, device, val_size, tokenizer, text2text,
                                                      parallel=args.data_parallel)
 
                 log_msg += '\nAfter {} epoch:\n'.format(epoch)
-                log_msg += 'Validation Accuracy: {:.2f} %  || Validation Loss: {:.4f}\n'.format(
+                log_msg += 'Validation_a Accuracy: {:.2f} %  || Validation Loss: {:.4f}\n'.format(
                     dev_a_metrics['accuracy'], dev_a_metrics['loss'])
-                log_msg += 'Validation Accuracy: {:.2f} %  || Validation Loss: {:.4f}\n'.format(
+                log_msg += 'Validation_b Accuracy: {:.2f} %  || Validation Loss: {:.4f}\n'.format(
                     dev_b_metrics['accuracy'], dev_b_metrics['loss'])
 
                 # For Multi-Dataset setup:
@@ -317,8 +316,8 @@ def main():
                             metrics['accuracy'], metrics['loss'])
 
                 # Save best model after every epoch
-                if dev_a_metrics["accuracy"] > best_val_acc:
-                    best_val_acc = dev_a_metrics["accuracy"]
+                if (dev_a_metrics["accuracy"] + dev_b_metrics["accuracy"])/2 > best_val_acc:
+                    best_val_acc = (dev_a_metrics["accuracy"] + dev_b_metrics["accuracy"])/2
 
                     step = '{:.1f}k'.format(curr_step / 1000) if curr_step > 1000 else '{}'.format(curr_step)
                     filename = 'ep_{}_stp_{}_acc_{:.4f}_{}.pth'.format(
