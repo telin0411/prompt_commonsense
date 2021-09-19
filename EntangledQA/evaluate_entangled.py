@@ -6,14 +6,13 @@ import numpy as np
 
 
 def compute_accuracy(args):
-    print(args)
     mapping = load_origin_entailed_mapping(args.map)
 
     origin_preds = load_predictions(args.cycic3a_preds)
     entailed_preds = load_predictions(args.cycic3b_preds)
 
-    origin_labels = load_dataset_file(args.cycic3a_labels)
-    entailed_labels = load_dataset_file(args.cycic3b_labels)
+    origin_labels = 1 - load_dataset_file(args.cycic3a_labels)
+    entailed_labels = 1 - load_dataset_file(args.cycic3b_labels)
 
     origin_accuracy = accuracy_score(origin_labels.correct_answer, origin_preds)
     entailed_accuracy = accuracy_score(entailed_labels.correct_answer, entailed_preds)
