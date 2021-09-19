@@ -1,19 +1,38 @@
 #!/usr/bin/env bash
 
-# ** T5-large || SemEval **
+# ** RoBerta-large || EntangledQA **
 python3 main.py \
 --mode test \
---ckpt ./results_log/semeval/t5_large/bs_16/ep_7_stp_8.74k_acc_87.7016_t5_large.pth \
---model t5-large \
---dataset semeval \
---batch_size 32 \
---gpu 0
-
-# ** RoBerta-large || Com2Sense **
-python3 main.py \
---mode test \
---ckpt ./model_ckpt/ep_13_16k_acc_87.2984_roberta_large.pth \
+--ckpt ./results_log/EntangledQA/roberta_large/0/ep_97_stp_389_acc_70.8333_roberta_large.pth \
 --model roberta-large \
---dataset com2sense \
+--dataset EntangledQA \
 --batch_size 32 \
---gpu 0
+--run_name 0 \
+--gpu 0 &
+
+python3 main.py \
+--mode test \
+--ckpt ./results_log/EntangledQA/roberta_large/1/ep_57_stp_229_acc_65.6250_roberta_large.pth \
+--model roberta-large \
+--dataset EntangledQA \
+--batch_size 32 \
+--run_name 1 \
+--gpu 1 &
+
+python3 main.py \
+--mode test \
+--ckpt ./results_log/EntangledQA/roberta_large/2/ep_73_stp_293_acc_62.5000_roberta_large.pth \
+--model roberta-large \
+--dataset EntangledQA \
+--batch_size 32 \
+--run_name 2 \
+--gpu 2 &
+
+python3 main.py \
+--mode test \
+--ckpt ./results_log/EntangledQA/roberta_large/3/ep_12_stp_49_acc_61.9792_roberta_large.pth \
+--model roberta-large \
+--dataset EntangledQA \
+--batch_size 32 \
+--run_name 3 \
+--gpu 3 &
