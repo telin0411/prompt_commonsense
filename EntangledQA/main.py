@@ -346,7 +346,7 @@ def main():
         writer.close()
         log_file.close()
 
-    elif args.mode == 'test':
+    elif 'test' in args.mode:
 
         # Dataloader
         dataset = BaseDataset(args.test_file, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text,
