@@ -1,8 +1,5 @@
-import os
-import sys
-import torch
 import torch.nn as nn
-import csv
+import random
 import argparse
 import pandas as pd
 from time import time
@@ -19,6 +16,14 @@ from torch.cuda.amp import GradScaler, autocast
 from tqdm import tqdm
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+
+def setup_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
 
 
 def main():
@@ -53,6 +58,7 @@ def main():
     parser.add_argument('--log_interval', type=int, help='interval size for logging training summaries', default=100)
     parser.add_argument('--save_interval', type=int, help='save model after `n` weight update steps', default=30000)
     parser.add_argument('--val_size', type=int, help='validation set size for evaluating metrics', default=2048)
+    parser.add_argument('--seed', type=int, help='validation set size for evaluating metrics', default=808)
 
     # GPU params
     parser.add_argument('--gpu_ids', type=str, help='GPU IDs (0,1,2,..) seperated by comma', default='0')
@@ -67,6 +73,9 @@ def main():
 
     # Parse Args
     args = parser.parse_args()
+
+    # Random seed
+    setup_seed(args.seed)
 
     # Dataset list
     dataset_names = csv2list(args.dataset)
