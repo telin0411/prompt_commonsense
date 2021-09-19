@@ -12,8 +12,10 @@ def compute_accuracy(args):
     entailed_preds = load_predictions(args.cycic3b_preds)
 
     # For bugs in option0:True and option1:False
-    origin_preds = [1 - row['prediction'] for index, row in origin_preds.iterrows()]
-    entailed_preds = [1 - row['prediction'] for index, row in entailed_preds.iterrows()]
+    for index, row in origin_preds.iterrows():
+        row['prediction'] = 1 - row['prediction']
+    for index, row in entailed_preds.iterrows():
+        row['prediction'] = 1 - row['prediction']
 
     origin_labels = load_dataset_file(args.cycic3a_labels)
     entailed_labels = load_dataset_file(args.cycic3b_labels)
