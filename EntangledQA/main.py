@@ -349,7 +349,7 @@ def main():
     elif 'test' in args.mode:
 
         # Dataloader
-        dataset = BaseDataset(args.test_file, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text,
+        dataset = BaseDataset(args.mode, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text,
                               uniqa=uniqa)
         datasets = dataset.concat(dataset_names)
 
