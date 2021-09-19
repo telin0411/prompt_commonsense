@@ -30,7 +30,7 @@ def main():
     parser = argparse.ArgumentParser(description='Commonsense Dataset Dev')
 
     # Experiment params
-    parser.add_argument('--mode', type=str, help='train or test mode', required=True, choices=['train', 'test'])
+    parser.add_argument('--mode', type=str, help='train or test mode', required=True)
     parser.add_argument('--expt_dir', type=str, help='root directory to save model & summaries')
     parser.add_argument('--expt_name', type=str, help='expt_dir/expt_name: organize experiments')
     parser.add_argument('--run_name', type=str, help='expt_dir/expt_name/run_name: organize training runs')
