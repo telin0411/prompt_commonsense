@@ -195,9 +195,9 @@ class EntangledQADataset(BaseDataset):
                  uniqa=False, strip_sentence_prefix=False):
 
         assert split in ["train",
-                         "dev-a", "dev-b"
-                                  "test-a", "test-b"
-                                            "released-a", "released-b"]
+                         "dev-a", "dev-b",
+                         "test-a", "test-b",
+                         "released-a", "released-b"]
 
         self.split2dataset_prefix = {
             "train": "training",
@@ -446,4 +446,3 @@ class Com2SenseDataset(BaseDataset):
         label = f'{answer} </s>'
 
         return text, label
-
