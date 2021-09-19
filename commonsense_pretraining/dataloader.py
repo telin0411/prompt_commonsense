@@ -13,7 +13,8 @@ from transformers import AutoTokenizer
 class SemEval20Dataset(Dataset):
     """SemEval2020 - Task #4"""
 
-    def __init__(self, data_dir, split, tokenizer, max_seq_len=64, use_reason=False):
+    def __init__(self, data_dir, split, tokenizer, max_seq_len=64,
+                 use_reason=False, text2text=True, uniqa = False):
         """
         Loads raw dataset for the given fold.
 
@@ -26,6 +27,8 @@ class SemEval20Dataset(Dataset):
         self.split = split
         self.max_seq_len = max_seq_len
         self.use_reason = use_reason
+        self.text2text = text2text
+        self.uniqa = uniqa
 
         # Prepare data
         self.data = self.preprocess(data_dir)
@@ -76,10 +79,69 @@ class SemEval20Dataset(Dataset):
     def get_tokenizer(self):
         return self.tokenizer
 
+    @staticmethod
+    def _prepare_text2text(record):
+        """
+        Input:
+            {'text': __, 'label': 1/0}
+
+        Output:
+            text: 'c2s sentence: __' \n
+            label: 'true' or 'false'
+
+        :returns: text, label
+        :rtype: tuple[str]
+        """
+        input_text = record['text']
+        answer = 'true' if record['label'] else 'false'
+
+        # Text-to-Text
+        text = f'semeval sentence: {input_text} </s>'
+        label = f'{answer} </s>'
+
+        return text, label
+
     def __getitem__(self, idx):
         record = self.data[idx]
 
         assert type(record['text']) == str, 'TypeError: idx: record - {}: {}'.format(idx, record)
+
+        if self.text2text:
+            # Format input & label
+            text, label = self._prepare_text2text(record)
+            if self.uniqa:
+              text = text.split(':')[1][1:]
+              text = 'Is the following sentence correct?\n' + text
+              label = label.replace('false', 'no')
+              label = label.replace('true', 'yes')
+            target_len = 2
+            # Tokenize
+            input_encoded = self.tokenizer.encode_plus(text=text,
+                                                       add_special_tokens=False,
+                                                       padding='max_length',
+                                                       max_length=self.max_seq_len,
+                                                       truncation=True,
+                                                       return_attention_mask=True)
+
+            target_encoded = self.tokenizer.encode_plus(text=label,
+                                                        add_special_tokens=False,
+                                                        padding='max_length',
+                                                        max_length=target_len,
+                                                        return_attention_mask=True)
+
+            input_token_ids = torch.tensor(input_encoded['input_ids'])
+            input_attn_mask = torch.tensor(input_encoded['attention_mask'])
+
+            target_token_ids = torch.tensor(target_encoded['input_ids'])
+            target_attn_mask = torch.tensor(target_encoded['attention_mask'])
+
+            # Output
+            sample = {'input_tokens': input_token_ids,
+                      'input_attn_mask': input_attn_mask,
+                      'target_tokens': target_token_ids,
+                      'target_attn_mask': target_attn_mask}
+
+            return sample
 
         # TODO: Replace [CLS] --> Avg-Pool-Seq || ask Hope
         # Tokenized format: [CLS] [text] [PAD]
