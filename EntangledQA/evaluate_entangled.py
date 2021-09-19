@@ -12,8 +12,8 @@ def compute_accuracy(args):
     entailed_preds = load_predictions(args.cycic3b_preds)
 
     # For bugs in option0:True and option1:False
-    origin_preds = [1 - pred for pred in origin_preds]
-    entailed_preds = [1 - pred for pred in entailed_preds]
+    origin_preds = [1 - int(pred) for pred in origin_preds]
+    entailed_preds = [1 - int(pred) for pred in entailed_preds]
 
     origin_labels = load_dataset_file(args.cycic3a_labels)
     entailed_labels = load_dataset_file(args.cycic3b_labels)
