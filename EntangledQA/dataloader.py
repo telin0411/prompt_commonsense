@@ -15,7 +15,8 @@ class BaseDataset(Dataset):
     """
     Base class for Datasets
     """
-    def __init__(self, split, tokenizer, max_seq_len=128, text2text=True, uniqa = False):
+
+    def __init__(self, split, tokenizer, max_seq_len=128, text2text=True, uniqa=False):
         """
         Processes raw dataset
 
@@ -83,7 +84,7 @@ class BaseDataset(Dataset):
         args = {'split': self.split,
                 'tokenizer': self.tok_name,
                 'max_seq_len': self.max_seq_len,
-                'text2text': self.text2text, 
+                'text2text': self.text2text,
                 'uniqa': self.uniqa}
 
         datasets = []
@@ -128,10 +129,10 @@ class BaseDataset(Dataset):
             # Format input & label
             text, label = self._prepare_text2text(record)
             if self.uniqa:
-              text = text.split(':')[1][1:]
-              text = 'Is the following sentence correct?\n' + text
-              label = label.replace('false', 'no')
-              label = label.replace('true', 'yes')
+                text = text.split(':')[1][1:]
+                text = 'Is the following sentence correct?\n' + text
+                label = label.replace('false', 'no')
+                label = label.replace('true', 'yes')
             target_len = 2
             # Tokenize
             input_encoded = self.tokenizer.encode_plus(text=text,
@@ -161,24 +162,24 @@ class BaseDataset(Dataset):
         else:
 
             text, label = record['text'], record['label']
-      
+
             cls = self.tokenizer.cls_token
- 
+
             text = f'{cls} {text}'
-  
+
             tokens = self.tokenizer(text=text,
-                              padding='max_length',
-                              max_length=self.max_seq_len,
-                              add_special_tokens=False,
-                              return_attention_mask=True)
+                                    padding='max_length',
+                                    max_length=self.max_seq_len,
+                                    add_special_tokens=False,
+                                    return_attention_mask=True)
 
             token_ids = torch.tensor(tokens['input_ids'])
             attn_mask = torch.tensor(tokens['attention_mask'])
 
-      # Output
+            # Output
             sample = {'tokens': token_ids,
-                'attn_mask': attn_mask,
-                'label': label}
+                      'attn_mask': attn_mask,
+                      'label': label}
         return sample
 
 
@@ -189,13 +190,14 @@ class EntangledQADataset(BaseDataset):
     [True]  Most winged animals can fly.
     [False] Abraham Lincoln was killed in the Vietnam War.
     """
+
     def __init__(self, split, tokenizer, max_seq_len, text2text,
                  uniqa=False, strip_sentence_prefix=False):
 
         assert split in ["train",
                          "dev-a", "dev-b"
-                         "test-a", "test-b" 
-                         "released-a", "released-b"]
+                                  "test-a", "test-b"
+                                            "released-a", "released-b"]
 
         self.split2dataset_prefix = {
             "train": "training",
@@ -208,16 +210,16 @@ class EntangledQADataset(BaseDataset):
         }
 
         super().__init__(split, tokenizer, max_seq_len, text2text)
-        
+
         self.uniqa = uniqa
         self.text2text = text2text
         self.strip_sentence_prefix = strip_sentence_prefix
 
         # Read dataset
         data_dir = self._get_path('cycic3')
-        
+
         self.data = self._preprocess(data_dir)
-    
+
     def _preprocess(self, data_dir):
         """
         Parses raw dataset file (jsonl). \n
@@ -246,9 +248,9 @@ class EntangledQADataset(BaseDataset):
         :rtype: list[dict]
         """
         q_path = os.path.join(data_dir,
-            f'{self.split2dataset_prefix[self.split]}_questions.jsonl')
+                              f'{self.split2dataset_prefix[self.split]}_questions.jsonl')
         l_path = os.path.join(data_dir,
-            f'{self.split2dataset_prefix[self.split]}_labels.jsonl')
+                              f'{self.split2dataset_prefix[self.split]}_labels.jsonl')
 
         # Read data
         questions = []
