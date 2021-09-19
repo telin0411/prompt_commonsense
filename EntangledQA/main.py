@@ -378,7 +378,8 @@ def main():
         df.to_csv(args.pred_file)
 
         # For EntangledQA only
-        pred_list = metrics['meta']['prediction']
+        # TODO: change the ground truth to prediction
+        pred_list = metrics['meta']['ground_truth']
         with open(f"./{args.run_name}pred.lst", "a") as fp:
             for pred in pred_list:
                 fp.write(str(pred)+'\n')
