@@ -190,7 +190,10 @@ def main():
             checkpoint = torch.load(args.ckpt, map_location=device)
 
             # Load model & optimizer
-            model.load_state_dict(checkpoint['model_state_dict'])
+            if "carl" in args.ckpt:
+                model.load_state_dict(checkpoint['model_state_dict'], strict=False)
+            else:
+                model.load_state_dict(checkpoint['model_state_dict'])
             if args.data_parallel:
                 model = nn.DataParallel(model, device_ids=device_ids)
                 device = torch.device(f'cuda:{model.device_ids[0]}')

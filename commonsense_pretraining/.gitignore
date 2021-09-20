@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+
+# PEP 582
+__pypackages__/
+
+# Logs & Checkpoint
+results_log
+*.pth
+*.pt
+
+del.py
