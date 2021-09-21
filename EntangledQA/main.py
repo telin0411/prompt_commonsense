@@ -349,7 +349,7 @@ def main():
         writer.close()
         log_file.close()
 
-    elif 'test' in args.mode or 'release' in args.mode:
+    elif 'test' in args.mode or 'release' in args.mode or 'dev' in args.mode:
 
         # Dataloader
         dataset = BaseDataset(args.mode, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text,
