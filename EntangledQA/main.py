@@ -187,17 +187,21 @@ def main():
 
         # Load model checkpoint file (if specified)
         if args.ckpt:
-            checkpoint = torch.load(args.ckpt, map_location=device)
+            # Load model & optimizer
+            if "11b" in args.model:
+                map_location = torch.device("cpu")
+            else:
+                map_location = device
+            checkpoint = torch.load(args.ckpt, map_location=map_location)
 
             # Load model & optimizer
-            if "carl" in args.ckpt:
-                model.load_state_dict(checkpoint['model_state_dict'], strict=False)
-            else:
-                model.load_state_dict(checkpoint['model_state_dict'], strict=False)
+            model.load_state_dict(checkpoint['model_state_dict'], strict=False)
             if args.data_parallel:
                 model = nn.DataParallel(model, device_ids=device_ids)
                 device = torch.device(f'cuda:{model.device_ids[0]}')
-            model.to(device)
+
+            if not model.parallelized:
+                model.to(device)
 
             curr_step = checkpoint['curr_step']
             start_epoch = checkpoint['epoch']
@@ -366,8 +370,14 @@ def main():
 
         # Load model weights
         if args.ckpt:
-            checkpoint = torch.load(args.ckpt, map_location=device)
-            model.load_state_dict(checkpoint['model_state_dict'])
+            if "11b" in args.model:
+                map_location = torch.device("cpu")
+            else:
+                map_location = device
+            checkpoint = torch.load(args.ckpt, map_location=map_location)
+            # checkpoint = torch.load(args.ckpt, map_location=device)
+            model.load_state_dict(checkpoint['model_state_dict'], strict=False)
+
         data_len = datasets.__len__()
         print('Total Samples: {}'.format(data_len))
 

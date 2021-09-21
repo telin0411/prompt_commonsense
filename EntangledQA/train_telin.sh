@@ -4,12 +4,15 @@
 python3 main.py \
     --mode train \
     --expt_dir ./results_log/EntangledQA \
-    --expt_name roberta_large_semeval20_pretrained \
-    --model roberta-large \
+    --expt_name unifiedqa_11b \
+    --model "allenai/unifiedqa-t5-3b" \
     --dataset EntangledQA \
-    --seq_len 128 \
-    --batch_size 16 \
-    --run 0 \
+    --run semeval20_pretrained \
     --seed 808 \
-    --ckpt "../commonsense_pretraining/model_ckpt/carl/carl_acc_87.29_v3.0.0.pth" \
-    --gpu 0 \
+    --gpu 0,1,2,3 \
+    --batch_size 2 \
+    --seq_len 128 \
+    --acc_step 4 \
+    --use_amp F \
+    --lr 1e-5 \
+    # --ckpt "../commonsense_pretraining/results_log/semeval_2020_task4/unifiedqa_11b_reasons/unifiedqa_11b_reasons/model_500.pth" \
