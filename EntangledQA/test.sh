@@ -3,7 +3,7 @@
 # ** RoBerta-large || EntangledQA **
 python3 main.py \
 --mode released-b \
---ckpt ./results_log/EntangledQA/roberta_large/0/ep_97_stp_389_acc_70.8333_roberta_large.pth \
+--ckpt ./results_log/EntangledQA/roberta_large/0/ep_25_stp_17.1k_acc_77.6042_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
 --batch_size 32 \
@@ -12,7 +12,7 @@ python3 main.py \
 
 python3 main.py \
 --mode released-b \
---ckpt ./results_log/EntangledQA/roberta_large/1/ep_57_stp_229_acc_65.6250_roberta_large.pth \
+--ckpt ./results_log/EntangledQA/roberta_large/1/ep_90_stp_22.1k_acc_76.5625_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
 --batch_size 32 \
@@ -21,7 +21,7 @@ python3 main.py \
 
 python3 main.py \
 --mode released-b \
---ckpt ./results_log/EntangledQA/roberta_large/2/ep_73_stp_293_acc_62.5000_roberta_large.pth \
+--ckpt ./results_log/EntangledQA/roberta_large/2/ep_46_stp_17.7k_acc_80.2083_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
 --batch_size 32 \
@@ -30,7 +30,7 @@ python3 main.py \
 
 python3 main.py \
 --mode released-b \
---ckpt ./results_log/EntangledQA/roberta_large/3/ep_12_stp_49_acc_61.9792_roberta_large.pth \
+--ckpt ./results_log/EntangledQA/roberta_large/3/ep_22_stp_20.3k_acc_75.5208_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
 --batch_size 32 \
@@ -39,7 +39,7 @@ python3 main.py \
 
 python3 main.py \
 --mode released-a \
---ckpt ./results_log/EntangledQA/roberta_large/0/ep_97_stp_389_acc_70.8333_roberta_large.pth \
+--ckpt ./results_log/EntangledQA/roberta_large/0/ep_25_stp_17.1k_acc_77.6042_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
 --batch_size 32 \
@@ -48,7 +48,7 @@ python3 main.py \
 
 python3 main.py \
 --mode released-a \
---ckpt ./results_log/EntangledQA/roberta_large/1/ep_57_stp_229_acc_65.6250_roberta_large.pth \
+--ckpt ./results_log/EntangledQA/roberta_large/1/ep_90_stp_22.1k_acc_76.5625_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
 --batch_size 32 \
@@ -57,7 +57,7 @@ python3 main.py \
 
 python3 main.py \
 --mode released-a \
---ckpt ./results_log/EntangledQA/roberta_large/2/ep_73_stp_293_acc_62.5000_roberta_large.pth \
+--ckpt ./results_log/EntangledQA/roberta_large/2/ep_46_stp_17.7k_acc_80.2083_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
 --batch_size 32 \
@@ -66,7 +66,7 @@ python3 main.py \
 
 python3 main.py \
 --mode released-a \
---ckpt ./results_log/EntangledQA/roberta_large/3/ep_12_stp_49_acc_61.9792_roberta_large.pth \
+--ckpt ./results_log/EntangledQA/roberta_large/3/ep_22_stp_20.3k_acc_75.5208_roberta_large.pth \
 --model roberta-large \
 --dataset EntangledQA \
 --batch_size 32 \
