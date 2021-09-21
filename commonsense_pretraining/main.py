@@ -15,7 +15,7 @@ except:
     from tensorboardX import SummaryWriter
 from model import Transformer
 from dataloader import SemEval20Dataset
-from utils import str2bool, print_log, setup_logger, compute_eval_metrics
+from utils import str2bool, print_log, setup_logger, compute_eval_metrics, csv2list
 from tqdm import tqdm
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -43,6 +43,8 @@ def main():
     # Model params
     parser.add_argument('--model',          type=str,       help='transformer model (e.g. roberta-base)', required=True)
     parser.add_argument('--seq_len',        type=int,       help='tokenized input sequence length', default=128)
+    parser.add_argument('--num_layers', type=int,
+                        help='Number of hidden layers in transformers (default number if not provided)', default=-1)
     parser.add_argument('--num_cls',        type=int,       help='model num of classes', default=2)
     parser.add_argument('--ckpt',           type=str,       help='path to model checkpoint .pth file')
     parser.add_argument('--pretrained',     type=str2bool,  help='use pretrained encoder', default='true')
@@ -62,7 +64,8 @@ def main():
     parser.add_argument('--val_size',       type=int,       help='validation set size for evaluating metrics', default=2048)
 
     # GPU params
-    parser.add_argument('--gpu_ids',        type=int,       help='GPU IDs (0,1,2,..) else -1', nargs='+', default=0)
+    parser.add_argument('--gpu_ids',        type=str,       help='GPU IDs (0,1,2,..) else -1', default=0)
+    parser.add_argument('-cpu', help='use cpu only (for test)', action='store_true')
     parser.add_argument('--opt_lvl',        type=int,       help='Automatic-Mixed Precision: opt-level (O_)', default=1, choices=[0, 1, 2, 3])
 
     # Misc params
@@ -71,13 +74,14 @@ def main():
 
     args = parser.parse_args()
 
-    args.gpu_ids = [int(os.environ["CUDA_VISIBLE_DEVICES"])]
-    args.gpu_ids = [0]
-    device = torch.device('cuda:{}'.format(args.gpu_ids[0]) if torch.cuda.is_available() else 'cpu')
-    print('Selected Device: {}'.format(device))
+    # Multi-GPU
+    device_ids = csv2list(args.gpu_ids, int)
+    print('Selected GPUs: {}'.format(device_ids))
 
-    # Set CUDA device
-    torch.cuda.set_device(device)
+    # Device for loading dataset (batches)
+    device = torch.device(device_ids[0])
+    if args.cpu:
+        device = torch.device('cpu')
 
     # Text-to-Text
     text2text = ('t5' in args.model)
@@ -108,11 +112,11 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        train_dataset = SemEval20Dataset(args.data_dir, 'train', tokenizer=args.model, max_seq_len=args.seq_len)
+        train_dataset = SemEval20Dataset(args.data_dir, 'train', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
         train_loader = DataLoader(train_dataset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
         tokenizer = train_dataset.get_tokenizer()
 
-        val_dataset = SemEval20Dataset(args.data_dir, 'dev', tokenizer=args.model, max_seq_len=args.seq_len)
+        val_dataset = SemEval20Dataset(args.data_dir, 'dev', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
         val_loader = DataLoader(val_dataset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
 
         # Split sizes
@@ -129,8 +133,18 @@ def main():
         print_log(log_msg, log_file)
 
         # Build Model
-        model = Transformer(args.model, args.num_cls, text2text=text2text)
-        model.to(device)
+        model = Transformer(args.model, args.num_cls, text2text, device_ids, num_layers=args.num_layers)
+        if args.data_parallel and not args.ckpt:
+            model = nn.DataParallel(model, device_ids=device_ids)
+            device = torch.device(f'cuda:{model.device_ids[0]}')
+
+        if not model.parallelized:
+            model.to(device)
+
+        if type(model) != nn.DataParallel:
+            if not model.parallelized:
+                model.to(device)
+        model.train()
 
         # Loss & Optimizer
         criterion = nn.CrossEntropyLoss()
@@ -306,7 +320,7 @@ def main():
 
     elif args.mode == 'test':
         # Dataloader
-        test_dataset = SemEval20Dataset(args.data_dir, 'test', tokenizer=args.model, max_seq_len=args.seq_len)
+        test_dataset = SemEval20Dataset(args.data_dir, 'test', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
         tokenizer = test_dataset.get_tokenizer()
 
         test_loader = DataLoader(test_dataset, args.batch_size, num_workers=args.num_workers, drop_last=False)

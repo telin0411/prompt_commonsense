@@ -1,10 +1,13 @@
 python3 main.py \
     --mode train \
-    --expt_dir results_log/semeval20 \
-    --expt_name roberta_reasons \
+    --expt_dir /data1/telinwu/research/prompt_2021/prompt_commonsense/commonsense_pretraining/results_log/semeval_2020_task4 \
+    --expt_name unifiedqa_11b_reasons \
     --data_dir ./datasets/semeval_2020_task4 \
-    --model roberta-large \
-    --model t5-large \
-    --run_name demo \
-    --lr 1e-6 \
-    --batch_size 32
+    --model "allenai/unifiedqa-t5-11b" \
+    --run_name unifiedqa_11b_reasons \
+    --lr 1e-5 \
+    --batch_size 4 \
+    --gpu_ids 0,1,2,3 \
+    --use_amp F \
+    --acc_step 2 \
+    --save_interval 5000 \
