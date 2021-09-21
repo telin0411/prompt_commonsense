@@ -193,7 +193,7 @@ def main():
             if "carl" in args.ckpt:
                 model.load_state_dict(checkpoint['model_state_dict'], strict=False)
             else:
-                model.load_state_dict(checkpoint['model_state_dict'])
+                model.load_state_dict(checkpoint['model_state_dict'], strict=False)
             if args.data_parallel:
                 model = nn.DataParallel(model, device_ids=device_ids)
                 device = torch.device(f'cuda:{model.device_ids[0]}')
