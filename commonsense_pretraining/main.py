@@ -64,7 +64,7 @@ def main():
     parser.add_argument('--val_size',       type=int,       help='validation set size for evaluating metrics', default=2048)
 
     # GPU params
-    parser.add_argument('--gpu_ids',        type=str,       help='GPU IDs (0,1,2,..) else -1', default=0)
+    parser.add_argument('--gpu_ids',        type=str,       help='GPU IDs (0,1,2,..) else -1', default="0")
     parser.add_argument('-cpu', help='use cpu only (for test)', action='store_true')
     parser.add_argument('--opt_lvl',        type=int,       help='Automatic-Mixed Precision: opt-level (O_)', default=1, choices=[0, 1, 2, 3])
 
@@ -326,11 +326,26 @@ def main():
         test_loader = DataLoader(test_dataset, args.batch_size, num_workers=args.num_workers, drop_last=False)
 
         # Model
-        model = Transformer(args.model, args.num_cls, text2text=text2text)
-        model.to(device)
+        # Build Model
+        model = Transformer(args.model, args.num_cls, text2text, device_ids, num_layers=args.num_layers)
+        if args.data_parallel and not args.ckpt:
+            model = nn.DataParallel(model, device_ids=device_ids)
+            device = torch.device(f'cuda:{model.device_ids[0]}')
+
+        if not model.parallelized:
+            model.to(device)
+
+        if type(model) != nn.DataParallel:
+            if not model.parallelized:
+                model.to(device)
+        model.eval()
 
         # Load model weights
-        checkpoint = torch.load(args.ckpt, map_location=device)
+        if "11b" in args.model:
+            map_location = torch.device("cpu")
+        else:
+            map_location = device
+        checkpoint = torch.load(args.ckpt, map_location=map_location)
         """
         for k, v in checkpoint['model_state_dict'].items():
             print(k)

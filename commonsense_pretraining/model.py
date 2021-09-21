@@ -82,7 +82,7 @@ class Transformer(nn.Module):
         num_devices = len(device_ids)
 
         assert num_devices in [2, 4, 8], "supports 2 or 4 or 8 GPUs"
-        assert ('t5-large' in self.name or 't5-3b' in self.name), 'model parallelization supports only t5-large & t5-3b'
+        assert ('t5-large' in self.name or 't5-3b' in self.name or 't5-11b' in self.name), 'model parallelization supports only t5-large & t5-3b'
 
         # (to-do) Maybe Map to specified `device_ids` for 2 gpus
         if num_devices == 2:

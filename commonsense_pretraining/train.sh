@@ -1,5 +1,6 @@
 python3 main.py \
     --mode train \
+    --mode "test" \
     --expt_dir /data1/telinwu/research/prompt_2021/prompt_commonsense/commonsense_pretraining/results_log/semeval_2020_task4 \
     --expt_name unifiedqa_11b_reasons \
     --data_dir ./datasets/semeval_2020_task4 \
@@ -10,4 +11,8 @@ python3 main.py \
     --gpu_ids 0,1,2,3 \
     --use_amp F \
     --acc_step 2 \
-    --save_interval 5000 \
+    --save_interval 500 \
+    --seq_len 64 \
+    --batch_size 1 \
+    --ckpt "/data1/telinwu/research/prompt_2021/prompt_commonsense/commonsense_pretraining/results_log/semeval_2020_task4/unifiedqa_11b_reasons/unifiedqa_11b_reasons/model_500.pth" \
+    --ckpt "./results_log/semeval_2020_task4/unifiedqa_11b_reasons/unifiedqa_11b_reasons/model_500.pth" \
