@@ -40,7 +40,7 @@ class ModelA(nn.Module):
         self.task_classifier = nn.Linear(self.task_model.config.hidden_size, num_cls)
 
         # set for example file
-        self.example_file = './' + example_file + '.txt'
+        self.example_file = './' + example_file + '.txt' if example_file is not None else None
 
     def forward(self, inp):
         """
@@ -69,7 +69,7 @@ class ModelA(nn.Module):
 
         # TASK MODEL
         out_embeds = self.task_model(prompt_tokens, inp['attention_mask'])
-        cls_embeds = out_embeds['last_hidden_state'][:, 0, :]
+        cls_embeds = out_embeds[0][:, 0, :]
         logits = self.task_classifier(cls_embeds)
 
         return logits
@@ -111,7 +111,7 @@ class ModelB(nn.Module):
 
         # others
         self.pos_mask = pos_mask
-        self.example_file = './' + example_file + '.txt'
+        self.example_file = './' + example_file + '.txt' if example_file is not None else None
 
     def forward(self, inp):
         """
@@ -127,7 +127,7 @@ class ModelB(nn.Module):
         pos_mask_ex = pos_mask.unsqueeze(2).repeat((1, 1, self.prompt_model.config.hidden_size))
 
         # results of prompt embedding
-        out_prompt = self.prompt_model(inp["input_ids"], inp["attention_mask"])["last_hidden_state"]  # (B, L, D)
+        out_prompt = self.prompt_model(inp["input_ids"], inp["attention_mask"])[0]  # (B, L, D)
 
         # mask embedding, of shape (B, L, D); zeros except on mask position
         mask_embedding = out_prompt * pos_mask_ex
@@ -163,7 +163,7 @@ class ModelB(nn.Module):
                 fp.close()
 
         out_embedding = self.task_model(inputs_embeds=input_embedding, attention_mask=inp['attention_mask'])
-        cls_embedding = out_embedding['last_hidden_state'][:, 0, :]
+        cls_embedding = out_embedding[0][:, 0, :]
         logits = self.task_classifier(cls_embedding)
 
         return logits
