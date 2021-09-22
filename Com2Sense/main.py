@@ -38,6 +38,10 @@ def main():
     parser.add_argument('--expt_dir', type=str, help='root directory to save model & summaries')
     parser.add_argument('--expt_name', type=str, help='expt_dir/expt_name: organize experiments')
     parser.add_argument('--run_name', type=str, help='expt_dir/expt_name/run_name: organize training runs')
+    parser.add_argument('--train_file', type=str, default='train',
+                        help='The file containing train data to be trained on.')
+    parser.add_argument('--dev_file', type=str, default='dev',
+                        help='The file containing dev data to be evaluated on.')
     parser.add_argument('--test_file', type=str, default='test',
                         help='The file containing test data to evaluate in test mode.')
 
@@ -125,10 +129,10 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        dataset = BaseDataset('train', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        dataset = BaseDataset(args.train_file, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
         train_datasets = dataset.concat(dataset_names)
 
-        dataset = BaseDataset('dev', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        dataset = BaseDataset(args.dev_file, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
         val_datasets = dataset.concat(dataset_names)
 
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,

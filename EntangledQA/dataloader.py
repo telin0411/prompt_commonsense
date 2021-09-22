@@ -214,6 +214,8 @@ class EntangledQADataset(BaseDataset):
         self.uniqa = uniqa
         self.text2text = text2text
         self.strip_sentence_prefix = strip_sentence_prefix
+        if self.uniqa or self.text2text:
+            self.strip_sentence_prefix = True
 
         # Read dataset
         data_dir = self._get_path('cycic3')
@@ -283,7 +285,7 @@ class EntangledQADataset(BaseDataset):
             run_id = qi["run_id"]
             question = qi["question"]
             if self.strip_sentence_prefix:
-                question = question.split("True or false:")[-1].strip()
+                question = question.split("True or False:")[-1].strip()
             datum = dict(
                 _id=run_id,
                 text=question,
@@ -314,32 +316,10 @@ class EntangledQADataset(BaseDataset):
         answer = 'true' if record['label'] else 'false'
 
         # Text-to-Text
-        text = f'com2sense sentence: {input_text} </s>'
+        text = f'EntangledQA sentence: {input_text} </s>'
         label = f'{answer} </s>'
 
         return text, label
-
-
-# Testing.
-if __name__ == "__main__":
-    split = "train"  # Can choose from "train", "dev-a/b", "test-a/b", "released-a/b"
-
-    dataset = EntangledQADataset(
-        split=split,
-        tokenizer="roberta-large",
-        max_seq_len=100,
-        text2text=False,
-        uniqa=False,
-        strip_sentence_prefix=True,
-    )
-
-    sampler = RandomSampler(dataset)
-    dataloader = DataLoader(dataset, sampler=sampler, batch_size=2)
-    epoch_iterator = tqdm(dataloader, desc="Iteration")
-    for step, batch in enumerate(epoch_iterator):
-        print(step)
-        print(batch)
-        break
 
 
 class Com2SenseDataset(BaseDataset):
@@ -446,3 +426,25 @@ class Com2SenseDataset(BaseDataset):
         label = f'{answer} </s>'
 
         return text, label
+
+
+# Testing.
+if __name__ == "__main__":
+    split = "train"  # Can choose from "train", "dev-a/b", "test-a/b", "released-a/b"
+
+    dataset = EntangledQADataset(
+        split=split,
+        tokenizer="roberta-large",
+        max_seq_len=100,
+        text2text=False,
+        uniqa=False,
+        strip_sentence_prefix=True,
+    )
+
+    sampler = RandomSampler(dataset)
+    dataloader = DataLoader(dataset, sampler=sampler, batch_size=2)
+    epoch_iterator = tqdm(dataloader, desc="Iteration")
+    for step, batch in enumerate(epoch_iterator):
+        print(step)
+        print(batch)
+        break
