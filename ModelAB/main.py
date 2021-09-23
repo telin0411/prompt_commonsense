@@ -260,7 +260,8 @@ def main():
                            task_model_name=args.model,
                            num_cls=args.num_cls,
                            num_prompt_model_layer=-1,
-                           num_task_model_layer=-1)
+                           num_task_model_layer=-1,
+                           example_file=args.run_name)
         else:
             raise NameError('Require model_a or model_b, but get neither.')
 

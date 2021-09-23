@@ -111,7 +111,7 @@ class ModelB(nn.Module):
 
         # others
         self.pos_mask = pos_mask
-        self.example_file = './' + example_file + '.txt' if example_file is not None else None
+        self.example_file = './example' + example_file + '.txt' if example_file is not None else None
 
     def forward(self, inp):
         """
@@ -150,9 +150,10 @@ class ModelB(nn.Module):
                 for l in range(L):
                     input_embedding_ = input_embedding[b, l, :].unsqueeze(0)   # (1, D)
                     r = torch.norm(input_embedding_ - vocab_embedding, dim=1)  # (V, 1)
-                    _, token = r.topk(k=10, largest=False)
+                    value, token = r.topk(k=10, largest=False)
                     # Choose one token from the top 10
                     prompt_tokens[b][l] = token[0]
+                    print(value[0])
 
             recovered_token = inp["input_ids"] * (1 - pos_mask) + prompt_tokens * pos_mask
 
