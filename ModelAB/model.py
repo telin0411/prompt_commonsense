@@ -160,7 +160,6 @@ class ModelB(nn.Module):
                     value, token = r.topk(k=10, largest=False)
                     # Choose one token from the top 10
                     prompt_tokens[b][l] = token[0]
-                    print(value[0])
 
             recovered_token = inp["input_ids"] * (1 - pos_mask) + prompt_tokens * pos_mask
 
