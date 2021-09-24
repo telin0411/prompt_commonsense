@@ -32,6 +32,8 @@ def config():
                         help='model number of classes')
     parser.add_argument('--ckpt', type=str, default=None,
                         help='path to model checkpoint .pth file')
+    parser.add_argument('--is_projection', type=bool, default=False,
+                        help='if add a projection layer after the prompt model')
 
     # Data params
     parser.add_argument('--pred_file', type=str, default='results.csv',
