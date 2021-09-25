@@ -62,6 +62,7 @@ def main():
     parser.add_argument('--log_interval',   type=int,       help='interval size for logging training summaries', default=100)
     parser.add_argument('--save_interval',  type=int,       help='save model after `n` weight update steps', default=10000)
     parser.add_argument('--val_size',       type=int,       help='validation set size for evaluating metrics', default=2048)
+    parser.add_argument('--use_reason',     type=str2bool,  help='Using reasons (T/F)', default='T')
 
     # GPU params
     parser.add_argument('--gpu_ids',        type=str,       help='GPU IDs (0,1,2,..) else -1', default="0")
@@ -112,11 +113,11 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        train_dataset = SemEval20Dataset(args.data_dir, 'train', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        train_dataset = SemEval20Dataset(args.data_dir, 'train', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa, use_reason=args.use_reason)
         train_loader = DataLoader(train_dataset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
         tokenizer = train_dataset.get_tokenizer()
 
-        val_dataset = SemEval20Dataset(args.data_dir, 'dev', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        val_dataset = SemEval20Dataset(args.data_dir, 'dev', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa, use_reason=args.use_reason)
         val_loader = DataLoader(val_dataset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
 
         # Split sizes
@@ -320,7 +321,7 @@ def main():
 
     elif args.mode == 'test':
         # Dataloader
-        test_dataset = SemEval20Dataset(args.data_dir, 'test', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        test_dataset = SemEval20Dataset(args.data_dir, 'test', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa, use_reason=args.use_reason)
         tokenizer = test_dataset.get_tokenizer()
 
         test_loader = DataLoader(test_dataset, args.batch_size, num_workers=args.num_workers, drop_last=False)

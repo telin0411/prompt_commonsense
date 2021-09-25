@@ -1,0 +1,426 @@
+,input,prediction,ground_truth
+0,Is the following sentence correct? A blade cannot cut an object made of something harder than the blade. ,yes,yes
+1,Is the following sentence correct? Electrical devices generally cannot perform their primary functions when they are off. ,yes,yes
+2,Is the following sentence correct? You typically respond to a letter before you have received the letter. ,no,no
+3,"Is the following sentence correct? Generally, academic articles are not fictional works. ",yes,yes
+4,"Is the following sentence correct? Large, heavy furniture generally cannot be carried with one hand. ",yes,yes
+5,Is the following sentence correct? A container cannot hold objects that are larger than itself. ,yes,yes
+6,Is the following sentence correct? Execution is not the typical punishment for misdemeanors. ,yes,yes
+7,Is the following sentence correct? A broom is generally better than a mop for cleaning up liquids. ,no,no
+8,Is the following sentence correct? True or false,yes,no
+9,Is the following sentence correct? Stadium-sized is larger than breadbox sized. ,yes,yes
+10,Is the following sentence correct? It would typically be surprising to find gills on a mammal. ,yes,yes
+11,Is the following sentence correct? True or false,yes,no
+12,Is the following sentence correct? Bats can fly. ,yes,yes
+13,Is the following sentence correct? The back of a hanging painting faces the wall. ,no,yes
+14,Is the following sentence correct? Land organisms do not grow underwater. ,yes,yes
+15,Is the following sentence correct? The rearview mirror of the car is part of the engine. ,no,no
+16,Is the following sentence correct? A fuel powered car uses fuel when it is driven. ,yes,yes
+17,Is the following sentence correct? You don't need to be able to lift a basketball in order to be a basketball player. ,yes,no
+18,Is the following sentence correct? No carnivores have tails. ,yes,no
+19,"Is the following sentence correct? If you leave a pot of water on the stove on it's highest setting, there will probably still be water in the pot after 24 seconds. ",yes,yes
+20,Is the following sentence correct? Islands are completely surrounded by water. ,yes,yes
+21,Is the following sentence correct? True or false,yes,no
+22,"Is the following sentence correct? If your favorite watch isn't waterproof, you might not want to wear it to go surfing. ",yes,yes
+23,Is the following sentence correct? Corkscrews are typically made out of soft materials. ,no,no
+24,Is the following sentence correct? Orange juice is just as solid as an orange is. ,no,no
+25,Is the following sentence correct? Human bodies have roughly the same thickness as most fabric. ,no,no
+26,Is the following sentence correct? A frying pan will probably be burned to ash in a fire. ,yes,no
+27,"Is the following sentence correct? If Suzy twisted her ankle, that injury would probably still cause her pain two years later. ",yes,no
+28,Is the following sentence correct? You're likely to find quicksand in a school yard sandbox. ,no,no
+29,Is the following sentence correct? A scenario cannot be both very likely and very unlikely. ,no,yes
+30,Is the following sentence correct? A sports referee needs to be able to observe what happens in the game. ,yes,yes
+31,Is the following sentence correct? Organisms can't eat inedible things. ,yes,yes
+32,Is the following sentence correct? Someone in their forties is not a teenager. ,yes,yes
+33,Is the following sentence correct? The sister of a child's mother is that child's aunt. ,yes,yes
+34,Is the following sentence correct? Experts are likely to know about famous figures in their field. ,yes,yes
+35,Is the following sentence correct? Every seahorse is an aquatic organism. ,yes,yes
+36,Is the following sentence correct? True or false,yes,no
+37,Is the following sentence correct? True or false,yes,no
+38,Is the following sentence correct? A ceramic coffee mug placed on top of a paper would usually be heavy enough to prevent the paper from being blown away by a breeze. ,yes,yes
+39,"Is the following sentence correct? If you ordered iced tea, you would be pleased if it was still steaming when it got to your table ",no,no
+40,Is the following sentence correct? Official certificates are usually paper. ,yes,yes
+41,Is the following sentence correct? Precipitation tends to interfere with outdoor activities. ,yes,yes
+42,Is the following sentence correct? Alligators can be dangerous to humans. ,yes,yes
+43,Is the following sentence correct? Deer do not have antenna. ,yes,yes
+44,Is the following sentence correct? Texas has two capital cities. ,yes,no
+45,Is the following sentence correct? Doing laundry is a common household activity. ,yes,yes
+46,Is the following sentence correct? True or false,yes,no
+47,Is the following sentence correct? Roller blades have blades of metal or bone as parts. ,no,no
+48,"Is the following sentence correct? When someone smiles, it typically makes a lot of noise. ",no,no
+49,"Is the following sentence correct? If something is a mile away, then it would take most people at least a day to walk there. ",no,no
+50,Is the following sentence correct? Fires can burn in outer space. ,no,no
+51,Is the following sentence correct? You don't defrost frozen foods like ice cream in order to eat them. ,no,yes
+52,"Is the following sentence correct? At a sit-down restaurant, the meal is usually cooked before you order it. ",yes,no
+53,Is the following sentence correct? Every refrigerated storage device is a cooling device. ,yes,yes
+54,Is the following sentence correct? It rains infrequently in deserts. ,yes,yes
+55,Is the following sentence correct? Duck hunting never involves killing an animal. ,no,no
+56,Is the following sentence correct? Knocking an unlit candle over onto a stack of papers could lead to a fire. ,yes,no
+57,Is the following sentence correct? True or false,yes,no
+58,"Is the following sentence correct? If you want to make someone angry, a really good way to do that would be to give them a present. ",no,no
+59,Is the following sentence correct? Clothes in a running clothes dryer are usually neatly folded and stationary. ,no,no
+60,Is the following sentence correct? People don't like being harmed. ,yes,yes
+61,Is the following sentence correct? The Sahara would be a good location to put an orchard. ,no,no
+62,Is the following sentence correct? You generally climb into the oven in order to eat cookies. ,no,no
+63,Is the following sentence correct? You can't nod off to sleep unless you consciously decide to. ,no,no
+64,Is the following sentence correct? Most lifeguards can't swim. ,no,no
+65,Is the following sentence correct? An empty glass can hold more liquid than a glass that has solid objects in it. ,yes,yes
+66,"Is the following sentence correct? In every sport, there is a penalty for punching other competitors. ",yes,no
+67,Is the following sentence correct? The purpose of train tracks is for cars to drive on. ,no,no
+68,"Is the following sentence correct? If you're sneaking out of a place, you generally don't want to be discovered. ",yes,yes
+69,Is the following sentence correct? France is one of England's territories. ,no,no
+70,Is the following sentence correct? Few buildings have interiors. ,no,no
+71,Is the following sentence correct? Sandals are most often worn in cold environments. ,no,no
+72,Is the following sentence correct? Most teenagers have already graduated from college. ,no,no
+73,Is the following sentence correct? Every turnip is a root vegetable. ,yes,yes
+74,Is the following sentence correct? True or false,yes,no
+75,Is the following sentence correct? Plants probably don't have senses like sight or taste. ,yes,yes
+76,Is the following sentence correct? Surgeries typically occur at hospitals. ,yes,yes
+77,Is the following sentence correct? Eyeglasses and sunglasses are worn on different parts of the body. ,yes,no
+78,Is the following sentence correct? People with an occupation usually have the skills required for that occupation. ,yes,yes
+79,Is the following sentence correct? No one owns the oceans. ,yes,yes
+80,Is the following sentence correct? There are 60 hours in a day. ,no,no
+81,Is the following sentence correct? Driving an automobile usually involves sitting down. ,yes,yes
+82,Is the following sentence correct? You usually do not need a ticket to attend a social event like a wedding or graduation. ,yes,yes
+83,Is the following sentence correct? True or false,yes,no
+84,Is the following sentence correct? Humans don't have stingers. ,yes,yes
+85,"Is the following sentence correct? If most As are Bs, and most As are Cs, then some Bs are Cs. ",no,yes
+86,Is the following sentence correct? Car bombs are primarily made out of vegetables. ,no,no
+87,Is the following sentence correct? Humans can be transported by means of passenger trains. ,yes,yes
+88,Is the following sentence correct? People often wear swimwear while engaged in water sports. ,yes,yes
+89,"Is the following sentence correct? If your backpack is halfway under the bed, there's usually no way to get to it without moving the bed. ",yes,no
+90,Is the following sentence correct? Experiencing pain typically makes people at least somewhat unhappy. ,yes,yes
+91,Is the following sentence correct? Every dairy product is an edible animal byproduct. ,yes,yes
+92,Is the following sentence correct? Soft things are typically easy to damage with a sharp knife. ,yes,yes
+93,"Is the following sentence correct? Car tires are typically black, regardless of the color of the car. ",yes,yes
+94,"Is the following sentence correct? If a metal can is completely sealed, its liquid contents are not likely to spill out. ",yes,yes
+95,Is the following sentence correct? Abrasive things are usually very smooth. ,no,no
+96,Is the following sentence correct? Large rocks are usually lighter than water. ,no,no
+97,Is the following sentence correct? Something capable of an activity that requires the use of a certain body part has at least one of that type of body part. ,yes,yes
+98,Is the following sentence correct? Bicycles have no wheels. ,no,no
+99,Is the following sentence correct? An 8 year old child is probably smaller than they were when they were 4. ,no,no
+100,"Is the following sentence correct? If you put water in a container with a hole in it, water will leak out. ",yes,yes
+101,"Is the following sentence correct? If an open or unsealed container is completely submersed in liquid, the liquid will begin to fill the container. ",yes,yes
+102,Is the following sentence correct? Only guns act as a weapon in shooting attacks. ,yes,yes
+103,Is the following sentence correct? You might look at a wall calendar to figure out what day it is. ,yes,yes
+104,Is the following sentence correct? You can have biological grandchildren without having a child. ,no,no
+105,"Is the following sentence correct? In order for an animal to smile, it must have a mouth. ",yes,yes
+106,Is the following sentence correct? Most mammals have the ability to walk on water. ,no,no
+107,Is the following sentence correct? True or false,yes,no
+108,Is the following sentence correct? One example of a flying animal is a buffalo. ,no,no
+109,"Is the following sentence correct? It might be strange, but it is safe to put corn in oatmeal you are about to eat. ",yes,yes
+110,Is the following sentence correct? Galileo was dead when Einstein was born. ,yes,yes
+111,Is the following sentence correct? The vegetables in salad must be cooked. ,no,no
+112,"Is the following sentence correct? Usually, only one hand is required to lift a wine glass. ",yes,yes
+113,Is the following sentence correct? The head of a teddy bear is the top. ,yes,yes
+114,Is the following sentence correct? Black bears don't have wings. ,yes,yes
+115,Is the following sentence correct? Wedding bands are designed to fit on wrists. ,yes,no
+116,Is the following sentence correct? Most humans are unable to eat food. ,no,no
+117,"Is the following sentence correct? If Player A has an advantage over Player B in a game (and not vice versa), then, all else equal, Player A has a better chance of winning than Player B. ",yes,yes
+118,Is the following sentence correct? Humans have brains. ,yes,yes
+119,Is the following sentence correct? True or false,yes,no
+120,Is the following sentence correct? Motor oil is often used in cooking. ,no,no
+121,Is the following sentence correct? It is commonly known that pigs can fly. ,no,no
+122,Is the following sentence correct? You have to be able to move your hand in order to make a fist. ,yes,yes
+123,"Is the following sentence correct? If Bob died yesterday, he might have high blood pressure today. ",no,no
+124,Is the following sentence correct? You usually use a marker to write on a blackboard. ,yes,no
+125,Is the following sentence correct? Paper is more likely to be ruined by liquid than metal. ,yes,yes
+126,Is the following sentence correct? Many people who are able to write can't read. ,no,no
+127,Is the following sentence correct? True or false,yes,no
+128,Is the following sentence correct? A feather would make a good pillow for a person. ,no,no
+129,Is the following sentence correct? If a utensil can be used to eat something liquid then that utensil can contain liquids. ,yes,yes
+130,"Is the following sentence correct? If your friend owns and likes the first 2 volumes in a trilogy, the second volume would make a good gift. ",yes,no
+131,Is the following sentence correct? The best time to brush your hair is when it is braided. ,no,no
+132,"Is the following sentence correct? To harvest apples, you take them off the tree. ",yes,yes
+133,Is the following sentence correct? Headphones are designed to produce sound that can be heard by people who are far away from them. ,no,no
+134,Is the following sentence correct? Football is not a scored game. ,no,no
+135,Is the following sentence correct? Taking a selfie is taking a photograph. ,yes,yes
+136,Is the following sentence correct? People are often dissatisfied when they use poor quality products. ,yes,yes
+137,Is the following sentence correct? Dancing salsa requires at least some skill. ,yes,yes
+138,"Is the following sentence correct? If eyeglasses are dirty, that makes it harder to see out of them. ",yes,yes
+139,Is the following sentence correct? Handcuffs are worn on the palms of the hands. ,yes,no
+140,Is the following sentence correct? Almost everyone is an expert in at least one science. ,no,no
+141,"Is the following sentence correct? If someone sells something to you, then you own that thing. ",yes,yes
+142,Is the following sentence correct? People prefer to avoid being rained on. ,yes,yes
+143,Is the following sentence correct? You can usually buy a new house for only a few thousand dollars. ,no,no
+144,Is the following sentence correct? People usually only do intimate actions like kissing or hugging with people who are not strangers. ,yes,yes
+145,Is the following sentence correct? Helium is heavier than water. ,no,no
+146,Is the following sentence correct? Cardboard would be a reasonable material to use for making a frying pan. ,no,no
+147,Is the following sentence correct? Wrecking balls are usually very light. ,no,no
+148,Is the following sentence correct? Between 1 and 52 weeks is longer than 1 second. ,yes,yes
+149,"Is the following sentence correct? Animals rarely, if ever, eat metal. ",yes,yes
+150,Is the following sentence correct? Most kinds of fish have hands. ,no,no
+151,Is the following sentence correct? Most bankers are not humans. ,no,no
+152,Is the following sentence correct? Someone who has performed a complex action with multiple steps probably knows they have performed that action. ,yes,yes
+153,"Is the following sentence correct? Since Lucy always succeeds at what she tries, Sammy was surprised she got the job. ",no,no
+154,Is the following sentence correct? True or false,yes,no
+155,Is the following sentence correct? Reading is something humans are born knowing how to do. ,no,no
+156,Is the following sentence correct? Homemade products are not made by commercial organizations. ,yes,yes
+157,Is the following sentence correct? Blue collar jobs typically do not require college degrees. ,yes,yes
+158,"Is the following sentence correct? For a career as a scientist or social scientist, you generally need advanced education. ",yes,yes
+159,Is the following sentence correct? The handle of a wooden spoon is usually made of glass. ,no,no
+160,Is the following sentence correct? You can roll a Pringles can across a table. ,yes,yes
+161,Is the following sentence correct? Most lipstick is clear. ,no,no
+162,Is the following sentence correct? People other than the bride should not wear a wedding dress to a wedding. ,yes,yes
+163,Is the following sentence correct? Hiking is generally an athletic activity. ,yes,yes
+164,"Is the following sentence correct? When Monica pointed to the stain on the carpet, she was probably pointing upward. ",no,no
+165,"Is the following sentence correct? While climbing a ladder, you usually don't need to step on any of the rungs. ",no,no
+166,"Is the following sentence correct? If something was invented after a person's death, then that person couldn't have owned that thing. ",yes,yes
+167,Is the following sentence correct? Brushing teeth is a common activity. ,yes,yes
+168,"Is the following sentence correct? There is only one one toothbrush in Fred and Sally's house, so when Fred is brushing his teeth, Sally always is too. ",yes,no
+169,"Is the following sentence correct? If you've been in part of a region, then you have been in the region. ",yes,yes
+170,Is the following sentence correct? There are 4 wheels on a surfboard. ,no,no
+171,"Is the following sentence correct? In a race, the slower you are, the greater your advantage. ",no,no
+172,Is the following sentence correct? Most dogs have one tail. ,yes,yes
+173,Is the following sentence correct? Mothers exist before their children. ,no,yes
+174,"Is the following sentence correct? To find something, you should go to a location where that thing is uncommon. ",no,no
+175,Is the following sentence correct? Tickets for championship sports games are typically not free. ,yes,yes
+176,Is the following sentence correct? Socks are worn over shoes. ,yes,no
+177,Is the following sentence correct? No formal shoe is a high-heeled shoe. ,no,no
+178,Is the following sentence correct? People don't usually make very large purchases completely on a whim. ,yes,yes
+179,Is the following sentence correct? Arms are the only parts that humans have. ,no,no
+180,Is the following sentence correct? Someone paralyzed from the neck down cannot make facial gestures. ,yes,no
+181,"Is the following sentence correct? Since Sally hasn't reached the legal drinking age, the bartender shouldn't serve her a virgin bloody mary ",yes,no
+182,Is the following sentence correct? Rabbits are plants. ,no,no
+183,Is the following sentence correct? Preparation of any dish that has egg as an ingredient involves breaking some eggs. ,yes,yes
+184,Is the following sentence correct? You need a hand to use a spear. ,no,yes
+185,Is the following sentence correct? A paper cup is more flammable than a drinking glass. ,yes,yes
+186,Is the following sentence correct? Kitchen ranges are primarily designed to be used to cook things. ,yes,yes
+187,Is the following sentence correct? Kittens always have dogs as parents. ,no,no
+188,Is the following sentence correct? A heavy book can be used for preventing a door from closing. ,yes,yes
+189,Is the following sentence correct? True or false,yes,no
+190,Is the following sentence correct? True or false,yes,no
+191,Is the following sentence correct? Some vegan foods have meat in them. ,no,no
+192,Is the following sentence correct? Splashing boiling water on someone could burn their skin. ,yes,yes
+193,"Is the following sentence correct? Europe only came into existence after London, England no longer existed. ",no,no
+194,Is the following sentence correct? Man-made objects do not grow on trees. ,yes,yes
+195,"Is the following sentence correct? When water skiing, you usually go from the top of a hill or mountain to the bottom. ",no,no
+196,Is the following sentence correct? A cottage is larger than a mansion. ,no,no
+197,Is the following sentence correct? People and organizations tend to have a positive incentive to bring about states of affairs from which they would benefit. ,yes,yes
+198,"Is the following sentence correct? If many As are Bs, then there are some As that are Bs. ",yes,yes
+199,"Is the following sentence correct? Fish breathe air, not water. ",no,no
+200,"Is the following sentence correct? If a squirrel has two paws in the air, then it only has 1 paw on the ground. ",no,no
+201,Is the following sentence correct? Water cannot be used to put out a fire. ,no,no
+202,Is the following sentence correct? A large flea is a small creature. ,yes,yes
+203,Is the following sentence correct? Sunglasses are often worn to guard the eyes against bright sunlight. ,yes,yes
+204,Is the following sentence correct? There is more snow in the winter than in other seasons. ,yes,yes
+205,Is the following sentence correct? Biographies are usually about fictional characters. ,no,no
+206,Is the following sentence correct? Most knife blades are incapable of cutting human flesh. ,no,no
+207,Is the following sentence correct? A fish that has been out of water for an hour is probably dead ,yes,yes
+208,Is the following sentence correct? Plastic is a type of artificial material. ,yes,yes
+209,Is the following sentence correct? Adding a cool object to a warm substance results in temperature changes to the substance. ,yes,yes
+210,"Is the following sentence correct? If Julia lives in Kansas, and her vet lives in Missouri, then her cat probably lives in Missouri. ",no,no
+211,Is the following sentence correct? Marbles are usually liquid. ,no,no
+212,Is the following sentence correct? Beef jerky is an example of fresh food. ,no,no
+213,Is the following sentence correct? People typically know where they live. ,yes,yes
+214,Is the following sentence correct? Only things that are alive can die. ,yes,yes
+215,"Is the following sentence correct? If people are facing each other, their facial expressions are visible to each other as long as nothing obstructs their view. ",yes,yes
+216,Is the following sentence correct? Many authors have never written anything. ,no,no
+217,Is the following sentence correct? No castle is made of stone. ,no,no
+218,"Is the following sentence correct? Because they are both small, a regular toothbrush and a diamond necklace both cost about the same. ",no,no
+219,Is the following sentence correct? True or false,yes,no
+220,"Is the following sentence correct? In most parts of the world, if you're going to have a midnight snack, you could first open the blinds to let in more sunlight. ",no,no
+221,"Is the following sentence correct? If Heather calls her sister two times a week and calls her parents five times a week, then she calls her sister more frequently than her parents. ",no,no
+222,"Is the following sentence correct? Typically, bananas and lemons are both yellow and sour. ",yes,no
+223,Is the following sentence correct? Mice view cats as natural prey. ,no,no
+224,Is the following sentence correct? An igloo would be a good shelter to build in the Mohave Desert. ,no,no
+225,"Is the following sentence correct? If a police officer found a female infant, he was more than 10 years old. ",yes,yes
+226,Is the following sentence correct? Most fabrics are prone to rust. ,no,no
+227,"Is the following sentence correct? If Russell is a Christian, he probably believes there is no god. ",no,no
+228,Is the following sentence correct? It is not uncommon to need to cut food when you're preparing a meal. ,yes,yes
+229,Is the following sentence correct? There are seven days in a week. ,yes,yes
+230,"Is the following sentence correct? If there are few of something, then there are not many of that thing. ",yes,yes
+231,"Is the following sentence correct? If an animal is hungry, it has no desire to eat food. ",no,no
+232,Is the following sentence correct? You use your throat to swallow. ,yes,yes
+233,Is the following sentence correct? No human is a hibernating animal. ,yes,yes
+234,Is the following sentence correct? The sound of a soap bubble popping is likely to wake someone up. ,yes,no
+235,Is the following sentence correct? No nail file is a container. ,yes,yes
+236,Is the following sentence correct? The population of a city is usually the same as the population of the country that city is in. ,no,no
+237,Is the following sentence correct? Most cooks are unable to prepare food. ,no,no
+238,Is the following sentence correct? No planet other than earth has human inhabitants. ,yes,yes
+239,Is the following sentence correct? Wood would burn up on the sun. ,yes,yes
+240,Is the following sentence correct? Golf clubs usually don't come into direct physical contact with balls. ,yes,no
+241,Is the following sentence correct? You can't go cave diving without an oxygen tank. ,yes,no
+242,Is the following sentence correct? Guitars are stringed instruments. ,yes,yes
+243,Is the following sentence correct? People sometimes tap others on the tongue to get their attention. ,no,no
+244,"Is the following sentence correct? The bigger and heavier a professional jockey, the better. ",no,no
+245,"Is the following sentence correct? If something is full of water, then it is not full of air. ",yes,yes
+246,Is the following sentence correct? People take medicine to cause medical issues. ,no,no
+247,Is the following sentence correct? Skyscrapers are much taller than even the tallest animal. ,yes,yes
+248,Is the following sentence correct? Railway trains are typically light enough for a single human to lift. ,no,no
+249,Is the following sentence correct? You generally shouldn't store perishable food in places where it will last for only a short period of time. ,yes,yes
+250,Is the following sentence correct? True or false,yes,no
+251,Is the following sentence correct? Someone who hadn't slept in two days might find it harder to take a test. ,yes,yes
+252,Is the following sentence correct? True or false,yes,yes
+253,Is the following sentence correct? Goats have exactly two legs. ,yes,no
+254,Is the following sentence correct? The punishment for murder is usually worse than a fine. ,yes,yes
+255,Is the following sentence correct? T-shirts can't be folded or balled-up. ,no,no
+256,Is the following sentence correct? Rocks are not living creatures. ,yes,yes
+257,Is the following sentence correct? Professional sports teams generally play many different sports competitively. ,yes,no
+258,"Is the following sentence correct? After you turn a glass of water upside down over a table, some of the water will be on the table. ",yes,yes
+259,Is the following sentence correct? No fish eat other fish. ,no,no
+260,"Is the following sentence correct? If Noel electrocuted Bill, and Jeff lied to Bill, then Jeff did something more morally wrong than Noel ",no,no
+261,Is the following sentence correct? Part of every fork is a bowl shaped fluid reservoir. ,no,no
+262,Is the following sentence correct? You cannot swallow something whole if you cannot fit it into your mouth. ,yes,yes
+263,Is the following sentence correct? Buildings intended to shelter humans are usually made to be sturdy. ,yes,yes
+264,Is the following sentence correct? People serving as judges in some capacity are supposed to be as impartial as possible. ,yes,yes
+265,"Is the following sentence correct? Every mammal is an animal, but not every animal is a mammal. ",yes,yes
+266,Is the following sentence correct? Toy soldiers don't have minds. ,yes,yes
+267,Is the following sentence correct? People are generally not given a leadership or management job as their first job. ,yes,yes
+268,Is the following sentence correct? Both ends of a soda can are equally easy to open. ,yes,no
+269,Is the following sentence correct? Plants cannot do many of the things that animals can. ,yes,yes
+270,Is the following sentence correct? A leisurely walk is a dangerous activity. ,no,no
+271,"Is the following sentence correct? If all of the food in the refrigerator is raw, then there might be a chocolate doughnut in the refrigerator. ",no,no
+272,"Is the following sentence correct? When a gun is fired, a bullet comes out of the gun. ",yes,yes
+273,Is the following sentence correct? Only somewhat rigid objects can be used to stir liquids. ,yes,yes
+274,Is the following sentence correct? Most bison live in tropical jungles. ,no,no
+275,Is the following sentence correct? Gasoline is very flammable. ,yes,yes
+276,Is the following sentence correct? Someone who can lift an object of a certain weight can usually also lift objects that are lighter. ,yes,yes
+277,"Is the following sentence correct? If A causes B, then B begins after A does. ",yes,yes
+278,"Is the following sentence correct? In general, employees of a company are unlikely to do what the chief executive officer tells them to do. ",no,no
+279,Is the following sentence correct? True or false,yes,no
+280,Is the following sentence correct? Teachers generally have authority over their students. ,yes,yes
+281,Is the following sentence correct? Weather like rain or snow usually happens indoors. ,no,no
+282,Is the following sentence correct? Being injured is rarely painful. ,no,no
+283,Is the following sentence correct? Skyscrapers are usually built in rural areas. ,no,no
+284,Is the following sentence correct? Touching the blade of a power saw while the saw is on results in injury. ,yes,yes
+285,Is the following sentence correct? Contact with water causes cotton candy to lose its shape. ,yes,yes
+286,Is the following sentence correct? The North Pole is north of everything on earth. ,yes,yes
+287,Is the following sentence correct? Many 4 year old humans have completed medical school. ,no,no
+288,Is the following sentence correct? Things never do what they cannot do. ,yes,yes
+289,Is the following sentence correct? Einstein's kitten probably knows the Theory of Relativity. ,no,no
+290,Is the following sentence correct? True or false,yes,no
+291,"Is the following sentence correct? If you stack a bag of potatoes on a loaf of bread, the bread will likely be crushed. ",yes,yes
+292,Is the following sentence correct? True or false,yes,no
+293,"Is the following sentence correct? Assuming something is moving in a straight line, the amount of time it takes for that thing to travel a given distance depends on its average speed while traveling. ",yes,yes
+294,Is the following sentence correct? The Coca-Cola Company is a non-profit. ,no,no
+295,Is the following sentence correct? A scalpel is a kind of knife. ,yes,yes
+296,Is the following sentence correct? Breaking something makes it more difficult to use it. ,yes,yes
+297,"Is the following sentence correct? Usually, you can open a window in a house to let in fresh air from outside. ",yes,yes
+298,Is the following sentence correct? Chicken legs are unique to chickens. ,yes,yes
+299,Is the following sentence correct? Cities in Canada are located in North America. ,yes,yes
+300,"Is the following sentence correct? If you're making beef stew, and you don't have blueberries, you'll have to go to the store. ",no,no
+301,"Is the following sentence correct? If an animal undergoes an amputation, it does not lose any parts. ",no,no
+302,"Is the following sentence correct? If a type of attire is typically worn when the temperature is at a certain level, then it is appropriate to wear that attire in a place with that temperature. ",yes,yes
+303,Is the following sentence correct? It is not uncommon for people to regret performing an immoral action. ,yes,yes
+304,"Is the following sentence correct? Fred was speeding, so he pulled himself over and gave himself a ticket. ",yes,no
+305,Is the following sentence correct? One reason you might rent a hotel room is to have a place to sleep for the night. ,yes,yes
+306,Is the following sentence correct? People tend to take offense when their appearance is criticized in earnest. ,yes,yes
+307,Is the following sentence correct? Cars were first invented after the year 2000 ,no,no
+308,"Is the following sentence correct? Lea just turned 32, so she's in the 35-45 age group. ",no,no
+309,Is the following sentence correct? True or false,yes,no
+310,"Is the following sentence correct? If you own something, you own all of its parts. ",yes,yes
+311,Is the following sentence correct? A stone pillow is more desirable than a memory foam pillow. ,no,no
+312,"Is the following sentence correct? If you are not very hungry, you might order a large salad instead of a small salad. ",no,no
+313,Is the following sentence correct? You can use a cigarette lighter to light a drinking glass on fire. ,no,no
+314,Is the following sentence correct? A rubber mat absorbs water better than a cotton mat. ,no,no
+315,Is the following sentence correct? Many live-in housekeepers commute to work. ,no,no
+316,Is the following sentence correct? The Eiffel Tower is an inanimate object. ,yes,yes
+317,Is the following sentence correct? You could make an effective bicycle helmet out of cotton. ,no,no
+318,Is the following sentence correct? Humans do not have eyes in the back of their heads. ,yes,yes
+319,Is the following sentence correct? You can't blow a kiss to someone on the other side of a glass divider from you. ,yes,no
+320,Is the following sentence correct? Participants in a tournament usually don't care if they win. ,no,no
+321,Is the following sentence correct? The clothes people sleep in tend to be very casual clothes. ,yes,yes
+322,Is the following sentence correct? People who often sew can probably repair torn clothing items. ,yes,yes
+323,Is the following sentence correct? Closed blinds let in more sunlight than open ones. ,no,no
+324,"Is the following sentence correct? Things about the size of, or smaller than, a grapefruit can usually be carried with one hand. ",yes,yes
+325,Is the following sentence correct? A pet owner is expected to provide their pet with the resources that it needs to live. ,yes,yes
+326,Is the following sentence correct? The due south direction is the direction precisely opposite the due west direction. ,yes,no
+327,Is the following sentence correct? Stabbing something almost never results in a hole or puncture in the thing stabbed. ,no,no
+328,Is the following sentence correct? Surgery affects parts of animal bodies. ,yes,yes
+329,Is the following sentence correct? Most professional athletes are athletic. ,yes,yes
+330,"Is the following sentence correct? If most As are Bs, then some As are Bs. ",no,yes
+331,Is the following sentence correct? Fruits often eat other fruits for nourishment. ,no,no
+332,"Is the following sentence correct? When people store books, they generally don't close the book. ",no,no
+333,Is the following sentence correct? Places that are intended to house humans are bigger than humans. ,no,yes
+334,Is the following sentence correct? True or false,yes,no
+335,"Is the following sentence correct? If you can't reach the ceiling when standing on a table, you might have better luck standing on a chair. ",no,no
+336,Is the following sentence correct? The number of paws a dog has is less than 5. ,yes,yes
+337,"Is the following sentence correct? Since humans can't eat them, you should separate out the whites of eggs. ",no,no
+338,Is the following sentence correct? Business executives usually work in sewers. ,no,no
+339,"Is the following sentence correct? Usually when you go shopping, you first pay, and then you decide what you want to buy. ",no,no
+340,Is the following sentence correct? True or false,yes,no
+341,Is the following sentence correct? Most people would be insulted if someone told them they were stupid. ,yes,yes
+342,Is the following sentence correct? Most people cannot push a sewing needle through cotton fabric using their hands. ,yes,no
+343,Is the following sentence correct? People normally wear clothes in the shower. ,no,no
+344,Is the following sentence correct? Office supply stores do not typically sell food. ,yes,yes
+345,Is the following sentence correct? Most human residences in the USA have electrical outlets in them. ,yes,yes
+346,Is the following sentence correct? True or false,yes,no
+347,Is the following sentence correct? Adults are typically bigger than juveniles. ,yes,yes
+348,Is the following sentence correct? True or false,yes,no
+349,Is the following sentence correct? Plastic grapes are sweet. ,no,no
+350,Is the following sentence correct? Clouds are solid objects. ,no,no
+351,"Is the following sentence correct? If someone has loaned you a car, they no longer own that car. ",yes,no
+352,Is the following sentence correct? Anyone who is sleepy is already asleep. ,no,no
+353,"Is the following sentence correct? If Chris owns a female turkey, she is not a human being. ",yes,yes
+354,Is the following sentence correct? True or false,yes,no
+355,"Is the following sentence correct? When someone's hair is cut, they usually feel no pain. ",yes,yes
+356,Is the following sentence correct? Cars are sometimes towed because they can't be turned on. ,yes,yes
+357,Is the following sentence correct? Coral reefs are underwater. ,yes,yes
+358,Is the following sentence correct? Most house cats are heavier than elephants. ,no,no
+359,Is the following sentence correct? Nodding is often an intentional gesture. ,yes,yes
+360,Is the following sentence correct? The number of cities in a country is generally greater than the number of states in that country. ,yes,yes
+361,Is the following sentence correct? Most knitting needles are not rigid. ,yes,no
+362,Is the following sentence correct? Newborn humans usually have a full set of teeth. ,yes,no
+363,Is the following sentence correct? Swimming pools are typically filled with wine. ,no,no
+364,Is the following sentence correct? Cats have roughly the same typical diet as cows. ,no,no
+365,Is the following sentence correct? You can't see the front or back side of pages in a closed book. ,yes,yes
+366,Is the following sentence correct? Bananas are not completely spherical objects. ,yes,yes
+367,Is the following sentence correct? Commercial aircraft controls are generally located on the aircraft. ,yes,yes
+368,Is the following sentence correct? A device cannot be used before it has been invented. ,yes,yes
+369,Is the following sentence correct? Neither cats nor humans have ears. ,no,no
+370,Is the following sentence correct? Lawyers typically dress very casually when at work. ,no,no
+371,Is the following sentence correct? You usually can't catch an object like a baseball if it is too heavy for you to lift. ,yes,yes
+372,Is the following sentence correct? Europe is far to the south of Italy. ,no,no
+373,Is the following sentence correct? People usually know their own names. ,yes,yes
+374,Is the following sentence correct? Most wine glasses are nearly indestructible. ,yes,no
+375,"Is the following sentence correct? When baking an apple pie, you put whole, unsliced apples in a crust. ",yes,no
+376,"Is the following sentence correct? If you see the word 'Pull' on a door, then it opens away from you. ",yes,no
+377,Is the following sentence correct? The job of a gardener is to care for plants. ,yes,yes
+378,Is the following sentence correct? Most taxidermists probably don't know about anatomy. ,yes,no
+379,"Is the following sentence correct? If you climb to the top of a skyscraper, you can see things on the other side of the ocean. ",yes,no
+380,Is the following sentence correct? To poison someone you have to be in the same room as them at the time of the poisoning. ,yes,no
+381,Is the following sentence correct? Most bags can be used to transport things. ,yes,yes
+382,"Is the following sentence correct? When Lisa gave birth to her son, she was larger than he was. ",yes,yes
+383,Is the following sentence correct? You can't use a container to transport something if the thing you are transporting doesn't fit in the container. ,yes,yes
+384,Is the following sentence correct? Most melons are many times the size of a breadbox. ,yes,no
+385,Is the following sentence correct? Most vegans would refuse to eat pasta noodles. ,yes,no
+386,"Is the following sentence correct? If an activity is something you learn how to do, then anyone who is capable of doing that activity has learned how to do it. ",yes,yes
+387,Is the following sentence correct? Flying involves moving through the air. ,yes,yes
+388,Is the following sentence correct? True or false,yes,no
+389,Is the following sentence correct? True or false,yes,no
+390,Is the following sentence correct? Everything that flies has feathers. ,no,no
+391,Is the following sentence correct? Carrots are usually bright red. ,yes,no
+392,"Is the following sentence correct? There is probably some grass growing somewhere in Dallas, Texas. ",yes,yes
+393,Is the following sentence correct? Porcupines have quills. ,yes,yes
+394,Is the following sentence correct? Getting out of bed typically lasts for at most a few minutes. ,yes,yes
+395,Is the following sentence correct? True or false,yes,no
+396,"Is the following sentence correct? If only As are Bs, no As are Cs, then no Cs are Bs. ",yes,yes
+397,Is the following sentence correct? People are usually disappointed if they don't achieve their goals. ,yes,yes
+398,Is the following sentence correct? Materials used as structural supports typically can't be folded. ,yes,yes
+399,Is the following sentence correct? Stars aren't visible when it is dark. ,no,no
+400,"Is the following sentence correct? When playing a game where the highest score wins, players would rather do things that score more points than things that score fewer points. ",yes,yes
+401,"Is the following sentence correct? It is possible for someone to be within reach of your shoulder without you noticing, even while you are awake ",yes,yes
+402,Is the following sentence correct? Seattle is the capital of Canada. ,no,no
+403,Is the following sentence correct? You can read a diary while it is hidden beneath a mattress. ,no,no
+404,Is the following sentence correct? Fishing net has holes in it. ,yes,yes
+405,"Is the following sentence correct? The Jones family used their entire set of kitchen chairs at breakfast, so they needed new ones before they could do that again the next day. ",yes,no
+406,Is the following sentence correct? Many dairy products go bad if they are left at room temperature for too long. ,yes,yes
+407,Is the following sentence correct? Airplanes fly by flapping their wings. ,yes,no
+408,Is the following sentence correct? Groceries have to be carried in something other than a grocery bag. ,no,no
+409,Is the following sentence correct? A catfish is neither a cat nor a fish ,yes,no
+410,"Is the following sentence correct? When you cast a fishing line, the hook doesn't move. ",no,no
+411,Is the following sentence correct? Most bridges are not portable. ,yes,yes
+412,Is the following sentence correct? Eels can wave goodbye. ,no,no
+413,Is the following sentence correct? The purpose of a washing machine is to wash clothes. ,yes,yes
+414,Is the following sentence correct? The goal of setting a table is to take dishes from the table and put them in the cupboard. ,no,no
+415,Is the following sentence correct? Breaking a nail is a serious injury. ,no,no
+416,Is the following sentence correct? The long jump involves jumping straight up. ,yes,no
+417,Is the following sentence correct? People are displeased when things they care about die. ,yes,yes
+418,Is the following sentence correct? Most people drink without using their mouths. ,no,no
+419,Is the following sentence correct? People who work in an office are expected to come to work fully clothed. ,yes,yes
+420,Is the following sentence correct? Precipitation typically doesn't interfere with indoor activities. ,yes,yes
+421,Is the following sentence correct? You can't make a sculpture out of gas. ,yes,yes
+422,"Is the following sentence correct? If two actions can't be done at the same time, then you can do one of those actions while doing the other. ",no,no
+423,Is the following sentence correct? True or false,yes,yes
+424,Is the following sentence correct? Tacos are a traditional British food. ,no,no

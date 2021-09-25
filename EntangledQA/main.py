@@ -125,9 +125,11 @@ def main():
         train_datasets = dataset.concat(dataset_names)
 
         dataset = BaseDataset('dev-a', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        dataset = BaseDataset('released-a', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
         dev_a_datasets = dataset.concat(dataset_names)
 
         dataset = BaseDataset('dev-b', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        dataset = BaseDataset('released-b', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
         dev_b_datasets = dataset.concat(dataset_names)
 
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,

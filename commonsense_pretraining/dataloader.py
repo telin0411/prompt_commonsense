@@ -168,8 +168,9 @@ class SemEval20Dataset(Dataset):
 if __name__ == '__main__':
     path_ = './datasets/semeval_2020_task4'
 
-    dataset = SemEval20Dataset(path_, 'dev', tokenizer='roberta-base')
-    dataloader = DataLoader(dataset, batch_size=2)
+    dataset = SemEval20Dataset(path_, 'dev', tokenizer='roberta-base', use_reason=True)
+    dataloader = DataLoader(dataset, batch_size=1)
+    print(len(dataloader))
 
     batch = next(iter(dataloader))
     print('Sample batch: \n{}\n{}'.format(batch['tokens'], batch['attn_mask']))
