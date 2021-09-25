@@ -82,7 +82,8 @@ class ModelB(nn.Module):
                  pos_mask=-1,
                  num_prompt_model_layer=-1,
                  num_task_model_layer=-1,
-                 example_file=None):
+                 example_file=None,
+                 is_projection=False):
         """
         :param      prompt_model_name: The model used for prompt model, e.g., RoBERTa
         :param        task_model_name: The model used for task model, e.g., RoBERTa
@@ -100,6 +101,10 @@ class ModelB(nn.Module):
             self.prompt_model = AutoModel.from_pretrained(prompt_model_name)
 
         self.prompt_tokenizer = AutoTokenizer.from_pretrained(prompt_model_name)
+
+        # configure Projection Layer
+        prompt_hidden_dim = self.prompt_model.config.hidden_size
+        self.projection_layer = nn.Linear(prompt_hidden_dim, prompt_hidden_dim) if is_projection else None
 
         # configure Task Model
         if num_task_model_layer > -1:
@@ -128,6 +133,8 @@ class ModelB(nn.Module):
 
         # results of prompt embedding
         out_prompt = self.prompt_model(inp["input_ids"], inp["attention_mask"])[0]  # (B, L, D)
+        if self.projection_layer is not None:
+            out_prompt = self.projection_layer(out_prompt)
 
         # mask embedding, of shape (B, L, D); zeros except on mask position
         mask_embedding = out_prompt * pos_mask_ex
@@ -153,7 +160,6 @@ class ModelB(nn.Module):
                     value, token = r.topk(k=10, largest=False)
                     # Choose one token from the top 10
                     prompt_tokens[b][l] = token[0]
-                    print(value[0])
 
             recovered_token = inp["input_ids"] * (1 - pos_mask) + prompt_tokens * pos_mask
 
