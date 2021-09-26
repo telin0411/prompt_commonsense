@@ -107,7 +107,7 @@ class ModelB(nn.Module):
             prompt_hidden_dim = self.prompt_model.config.hidden_size
             linear_layer = nn.Linear(prompt_hidden_dim, prompt_hidden_dim)
             active_layer = nn.Tanh()
-            self.projection_layer = nn.Sequential(linear_layer, active_layer, linear_layer)
+            self.projection_layer = nn.Sequential(linear_layer, active_layer)
         else:
             self.projection_layer = None
 
