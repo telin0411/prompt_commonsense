@@ -395,7 +395,7 @@ def main():
         # For EntangledQA only
         # TODO: change the ground truth to prediction
         pred_list = metrics['meta']['prediction']
-        with open(f"./{args.run_name}pred.lst", "a") as fp:
+        with open(f"./{args.run_name}-pred.lst", "a") as fp:
             for pred in pred_list:
                 fp.write(str(pred)+'\n')
         fp.close()
