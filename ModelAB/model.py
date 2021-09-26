@@ -103,8 +103,13 @@ class ModelB(nn.Module):
         self.prompt_tokenizer = AutoTokenizer.from_pretrained(prompt_model_name)
 
         # configure Projection Layer
-        prompt_hidden_dim = self.prompt_model.config.hidden_size
-        self.projection_layer = nn.Linear(prompt_hidden_dim, prompt_hidden_dim) if is_projection else None
+        if is_projection:
+            prompt_hidden_dim = self.prompt_model.config.hidden_size
+            linear_layer = nn.Linear(prompt_hidden_dim, prompt_hidden_dim)
+            active_layer = nn.Tanh()
+            self.projection_layer = nn.Sequential(linear_layer, active_layer)
+        else:
+            self.projection_layer = None
 
         # configure Task Model
         if num_task_model_layer > -1:
@@ -133,8 +138,10 @@ class ModelB(nn.Module):
 
         # results of prompt embedding
         out_prompt = self.prompt_model(inp["input_ids"], inp["attention_mask"])[0]  # (B, L, D)
+
+        # use the first embedding
         if self.projection_layer is not None:
-            out_prompt = self.projection_layer(out_prompt)
+            out_prompt = self.projection_layer(out_prompt[:, 0]).unsqueeze(1)
 
         # mask embedding, of shape (B, L, D); zeros except on mask position
         mask_embedding = out_prompt * pos_mask_ex
