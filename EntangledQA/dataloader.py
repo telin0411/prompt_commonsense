@@ -90,7 +90,9 @@ class BaseDataset(Dataset):
                 'uniqa': self.uniqa}
 
         datasets = []
-        for name in dataset_names:
+        for i in range(len(dataset_names)):
+            name = dataset_names[i]
+            args['split'] = self.split[i]
             ds = self._get_dataset(name, **args)
             datasets.append(self._get_dataset(name, **args))
 
@@ -485,7 +487,9 @@ class SemEval20Dataset(BaseDataset):
             incorrect += df['Confusing Reason1'].tolist()
             incorrect += df['Confusing Reason2'].tolist()
 
+        # data = [{'text': x[:-1]+"?" if x[-1] == "." else x, 'label': 1} for x in correct]
         data = [{'text': x, 'label': 1} for x in correct]
+        # data += [{'text': x[:-1]+"?" if x[-1] == "." else x, 'label': 0} for x in incorrect]
         data += [{'text': x, 'label': 0} for x in incorrect]
 
         # Shuffle with fixed seed
@@ -517,6 +521,14 @@ class SemEval20Dataset(BaseDataset):
         answer = 'true' if record['label'] else 'false'
 
         # Text-to-Text
+
+        if input_text[-1] == ".":
+            input_text = input_text[:-1] + "?"
+        elif input_text[-1] == "?":
+            pass
+        else:
+            input_text = input_text + "?"
+
         text = f'semeval sentence: {input_text} </s>'
         label = f'{answer} </s>'
 
@@ -532,7 +544,7 @@ class SemEval20Dataset(BaseDataset):
             text, label = self._prepare_text2text(record)
             if self.uniqa:
               text = text.split(':')[1][1:]
-              text = 'Is the following sentence correct?\n' + text
+              # text = 'Is the following sentence correct?\n' + text
               label = label.replace('false', 'no')
               label = label.replace('true', 'yes')
             target_len = 2
@@ -608,7 +620,8 @@ if __name__ == "__main__":
         break
 
     
-    dataset = BaseDataset('train', tokenizer="roberta-large", max_seq_len=100, text2text=True, uniqa=True)
+    split = ["train-60", "train", "train"]
+    dataset = BaseDataset(split, tokenizer="roberta-large", max_seq_len=100, text2text=True, uniqa=True)
     train_datasets = dataset.concat(["com2sense", "EntangledQA", "semeval_2020"])
 
     sampler = RandomSampler(train_datasets)

@@ -34,6 +34,10 @@ def main():
     parser.add_argument('--expt_dir', type=str, help='root directory to save model & summaries')
     parser.add_argument('--expt_name', type=str, help='expt_dir/expt_name: organize experiments')
     parser.add_argument('--run_name', type=str, help='expt_dir/expt_name/run_name: organize training runs')
+    parser.add_argument('--train_file', type=str, default='test',
+                        help='The file containing train data to train.')
+    parser.add_argument('--dev_file', type=str, default='dev',
+                        help='The file containing dev data to be evaluated during training.')
     parser.add_argument('--test_file', type=str, default='test',
                         help='The file containing test data to evaluate in test mode.')
 
@@ -48,7 +52,9 @@ def main():
     # Data params
     parser.add_argument('--pred_file', type=str, help='address of prediction csv file, for "test" mode',
                         default='results.csv')
-    parser.add_argument('--dataset', type=str, help='list of datasets seperated by commas', required=True)
+    parser.add_argument('--train_dataset', type=str, help='list of datasets seperated by commas', required=False)
+    parser.add_argument('--dev_dataset', type=str, default=None, help='list of datasets seperated by commas', required=False)
+    parser.add_argument('--test_dataset', type=str, default=None, help='list of datasets seperated by commas', required=False)
 
     # Training params
     parser.add_argument('--lr', type=float, help='learning rate', default=1e-5)
@@ -78,7 +84,18 @@ def main():
     setup_seed(args.seed)
 
     # Dataset list
-    dataset_names = csv2list(args.dataset)
+    train_dataset_names = csv2list(args.train_dataset)
+    if args.dev_dataset is not None:
+        dev_dataset_names = csv2list(args.dev_dataset)
+    else:
+        dev_dataset_names = train_dataset_names
+    if args.test_dataset is not None:
+        test_dataset_names = csv2list(args.test_dataset)
+    else:
+        test_dataset_names = train_dataset_names
+    train_file = csv2list(args.train_file)
+    dev_file = csv2list(args.dev_file)
+    test_file = csv2list(args.test_file)
 
     # Multi-GPU
     device_ids = csv2list(args.gpu_ids, int)
@@ -121,16 +138,14 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        dataset = BaseDataset('train', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        train_datasets = dataset.concat(dataset_names)
+        dataset = BaseDataset(train_file, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        train_datasets = dataset.concat(train_dataset_names)
 
-        dataset = BaseDataset('dev-a', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        dataset = BaseDataset('released-a', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        dev_a_datasets = dataset.concat(dataset_names)
+        dataset = BaseDataset(dev_file, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        dev_a_datasets = dataset.concat(dev_dataset_names)
 
-        dataset = BaseDataset('dev-b', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        dataset = BaseDataset('released-b', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        dev_b_datasets = dataset.concat(dataset_names)
+        dataset = BaseDataset(test_file, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
+        dev_b_datasets = dataset.concat(test_dataset_names)
 
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,
                                   num_workers=args.num_workers)
@@ -141,7 +156,7 @@ def main():
 
         # In multi-dataset setups, also track dataset-specific loaders for validation metrics
         val_dataloaders = []
-        if len(dataset_names) > 1:
+        if len(dev_dataset_names) > 1:
             for val_dset in dev_a_datasets.datasets:
                 loader = DataLoader(val_dset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
                 val_dataloaders.append(loader)
@@ -360,7 +375,8 @@ def main():
         # Dataloader
         dataset = BaseDataset(args.mode, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text,
                               uniqa=uniqa)
-        datasets = dataset.concat(dataset_names)
+        assert args.test_dataset is not None
+        datasets = dataset.concat(test_dataset_names)
 
         loader = DataLoader(datasets, batch_size, num_workers=args.num_workers)
 
