@@ -60,6 +60,7 @@ class BaseDataset(Dataset):
         datasets = {
             'com2sense': Com2SenseDataset,
             'EntangledQA': EntangledQADataset,
+            'semeval_2020': SemEval20Dataset,
         }
 
         dataset = datasets[name](**kwargs)
@@ -72,6 +73,7 @@ class BaseDataset(Dataset):
         paths = {
             'com2sense': './datasets/com2sense',
             'cycic3': './datasets/cycic3',
+            'semeval_2020': './datasets/semeval_2020_task4'
         }
 
         return paths[name]
@@ -428,10 +430,10 @@ class Com2SenseDataset(BaseDataset):
         return text, label
 
 
-class SemEval20Dataset(Dataset):
+class SemEval20Dataset(BaseDataset):
     """SemEval2020 - Task #4"""
 
-    def __init__(self, data_dir, split, tokenizer, max_seq_len=64,
+    def __init__(self, split, tokenizer, max_seq_len=64,
                  use_reason=False, text2text=True, uniqa = False):
         """
         Loads raw dataset for the given fold.
@@ -449,6 +451,7 @@ class SemEval20Dataset(Dataset):
         self.uniqa = uniqa
 
         # Prepare data
+        data_dir = self._get_path('semeval_2020')
         self.data = self.preprocess(data_dir)
 
         # Setup tokenizer
@@ -598,6 +601,18 @@ if __name__ == "__main__":
 
     sampler = RandomSampler(dataset)
     dataloader = DataLoader(dataset, sampler=sampler, batch_size=2)
+    epoch_iterator = tqdm(dataloader, desc="Iteration")
+    for step, batch in enumerate(epoch_iterator):
+        print(step)
+        print(batch)
+        break
+
+    
+    dataset = BaseDataset('train', tokenizer="roberta-large", max_seq_len=100, text2text=True, uniqa=True)
+    train_datasets = dataset.concat(["com2sense", "EntangledQA", "semeval_2020"])
+
+    sampler = RandomSampler(train_datasets)
+    dataloader = DataLoader(train_datasets, sampler=sampler, batch_size=2)
     epoch_iterator = tqdm(dataloader, desc="Iteration")
     for step, batch in enumerate(epoch_iterator):
         print(step)
