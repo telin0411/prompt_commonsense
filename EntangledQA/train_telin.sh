@@ -10,6 +10,7 @@ python3 main.py \
     --run semeval20_com2sense20_pretrained \
     --run semeval20_pretrained_seqlen75 \
     --run semeval20_pretrained_seqlen128 \
+    --run semeval20_com2sense100_pretrained \
     --run no_pretrained \
     --seed 808 \
     --gpu 0,1,2,3 \
@@ -20,6 +21,7 @@ python3 main.py \
     --acc_step 2 \
     --use_amp F \
     --lr 1e-5 \
+    --ckpt "../Com2Sense/results_log/com2sense/unifiedqa_11b/semeval20_pretrained_train100/ep_3_stp_9.0k_acc_93.9698_allenai_unifiedqa_t5_11b.pth" \
     # --ckpt "../commonsense_pretraining/results_log/semeval_2020_task4/unifiedqa_11b_reasons/unifiedqa_11b_reasons/model_500.pth" \
     # --ckpt "../Com2Sense/results_log/com2sense/unifiedqa_11b/semeval20_pretrained/ep_4_stp_2.1k_acc_78.2338_allenai_unifiedqa_t5_11b.pth" \
     # --ckpt "../commonsense_pretraining/results_log/semeval_2020_task4/unifiedqa_11b_reasons/bz4_acc2_seqlen75/model_3000.pth" \

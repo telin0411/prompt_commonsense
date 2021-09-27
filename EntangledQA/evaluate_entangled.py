@@ -13,19 +13,23 @@ def compute_accuracy(args):
 
     # For bugs in option0:True and option1:False
     for index, row in origin_preds.iterrows():
+        if row['prediction'] == 'yes': row['prediction'] = 1
+        if row['prediction'] == 'no': row['prediction'] = 0
         row['prediction'] = 1 - row['prediction']
     for index, row in entailed_preds.iterrows():
+        if row['prediction'] == 'yes': row['prediction'] = 1
+        if row['prediction'] == 'no': row['prediction'] = 0
         row['prediction'] = 1 - row['prediction']
 
     origin_labels = load_dataset_file(args.cycic3a_labels)
     entailed_labels = load_dataset_file(args.cycic3b_labels)
 
-    origin_accuracy = accuracy_score(origin_labels.correct_answer, origin_preds)
-    entailed_accuracy = accuracy_score(entailed_labels.correct_answer, entailed_preds)
+    origin_accuracy = accuracy_score(origin_labels.correct_answer.tolist(), origin_preds['prediction'].tolist())
+    entailed_accuracy = accuracy_score(entailed_labels.correct_answer.tolist(), entailed_preds['prediction'].tolist())
     accuracy_dataset = compute_accuracy_dataset(origin_labels, origin_preds, entailed_labels, entailed_preds, mapping)
     origin_correct_idx = accuracy_dataset.origin_prediction == accuracy_dataset.origin_label
-    conditional_accuracy = accuracy_score(accuracy_dataset[origin_correct_idx]['entailed_label'],
-                                          accuracy_dataset[origin_correct_idx]['entailed_prediction'])
+    conditional_accuracy = accuracy_score(accuracy_dataset[origin_correct_idx]['entailed_label'].tolist(),
+                                          accuracy_dataset[origin_correct_idx]['entailed_prediction'].tolist())
     entailed_correct_idx = accuracy_dataset.entailed_prediction == accuracy_dataset.entailed_label
     r, p = pearsonr(origin_correct_idx,
                     entailed_correct_idx)  # note: this assumes a one-to-one mapping of origin to entailed. Could be extended to one-to-many by computing the average of entailed accuracy for each origin

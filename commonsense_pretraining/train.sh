@@ -13,7 +13,7 @@ python3 main.py \
     --gpu_ids 0,1,2,3,4,5,6,7 \
     --use_amp F \
     --acc_step 2 \
-    --save_interval 500 \
+    --save_interval 1000 \
     --seq_len 128 \
     --use_reason F \
     # --batch_size 1 \

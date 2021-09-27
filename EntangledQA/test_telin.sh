@@ -2,8 +2,8 @@
 
 # ** RoBerta-large || EntangledQA **
 python3 main.py \
-    --mode released-b \
     --mode released-a \
+    --mode released-b \
     --expt_dir ./results_log/EntangledQA \
     --expt_name unifiedqa_11b \
     --model "allenai/unifiedqa-t5-11b" \
@@ -22,6 +22,8 @@ python3 main.py \
     --run semeval20_com2sense60_pretrained_released-b \
     --run semeval20_com2sense80_pretrained_released-b \
     --run semeval20_com2sense80_pretrained_released-a \
+    --run semeval20_com2sense100_pretrained_released-a \
+    --run semeval20_com2sense100_pretrained_released-b \
     --seed 808 \
     --gpu 0,1,2,3,4,5,6,7 \
     --gpu 0,1,2,3 \
@@ -43,3 +45,4 @@ python3 main.py \
     --ckpt "./results_log/EntangledQA/unifiedqa_11b/semeval20_com2sense40_pretrained/ep_3_stp_2.1k_acc_92.0000_allenai_unifiedqa_t5_11b.pth" \
     --ckpt "./results_log/EntangledQA/unifiedqa_11b/semeval20_com2sense60_pretrained/ep_3_stp_4.1k_acc_92.0000_allenai_unifiedqa_t5_11b.pth" \
     --ckpt "./results_log/EntangledQA/unifiedqa_11b/semeval20_com2sense80_pretrained/ep_4_stp_6.9k_acc_91.5000_allenai_unifiedqa_t5_11b.pth" \
+    --ckpt "./results_log/EntangledQA/unifiedqa_11b/semeval20_com2sense100_pretrained/ep_7_stp_9.1k_acc_85.1415_allenai_unifiedqa_t5_11b.pth" \
