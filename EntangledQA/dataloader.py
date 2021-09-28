@@ -134,7 +134,7 @@ class BaseDataset(Dataset):
             text, label = self._prepare_text2text(record)
             if self.uniqa:
                 text = text.split(':')[1][1:]
-                text = 'Is the following sentence correct?\n' + text
+                # text = 'Is the following sentence correct?\n' + text
                 label = label.replace('false', 'no')
                 label = label.replace('true', 'yes')
             target_len = 2
@@ -320,6 +320,14 @@ class EntangledQADataset(BaseDataset):
         answer = 'true' if record['label'] else 'false'
 
         # Text-to-Text
+
+        if input_text[-1] == ".":
+            input_text = input_text[:-1] + "?"
+        elif input_text[-1] == "?":
+            pass
+        else:
+            input_text = input_text + "?"
+
         text = f'EntangledQA sentence: {input_text} </s>'
         label = f'{answer} </s>'
 
@@ -606,8 +614,8 @@ if __name__ == "__main__":
         split=split,
         tokenizer="roberta-large",
         max_seq_len=100,
-        text2text=False,
-        uniqa=False,
+        text2text=True,
+        uniqa=True,
         strip_sentence_prefix=True,
     )
 

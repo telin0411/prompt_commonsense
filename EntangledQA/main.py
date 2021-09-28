@@ -329,7 +329,7 @@ def main():
                     dev_b_metrics['accuracy'], dev_b_metrics['loss'])
 
                 # For Multi-Dataset setup:
-                if len(dataset_names) > 1:
+                if len(dev_dataset_names) > 1:
                     # compute validation set metrics on each dataset independently
                     for loader in val_dataloaders:
                         metrics = compute_eval_metrics(model, loader, device, val_size, tokenizer, text2text,
