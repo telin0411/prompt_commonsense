@@ -237,6 +237,26 @@ class Com2SenseDataset(BaseDataset):
 
         data = []
         for pair in raw_data:
+            if pair['scenario'] == 'comparison':
+                pass
+            elif pair['scenario'] == 'causal':
+                sent_1 = pair['sent_1']
+                sent_2 = pair['sent_2']
+                is_qualified, entity_1, entity_2 = self._isOneWordDiff(sent_1, sent_2)
+                if not is_qualified:
+                    continue
+                else:
+                    # Get the index of the entity, ready to transform to comparison
+                    insert_loc_1 = sent_1.find(entity_1) + len(entity_1)
+                    insert_loc_2 = sent_2.find(entity_2) + len(entity_2)
+
+                    # Insert template concatenated by masks
+                    sent_1 = sent_1[:insert_loc_1] + " instead of" + " <mask>" + sent_1[insert_loc_1:]
+                    sent_2 = sent_2[:insert_loc_2] + " instead of" + " <mask>" + sent_2[insert_loc_2:]
+
+                    pair['sent_1'] = sent_1
+                    pair['sent_2'] = sent_2
+
             sample_1 = dict(_id=pair['_id'], text=pair['sent_1'], label=pair['label_1'])
             sample_2 = dict(_id=pair['_id'], text=pair['sent_2'], label=pair['label_2'])
             if pair['label_1'] == 1: 
@@ -256,6 +276,20 @@ class Com2SenseDataset(BaseDataset):
             random.shuffle(data)
 
         return data
+
+    @staticmethod
+    def _isOneWordDiff(sent_1, sent_2):
+        blackList = ['can', 'cannot', 'can\'t', 'do', 'not', 'don\'t', 'will', 'won\'t', 'less', 'more']
+
+        sent_1 = sent_1.replace('.', '')
+        sent_2 = sent_2.replace('.', '')
+
+        rest_1 = list(set(sent_1.split()) - set(sent_2.split()))
+        rest_2 = list(set(sent_2.split()) - set(sent_1.split()))
+        if len(rest_1) == 1 and len(rest_2) == 1 and rest_1[0] not in blackList and rest_2[0] not in blackList:
+            return True, rest_1[0], rest_2[0]
+        else:
+            return False, '', ''
 
     @staticmethod
     def _prepare_text2text(record):
@@ -278,4 +312,3 @@ class Com2SenseDataset(BaseDataset):
         label = f'{answer} </s>'
 
         return text, label
-
