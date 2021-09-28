@@ -49,6 +49,8 @@ def main():
     parser.add_argument('--pred_file', type=str, help='address of prediction csv file, for "test" mode',
                         default='results.csv')
     parser.add_argument('--dataset', type=str, help='list of datasets seperated by commas', required=True)
+    parser.add_argument('--num_mask', type=int, help='the number of mask')
+    parser.add_argument('--pattern', type=str, help='the pattern inserting after a noun')
 
     # Training params
     parser.add_argument('--lr', type=float, help='learning rate', default=1e-5)
@@ -122,15 +124,13 @@ def main():
 
         # Dataset & Dataloader
         dataset = BaseDataset('train', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        train_datasets = dataset.concat(dataset_names)
+        train_datasets = dataset.concat(dataset_names, args.pattern, args.num_mask)
 
         dataset = BaseDataset('dev-a', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        dataset = BaseDataset('released-a', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        dev_a_datasets = dataset.concat(dataset_names)
+        dev_a_datasets = dataset.concat(dataset_names, args.pattern, args.num_mask)
 
         dataset = BaseDataset('dev-b', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        dataset = BaseDataset('released-b', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa=uniqa)
-        dev_b_datasets = dataset.concat(dataset_names)
+        dev_b_datasets = dataset.concat(dataset_names, args.pattern, args.num_mask)
 
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,
                                   num_workers=args.num_workers)
@@ -395,7 +395,7 @@ def main():
         # For EntangledQA only
         # TODO: change the ground truth to prediction
         pred_list = metrics['meta']['prediction']
-        with open(f"./{args.run_name}-pred.lst", "a") as fp:
+        with open(f"./{args.run_name}pred.lst", "a") as fp:
             for pred in pred_list:
                 fp.write(str(pred)+'\n')
         fp.close()
