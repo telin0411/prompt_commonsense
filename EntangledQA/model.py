@@ -80,7 +80,7 @@ class Transformer(nn.Module):
         device_map = None
         num_devices = len(device_ids)
 
-        assert num_devices in [2, 4, 8], "supports 2 or 4 or 8 GPUs"
+        assert num_devices in [2, 4, 6, 8], "supports 2 or 4 or 8 GPUs"
         assert ('t5-large' in self.name or 't5-3b' in self.name or 't5-11b' in self.name), 'model parallelization supports only t5-large & t5-3b'
 
         # (to-do) Maybe Map to specified `device_ids` for 2 gpus
@@ -93,6 +93,13 @@ class Transformer(nn.Module):
                           device_ids[1]: list(range(6, 12)),
                           device_ids[2]: list(range(12, 18)),
                           device_ids[3]: list(range(18, 24))}
+        elif num_devices == 6:
+            device_map = {device_ids[0]: list(range(0, 4)),
+                          device_ids[1]: list(range(4, 8)),
+                          device_ids[2]: list(range(8, 12)),
+                          device_ids[3]: list(range(12, 16)),
+                          device_ids[4]: list(range(16, 20)),
+                          device_ids[5]: list(range(20, 24))}
         elif num_devices ==8:
             device_map = {device_ids[0] : list(range(0,3)), device_ids[1]: list(range(3,6)), device_ids[2]: list(range(6,9)), device_ids[3]: list(range(9,12)), device_ids[4]: list(range(12,15)), 
                     device_ids[5]: list(range(15,18)), device_ids[6]: list(range(18,21)), device_ids[7]: list(range(21,24))

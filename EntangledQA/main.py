@@ -373,6 +373,7 @@ def main():
     elif 'test' in args.mode or 'release' in args.mode or 'dev' in args.mode:
 
         # Dataloader
+        args.mode = csv2list(args.mode)
         dataset = BaseDataset(args.mode, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text,
                               uniqa=uniqa)
         assert args.test_dataset is not None
@@ -399,7 +400,7 @@ def main():
         data_len = datasets.__len__()
         print('Total Samples: {}'.format(data_len))
 
-        is_pairwise = 'com2sense' in dataset_names
+        is_pairwise = 'com2sense' in test_dataset_names
 
         # Inference
         metrics = compute_eval_metrics(model, loader, device, data_len, tokenizer, text2text, is_pairwise=is_pairwise,
