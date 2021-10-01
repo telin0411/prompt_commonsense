@@ -6,7 +6,12 @@ python3 main.py \
     --expt_dir ./results_log/EntangledQA \
     --expt_name unifiedqa_11b \
     --model "allenai/unifiedqa-t5-11b" \
-    --dataset EntangledQA \
+    --train_dataset EntangledQA \
+    --train_file train \
+    --dev_dataset EntangledQA \
+    --dev_file dev-a \
+    --test_dataset EntangledQA \
+    --test_file dev-b \
     --run semeval20_com2sense20_pretrained \
     --run semeval20_pretrained_seqlen75 \
     --run semeval20_pretrained_seqlen128 \
@@ -14,8 +19,8 @@ python3 main.py \
     --run no_pretrained \
     --run semeval20_all_pretrained \
     --seed 808 \
-    --gpu 0,1,2,3 \
     --gpu 0,1,2,3,4,5,6,7 \
+    --gpu 0,1,2,3 \
     --batch_size 4 \
     --seq_len 128 \
     --seq_len 75 \

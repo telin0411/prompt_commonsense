@@ -60,6 +60,7 @@ class BaseDataset(Dataset):
         datasets = {
             'com2sense': Com2SenseDataset,
             'EntangledQA': EntangledQADataset,
+            'semeval_2020': SemEval20Dataset,
         }
 
         dataset = datasets[name](**kwargs)
@@ -72,6 +73,7 @@ class BaseDataset(Dataset):
         paths = {
             'com2sense': './datasets/com2sense',
             'cycic3': './datasets/cycic3',
+            'semeval_2020': './datasets/semeval_2020_task4'
         }
 
         return paths[name]
@@ -88,7 +90,9 @@ class BaseDataset(Dataset):
                 'uniqa': self.uniqa}
 
         datasets = []
-        for name in dataset_names:
+        for i in range(len(dataset_names)):
+            name = dataset_names[i]
+            args['split'] = self.split[i]
             ds = self._get_dataset(name, **args)
             datasets.append(self._get_dataset(name, **args))
 
@@ -130,7 +134,7 @@ class BaseDataset(Dataset):
             text, label = self._prepare_text2text(record)
             if self.uniqa:
                 text = text.split(':')[1][1:]
-                text = 'Is the following sentence correct?\n' + text
+                # text = 'Is the following sentence correct?\n' + text
                 label = label.replace('false', 'no')
                 label = label.replace('true', 'yes')
             target_len = 2
@@ -316,6 +320,14 @@ class EntangledQADataset(BaseDataset):
         answer = 'true' if record['label'] else 'false'
 
         # Text-to-Text
+
+        if input_text[-1] == ".":
+            input_text = input_text[:-1] + "?"
+        elif input_text[-1] == "?":
+            pass
+        else:
+            input_text = input_text + "?"
+
         text = f'EntangledQA sentence: {input_text} </s>'
         label = f'{answer} </s>'
 
@@ -428,6 +440,172 @@ class Com2SenseDataset(BaseDataset):
         return text, label
 
 
+class SemEval20Dataset(BaseDataset):
+    """SemEval2020 - Task #4"""
+
+    def __init__(self, split, tokenizer, max_seq_len=64,
+                 use_reason=False, text2text=True, uniqa = False):
+        """
+        Loads raw dataset for the given fold.
+
+        :param str data_dir: path to dataset directory
+        :param str split: train/dev/test
+        :param tokenizer: tokenizer name (e.g. 'roberta-base', 't5-3b', etc.)
+        :param int max_seq_len: tokenized sequence length (padded)
+        :param bool use_reason: if set, includes reasons as statements
+        """
+        self.split = split
+        self.max_seq_len = max_seq_len
+        self.use_reason = use_reason
+        self.text2text = text2text
+        self.uniqa = uniqa
+
+        # Prepare data
+        data_dir = self._get_path('semeval_2020')
+        self.data = self.preprocess(data_dir)
+
+        # Setup tokenizer
+        self.tokenizer = AutoTokenizer.from_pretrained(tokenizer)
+
+    def preprocess(self, data_dir):
+        """
+        Prepares dataset from raw csv.
+
+        Columns = ['Correct Statement', 'Incorrect Statement',
+                    'Right Reason1', 'Confusing Reason1',
+                    'Confusing Reason2', 'Right Reason2',
+                    'Right Reason3']
+
+        :returns: list of text, label
+        :rtype: list[dict]
+        """
+        path = os.path.join(data_dir, '{}.csv'.format(self.split))
+
+        df = pd.read_csv(path).dropna()
+
+        correct = df['Correct Statement'].tolist()
+        incorrect = df['Incorrect Statement'].tolist()
+
+        if self.use_reason:
+            # Include reasons as statements
+            correct += df['Right Reason1'].tolist()
+            correct += df['Right Reason2'].tolist()
+            correct += df['Right Reason3'].tolist()
+
+            incorrect += df['Confusing Reason1'].tolist()
+            incorrect += df['Confusing Reason2'].tolist()
+
+        # data = [{'text': x[:-1]+"?" if x[-1] == "." else x, 'label': 1} for x in correct]
+        data = [{'text': x, 'label': 1} for x in correct]
+        # data += [{'text': x[:-1]+"?" if x[-1] == "." else x, 'label': 0} for x in incorrect]
+        data += [{'text': x, 'label': 0} for x in incorrect]
+
+        # Shuffle with fixed seed
+        random.seed(0)
+        random.shuffle(data)
+
+        return data
+
+    def __len__(self):
+        return len(self.data)
+
+    def get_tokenizer(self):
+        return self.tokenizer
+
+    @staticmethod
+    def _prepare_text2text(record):
+        """
+        Input:
+            {'text': __, 'label': 1/0}
+
+        Output:
+            text: 'c2s sentence: __' \n
+            label: 'true' or 'false'
+
+        :returns: text, label
+        :rtype: tuple[str]
+        """
+        input_text = record['text']
+        answer = 'true' if record['label'] else 'false'
+
+        # Text-to-Text
+
+        if input_text[-1] == ".":
+            input_text = input_text[:-1] + "?"
+        elif input_text[-1] == "?":
+            pass
+        else:
+            input_text = input_text + "?"
+
+        text = f'semeval sentence: {input_text} </s>'
+        label = f'{answer} </s>'
+
+        return text, label
+
+    def __getitem__(self, idx):
+        record = self.data[idx]
+
+        assert type(record['text']) == str, 'TypeError: idx: record - {}: {}'.format(idx, record)
+
+        if self.text2text:
+            # Format input & label
+            text, label = self._prepare_text2text(record)
+            if self.uniqa:
+              text = text.split(':')[1][1:]
+              # text = 'Is the following sentence correct?\n' + text
+              label = label.replace('false', 'no')
+              label = label.replace('true', 'yes')
+            target_len = 2
+            # Tokenize
+            input_encoded = self.tokenizer.encode_plus(text=text,
+                                                       add_special_tokens=False,
+                                                       padding='max_length',
+                                                       max_length=self.max_seq_len,
+                                                       truncation=True,
+                                                       return_attention_mask=True)
+
+            target_encoded = self.tokenizer.encode_plus(text=label,
+                                                        add_special_tokens=False,
+                                                        padding='max_length',
+                                                        max_length=target_len,
+                                                        return_attention_mask=True)
+
+            input_token_ids = torch.tensor(input_encoded['input_ids'])
+            input_attn_mask = torch.tensor(input_encoded['attention_mask'])
+
+            target_token_ids = torch.tensor(target_encoded['input_ids'])
+            target_attn_mask = torch.tensor(target_encoded['attention_mask'])
+
+            # Output
+            sample = {'input_tokens': input_token_ids,
+                      'input_attn_mask': input_attn_mask,
+                      'target_tokens': target_token_ids,
+                      'target_attn_mask': target_attn_mask}
+
+            return sample
+
+        # TODO: Replace [CLS] --> Avg-Pool-Seq || ask Hope
+        # Tokenized format: [CLS] [text] [PAD]
+        tokens = [self.tokenizer.cls_token]
+        tokens += self.tokenizer.tokenize(record['text'])
+
+        tokens = self.tokenizer.encode_plus(tokens,
+                                            padding='max_length',
+                                            max_length=self.max_seq_len,
+                                            add_special_tokens=False,
+                                            return_attention_mask=True)
+
+        token_ids = torch.tensor(tokens['input_ids'])
+        attn_mask = torch.tensor(tokens['attention_mask'])
+        label = record['label']
+
+        # Output
+        sample = {'tokens': token_ids,
+                  'attn_mask': attn_mask,
+                  'label': label}
+        return sample
+
+
 # Testing.
 if __name__ == "__main__":
     split = "train"  # Can choose from "train", "dev-a/b", "test-a/b", "released-a/b"
@@ -436,13 +614,26 @@ if __name__ == "__main__":
         split=split,
         tokenizer="roberta-large",
         max_seq_len=100,
-        text2text=False,
-        uniqa=False,
+        text2text=True,
+        uniqa=True,
         strip_sentence_prefix=True,
     )
 
     sampler = RandomSampler(dataset)
     dataloader = DataLoader(dataset, sampler=sampler, batch_size=2)
+    epoch_iterator = tqdm(dataloader, desc="Iteration")
+    for step, batch in enumerate(epoch_iterator):
+        print(step)
+        print(batch)
+        break
+
+    
+    split = ["train-60", "train", "train"]
+    dataset = BaseDataset(split, tokenizer="roberta-large", max_seq_len=100, text2text=True, uniqa=True)
+    train_datasets = dataset.concat(["com2sense", "EntangledQA", "semeval_2020"])
+
+    sampler = RandomSampler(train_datasets)
+    dataloader = DataLoader(train_datasets, sampler=sampler, batch_size=2)
     epoch_iterator = tqdm(dataloader, desc="Iteration")
     for step, batch in enumerate(epoch_iterator):
         print(step)
