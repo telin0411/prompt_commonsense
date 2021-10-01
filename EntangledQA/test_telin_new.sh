@@ -7,12 +7,16 @@ python3 main.py \
     --expt_dir ./results_log/EntangledQA \
     --expt_name unifiedqa_11b \
     --model "allenai/unifiedqa-t5-11b" \
+    --model roberta-large \
+    --train_dataset EntangledQA \
+    --dev_dataset EntangledQA \
     --test_dataset EntangledQA \
     --run semeval20_all_pretrained_seqlen75_released-b \
     --run semeval20_all_pretrained_seqlen75_released-a \
     --seed 808 \
     --gpu 0,1,2,3,4,5,6,7 \
     --gpu 0,1,2,3 \
+    --gpu 0 \
     --seq_len 128 \
     --seq_len 75 \
     --batch_size 1 \

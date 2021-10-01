@@ -113,8 +113,28 @@ def main():
         if not model.parallelized:
             model.to(device)
 
+    # if not model.parallelized:
+    #     model.to(device)
+
+    # Load model checkpoint file (if specified)
+    if args.ckpt:
+        # Load model & optimizer
+        if "11b" in args.model:
+            map_location = torch.device("cpu")
+        else:
+            map_location = device
+        checkpoint = torch.load(args.ckpt, map_location=map_location)
+
+        # Load model & optimizer
+        model.load_state_dict(checkpoint['model_state_dict'], strict=False)
+        if args.data_parallel:
+            model = nn.DataParallel(model, device_ids=device_ids)
+            device = torch.device(f'cuda:{model.device_ids[0]}')
+
+        if not model.parallelized:
+            model.to(device)
+
     model.eval()
-    model.to(device)
 
     sent = None
     while sent != "exit()":
@@ -133,7 +153,7 @@ def main():
                 label_pred = model.generate(input_ids=batch['input_ids'],
                                             attention_mask=batch['attention_mask'],
                                             max_length=2)
-            label_pred = [decode(x).strip() for x in label_pred]
+            label_pred = [decode(x, tokenizer).strip() for x in label_pred]
 
         # Others
         else:
@@ -146,7 +166,7 @@ def main():
         print("Prediction: {}".format(label_pred))
 
 
-def decode(token_ids):
+def decode(token_ids, tokenizer):
     return tokenizer.decode(token_ids, skip_special_tokens=True)
 
 

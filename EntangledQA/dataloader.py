@@ -61,6 +61,7 @@ class BaseDataset(Dataset):
             'com2sense': Com2SenseDataset,
             'EntangledQA': EntangledQADataset,
             'semeval_2020': SemEval20Dataset,
+            'semeval20_comparative': SemEval20ComparativeDataset,
         }
 
         dataset = datasets[name](**kwargs)
@@ -73,7 +74,8 @@ class BaseDataset(Dataset):
         paths = {
             'com2sense': './datasets/com2sense',
             'cycic3': './datasets/cycic3',
-            'semeval_2020': './datasets/semeval_2020_task4'
+            'semeval_2020': './datasets/semeval_2020_task4',
+            'semeval20_comparative': './datasets/semeval20_comparative',
         }
 
         return paths[name]
@@ -606,11 +608,132 @@ class SemEval20Dataset(BaseDataset):
         return sample
 
 
+class SemEval20ComparativeDataset(BaseDataset):
+    """
+    SemEval20 and Cycic Comparative Benchmark
+
+    [True]  Most winged animals can fly.
+    [False] Abraham Lincoln was killed in the Vietnam War.
+    """
+
+    def __init__(self, split, tokenizer, max_seq_len, text2text,
+                 uniqa=False, strip_sentence_prefix=False):
+
+        super().__init__(split, tokenizer, max_seq_len, text2text)
+
+        self.uniqa = uniqa
+        self.text2text = text2text
+        self.strip_sentence_prefix = strip_sentence_prefix
+
+        # Read dataset
+        data_dir = self._get_path('semeval20_comparative')
+
+        self.data = self._preprocess(data_dir)
+
+    def _preprocess(self, data_dir):
+        """
+        Parses raw dataset file (jsonl). \n
+
+        Input:
+            [
+                {'guid': _, 'run_id': _, 'question': ___, 'categories': ___,
+                 'answer_option0': _, 'answer_option1': _},
+                ...
+                {'guid': _, 'run_id': _, 'question': ___, 'categories': ___,
+                 'answer_option0': _, 'answer_option1': _},
+            ]
+
+        * guid will be discarded as only run_id is important for entanglement.
+        * categories are not used for now.
+
+        Output:
+            [
+                {_id: _, 'sent': ___, 'label': 1/0},
+                ...
+                {_id: _, 'sent': ___, 'label': 1/0}
+            ]
+
+        :param str data_dir: path to dataset dir
+        :returns: sentence, label
+        :rtype: list[dict]
+        """
+        q_path = os.path.join(data_dir,
+                              f'{self.split}.source')
+        l_path = os.path.join(data_dir,
+                              f'{self.split}.target')
+
+        # Read data
+        questions = []
+        labels = []
+        data = []
+
+        fq = open(q_path)
+        for line in fq:
+            questions.append(line.split("\\n")[0].strip())
+        fq.close()
+
+        fl = open(l_path)
+        for line in fl:
+            labels.append(line.strip())
+        fl.close()
+
+        assert len(questions) == len(labels)
+
+        # Map labels
+
+        for i in range(len(questions)):
+            question = questions[i]
+            label = labels[i]
+            datum = dict(
+                _id=str(i),
+                text=question,
+                label=label
+            )
+            data.append(datum)
+
+        if self.split == 'train':
+            random.seed(0)
+            random.shuffle(data)
+
+        return data
+
+    @staticmethod
+    def _prepare_text2text(record):
+        """
+        Input:
+            {'text': __, 'label': 1/0}
+
+        Output:
+            text: 'c2s sentence: __' \n
+            label: 'true' or 'false'
+
+        :returns: text, label
+        :rtype: tuple[str]
+        """
+        input_text = record['text']
+        answer = record['label']
+
+        text = f'SemEval sentence: {input_text} </s>'
+        label = f'{answer} </s>'
+
+        return text, label
+
+
+
 # Testing.
 if __name__ == "__main__":
     split = "train"  # Can choose from "train", "dev-a/b", "test-a/b", "released-a/b"
 
     dataset = EntangledQADataset(
+        split=split,
+        tokenizer="roberta-large",
+        max_seq_len=100,
+        text2text=True,
+        uniqa=True,
+        strip_sentence_prefix=True,
+    )
+
+    dataset = SemEval20ComparativeDataset(
         split=split,
         tokenizer="roberta-large",
         max_seq_len=100,
