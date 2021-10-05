@@ -203,12 +203,15 @@ class EntangledQADataset(BaseDataset):
         assert split in ["train",
                          "dev-a", "dev-b",
                          "test-a", "test-b",
-                         "released-a", "released-b"]
+                         "released-a", "released-b",
+                         "train_dev-a", "train_dev-b"]
 
         self.split2dataset_prefix = {
             "train": "training",
             "dev-a": "dev_a",
             "dev-b": "dev_b",
+            "train_dev-a": "train_dev_a",
+            "train_dev-b": "train_dev_b",
             "test-a": "test_a",
             "test-b": "test_b",
             "released-a": "cycic3a_released",

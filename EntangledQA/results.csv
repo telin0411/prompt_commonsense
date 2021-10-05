@@ -1,426 +1,426 @@
 ,input,prediction,ground_truth
-0, True or False: The number of seconds in a minute is greater than the number of hours in a day.,0,1
-1," True or False: London, England is located in Europe.",0,1
-2, True or False: People other than doctors don't normally put their fingers in other people's mouths,0,1
-3, True or false: Eating utensils are common household items.,0,1
-4, True or False: People who commute to work by car never have to fill up their gas tanks.,0,0
-5, True or False: When someone makes a facial expression it typically doesn't make a lot of noise.,0,1
-6, True or false: Teddy bears typically aren't flat.,0,1
-7, True or False: You can read the front of a page in a closed book.,0,0
-8, True or False: It takes more than 1 second to construct a building.,0,1
-9, True or False: Most bison live on the plains.,0,1
-10," True or False: Kaylie received a letter on Thursday, so she replied to it on Tuesday of the same week.",0,0
-11, True or False: Wrecking balls are designed to be used in beach games.,0,0
-12, True or False: The clothes you wear while surfing might get wet.,0,1
-13, True or False: Part of the job of a lifeguard is to save people that are drowning.,0,1
-14, True or False: Surgeons can usually do their job completely from home.,0,0
-15," True or False: All else being equal, the faster person is more likely to win the race.",0,1
-16, True or False: Tom Cruise probably believes that pigs can't fly.,0,1
-17, True or False: Lack of sleep tends to impair people's mental abilities.,0,1
-18, True or False: Mel Gibson can walk on water.,0,0
-19, True or False: People wear tuxedos when they sleep.,0,0
-20, True or False: Someone paralyzed from the neck down cannot make hand gestures.,0,1
-21, True or False: An adult usually needs two hands to lift a wine glass.,0,0
-22," True or False: Morally speaking, lying to someone is worse than killing them.",1,0
-23, True or False: The intended purpose of lipstick is to add color to the lips.,0,1
-24, True or False: People sometimes tap others on the shoulder to get their attention.,0,1
-25, True or False: Gardeners generally don't care if their plants die.,0,0
-26, True or False: A fine is usually the only punishment for murder.,0,0
-27, True or False: You can carry an armchair with one hand.,0,0
-28, True or False: You have to dig in order to harvest apples.,0,0
-29, True or false: Drinking coffee can help you stay awake.,0,1
-30, True or False: You should store ice cream in a refrigerator.,0,0
-31, True or False: You can make a corkscrew out of cheese.,0,0
-32, True or False: Snowboarding is a winter sport.,0,1
-33, True or False: A catfish can use a spear.,0,0
-34, True or False: A red car almost certainly has red tires.,0,0
-35, True or false: A baseball can only perform its function because it has several internal moving parts.,0,0
-36, True or False: Kittens all know about complex math and science.,0,0
-37, True or false: It is warm or hot outdoors in the summer.,0,1
-38, True or False: Sunken ships are typically filled with water.,0,1
-39, True or False: Humans have two eyes in the back of their heads,0,0
-40," True or False: If each of Helen's arms weighs 20 pounds, then Helen weighs more than 40 pounds.",0,1
-41, True or False: Most stars are visible by daylight.,0,0
-42, True or False: The job of a science fiction author is to write academic articles on science.,0,0
-43," True or False: If your friend owns and likes the first 2 volumes in a trilogy, the third volume might make a good gift for them.",0,1
-44, True or False: Abrasive things are not at all smooth.,0,1
-45, True or False: Most dog pictures are selfies.,0,0
-46, True or False: Bananas are usually sour.,0,0
-47, True or False: Roses can use pruning shears.,0,0
-48, True or False: Egg whites are an edible part of chicken eggs.,0,1
-49, True or False: It's not safe to put corn in oatmeal you are about to eat.,0,0
-50, True or False: A fish that has been out of water for a second is probably dead,0,0
-51, True or false: It's important to wear sunscreen if you're going to the beach at night.,0,0
-52, True or False: Every cyclist rides a bike with wheels.,0,1
-53, True or False: Biographies are usually non-fiction books.,0,1
-54, True or False: A child is related to their mother's sister.,0,1
-55, True or false: Spiders have more legs than birds.,0,1
-56, True or False: You need snow to water ski.,0,0
-57, True or False: A police officer could be an infant.,0,0
-58," True or False: If you turn a glass of water upside down over a table, all of the water ends up on the floor.",0,0
-59, True or False: Products made by the Coca Cola company are homemade.,0,0
-60," True or False: When setting the table, you take dishes from the cupboard and put them into the dishwasher.",0,0
-61, True or false: Peanuts are food.,0,1
-62, True or False: You can eat soup using a fork.,0,0
-63, True or False: A person generally does not give himself a ticket for speeding.,0,1
-64, True or False: Rome is in Europe.,0,1
-65, True or false: All ice is frozen.,0,1
-66, True or False: It would be unsurprising to find clothes in a washing machine.,0,1
-67, True or False: Stone castles are typically bigger than people.,0,1
-68, True or False: You can set a birth certificate on fire.,0,1
-69, True or False: You can use a ceramic coffee mug as a paperweight.,0,1
-70, True or False: You need to provide food and water for a pet rock.,0,0
-71, True or false: Chairs are made to be used for sitting.,0,1
-72, True or False: You should look for oncoming motor vehicles before walking across train tracks.,0,0
-73, True or False: You can use a teddy bear as a functional cutting board.,0,0
-74, True or False: Elementary school teachers have to teach what their students tell them to.,0,0
-75, True or False: You could use a surfboard as a skateboard without modifying it.,0,0
-76," True or False: If Tony can lift a wrecking ball, he can lift a soccer ball.",0,1
-77, True or False: Some turnips bleed.,0,0
-78," True or False: When Lisa gave birth to her son, he was larger than she was.",0,0
-79, True or False: Cooks find knives useful when preparing meals.,0,1
-80, True or False: Wounds are usually stitched with a sewing machine.,0,0
-81, True or False: Basketball players score in basketball by shooting balls into baskets.,0,1
-82, True or False: Rings are usually worn on fingers.,0,1
-83, True or false: Every bat is a mammal.,0,1
-84, True or False: A tin blade can cut diamond.,0,0
-85, True or False: Every tournament is a competition.,0,1
-86, True or False: It is likely that Galileo knew about Einstein.,0,0
-87, True or False: Protective helmets are designed to protect the wearer's head from impacts.,0,1
-88, True or False: A glass that is full of ice cubes can hold the same amount of soda as a glass that isn't.,0,0
-89, True or False: Pets don't usually live with their owners.,0,0
-90, True or False: Milk left out on the counter for a week is probably still good to drink.,0,0
-91, True or False: Nothing can be stapled to a cloud.,0,1
-92, True or False: Blueberries are a common ingredient in beef stew.,0,0
-93, True or False: The Great Barrier Reef is indoors.,0,0
-94," True or False: When hair is brushed, the bristles of the brush usually move between the hairs.",0,1
-95," True or False: If only plants are in the barn, then there might be horses in the barn.",0,0
-96, True or False: A small salad is likely more filling than a large salad.,0,0
-97, True or False: Pumpkins eat pumpkin pie.,0,0
-98," True or False: If you turn a closed soda can upside down, some of the soda will spill out.",0,0
-99, True or False: You need to provide food for a pet rat.,0,1
-100, True or False: Someone born without eyes could still ride a train.,0,1
-101, True or False: Childless people have no biological grandchildren.,0,1
-102, True or False: Chairs are reusable but Kleenex aren't.,0,1
-103, True or False: Every U.S. state has exactly one capital city.,0,1
-104," True or False: In modern society, people tend to wear the same clothes for at least a week straight.",0,0
-105, True or False: Sleeping bags could be used to carry groceries in a pinch.,0,1
-106, True or False: A toothache might make someone grouchy.,0,1
-107," True or False: If many teachers have pet cats, then some educators own mammals.",0,1
-108, True or False: You can put out a fire with lemonade.,0,1
-109, True or False: Someone who has been poisoned has been in close proximity to the poison.,0,1
-110, True or False: A downpour would interfere with a bowling tournament.,0,0
-111," True or False: If someone wants to eat British cuisine, they could order tacos.",0,0
-112," True or False: If most lawyers are democrats, and most lawyers are wealthy, then some democrats are wealthy.",0,1
-113, True or False: You're likely to find a skyscraper in farm country.,0,0
-114, True or False: The Yankees competitively play multiple sports in addition to baseball.,0,0
-115, True or False: Airplane wings don't flap like a bird's.,0,1
-116, True or False: Football is a game in which the highest score wins.,0,1
-117, True or False: Most philosophy professors are in their teens.,0,0
-118, True or False: Bears are capable of flapping their wings.,0,0
-119, True or false: Every mug is a drinking vessel.,0,1
-120, True or False: You can use a knitting needle to stir tea.,0,1
-121, True or False: There are trees on the sun.,0,0
-122, True or False: A human has two arms after their left one is amputated.,0,0
-123, True or false: Some chickens are alive.,0,1
-124," True or False: For a duck hunt to be successful, at least one mammal has to have died.",0,0
-125, True or False: There are mammals that can fly.,0,1
-126," True or False: To get someone to like you, you should criticize their appearance.",0,0
-127, True or false: Every newspaper edition contains multiple distinct articles.,0,1
-128, True or False: A person born in London in 1910 who lived there for 90 years probably saw many cars in their lifetime.,0,1
-129, True or False: It's possible to stitch cotton sheets together by hand with a needle and thread.,0,1
-130, True or false: Small objects can be placed on a cutting board.,0,1
-131, True or false: Every electric car is an electricity-powered motor vehicle.,0,1
-132, True or False: Rabbits have bones.,0,1
-133, True or False: Buffalo have wings.,0,0
-134, True or false: One city in Colorado is Denver.,0,1
-135, True or false: Strings typically aren't very rigid.,0,1
-136, True or False: Sharks never eat other fish.,0,0
-137," True or False: If you're making an apple pie from scratch, you'll probably need to slice some apples.",0,1
-138, True or False: You need a college degree to be a plumber.,0,0
-139, True or False: People usually wear helmets when taking a stroll in the park.,0,0
-140, True or False: Many attendees of weddings chose to wear bridal gowns.,0,0
-141, True or False: An alligator would make a good pet for children.,0,0
-142, True or False: The government of a country can declare war.,0,1
-143, True or False: Vegan lasagna usually contains lasagna noodles.,0,1
-144, True or False: Breaking a chair typically makes it more difficult to sit on that chair.,0,1
-145, True or False: People like to be told they are stupid.,0,0
-146, True or False: Business executives are frequently barefoot at work.,0,0
-147, True or False: Animals very frequently feel pain when they are injured.,0,1
-148, True or False: Reading is a learned skill.,0,1
-149, True or False: The equator is south of the north pole.,0,1
-150, True or False: You can use a dictionary as a door stop.,0,1
-151, True or False: A hotel room is likely to have a bed in it.,0,1
-152," True or False: If an occupation involves work that impacts parts of animals, then a person in that occupation probably knows something about anatomy.",0,1
-153," True or False: If few of the cards in the box are pink, then many of the cards in the box are pink.",0,0
-154, True or False: Most plastic tastes like sugar.,0,0
-155, True or False: Watermelons are usually about the size of a breadbox.,0,1
-156, True or False: Nail files are used to store nails.,0,0
-157," True or False: To blow a kiss to someone, you have to touch them.",0,0
-158, True or False: Babies sometimes cry when they are teething.,0,1
-159, True or False: You expect a random person off the street to know a lot about astrophysics.,0,0
-160, True or False: An NFL team would rather score a touchdown than a field goal.,0,1
-161, True or False: No author is a writer.,0,0
-162, True or False: People like being insulted.,0,0
-163, True or False: The population of London is greater than the population of England.,0,0
-164, True or False: Humans need to eat in order to live.,0,1
-165, True or False: Goats can skip on two legs.,0,0
-166, True or False: Frying pans are frequently used on the stove.,0,1
-167, True or False: Knocking a lit candle over onto a stack of papers could lead to a fire.,0,1
-168, True or False: Golf clubs are intended to be used to move game balls.,0,1
-169, True or False: An upside down coffee cup can hold a watermelon.,0,0
-170, True or False: Frying pans are designed to withstand heat.,0,1
-171," True or False: Lea just turned 42, so she's in the 35-45 age group.",0,1
-172, True or False: Cliff can see Joy smiling even when she is wearing sunglasses.,0,1
-173, True or False: A human can catch a train like a baseball.,0,0
-174, True or False: Eyeglasses are worn on eyes.,0,1
-175," True or False: Before teenagers sneak out, they usually tell their parents where they are going.",0,0
-176, True or False: Donald Trump owns the Pacific Ocean.,0,0
-177, True or False: There are large stone castles in Europe.,0,1
-178, True or False: People usually pilot commercial planes from outside the plane.,0,0
-179, True or False: Glass isn't very flammable.,0,1
-180, True or False: An aircraft carrier can fit inside a shoebox.,0,0
-181," True or False: The population of Mars is greater than 10,000.",0,0
-182, True or False: Mary could see the Eiffel Tower from the top of the Washington Monument.,0,0
-183, True or False: Drinking beer is easier than dancing salsa.,0,1
-184, True or False: People rarely use grass in landscaping.,0,0
-185," True or False: If you haven't bought a ticket, then you probably can't attend a sibling's wedding.",0,0
-186, True or False: Foods that have been baked or fried are not raw.,0,1
-187, True or False: Lettuce is usually a major component of a car bomb.,0,0
-188," True or False: Since what she spilled on the floor were marbles, Betty probably used a mop rather than a broom to clean up.",0,0
-189, True or false: It's not possible for someone to experience pain in their tooth.,0,0
-190, True or False: Australia is completely surrounded by land.,0,0
-191, True or False: Most windows are located on the interior walls of a house.,0,0
-192, True or False: Most professional athletes are fat.,0,0
-193, True or False: Canada geese migrate more often than rosebushes.,0,1
-194, True or False: No toddler is a doctor.,0,1
-195, True or False: Someone born in 2006 would be a teenager in 2050.,0,0
-196, True or False: One would typically wear sandals when snowshoeing.,0,0
-197," True or False: If someone is dead, their heart has stopped.",0,1
-198, True or False: Most elephants don't weigh more than a few pounds.,0,0
-199," True or False: If you're climbing a ladder, your foot is probably on one of the rungs.",0,1
-200, True or False: A live-in housekeeper lives in the same place that they work.,0,1
-201," True or False: If a cat runs toward a mouse, the mouse will probably run away.",0,1
-202, True or False: You should wear high heels to go hiking.,0,0
-203, True or False: Prosecuting attorneys typically wear suits in court.,0,1
-204," True or False: If you see the word 'Push' on a door, then when you open it, it will open away from you.",0,1
-205, True or False: Things that are lighter than air are also lighter than water.,0,1
-206, True or False: Popsicles grow on trees.,0,0
-207, True or False: There are 8 days in a week.,0,0
-208, True or False: The Pope probably knows that the Vatican is in Europe.,0,1
-209, True or False: It frequently snows in cabin living rooms.,0,0
-210, True or False: Most people can talk at the same time they are taking a drink.,0,0
-211, True or False:  A toothbrush can be used by two people at the same time.,0,0
-212, True or False: A gardener's job is to tend to children.,0,0
-213, True or False: Hungry animals are pretty likely to eat if food is made available to them.,0,1
-214," True or False: If you leave a pot of water on a stove turned to it's highest setting, there will probably still be water in the pot after 24 hours.",0,0
-215, True or False: Cookies are typically removed from the oven before they are eaten.,0,1
-216, True or False: You can't cook scrambled eggs on a stove that is off.,0,1
-217, True or False: A professional basketball player is likely taller than a professional jockey.,0,1
-218, True or False: Toy soldiers learn discipline in the military.,0,0
-219, True or False: The Eiffel Tower can own something.,0,0
-220, True or False: There are birds that can't fly.,0,1
-221, True or False: Sunken ships are usually filled with air.,0,0
-222, True or False: People typically kiss complete strangers.,0,0
-223, True or False: You can put a fire out by depriving it of oxygen.,0,1
-224," True or False: If you steal a watch, you might feel regret.",0,1
-225," True or False: If an adult human stomps on a wine glass, it will probably break.",0,1
-226, True or False: Handcuffs are worn in the same place as rings.,1,0
-227, True or False: Flying ants don't have feathers.,0,1
-228," True or False: If you have sore throat, it usually hurts to swallow.",0,1
-229, True or False: Most major league baseball players probably don't care if their team loses a game.,0,0
-230, True or False: The number of tails a German Shepherd has is not an even number.,0,1
-231, True or False: Kittens always have cats as parents.,0,1
-232, True or False: Cooks frequently prepare meals or other food.,0,1
-233, True or False: You defrost popsicles before eating them.,0,0
-234, True or False: The Coca-Cola Company is a for-profit organization.,0,1
-235," True or False: If you knocked a soda over on your desk, you'd probably try to move your letter opener out of the way of the spill before your notepad.",1,0
-236, True or False: Humans can't eat hotels.,0,1
-237, True or false: No knife is a scalpel.,0,0
-238," True or False: To bring a lion to the vet, you'd probably want to use a typical hand-held cat carrier.",0,0
-239," True or False: If the head of a teddy bear is above the feet, the teddy bear is upside down.",0,0
-240," True or False: When soap bubbles pop, it is very loud.",0,0
-241, True or False: Trees don't require water in order to survive.,0,0
-242," True or False: Since Lucy almost never succeeds at what she tries, Sammy might be surprised that she got the job.",0,1
-243," True or False: To make a scrambled egg, you have to break an egg.",0,1
-244," True or False: Since what she spilled was chicken broth, Betty probably used a broom rather than a mop to clean it up.",0,0
-245, True or False: Ice cubes will make a glass of water colder.,0,1
-246," True or False: If Cliff loaned the car to Rob, and Joy stole the car from Rob, then Rob owns the car.",0,0
-247, True or False: Canned peas are fresh food.,0,0
-248, True or False: Real Christmas trees are made of plastic.,0,0
-249," True or False: If your backpack is halfway under the bed, you should usually be able to move it without moving the bed.",0,1
-250, True or False: Sally's clothes from when she was 4 are probably larger than her clothes from when she was 8.,0,0
-251," True or False: If Russell is a Christian, he probably believes there is a god",0,1
-252, True or False: Forks generally cannot be used to contain liquid.,0,1
-253, True or False: You can make a sculpture out of smoke.,0,0
-254, True or False: It's dangerous to play with knives.,0,1
-255, True or False: Humans hibernate more often than grizzly bears.,0,0
-256, True or False: Kitchen ranges are designed to be used to display things.,0,0
-257, True or False: The typical color of ketchup is more similar to the color of carrots than it is to the color of blood.,0,0
-258, True or False: People usually buy cars on a whim,0,0
-259, True or False: The Queen of England is also the Queen of France.,0,0
-260," True or False: London, England and London, Ontario are on the same continent.",0,0
-261, True or False: Cotton absorbs water better than rubber.,0,1
-262, True or False: You can use a colander as a pet's water bowl.,0,0
-263, True or False: Getting out of bed takes more than a few months.,0,0
-264, True or False: A stag has more antenna than a stag beetle.,0,0
-265, True or False: Breaking a nail is worse than breaking a bone.,0,0
-266, True or False: Business executives often work in offices.,0,1
-267, True or False: A twisted ankle typically takes many months to stop hurting.,0,0
-268, True or False: Fleas are small creatures.,0,1
-269, True or False: People usually learn to write before learning how to read.,0,0
-270," True or False: Cats rarely, if ever, eat food cans.",0,1
-271, True or False: A scalpel can be used to stab something.,0,1
-272," True or false: If Rose was born after phones were invented, but before cell phones were invented, she was born after smartphones were invented.",0,0
-273, True or False: Cats eat mostly grasses.,0,0
-274," True or False: Since Sally hasn't reached the legal drinking age, it's okay for the bartender to serve her a virgin bloody mary",0,1
-275," True or False: Cynthia has never been to Europe, but she's been to Rome.",0,0
-276," True or False: If Chris owns a female turkey, he is a human being.",0,1
-277, True or False: You can see out of eyeglasses that are dirty just as well as you can out of eyeglasses that are clean.,0,0
-278," True or False: Unlike alligators, lions don't have tails.",0,0
-279, True or False: People generally try to keep dangerous things away from places children frequent.,0,1
-280, True or False: New cars usually cost less than houses.,0,1
-281, True or False: Trees can hear.,0,0
-282," True or False: Before a gun is fired, the bullet is inside the gun.",0,1
-283, True or False: Toothbrushes are rare objects.,0,0
-284, True or False: There is something a bee can do that a human can't.,0,1
-285, True or False: Vegan food is a type of vegetarian food.,0,1
-286, True or False: Blackboards are designed to be written on with chalk.,0,1
-287, True or False: The number of paws a dog has is an odd number.,0,0
-288, True or False: T-shirts are usually made of extremely rigid materials.,0,0
-289, True or False: Most humans don't have enough strength to carry a railway train from one place to another.,0,1
-290, True or False: Almond trees do not grow underwater.,0,1
-291, True or False: People take medicine to treat medical issues.,0,1
-292, True or False: A catfish is both a cat and a fish.,0,0
-293, True or False: You need hands in order to wave to someone.,0,1
-294, True or False: Adults usually weigh more than children.,0,1
-295, True or False: Leftovers can be ingredients used to make a refrigerator.,0,0
-296, True or False: There are more cities in the United States than there are states.,0,1
-297, True or False: You can use a string to stir coffee.,0,0
-298, True or False: It is likely that Einstein knew about Galileo.,0,1
-299, True or False: You could use a fishing net to make a functional sail.,1,0
-300, True or false: Surgeons are doctors.,0,1
-301," True or False: If you have a bag of potatoes and a bag of bread, you should stack the potatoes on top of the bread.",0,0
-302," True or False: If rain is threatening, then one tends to bring an umbrella if one is going to be outside.",0,1
-303," True or False: If you're going to have an afternoon snack, you could first close the blinds to let in more sunlight.",0,0
-304, True or False: Most CEOs have never had a job other than CEO.,0,0
-305, True or false: A library can fit inside a book.,0,0
-306, True or False: A person would dislike touching a circular saw blade if the saw was on.,0,1
-307, True or False: A cottage would be harder for a housekeeper to manage than a mansion.,0,0
-308, True or False: You can carry a cigarette lighter with one hand.,0,1
-309, True or False: Mammals outnumber animals.,0,0
-310, True or False: You need a can opener in order to open a can of soda.,0,0
-311, True or False: A blind person could referee a sports game.,0,0
-312, True or False: A downpour would interfere with a parade.,0,1
-313," True or False: If someone is reading something, they can perceive that thing.",0,1
-314, True or False: There are many caves that contain breathable air.,0,1
-315," True or False: If you discover something you've bought is poor quality, you might feel anger toward whoever you bought it from.",0,1
-316, True or False: The Golden Gate Bridge can be carried around.,0,0
-317, True or False: Bath water should be boiling.,0,0
-318, True or False: You can typically see what's on the back of a painting when the painting is hanging on the wall.,0,0
-319," True or False: Dogs don't have gills, but fish do.",0,1
-320, True or False: Humans could smile even if they didn't have mouths.,0,0
-321, True or False: A tailor could repair a torn skirt.,0,1
-322," True or False: In the long jump, the goal is to jump higher than anyone else.",0,0
-323," True or False: To serve their intended purpose, sunglasses should be worn on top of the head.",0,0
-324," True or False: When people swim, it is normally in water.",0,1
-325, True or False: You can read while sleeping.,0,0
-326, True or False: People often bake cakes without realizing it.,0,0
-327, True or False: Superbowl tickets are free.,0,0
-328, True or False: Due south and due west are perpendicular.,0,1
-329, True or False: There are probably photographs of Ben Franklin with the bifocals he invented.,0,0
-330," True or False: Georgia wanted to wear very casual shoes, so she didn't wear high heels.",0,1
-331," True or False: If Cliff sold the car to Rob, and Joy stole the car from Rob, then Rob owns the car.",0,1
-332, True or False: The handle of a wooden spoon is made of wood.,0,1
-333, True or False: A car that isn't running can't be towed.,0,0
-334, True or False: Only chickens have chicken legs.,0,1
-335, True or False: Orange juice is not a liquid.,0,0
-336," True or False: If a city is a capital city of some region, then it is located somewhere in that region.",0,1
-337, True or False: Cathedrals have interiors.,0,1
-338," True or False: When getting ready in the morning, people usually get dressed and then shower.",0,0
-339, True or False: You can't fold a two-by-four.,0,1
-340," True or False: Cats have ears, but humans don't.",0,0
-341," True or False: In most parts of the world, there is sunlight at around the midnight hour.",0,0
-342, True or false: The heart is an internal organ.,0,1
-343, True or False: Motor oil and vinegar is a common salad dressing.,0,0
-344, True or False: Accountants can usually do math.,0,1
-345, True or False: Most people would enjoy petting a frightened porcupine.,0,0
-346, True or False: Boxing is a sport.,0,1
-347, True or False: One might wear a swimsuit while water skiing at the beach.,0,1
-348, True or False: A person can die twice.,0,0
-349, True or False: The chief executive officer of a company is in a leadership position.,0,1
-350, True or False: Most human residences in the USA have electrical appliances in them.,0,1
-351, True or False: All bankers have biological mothers.,0,1
-352," True or False: If Mark is a surgeon, then he must know something about anatomy.",0,1
-353, True or False: It rains quite frequently where camels live.,0,0
-354, True or False: A quadriplegic can make a fist.,0,0
-355, True or False: Books are typically stored open.,0,0
-356, True or False: Most boulders would float in water.,0,0
-357, True or false: The Pacific Ocean is a large body of water.,0,1
-358," True or False: If you leave a sweater too long in a damp environment, it might get rusty.",0,0
-359, True or False: People sometimes nod off without intending to.,0,1
-360," True or False: If you throw a rubber ball against a wooden floor, the ball will probably be damaged.",0,0
-361, True or False: A waitress delivers the meal before taking orders.,0,0
-362, True or False: Shoes are worn over socks.,0,1
-363, True or False: A human could swallow a turkey whole.,0,0
-364, True or False: The Sahara would probably be a good location for finding sand.,0,1
-365, True or False: Seahorses live underwater.,0,1
-366, True or False: The Yankees have an incentive to win a baseball game.,0,1
-367, True or False: Vegans do not eat cheddar.,0,1
-368, True or False: You should use gasoline to put out a fire.,0,0
-369, True or False: You use your mouth to play a guitar.,0,0
-370, True or False: Someone who is nodding is also usually nodding off.,0,0
-371, True or False: Bus drivers sit frequently while working.,0,1
-372, True or False: The tide can topple a stone castle.,0,0
-373," True or False: When you're doing laundry, you fold the laundry right before you put it in the dryer.",0,0
-374, True or False: Grocery bags are primarily designed to be used to carry groceries.,0,1
-375, True or false: Every tree is a plant.,0,1
-376, True or False: Carpets cover floors.,0,1
-377," True or False: If you ordered iced tea, you would be displeased if it was cold when it got to your table.",0,0
-378," True or False: To go ice skating, you need roller blades.",0,0
-379, True or False: George Washington did not own a television.,0,1
-380," True or False: If it takes 1 day to drive to town A, and town B is 1 mile away, then walking to town B takes longer than driving to town A.",0,0
-381," True or False: If you own a car, then you own its steering wheel.",0,1
-382," True or False: The author of ""War and Peace"" learned how to read.",0,1
-383," True or False: If something bites, it has teeth.",0,1
-384," True or False: If a squirrel has two paws in the air, then it only has two paws on the ground.",0,1
-385, True or False: A car won't start if the rearview mirror is broken.,0,0
-386, True or False: You should wear a coat outside when it is snowing.,0,1
-387, True or False: Diamond jewelry usually costs more than a few dollars.,0,1
-388, True or False: Bananas roll as well as cantaloupes.,0,0
-389, True or False: Completely aquatic creatures generally do not have hands.,0,1
-390, True or False: A good sports referee intentionally favors one team over the other.,0,0
-391, True or False: Office supply stores typically sell peanuts.,0,0
-392, True or False: A drinking glass is more flammable than a paper cup.,0,0
-393, True or False: Ducks can fly underwater.,0,0
-394, True or False: No animal is its own biological mother.,0,1
-395, True or False: The seat of a chair is usually higher than the surface of a table.,0,0
-396, True or False: The fire at 3 p.m. could have been caused by the electrical short at 4 p.m. the same day.,0,0
-397, True or False: Someone cannot feel sleepy and be awake at the same time.,0,0
-398, True or False: You might look at a wall calendar to figure out what time of day it is.,0,0
-399, True or False: Receiving gifts rarely makes people angry.,0,1
-400," True or False: If Thurston's unwrapped cotton candy was left out in the pouring rain, it would probably be okay.",0,0
-401, True or False: You can roll a pencil across a table.,0,1
-402, True or False: Twice a week is more frequent than five times a week.,0,0
-403, True or False: Lethal injection is the usual punishment for jaywalking.,0,0
-404," True or False: When shopping, you often pay without knowing what you're going to buy.",0,0
-405," True or False: While it can contain cooked foods, salad is often made primarily with raw vegetables.",0,1
-406, True or False: Britney Spears has a brain stem.,0,1
-407," True or False: If Fred puts his pet guppy in a birdcage, then it will not be able to breathe.",0,1
-408, True or False: Pillows are generally wider than human heads.,0,1
-409, True or False: Stabbing usually involves puncturing something.,0,1
-410, True or False: You cannot use a banana as the weapon in a shooting.,0,1
-411, True or False: Hard objects are almost always more comfortable to rest on than soft ones.,0,0
-412, True or False: Most humans can walk a mile in less than a day.,0,1
-413, True or False: Some ice is slippery.,0,1
-414, True or false: Politicians rarely wear ties.,0,0
-415, True or False: Headphones can be used to listen to music without disturbing other people.,0,1
-416, True or false: Flying a plane isn't something you have to do in order to be a farmer.,0,1
-417, True or False: Having a higher maximum running speed improves one's chances of winning a race.,0,1
-418, True or False: Giraffes are taller than skyscrapers.,0,0
-419, True or False: Humphrey Bogart probably knew his first name.,0,1
-420, True or False: Cutting hair causes pain.,0,0
-421, True or False: Igloos are shelters made of mud and straw.,0,0
-422," True or False: When fishing, the fish hook is connected to the fishing line.",0,1
-423, True or False: You usually need a college degree to be an economist.,0,1
-424, True or false: Between 12 and 20 times per minute is more frequent than between 1 and 4 times per day.,1,1
+0,A blade cannot cut an object made of something harder than the blade? ,yes,yes
+1,Electrical devices generally cannot perform their primary functions when they are off? ,yes,yes
+2,You typically respond to a letter before you have received the letter? ,no,no
+3,"Generally, academic articles are not fictional works? ",yes,yes
+4,"Large, heavy furniture generally cannot be carried with one hand? ",yes,yes
+5,A container cannot hold objects that are larger than itself? ,yes,yes
+6,Execution is not the typical punishment for misdemeanors? ,yes,yes
+7,A broom is generally better than a mop for cleaning up liquids? ,no,no
+8,True or false,yes,no
+9,Stadium-sized is larger than breadbox sized? ,yes,yes
+10,It would typically be surprising to find gills on a mammal? ,no,yes
+11,True or false,yes,no
+12,Bats can fly? ,yes,yes
+13,The back of a hanging painting faces the wall? ,no,yes
+14,Land organisms do not grow underwater? ,yes,yes
+15,The rearview mirror of the car is part of the engine? ,no,no
+16,A fuel powered car uses fuel when it is driven? ,yes,yes
+17,You don't need to be able to lift a basketball in order to be a basketball player? ,no,no
+18,No carnivores have tails? ,no,no
+19,"If you leave a pot of water on the stove on it's highest setting, there will probably still be water in the pot after 24 seconds? ",no,yes
+20,Islands are completely surrounded by water? ,yes,yes
+21,True or false,yes,no
+22,"If your favorite watch isn't waterproof, you might not want to wear it to go surfing? ",yes,yes
+23,Corkscrews are typically made out of soft materials? ,no,no
+24,Orange juice is just as solid as an orange is? ,no,no
+25,Human bodies have roughly the same thickness as most fabric? ,no,no
+26,A frying pan will probably be burned to ash in a fire? ,yes,no
+27,"If Suzy twisted her ankle, that injury would probably still cause her pain two years later? ",yes,no
+28,You're likely to find quicksand in a school yard sandbox? ,no,no
+29,A scenario cannot be both very likely and very unlikely? ,yes,yes
+30,A sports referee needs to be able to observe what happens in the game? ,yes,yes
+31,Organisms can't eat inedible things? ,yes,yes
+32,Someone in their forties is not a teenager? ,yes,yes
+33,The sister of a child's mother is that child's aunt? ,yes,yes
+34,Experts are likely to know about famous figures in their field? ,yes,yes
+35,Every seahorse is an aquatic organism? ,yes,yes
+36,True or false,yes,no
+37,True or false,yes,no
+38,A ceramic coffee mug placed on top of a paper would usually be heavy enough to prevent the paper from being blown away by a breeze? ,yes,yes
+39,"If you ordered iced tea, you would be pleased if it was still steaming when it got to your table? ",no,no
+40,Official certificates are usually paper? ,yes,yes
+41,Precipitation tends to interfere with outdoor activities? ,yes,yes
+42,Alligators can be dangerous to humans? ,yes,yes
+43,Deer do not have antenna? ,yes,yes
+44,Texas has two capital cities? ,no,no
+45,Doing laundry is a common household activity? ,yes,yes
+46,True or false,yes,no
+47,Roller blades have blades of metal or bone as parts? ,no,no
+48,"When someone smiles, it typically makes a lot of noise? ",no,no
+49,"If something is a mile away, then it would take most people at least a day to walk there? ",no,no
+50,Fires can burn in outer space? ,no,no
+51,You don't defrost frozen foods like ice cream in order to eat them? ,no,yes
+52,"At a sit-down restaurant, the meal is usually cooked before you order it? ",no,no
+53,Every refrigerated storage device is a cooling device? ,yes,yes
+54,It rains infrequently in deserts? ,yes,yes
+55,Duck hunting never involves killing an animal? ,no,no
+56,Knocking an unlit candle over onto a stack of papers could lead to a fire? ,yes,no
+57,True or false,yes,no
+58,"If you want to make someone angry, a really good way to do that would be to give them a present? ",no,no
+59,Clothes in a running clothes dryer are usually neatly folded and stationary? ,no,no
+60,People don't like being harmed? ,yes,yes
+61,The Sahara would be a good location to put an orchard? ,no,no
+62,You generally climb into the oven in order to eat cookies? ,no,no
+63,You can't nod off to sleep unless you consciously decide to? ,no,no
+64,Most lifeguards can't swim? ,no,no
+65,An empty glass can hold more liquid than a glass that has solid objects in it? ,yes,yes
+66,"In every sport, there is a penalty for punching other competitors? ",yes,no
+67,The purpose of train tracks is for cars to drive on? ,no,no
+68,"If you're sneaking out of a place, you generally don't want to be discovered? ",yes,yes
+69,France is one of England's territories? ,no,no
+70,Few buildings have interiors? ,no,no
+71,Sandals are most often worn in cold environments? ,no,no
+72,Most teenagers have already graduated from college? ,no,no
+73,Every turnip is a root vegetable? ,yes,yes
+74,True or false,yes,no
+75,Plants probably don't have senses like sight or taste? ,yes,yes
+76,Surgeries typically occur at hospitals? ,yes,yes
+77,Eyeglasses and sunglasses are worn on different parts of the body? ,yes,no
+78,People with an occupation usually have the skills required for that occupation? ,yes,yes
+79,No one owns the oceans? ,yes,yes
+80,There are 60 hours in a day? ,no,no
+81,Driving an automobile usually involves sitting down? ,yes,yes
+82,You usually do not need a ticket to attend a social event like a wedding or graduation? ,yes,yes
+83,True or false,yes,no
+84,Humans don't have stingers? ,yes,yes
+85,"If most As are Bs, and most As are Cs, then some Bs are Cs? ",no,yes
+86,Car bombs are primarily made out of vegetables? ,no,no
+87,Humans can be transported by means of passenger trains? ,yes,yes
+88,People often wear swimwear while engaged in water sports? ,yes,yes
+89,"If your backpack is halfway under the bed, there's usually no way to get to it without moving the bed? ",yes,no
+90,Experiencing pain typically makes people at least somewhat unhappy? ,yes,yes
+91,Every dairy product is an edible animal byproduct? ,yes,yes
+92,Soft things are typically easy to damage with a sharp knife? ,yes,yes
+93,"Car tires are typically black, regardless of the color of the car? ",yes,yes
+94,"If a metal can is completely sealed, its liquid contents are not likely to spill out? ",yes,yes
+95,Abrasive things are usually very smooth? ,no,no
+96,Large rocks are usually lighter than water? ,no,no
+97,Something capable of an activity that requires the use of a certain body part has at least one of that type of body part? ,yes,yes
+98,Bicycles have no wheels? ,no,no
+99,An 8 year old child is probably smaller than they were when they were 4? ,no,no
+100,"If you put water in a container with a hole in it, water will leak out? ",yes,yes
+101,"If an open or unsealed container is completely submersed in liquid, the liquid will begin to fill the container? ",yes,yes
+102,Only guns act as a weapon in shooting attacks? ,no,yes
+103,You might look at a wall calendar to figure out what day it is? ,yes,yes
+104,You can have biological grandchildren without having a child? ,no,no
+105,"In order for an animal to smile, it must have a mouth? ",yes,yes
+106,Most mammals have the ability to walk on water? ,no,no
+107,True or false,yes,no
+108,One example of a flying animal is a buffalo? ,no,no
+109,"It might be strange, but it is safe to put corn in oatmeal you are about to eat? ",no,yes
+110,Galileo was dead when Einstein was born? ,yes,yes
+111,The vegetables in salad must be cooked? ,no,no
+112,"Usually, only one hand is required to lift a wine glass? ",no,yes
+113,The head of a teddy bear is the top? ,yes,yes
+114,Black bears don't have wings? ,yes,yes
+115,Wedding bands are designed to fit on wrists? ,no,no
+116,Most humans are unable to eat food? ,no,no
+117,"If Player A has an advantage over Player B in a game (and not vice versa), then, all else equal, Player A has a better chance of winning than Player B? ",yes,yes
+118,Humans have brains? ,yes,yes
+119,True or false,yes,no
+120,Motor oil is often used in cooking? ,no,no
+121,It is commonly known that pigs can fly? ,no,no
+122,You have to be able to move your hand in order to make a fist? ,yes,yes
+123,"If Bob died yesterday, he might have high blood pressure today? ",no,no
+124,You usually use a marker to write on a blackboard? ,yes,no
+125,Paper is more likely to be ruined by liquid than metal? ,yes,yes
+126,Many people who are able to write can't read? ,no,no
+127,True or false,yes,no
+128,A feather would make a good pillow for a person? ,yes,no
+129,If a utensil can be used to eat something liquid then that utensil can contain liquids? ,yes,yes
+130,"If your friend owns and likes the first 2 volumes in a trilogy, the second volume would make a good gift? ",yes,no
+131,The best time to brush your hair is when it is braided? ,no,no
+132,"To harvest apples, you take them off the tree? ",yes,yes
+133,Headphones are designed to produce sound that can be heard by people who are far away from them? ,no,no
+134,Football is not a scored game? ,no,no
+135,Taking a selfie is taking a photograph? ,yes,yes
+136,People are often dissatisfied when they use poor quality products? ,yes,yes
+137,Dancing salsa requires at least some skill? ,yes,yes
+138,"If eyeglasses are dirty, that makes it harder to see out of them? ",yes,yes
+139,Handcuffs are worn on the palms of the hands? ,no,no
+140,Almost everyone is an expert in at least one science? ,no,no
+141,"If someone sells something to you, then you own that thing? ",yes,yes
+142,People prefer to avoid being rained on? ,yes,yes
+143,You can usually buy a new house for only a few thousand dollars? ,no,no
+144,People usually only do intimate actions like kissing or hugging with people who are not strangers? ,yes,yes
+145,Helium is heavier than water? ,no,no
+146,Cardboard would be a reasonable material to use for making a frying pan? ,no,no
+147,Wrecking balls are usually very light? ,no,no
+148,Between 1 and 52 weeks is longer than 1 second? ,yes,yes
+149,"Animals rarely, if ever, eat metal? ",yes,yes
+150,Most kinds of fish have hands? ,no,no
+151,Most bankers are not humans? ,no,no
+152,Someone who has performed a complex action with multiple steps probably knows they have performed that action? ,yes,yes
+153,"Since Lucy always succeeds at what she tries, Sammy was surprised she got the job? ",no,no
+154,True or false,yes,no
+155,Reading is something humans are born knowing how to do? ,no,no
+156,Homemade products are not made by commercial organizations? ,yes,yes
+157,Blue collar jobs typically do not require college degrees? ,yes,yes
+158,"For a career as a scientist or social scientist, you generally need advanced education? ",yes,yes
+159,The handle of a wooden spoon is usually made of glass? ,no,no
+160,You can roll a Pringles can across a table? ,yes,yes
+161,Most lipstick is clear? ,no,no
+162,People other than the bride should not wear a wedding dress to a wedding? ,yes,yes
+163,Hiking is generally an athletic activity? ,yes,yes
+164,"When Monica pointed to the stain on the carpet, she was probably pointing upward? ",no,no
+165,"While climbing a ladder, you usually don't need to step on any of the rungs? ",no,no
+166,"If something was invented after a person's death, then that person couldn't have owned that thing? ",yes,yes
+167,Brushing teeth is a common activity? ,yes,yes
+168,"There is only one one toothbrush in Fred and Sally's house, so when Fred is brushing his teeth, Sally always is too? ",yes,no
+169,"If you've been in part of a region, then you have been in the region? ",yes,yes
+170,There are 4 wheels on a surfboard? ,no,no
+171,"In a race, the slower you are, the greater your advantage? ",no,no
+172,Most dogs have one tail? ,no,yes
+173,Mothers exist before their children? ,yes,yes
+174,"To find something, you should go to a location where that thing is uncommon? ",no,no
+175,Tickets for championship sports games are typically not free? ,yes,yes
+176,Socks are worn over shoes? ,yes,no
+177,No formal shoe is a high-heeled shoe? ,no,no
+178,People don't usually make very large purchases completely on a whim? ,yes,yes
+179,Arms are the only parts that humans have? ,no,no
+180,Someone paralyzed from the neck down cannot make facial gestures? ,yes,no
+181,"Since Sally hasn't reached the legal drinking age, the bartender shouldn't serve her a virgin bloody mary? ",no,no
+182,Rabbits are plants? ,no,no
+183,Preparation of any dish that has egg as an ingredient involves breaking some eggs? ,yes,yes
+184,You need a hand to use a spear? ,no,yes
+185,A paper cup is more flammable than a drinking glass? ,yes,yes
+186,Kitchen ranges are primarily designed to be used to cook things? ,yes,yes
+187,Kittens always have dogs as parents? ,no,no
+188,A heavy book can be used for preventing a door from closing? ,yes,yes
+189,True or false,yes,no
+190,True or false,yes,no
+191,Some vegan foods have meat in them? ,no,no
+192,Splashing boiling water on someone could burn their skin? ,yes,yes
+193,"Europe only came into existence after London, England no longer existed? ",no,no
+194,Man-made objects do not grow on trees? ,yes,yes
+195,"When water skiing, you usually go from the top of a hill or mountain to the bottom? ",no,no
+196,A cottage is larger than a mansion? ,no,no
+197,People and organizations tend to have a positive incentive to bring about states of affairs from which they would benefit? ,yes,yes
+198,"If many As are Bs, then there are some As that are Bs? ",yes,yes
+199,"Fish breathe air, not water? ",no,no
+200,"If a squirrel has two paws in the air, then it only has 1 paw on the ground? ",no,no
+201,Water cannot be used to put out a fire? ,no,no
+202,A large flea is a small creature? ,yes,yes
+203,Sunglasses are often worn to guard the eyes against bright sunlight? ,yes,yes
+204,There is more snow in the winter than in other seasons? ,yes,yes
+205,Biographies are usually about fictional characters? ,no,no
+206,Most knife blades are incapable of cutting human flesh? ,no,no
+207,A fish that has been out of water for an hour is probably dead? ,yes,yes
+208,Plastic is a type of artificial material? ,yes,yes
+209,Adding a cool object to a warm substance results in temperature changes to the substance? ,yes,yes
+210,"If Julia lives in Kansas, and her vet lives in Missouri, then her cat probably lives in Missouri? ",no,no
+211,Marbles are usually liquid? ,no,no
+212,Beef jerky is an example of fresh food? ,no,no
+213,People typically know where they live? ,yes,yes
+214,Only things that are alive can die? ,no,yes
+215,"If people are facing each other, their facial expressions are visible to each other as long as nothing obstructs their view? ",yes,yes
+216,Many authors have never written anything? ,no,no
+217,No castle is made of stone? ,no,no
+218,"Because they are both small, a regular toothbrush and a diamond necklace both cost about the same? ",no,no
+219,True or false,yes,no
+220,"In most parts of the world, if you're going to have a midnight snack, you could first open the blinds to let in more sunlight? ",no,no
+221,"If Heather calls her sister two times a week and calls her parents five times a week, then she calls her sister more frequently than her parents? ",no,no
+222,"Typically, bananas and lemons are both yellow and sour? ",yes,no
+223,Mice view cats as natural prey? ,no,no
+224,An igloo would be a good shelter to build in the Mohave Desert? ,no,no
+225,"If a police officer found a female infant, he was more than 10 years old? ",no,yes
+226,Most fabrics are prone to rust? ,no,no
+227,"If Russell is a Christian, he probably believes there is no god? ",no,no
+228,It is not uncommon to need to cut food when you're preparing a meal? ,yes,yes
+229,There are seven days in a week? ,yes,yes
+230,"If there are few of something, then there are not many of that thing? ",yes,yes
+231,"If an animal is hungry, it has no desire to eat food? ",no,no
+232,You use your throat to swallow? ,yes,yes
+233,No human is a hibernating animal? ,yes,yes
+234,The sound of a soap bubble popping is likely to wake someone up? ,yes,no
+235,No nail file is a container? ,no,yes
+236,The population of a city is usually the same as the population of the country that city is in? ,no,no
+237,Most cooks are unable to prepare food? ,no,no
+238,No planet other than earth has human inhabitants? ,yes,yes
+239,Wood would burn up on the sun? ,yes,yes
+240,Golf clubs usually don't come into direct physical contact with balls? ,no,no
+241,You can't go cave diving without an oxygen tank? ,yes,no
+242,Guitars are stringed instruments? ,yes,yes
+243,People sometimes tap others on the tongue to get their attention? ,no,no
+244,"The bigger and heavier a professional jockey, the better? ",no,no
+245,"If something is full of water, then it is not full of air? ",no,yes
+246,People take medicine to cause medical issues? ,no,no
+247,Skyscrapers are much taller than even the tallest animal? ,yes,yes
+248,Railway trains are typically light enough for a single human to lift? ,no,no
+249,You generally shouldn't store perishable food in places where it will last for only a short period of time? ,no,yes
+250,True or false,yes,no
+251,Someone who hadn't slept in two days might find it harder to take a test? ,yes,yes
+252,True or false,yes,yes
+253,Goats have exactly two legs? ,no,no
+254,The punishment for murder is usually worse than a fine? ,yes,yes
+255,T-shirts can't be folded or balled-up? ,no,no
+256,Rocks are not living creatures? ,yes,yes
+257,Professional sports teams generally play many different sports competitively? ,no,no
+258,"After you turn a glass of water upside down over a table, some of the water will be on the table? ",yes,yes
+259,No fish eat other fish? ,no,no
+260,"If Noel electrocuted Bill, and Jeff lied to Bill, then Jeff did something more morally wrong than Noel? ",no,no
+261,Part of every fork is a bowl shaped fluid reservoir? ,no,no
+262,You cannot swallow something whole if you cannot fit it into your mouth? ,yes,yes
+263,Buildings intended to shelter humans are usually made to be sturdy? ,yes,yes
+264,People serving as judges in some capacity are supposed to be as impartial as possible? ,yes,yes
+265,"Every mammal is an animal, but not every animal is a mammal? ",yes,yes
+266,Toy soldiers don't have minds? ,yes,yes
+267,People are generally not given a leadership or management job as their first job? ,yes,yes
+268,Both ends of a soda can are equally easy to open? ,no,no
+269,Plants cannot do many of the things that animals can? ,yes,yes
+270,A leisurely walk is a dangerous activity? ,no,no
+271,"If all of the food in the refrigerator is raw, then there might be a chocolate doughnut in the refrigerator? ",no,no
+272,"When a gun is fired, a bullet comes out of the gun? ",yes,yes
+273,Only somewhat rigid objects can be used to stir liquids? ,no,yes
+274,Most bison live in tropical jungles? ,no,no
+275,Gasoline is very flammable? ,yes,yes
+276,Someone who can lift an object of a certain weight can usually also lift objects that are lighter? ,yes,yes
+277,"If A causes B, then B begins after A does? ",yes,yes
+278,"In general, employees of a company are unlikely to do what the chief executive officer tells them to do? ",no,no
+279,True or false,yes,no
+280,Teachers generally have authority over their students? ,yes,yes
+281,Weather like rain or snow usually happens indoors? ,no,no
+282,Being injured is rarely painful? ,no,no
+283,Skyscrapers are usually built in rural areas? ,no,no
+284,Touching the blade of a power saw while the saw is on results in injury? ,yes,yes
+285,Contact with water causes cotton candy to lose its shape? ,yes,yes
+286,The North Pole is north of everything on earth? ,yes,yes
+287,Many 4 year old humans have completed medical school? ,no,no
+288,Things never do what they cannot do? ,no,yes
+289,Einstein's kitten probably knows the Theory of Relativity? ,no,no
+290,True or false,yes,no
+291,"If you stack a bag of potatoes on a loaf of bread, the bread will likely be crushed? ",yes,yes
+292,True or false,yes,no
+293,"Assuming something is moving in a straight line, the amount of time it takes for that thing to travel a given distance depends on its average speed while traveling? ",yes,yes
+294,The Coca-Cola Company is a non-profit? ,no,no
+295,A scalpel is a kind of knife? ,yes,yes
+296,Breaking something makes it more difficult to use it? ,yes,yes
+297,"Usually, you can open a window in a house to let in fresh air from outside? ",yes,yes
+298,Chicken legs are unique to chickens? ,no,yes
+299,Cities in Canada are located in North America? ,yes,yes
+300,"If you're making beef stew, and you don't have blueberries, you'll have to go to the store? ",no,no
+301,"If an animal undergoes an amputation, it does not lose any parts? ",no,no
+302,"If a type of attire is typically worn when the temperature is at a certain level, then it is appropriate to wear that attire in a place with that temperature? ",yes,yes
+303,It is not uncommon for people to regret performing an immoral action? ,yes,yes
+304,"Fred was speeding, so he pulled himself over and gave himself a ticket? ",no,no
+305,One reason you might rent a hotel room is to have a place to sleep for the night? ,yes,yes
+306,People tend to take offense when their appearance is criticized in earnest? ,yes,yes
+307,Cars were first invented after the year 2000? ,no,no
+308,"Lea just turned 32, so she's in the 35-45 age group? ",no,no
+309,True or false,yes,no
+310,"If you own something, you own all of its parts? ",yes,yes
+311,A stone pillow is more desirable than a memory foam pillow? ,no,no
+312,"If you are not very hungry, you might order a large salad instead of a small salad? ",no,no
+313,You can use a cigarette lighter to light a drinking glass on fire? ,no,no
+314,A rubber mat absorbs water better than a cotton mat? ,no,no
+315,Many live-in housekeepers commute to work? ,no,no
+316,The Eiffel Tower is an inanimate object? ,yes,yes
+317,You could make an effective bicycle helmet out of cotton? ,no,no
+318,Humans do not have eyes in the back of their heads? ,yes,yes
+319,You can't blow a kiss to someone on the other side of a glass divider from you? ,yes,no
+320,Participants in a tournament usually don't care if they win? ,no,no
+321,The clothes people sleep in tend to be very casual clothes? ,yes,yes
+322,People who often sew can probably repair torn clothing items? ,yes,yes
+323,Closed blinds let in more sunlight than open ones? ,no,no
+324,"Things about the size of, or smaller than, a grapefruit can usually be carried with one hand? ",yes,yes
+325,A pet owner is expected to provide their pet with the resources that it needs to live? ,yes,yes
+326,The due south direction is the direction precisely opposite the due west direction? ,yes,no
+327,Stabbing something almost never results in a hole or puncture in the thing stabbed? ,no,no
+328,Surgery affects parts of animal bodies? ,yes,yes
+329,Most professional athletes are athletic? ,yes,yes
+330,"If most As are Bs, then some As are Bs? ",yes,yes
+331,Fruits often eat other fruits for nourishment? ,no,no
+332,"When people store books, they generally don't close the book? ",no,no
+333,Places that are intended to house humans are bigger than humans? ,no,yes
+334,True or false,yes,no
+335,"If you can't reach the ceiling when standing on a table, you might have better luck standing on a chair? ",yes,no
+336,The number of paws a dog has is less than 5? ,no,yes
+337,"Since humans can't eat them, you should separate out the whites of eggs? ",no,no
+338,Business executives usually work in sewers? ,no,no
+339,"Usually when you go shopping, you first pay, and then you decide what you want to buy? ",no,no
+340,True or false,yes,no
+341,Most people would be insulted if someone told them they were stupid? ,yes,yes
+342,Most people cannot push a sewing needle through cotton fabric using their hands? ,yes,no
+343,People normally wear clothes in the shower? ,no,no
+344,Office supply stores do not typically sell food? ,yes,yes
+345,Most human residences in the USA have electrical outlets in them? ,yes,yes
+346,True or false,yes,no
+347,Adults are typically bigger than juveniles? ,yes,yes
+348,True or false,yes,no
+349,Plastic grapes are sweet? ,no,no
+350,Clouds are solid objects? ,no,no
+351,"If someone has loaned you a car, they no longer own that car? ",yes,no
+352,Anyone who is sleepy is already asleep? ,no,no
+353,"If Chris owns a female turkey, she is not a human being? ",yes,yes
+354,True or false,yes,no
+355,"When someone's hair is cut, they usually feel no pain? ",yes,yes
+356,Cars are sometimes towed because they can't be turned on? ,yes,yes
+357,Coral reefs are underwater? ,yes,yes
+358,Most house cats are heavier than elephants? ,no,no
+359,Nodding is often an intentional gesture? ,yes,yes
+360,The number of cities in a country is generally greater than the number of states in that country? ,yes,yes
+361,Most knitting needles are not rigid? ,yes,no
+362,Newborn humans usually have a full set of teeth? ,no,no
+363,Swimming pools are typically filled with wine? ,no,no
+364,Cats have roughly the same typical diet as cows? ,no,no
+365,You can't see the front or back side of pages in a closed book? ,yes,yes
+366,Bananas are not completely spherical objects? ,yes,yes
+367,Commercial aircraft controls are generally located on the aircraft? ,yes,yes
+368,A device cannot be used before it has been invented? ,yes,yes
+369,Neither cats nor humans have ears? ,no,no
+370,Lawyers typically dress very casually when at work? ,no,no
+371,You usually can't catch an object like a baseball if it is too heavy for you to lift? ,no,yes
+372,Europe is far to the south of Italy? ,no,no
+373,People usually know their own names? ,yes,yes
+374,Most wine glasses are nearly indestructible? ,no,no
+375,"When baking an apple pie, you put whole, unsliced apples in a crust? ",yes,no
+376,"If you see the word 'Pull' on a door, then it opens away from you? ",no,no
+377,The job of a gardener is to care for plants? ,yes,yes
+378,Most taxidermists probably don't know about anatomy? ,no,no
+379,"If you climb to the top of a skyscraper, you can see things on the other side of the ocean? ",no,no
+380,To poison someone you have to be in the same room as them at the time of the poisoning? ,yes,no
+381,Most bags can be used to transport things? ,yes,yes
+382,"When Lisa gave birth to her son, she was larger than he was? ",yes,yes
+383,You can't use a container to transport something if the thing you are transporting doesn't fit in the container? ,yes,yes
+384,Most melons are many times the size of a breadbox? ,yes,no
+385,Most vegans would refuse to eat pasta noodles? ,yes,no
+386,"If an activity is something you learn how to do, then anyone who is capable of doing that activity has learned how to do it? ",yes,yes
+387,Flying involves moving through the air? ,yes,yes
+388,True or false,yes,no
+389,True or false,yes,no
+390,Everything that flies has feathers? ,no,no
+391,Carrots are usually bright red? ,yes,no
+392,"There is probably some grass growing somewhere in Dallas, Texas? ",yes,yes
+393,Porcupines have quills? ,yes,yes
+394,Getting out of bed typically lasts for at most a few minutes? ,yes,yes
+395,True or false,yes,no
+396,"If only As are Bs, no As are Cs, then no Cs are Bs? ",yes,yes
+397,People are usually disappointed if they don't achieve their goals? ,yes,yes
+398,Materials used as structural supports typically can't be folded? ,yes,yes
+399,Stars aren't visible when it is dark? ,no,no
+400,"When playing a game where the highest score wins, players would rather do things that score more points than things that score fewer points? ",yes,yes
+401,"It is possible for someone to be within reach of your shoulder without you noticing, even while you are awake? ",yes,yes
+402,Seattle is the capital of Canada? ,no,no
+403,You can read a diary while it is hidden beneath a mattress? ,no,no
+404,Fishing net has holes in it? ,yes,yes
+405,"The Jones family used their entire set of kitchen chairs at breakfast, so they needed new ones before they could do that again the next day? ",no,no
+406,Many dairy products go bad if they are left at room temperature for too long? ,yes,yes
+407,Airplanes fly by flapping their wings? ,yes,no
+408,Groceries have to be carried in something other than a grocery bag? ,no,no
+409,A catfish is neither a cat nor a fish? ,yes,no
+410,"When you cast a fishing line, the hook doesn't move? ",no,no
+411,Most bridges are not portable? ,yes,yes
+412,Eels can wave goodbye? ,no,no
+413,The purpose of a washing machine is to wash clothes? ,yes,yes
+414,The goal of setting a table is to take dishes from the table and put them in the cupboard? ,no,no
+415,Breaking a nail is a serious injury? ,no,no
+416,The long jump involves jumping straight up? ,no,no
+417,People are displeased when things they care about die? ,yes,yes
+418,Most people drink without using their mouths? ,no,no
+419,People who work in an office are expected to come to work fully clothed? ,yes,yes
+420,Precipitation typically doesn't interfere with indoor activities? ,no,yes
+421,You can't make a sculpture out of gas? ,yes,yes
+422,"If two actions can't be done at the same time, then you can do one of those actions while doing the other? ",no,no
+423,True or false,yes,yes
+424,Tacos are a traditional British food? ,no,no

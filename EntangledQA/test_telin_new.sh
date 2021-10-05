@@ -2,25 +2,52 @@
 
 # ** RoBerta-large || EntangledQA **
 python3 main.py \
-    --mode released-b \
+    --mode dev-b \
+    --mode dev-a \
     --mode released-a \
+    --mode released-b \
     --expt_dir ./results_log/EntangledQA \
     --expt_name unifiedqa_11b \
     --model "allenai/unifiedqa-t5-11b" \
-    --model roberta-large \
     --train_dataset EntangledQA \
     --dev_dataset EntangledQA \
     --test_dataset EntangledQA \
-    --run semeval20_all_pretrained_seqlen75_released-b \
-    --run semeval20_all_pretrained_seqlen75_released-a \
+    --run com2sense60_pretrained_dev-b \
+    --run com2sense60_pretrained_dev-a \
+    --run com2sense60_pretrained_released-b \
+    --run com2sense60_pretrained_released-a \
+    --run semeval20_comparative_com2sense60_pretrained_dev-b \
+    --run semeval20_comparative_com2sense60_pretrained_dev-a \
+    --run semeval20_comparative_pretrained_dev-b \
+    --run semeval20_comparative_pretrained_dev-a \
+    --run semeval20_comparative_pretrained_released-a \
+    --run semeval20_comparative_pretrained_released-b \
+    --run semeval20_comparative_pretrained_no_training_dev-b \
+    --run semeval20_comparative_pretrained_no_training_dev-a \
+    --run semeval20_comparative_com2sense60_pretrained_released-b \
+    --run semeval20_comparative_com2sense60_pretrained_released-a \
+    --run semeval20_comparative_com2sense60_pretrained_no_training_released-b \
+    --run semeval20_comparative_com2sense60_pretrained_no_training_released-a \
+    --run semeval20_comparative_pretrained_no_training_train-b \
+    --run semeval20_comparative_pretrained_no_training_train-a \
+    --run semeval20_comparative_com2sense80_pretrained_no_training_released-b \
+    --run semeval20_comparative_com2sense80_pretrained_no_training_released-a \
+    --run semeval20_all_comparative_pretrained_no_training_released-b \
+    --run semeval20_all_comparative_pretrained_no_training_released-a \
     --seed 808 \
     --gpu 0,1,2,3,4,5,6,7 \
-    --gpu 0,1,2,3 \
     --gpu 0 \
+    --gpu 0,1,2,3 \
     --seq_len 128 \
-    --seq_len 75 \
+    --seq_len 64 \
     --batch_size 1 \
     --acc_step 1 \
     --use_amp F \
     --lr 5e-6 \
     --ckpt "" \
+    --ckpt "./results_log/EntangledQA/unifiedqa_11b/semeval20_comparative_pretrained/ep_2_stp_12.3k_acc_84.5519_allenai_unifiedqa_t5_11b.pth" \
+    --ckpt "./results_log/EntangledQA/unifiedqa_11b/semeval20_comparative_com2sense60_pretrained/ep_4_stp_15.8k_acc_85.6132_allenai_unifiedqa_t5_11b.pth" \
+    --ckpt "./results_log/com2sense/unifiedqa_11b/semeval20_comparative_com2sense60/ep_4_stp_15.8k_acc_81.9095_allenai_unifiedqa_t5_11b.pth" \
+    --ckpt "./results_log/SemEval20Comparative/unifiedqa_11b/semeval20_comparative/ep_3_stp_18.4k_acc_93.0447_allenai_unifiedqa_t5_11b.pth" \
+    --ckpt "./results_log/com2sense/unifiedqa_11b/semeval20_comparative_com2sense80/ep_4_stp_21.5k_acc_80.6533_allenai_unifiedqa_t5_11b.pth" \
+    --ckpt "./results_log/SemEval20Comparative/unifiedqa_11b/semeval20_all_dev_EQA/ep_4_stp_28.5k_acc_88.3721_allenai_unifiedqa_t5_11b.pth" \
