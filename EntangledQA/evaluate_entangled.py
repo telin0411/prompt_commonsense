@@ -43,6 +43,44 @@ def compute_accuracy(args):
         np.sum(origin_correct_idx == entailed_correct_idx) / len(accuracy_dataset)))
 
 
+    origin_data = load_dataset_file(args.cycic3a_data)
+    entailed_data = load_dataset_file(args.cycic3b_data)
+    origin_categories = origin_data["categories"].tolist()
+    entailed_categories = entailed_data["categories"].tolist()
+
+    origin_labels_list = origin_labels.correct_answer.tolist()
+    entailed_labels_list = entailed_labels.correct_answer.tolist()
+    origin_preds_list = origin_preds['prediction'].tolist()
+    entailed_preds_list = entailed_preds['prediction'].tolist()
+    labels_list = origin_labels_list + entailed_labels_list
+    preds_list = origin_preds_list + entailed_preds_list
+    categories_list = origin_categories + entailed_categories
+
+    import pprint
+    assert len(labels_list) == len(preds_list) == len(categories_list)
+    categories_perf = {}
+    for i in range(len(labels_list)):
+        lab = labels_list[i]
+        pre = preds_list[i]
+        cats = categories_list[i]
+        for cat in cats:
+            if cat not in categories_perf:
+                categories_perf[cat] = {
+                    "preds": [],
+                    "labels": [],
+                }
+            categories_perf[cat]["preds"].append(pre)
+            categories_perf[cat]["labels"].append(lab)
+
+    pand_list = []
+    for cat in sorted(categories_perf):
+        cat_perf = categories_perf[cat]
+        score = accuracy_score(cat_perf["preds"], cat_perf["labels"])
+        pand_list.append([cat, score, len(cat_perf["preds"])])
+    df = pd.DataFrame(pand_list, columns =["Category", "Accuracy", "Count"])
+    print(df[df["Count"] > 10])
+    pass
+
 def compute_accuracy_dataset(origin_labels, origin_preds, entailed_labels, entailed_preds, mapping):
     # get a mapping of run_id -> label and prediction for each dataset
     origin_results = pd.concat([origin_labels['run_id'], origin_labels['correct_answer'], origin_preds], axis=1).rename(

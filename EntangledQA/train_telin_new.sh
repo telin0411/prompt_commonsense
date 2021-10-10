@@ -12,8 +12,8 @@ python3 main.py \
     --train_dataset EntangledQA \
     --train_dataset semeval20_comparative \
     --train_file all \
-    --train_file train \
     --train_file train_all \
+    --train_file train \
     --dev_dataset semeval_2020 \
     --dev_dataset semeval20_comparative \
     --dev_dataset EntangledQA \
@@ -35,17 +35,18 @@ python3 main.py \
     --run semeval20_comparative_com2sense60_pretrained \
     --run com2sense60_pretrained \
     --run semeval20_all_dev_EQA \
+    --run semeval20_dev_EQA \
     --seed 1000 \
     --gpu 0,1,2,3,4,5,6,7 \
-    --gpu 0,1,2,3,4,5 \
     --gpu 0,1,2,3 \
+    --gpu 0,1,2,3,4,5 \
     --batch_size 4 \
-    --seq_len 128 \
     --seq_len 64 \
+    --seq_len 128 \
     --acc_step 16 \
     --acc_step 8 \
     --use_amp F \
-    --lr 5e-6 \
+    --lr 1e-5 \
 
     # --ckpt "./results_log/SemEval20Comparative/unifiedqa_11b/semeval20_comparative/ep_1_stp_6.1k_acc_92.5340_allenai_unifiedqa_t5_11b.pth" \
     # --ckpt "./results_log/SemEval20Comparative/unifiedqa_11b/semeval20_comparative/ep_2_stp_12.2k_acc_92.6313_allenai_unifiedqa_t5_11b.pth" \

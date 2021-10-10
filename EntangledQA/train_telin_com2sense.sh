@@ -15,32 +15,33 @@ python3 main.py \
     --train_dataset com2sense \
     --train_file all \
     --train_file train \
-    --train_file train-80 \
+    --train_file train-70 \
     --dev_dataset semeval_2020 \
     --dev_dataset semeval20_comparative \
-    --dev_dataset com2sense \
     --dev_dataset EntangledQA \
+    --dev_dataset com2sense \
     --dev_file dev \
     --dev_file dev \
     --dev_file released-a \
-    --dev_file dev-80 \
     --dev_file train_dev-a \
+    --dev_file dev-70 \
     --test_dataset semeval_2020 \
     --test_dataset semeval20_comparative \
-    --test_dataset com2sense \
     --test_dataset EntangledQA \
+    --test_dataset com2sense \
     --test_file test \
     --test_file dev \
     --test_file released-b \
-    --test_file test-80 \
     --test_file train_dev-b \
+    --test_file test-70 \
     --run semeval20_all \
     --run semeval20_all_pretrained \
     --run semeval20_comparative_pretrained \
     --run semeval20_comparative_com2sense60 \
     --run semeval20_com2sense60 \
-    --run semeval20_comparative_com2sense80 \
     --run semeval20_comparative_com2sense80_dev_EQA \
+    --run semeval20_comparative_com2sense80_v2 \
+    --run semeval20_comparative_com2sense70 \
     --seed 1000 \
     --gpu 0,1,2,3,4,5,6,7 \
     --gpu 0,1,2,3 \

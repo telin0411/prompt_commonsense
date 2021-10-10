@@ -7,10 +7,10 @@
 5,A container cannot hold objects that are larger than itself? ,yes,yes
 6,Execution is not the typical punishment for misdemeanors? ,yes,yes
 7,A broom is generally better than a mop for cleaning up liquids? ,no,no
-8,True or false,yes,no
+8,True or false,no,no
 9,Stadium-sized is larger than breadbox sized? ,yes,yes
-10,It would typically be surprising to find gills on a mammal? ,no,yes
-11,True or false,yes,no
+10,It would typically be surprising to find gills on a mammal? ,yes,yes
+11,True or false,no,no
 12,Bats can fly? ,yes,yes
 13,The back of a hanging painting faces the wall? ,no,yes
 14,Land organisms do not grow underwater? ,yes,yes
@@ -20,23 +20,23 @@
 18,No carnivores have tails? ,no,no
 19,"If you leave a pot of water on the stove on it's highest setting, there will probably still be water in the pot after 24 seconds? ",no,yes
 20,Islands are completely surrounded by water? ,yes,yes
-21,True or false,yes,no
+21,True or false,no,no
 22,"If your favorite watch isn't waterproof, you might not want to wear it to go surfing? ",yes,yes
 23,Corkscrews are typically made out of soft materials? ,no,no
 24,Orange juice is just as solid as an orange is? ,no,no
 25,Human bodies have roughly the same thickness as most fabric? ,no,no
-26,A frying pan will probably be burned to ash in a fire? ,yes,no
-27,"If Suzy twisted her ankle, that injury would probably still cause her pain two years later? ",yes,no
+26,A frying pan will probably be burned to ash in a fire? ,no,no
+27,"If Suzy twisted her ankle, that injury would probably still cause her pain two years later? ",no,no
 28,You're likely to find quicksand in a school yard sandbox? ,no,no
-29,A scenario cannot be both very likely and very unlikely? ,yes,yes
+29,A scenario cannot be both very likely and very unlikely? ,no,yes
 30,A sports referee needs to be able to observe what happens in the game? ,yes,yes
 31,Organisms can't eat inedible things? ,yes,yes
 32,Someone in their forties is not a teenager? ,yes,yes
 33,The sister of a child's mother is that child's aunt? ,yes,yes
 34,Experts are likely to know about famous figures in their field? ,yes,yes
 35,Every seahorse is an aquatic organism? ,yes,yes
-36,True or false,yes,no
-37,True or false,yes,no
+36,True or false,no,no
+37,True or false,no,no
 38,A ceramic coffee mug placed on top of a paper would usually be heavy enough to prevent the paper from being blown away by a breeze? ,yes,yes
 39,"If you ordered iced tea, you would be pleased if it was still steaming when it got to your table? ",no,no
 40,Official certificates are usually paper? ,yes,yes
@@ -45,7 +45,7 @@
 43,Deer do not have antenna? ,yes,yes
 44,Texas has two capital cities? ,no,no
 45,Doing laundry is a common household activity? ,yes,yes
-46,True or false,yes,no
+46,True or false,no,no
 47,Roller blades have blades of metal or bone as parts? ,no,no
 48,"When someone smiles, it typically makes a lot of noise? ",no,no
 49,"If something is a mile away, then it would take most people at least a day to walk there? ",no,no
@@ -55,8 +55,8 @@
 53,Every refrigerated storage device is a cooling device? ,yes,yes
 54,It rains infrequently in deserts? ,yes,yes
 55,Duck hunting never involves killing an animal? ,no,no
-56,Knocking an unlit candle over onto a stack of papers could lead to a fire? ,yes,no
-57,True or false,yes,no
+56,Knocking an unlit candle over onto a stack of papers could lead to a fire? ,no,no
+57,True or false,no,no
 58,"If you want to make someone angry, a really good way to do that would be to give them a present? ",no,no
 59,Clothes in a running clothes dryer are usually neatly folded and stationary? ,no,no
 60,People don't like being harmed? ,yes,yes
@@ -73,7 +73,7 @@
 71,Sandals are most often worn in cold environments? ,no,no
 72,Most teenagers have already graduated from college? ,no,no
 73,Every turnip is a root vegetable? ,yes,yes
-74,True or false,yes,no
+74,True or false,no,no
 75,Plants probably don't have senses like sight or taste? ,yes,yes
 76,Surgeries typically occur at hospitals? ,yes,yes
 77,Eyeglasses and sunglasses are worn on different parts of the body? ,yes,no
@@ -82,9 +82,9 @@
 80,There are 60 hours in a day? ,no,no
 81,Driving an automobile usually involves sitting down? ,yes,yes
 82,You usually do not need a ticket to attend a social event like a wedding or graduation? ,yes,yes
-83,True or false,yes,no
+83,True or false,no,no
 84,Humans don't have stingers? ,yes,yes
-85,"If most As are Bs, and most As are Cs, then some Bs are Cs? ",no,yes
+85,"If most As are Bs, and most As are Cs, then some Bs are Cs? ",yes,yes
 86,Car bombs are primarily made out of vegetables? ,no,no
 87,Humans can be transported by means of passenger trains? ,yes,yes
 88,People often wear swimwear while engaged in water sports? ,yes,yes
@@ -106,7 +106,7 @@
 104,You can have biological grandchildren without having a child? ,no,no
 105,"In order for an animal to smile, it must have a mouth? ",yes,yes
 106,Most mammals have the ability to walk on water? ,no,no
-107,True or false,yes,no
+107,True or false,no,no
 108,One example of a flying animal is a buffalo? ,no,no
 109,"It might be strange, but it is safe to put corn in oatmeal you are about to eat? ",no,yes
 110,Galileo was dead when Einstein was born? ,yes,yes
@@ -114,11 +114,11 @@
 112,"Usually, only one hand is required to lift a wine glass? ",no,yes
 113,The head of a teddy bear is the top? ,yes,yes
 114,Black bears don't have wings? ,yes,yes
-115,Wedding bands are designed to fit on wrists? ,no,no
+115,Wedding bands are designed to fit on wrists? ,yes,no
 116,Most humans are unable to eat food? ,no,no
 117,"If Player A has an advantage over Player B in a game (and not vice versa), then, all else equal, Player A has a better chance of winning than Player B? ",yes,yes
 118,Humans have brains? ,yes,yes
-119,True or false,yes,no
+119,True or false,no,no
 120,Motor oil is often used in cooking? ,no,no
 121,It is commonly known that pigs can fly? ,no,no
 122,You have to be able to move your hand in order to make a fist? ,yes,yes
@@ -126,10 +126,10 @@
 124,You usually use a marker to write on a blackboard? ,yes,no
 125,Paper is more likely to be ruined by liquid than metal? ,yes,yes
 126,Many people who are able to write can't read? ,no,no
-127,True or false,yes,no
-128,A feather would make a good pillow for a person? ,yes,no
+127,True or false,no,no
+128,A feather would make a good pillow for a person? ,no,no
 129,If a utensil can be used to eat something liquid then that utensil can contain liquids? ,yes,yes
-130,"If your friend owns and likes the first 2 volumes in a trilogy, the second volume would make a good gift? ",yes,no
+130,"If your friend owns and likes the first 2 volumes in a trilogy, the second volume would make a good gift? ",no,no
 131,The best time to brush your hair is when it is braided? ,no,no
 132,"To harvest apples, you take them off the tree? ",yes,yes
 133,Headphones are designed to produce sound that can be heard by people who are far away from them? ,no,no
@@ -153,7 +153,7 @@
 151,Most bankers are not humans? ,no,no
 152,Someone who has performed a complex action with multiple steps probably knows they have performed that action? ,yes,yes
 153,"Since Lucy always succeeds at what she tries, Sammy was surprised she got the job? ",no,no
-154,True or false,yes,no
+154,True or false,no,no
 155,Reading is something humans are born knowing how to do? ,no,no
 156,Homemade products are not made by commercial organizations? ,yes,yes
 157,Blue collar jobs typically do not require college degrees? ,yes,yes
@@ -168,7 +168,7 @@
 166,"If something was invented after a person's death, then that person couldn't have owned that thing? ",yes,yes
 167,Brushing teeth is a common activity? ,yes,yes
 168,"There is only one one toothbrush in Fred and Sally's house, so when Fred is brushing his teeth, Sally always is too? ",yes,no
-169,"If you've been in part of a region, then you have been in the region? ",yes,yes
+169,"If you've been in part of a region, then you have been in the region? ",no,yes
 170,There are 4 wheels on a surfboard? ,no,no
 171,"In a race, the slower you are, the greater your advantage? ",no,no
 172,Most dogs have one tail? ,no,yes
@@ -188,8 +188,8 @@
 186,Kitchen ranges are primarily designed to be used to cook things? ,yes,yes
 187,Kittens always have dogs as parents? ,no,no
 188,A heavy book can be used for preventing a door from closing? ,yes,yes
-189,True or false,yes,no
-190,True or false,yes,no
+189,True or false,no,no
+190,True or false,no,no
 191,Some vegan foods have meat in them? ,no,no
 192,Splashing boiling water on someone could burn their skin? ,yes,yes
 193,"Europe only came into existence after London, England no longer existed? ",no,no
@@ -199,7 +199,7 @@
 197,People and organizations tend to have a positive incentive to bring about states of affairs from which they would benefit? ,yes,yes
 198,"If many As are Bs, then there are some As that are Bs? ",yes,yes
 199,"Fish breathe air, not water? ",no,no
-200,"If a squirrel has two paws in the air, then it only has 1 paw on the ground? ",no,no
+200,"If a squirrel has two paws in the air, then it only has 1 paw on the ground? ",yes,no
 201,Water cannot be used to put out a fire? ,no,no
 202,A large flea is a small creature? ,yes,yes
 203,Sunglasses are often worn to guard the eyes against bright sunlight? ,yes,yes
@@ -213,18 +213,18 @@
 211,Marbles are usually liquid? ,no,no
 212,Beef jerky is an example of fresh food? ,no,no
 213,People typically know where they live? ,yes,yes
-214,Only things that are alive can die? ,no,yes
+214,Only things that are alive can die? ,yes,yes
 215,"If people are facing each other, their facial expressions are visible to each other as long as nothing obstructs their view? ",yes,yes
 216,Many authors have never written anything? ,no,no
 217,No castle is made of stone? ,no,no
 218,"Because they are both small, a regular toothbrush and a diamond necklace both cost about the same? ",no,no
-219,True or false,yes,no
+219,True or false,no,no
 220,"In most parts of the world, if you're going to have a midnight snack, you could first open the blinds to let in more sunlight? ",no,no
 221,"If Heather calls her sister two times a week and calls her parents five times a week, then she calls her sister more frequently than her parents? ",no,no
 222,"Typically, bananas and lemons are both yellow and sour? ",yes,no
 223,Mice view cats as natural prey? ,no,no
 224,An igloo would be a good shelter to build in the Mohave Desert? ,no,no
-225,"If a police officer found a female infant, he was more than 10 years old? ",no,yes
+225,"If a police officer found a female infant, he was more than 10 years old? ",yes,yes
 226,Most fabrics are prone to rust? ,no,no
 227,"If Russell is a Christian, he probably believes there is no god? ",no,no
 228,It is not uncommon to need to cut food when you're preparing a meal? ,yes,yes
@@ -234,7 +234,7 @@
 232,You use your throat to swallow? ,yes,yes
 233,No human is a hibernating animal? ,yes,yes
 234,The sound of a soap bubble popping is likely to wake someone up? ,yes,no
-235,No nail file is a container? ,no,yes
+235,No nail file is a container? ,yes,yes
 236,The population of a city is usually the same as the population of the country that city is in? ,no,no
 237,Most cooks are unable to prepare food? ,no,no
 238,No planet other than earth has human inhabitants? ,yes,yes
@@ -244,14 +244,14 @@
 242,Guitars are stringed instruments? ,yes,yes
 243,People sometimes tap others on the tongue to get their attention? ,no,no
 244,"The bigger and heavier a professional jockey, the better? ",no,no
-245,"If something is full of water, then it is not full of air? ",no,yes
+245,"If something is full of water, then it is not full of air? ",yes,yes
 246,People take medicine to cause medical issues? ,no,no
 247,Skyscrapers are much taller than even the tallest animal? ,yes,yes
 248,Railway trains are typically light enough for a single human to lift? ,no,no
 249,You generally shouldn't store perishable food in places where it will last for only a short period of time? ,no,yes
-250,True or false,yes,no
+250,True or false,no,no
 251,Someone who hadn't slept in two days might find it harder to take a test? ,yes,yes
-252,True or false,yes,yes
+252,True or false,no,yes
 253,Goats have exactly two legs? ,no,no
 254,The punishment for murder is usually worse than a fine? ,yes,yes
 255,T-shirts can't be folded or balled-up? ,no,no
@@ -278,7 +278,7 @@
 276,Someone who can lift an object of a certain weight can usually also lift objects that are lighter? ,yes,yes
 277,"If A causes B, then B begins after A does? ",yes,yes
 278,"In general, employees of a company are unlikely to do what the chief executive officer tells them to do? ",no,no
-279,True or false,yes,no
+279,True or false,no,no
 280,Teachers generally have authority over their students? ,yes,yes
 281,Weather like rain or snow usually happens indoors? ,no,no
 282,Being injured is rarely painful? ,no,no
@@ -287,11 +287,11 @@
 285,Contact with water causes cotton candy to lose its shape? ,yes,yes
 286,The North Pole is north of everything on earth? ,yes,yes
 287,Many 4 year old humans have completed medical school? ,no,no
-288,Things never do what they cannot do? ,no,yes
+288,Things never do what they cannot do? ,yes,yes
 289,Einstein's kitten probably knows the Theory of Relativity? ,no,no
-290,True or false,yes,no
+290,True or false,no,no
 291,"If you stack a bag of potatoes on a loaf of bread, the bread will likely be crushed? ",yes,yes
-292,True or false,yes,no
+292,True or false,no,no
 293,"Assuming something is moving in a straight line, the amount of time it takes for that thing to travel a given distance depends on its average speed while traveling? ",yes,yes
 294,The Coca-Cola Company is a non-profit? ,no,no
 295,A scalpel is a kind of knife? ,yes,yes
@@ -308,7 +308,7 @@
 306,People tend to take offense when their appearance is criticized in earnest? ,yes,yes
 307,Cars were first invented after the year 2000? ,no,no
 308,"Lea just turned 32, so she's in the 35-45 age group? ",no,no
-309,True or false,yes,no
+309,True or false,no,no
 310,"If you own something, you own all of its parts? ",yes,yes
 311,A stone pillow is more desirable than a memory foam pillow? ,no,no
 312,"If you are not very hungry, you might order a large salad instead of a small salad? ",no,no
@@ -333,27 +333,27 @@
 331,Fruits often eat other fruits for nourishment? ,no,no
 332,"When people store books, they generally don't close the book? ",no,no
 333,Places that are intended to house humans are bigger than humans? ,no,yes
-334,True or false,yes,no
+334,True or false,no,no
 335,"If you can't reach the ceiling when standing on a table, you might have better luck standing on a chair? ",yes,no
 336,The number of paws a dog has is less than 5? ,no,yes
 337,"Since humans can't eat them, you should separate out the whites of eggs? ",no,no
 338,Business executives usually work in sewers? ,no,no
 339,"Usually when you go shopping, you first pay, and then you decide what you want to buy? ",no,no
-340,True or false,yes,no
+340,True or false,no,no
 341,Most people would be insulted if someone told them they were stupid? ,yes,yes
-342,Most people cannot push a sewing needle through cotton fabric using their hands? ,yes,no
+342,Most people cannot push a sewing needle through cotton fabric using their hands? ,no,no
 343,People normally wear clothes in the shower? ,no,no
 344,Office supply stores do not typically sell food? ,yes,yes
 345,Most human residences in the USA have electrical outlets in them? ,yes,yes
-346,True or false,yes,no
+346,True or false,no,no
 347,Adults are typically bigger than juveniles? ,yes,yes
-348,True or false,yes,no
+348,True or false,no,no
 349,Plastic grapes are sweet? ,no,no
 350,Clouds are solid objects? ,no,no
-351,"If someone has loaned you a car, they no longer own that car? ",yes,no
+351,"If someone has loaned you a car, they no longer own that car? ",no,no
 352,Anyone who is sleepy is already asleep? ,no,no
 353,"If Chris owns a female turkey, she is not a human being? ",yes,yes
-354,True or false,yes,no
+354,True or false,no,no
 355,"When someone's hair is cut, they usually feel no pain? ",yes,yes
 356,Cars are sometimes towed because they can't be turned on? ,yes,yes
 357,Coral reefs are underwater? ,yes,yes
@@ -373,8 +373,8 @@
 371,You usually can't catch an object like a baseball if it is too heavy for you to lift? ,no,yes
 372,Europe is far to the south of Italy? ,no,no
 373,People usually know their own names? ,yes,yes
-374,Most wine glasses are nearly indestructible? ,no,no
-375,"When baking an apple pie, you put whole, unsliced apples in a crust? ",yes,no
+374,Most wine glasses are nearly indestructible? ,yes,no
+375,"When baking an apple pie, you put whole, unsliced apples in a crust? ",no,no
 376,"If you see the word 'Pull' on a door, then it opens away from you? ",no,no
 377,The job of a gardener is to care for plants? ,yes,yes
 378,Most taxidermists probably don't know about anatomy? ,no,no
@@ -387,14 +387,14 @@
 385,Most vegans would refuse to eat pasta noodles? ,yes,no
 386,"If an activity is something you learn how to do, then anyone who is capable of doing that activity has learned how to do it? ",yes,yes
 387,Flying involves moving through the air? ,yes,yes
-388,True or false,yes,no
-389,True or false,yes,no
+388,True or false,no,no
+389,True or false,no,no
 390,Everything that flies has feathers? ,no,no
-391,Carrots are usually bright red? ,yes,no
+391,Carrots are usually bright red? ,no,no
 392,"There is probably some grass growing somewhere in Dallas, Texas? ",yes,yes
 393,Porcupines have quills? ,yes,yes
 394,Getting out of bed typically lasts for at most a few minutes? ,yes,yes
-395,True or false,yes,no
+395,True or false,no,no
 396,"If only As are Bs, no As are Cs, then no Cs are Bs? ",yes,yes
 397,People are usually disappointed if they don't achieve their goals? ,yes,yes
 398,Materials used as structural supports typically can't be folded? ,yes,yes
@@ -406,7 +406,7 @@
 404,Fishing net has holes in it? ,yes,yes
 405,"The Jones family used their entire set of kitchen chairs at breakfast, so they needed new ones before they could do that again the next day? ",no,no
 406,Many dairy products go bad if they are left at room temperature for too long? ,yes,yes
-407,Airplanes fly by flapping their wings? ,yes,no
+407,Airplanes fly by flapping their wings? ,no,no
 408,Groceries have to be carried in something other than a grocery bag? ,no,no
 409,A catfish is neither a cat nor a fish? ,yes,no
 410,"When you cast a fishing line, the hook doesn't move? ",no,no
@@ -422,5 +422,5 @@
 420,Precipitation typically doesn't interfere with indoor activities? ,no,yes
 421,You can't make a sculpture out of gas? ,yes,yes
 422,"If two actions can't be done at the same time, then you can do one of those actions while doing the other? ",no,no
-423,True or false,yes,yes
+423,True or false,no,yes
 424,Tacos are a traditional British food? ,no,no
