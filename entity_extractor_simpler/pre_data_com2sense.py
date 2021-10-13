@@ -42,7 +42,7 @@ def remove_dirt(string, types):
 
 
 def extract_entities(sentence):
-    if 'instead of' not in sentence:
+    if 'instead of' not in sentence and 'rather than' not in sentence:
         return '', ''
     else:
         # step 0, parse the sentence
@@ -50,10 +50,12 @@ def extract_entities(sentence):
         trees = out['trees']
         types = out['hierplane_tree']['nodeTypeToStyle']
 
-        # step 1, find the 'rather than' phrase
+        # step 1, find the 'rather than' or 'instead of' phrase
         rt_phrase = re.search(r'\([A-Z]+ instead\) \([A-Z]+ of\)', trees)
-        if rt_phrase == None:
-            return '', ''
+        if rt_phrase is None:
+            rt_phrase = re.search(r'\([A-Z]+ rather\) \([A-Z]+ than\)', trees)
+            if rt_phrase is None:
+                return '', ''
         rt_phrase = rt_phrase.group()
 
         # step 2, split the tree by 'rather than' phrase
@@ -110,9 +112,6 @@ def isOneWordDiff(sent_1, sent_2):
     is_qualified = is_qualified and not isInBlackList(rest_1, blackList)
     is_qualified = is_qualified and not isInBlackList(rest_2, blackList)
 
-    # is_qualified = is_qualified and not isVicinity(rest_2, sent_1)
-    # is_qualified = is_qualified and not isVicinity(rest_1, sent_2)
-
     if is_qualified:
         return True, ' '.join(rest_1), ' '.join(rest_2)
 
@@ -155,4 +154,4 @@ if __name__ == '__main__':
                 df_entity.append({'sent': row['sent_2'], 'entity': [word_2]})
 
     df_entity = pd.DataFrame(df_entity)
-    df_entity.to_json("./com2sense.json", orient='records')
+    df_entity.to_json("./datasets/com2sense/com2sense.json", orient='records')

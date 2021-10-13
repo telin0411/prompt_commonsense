@@ -3,7 +3,10 @@ import pandas as pd
 
 def clean_meaningless(words_set):
     meaningless_words = ['am', 'is', 'are', 'be', 'were', 'was', 'will', 'he', 'she', 'it', 'this', 'that'
-                         'do', 'does', 'did', 'can', 'would', 'shall', 'those', 'these', 'a', 'an', 's']
+                         'do', 'does', 'did', 'can', 'would', 'shall', 'those', 'these', 'a', 'an', 's',
+                         'in', 'to', 'with', 'as', 'which', 'who', 'where', 'when', 'how', 'out', 'on', 'at',
+                         'may', 'might', 'could', 'has', 'have', 'the', 'i', 'my', 'you', 'your', 'yours',
+                         'him', 'her', 'our', 'we', 'they', 'there', 'here', 'into', 'of', ]
     out_set = words_set.copy()
     for word in words_set:
         if word in meaningless_words:
@@ -57,7 +60,6 @@ if __name__ == '__main__':
     df_test_entity = sent_entity(df_test)
     df_dev_entity = sent_entity(df_dev)
 
-    df_train_entity.to_json("./sem-eval_train.json", orient='records')
-    df_test_entity.to_json("./sem-eval_test.json", orient='records')
-    df_dev_entity.to_json("./sem-eval_dev.json", orient='records')
-
+    df_train_entity.to_json("./datasets/sem-eval/sem-eval_train.json", orient='records')
+    df_test_entity.to_json("./datasets/sem-eval/sem-eval_test.json", orient='records')
+    df_dev_entity.to_json("./datasets/sem-eval/sem-eval_dev.json", orient='records')
