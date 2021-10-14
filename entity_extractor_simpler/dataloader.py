@@ -35,7 +35,6 @@ class ExDataset(Dataset):
         record = self.data[idx]
 
         text, label = record['text'], record['label']
-        print(text, label)
 
         mask = self.tokenizer.mask_token
 
