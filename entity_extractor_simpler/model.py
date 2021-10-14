@@ -53,8 +53,8 @@ class Transformer(nn.Module):
 
         else:
             # tokens: [B, L], mask: [B, L]
-            x = self.model(inp['tokens'],
-                           inp['attn_mask'])[0]  # [B, L, D]
+            x = self.model(inp['input_ids'],
+                           inp['attention_mask'])[0]  # [B, L, D]
             cls_emb = x[:, 0, :]  # [B, D]
 
             # logits
