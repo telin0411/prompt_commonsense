@@ -136,7 +136,7 @@ def pred_entity(model, dataloader, device, tokenizer):
         return tokenizer.decode(token_ids, skip_special_tokens=True)
 
     # Evaluate on mini-batches
-    for batch in tqdm(dataloader):
+    for batch in dataloader:
         batch = {k: v.to(device) for k, v in batch.items()}
 
         # Forward Pass
