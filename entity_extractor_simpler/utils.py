@@ -157,7 +157,7 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         input_decoded += [decode(x) for x in batch['input_ids']]
         output_decoded += [decode(x) for x in indices]
-        label += [batch['label']]
+        label += [decode(x) for x in batch['label']]
 
     acc = compute_acc(output_decoded, input_decoded)
 
