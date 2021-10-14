@@ -47,19 +47,15 @@ class ExDataset(Dataset):
                                      add_special_tokens=False,
                                      return_attention_mask=True)
         label_tokens = self.tokenizer(text=label,
-                                      max_length=1,
+                                      padding='max_length',
+                                      max_length=2,
                                       truncation=True,
                                       add_special_tokens=False)
 
         # Output
-        if self.split != 'test':
-            sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
-                      'attention_mask': torch.tensor(text_tokens['attention_mask']),
-                      'label': torch.tensor(label_tokens['input_ids'])}
-        else:
-            sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
-                      'attention_mask': torch.tensor(text_tokens['attention_mask']),
-                      'label': label}
+        sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
+                  'attention_mask': torch.tensor(text_tokens['attention_mask']),
+                  'label': torch.tensor(label_tokens['input_ids'])}
         return sample
 
     def get_tokenizer(self):
@@ -69,8 +65,5 @@ class ExDataset(Dataset):
         self.data = []
         df = pd.read_json(self.data_path)
         for index, row in df.iterrows():
-            if self.split != 'test':
-                for word in row['entity']:
-                    self.data.append({'text': row['sent'], 'label': word})
-            elif self.split == 'test':
-                self.data.append({'text': row['sent'], 'label': row['entity']})
+            self.data.append({'text': row['sent'], 'label': " ".join(row['sent'])})
+
