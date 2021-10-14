@@ -170,6 +170,8 @@ def pred_entity(model, dataloader, device, tokenizer):
 
 
 def compute_acc(source, target):
+    print(source)
+    print(target)
     assert len(source) % 3 == 0, "source need a factor of 3"
     num_correct = []
     for idx, sample in enumerate(source):
