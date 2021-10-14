@@ -52,9 +52,14 @@ class ExDataset(Dataset):
                                       add_special_tokens=False)
 
         # Output
-        sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
-                  'attention_mask': torch.tensor(text_tokens['attention_mask']),
-                  'label': torch.tensor(label_tokens['input_ids'])}
+        if self.split != 'test':
+            sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
+                      'attention_mask': torch.tensor(text_tokens['attention_mask']),
+                      'label': torch.tensor(label_tokens['input_ids'])}
+        else:
+            sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
+                      'attention_mask': torch.tensor(text_tokens['attention_mask']),
+                      'label': label}
         return sample
 
     def get_tokenizer(self):
