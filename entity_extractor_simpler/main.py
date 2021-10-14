@@ -51,7 +51,9 @@ def main():
     parser.add_argument('--pretrained', type=str2bool, help='use pretrained encoder', default='true')
 
     # Data params
-    parser.add_argument('--data_dir', type=str, help='path to dataset file (json/tsv)', required=True)
+    parser.add_argument('--train_path', type=str, help='path to dataset file (json/tsv)', required=True)
+    parser.add_argument('--dev_path', type=str, help='path to dataset file (json/tsv)', required=True)
+    parser.add_argument('--test_path', type=str, help='path to dataset file (json/tsv)', required=True)
     parser.add_argument('--pred_file', type=str, help='prediction csv file, for "test" mode')
 
     # Training params
@@ -117,10 +119,10 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        train_dataset = ExDataset(args.data_dir, args.mode, tokenizer=args.model, max_seq_len=args.seq_len)
+        train_dataset = ExDataset(args.train_path, args.mode, tokenizer=args.model, max_seq_len=args.seq_len)
         train_loader = DataLoader(train_dataset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
 
-        val_dataset = ExDataset(args.data_dir, 'test', tokenizer=args.model, max_seq_len=args.seq_len)
+        val_dataset = ExDataset(args.dev_path, 'test', tokenizer=args.model, max_seq_len=args.seq_len)
         val_loader = DataLoader(val_dataset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
 
         tokenizer = train_dataset.get_tokenizer()
@@ -323,7 +325,7 @@ def main():
 
     elif args.mode == 'test':
         # Dataloader
-        test_dataset = ExDataset(args.data_dir, args.mode, tokenizer=args.model, max_seq_len=args.seq_len)
+        test_dataset = ExDataset(args.test_path, args.mode, tokenizer=args.model, max_seq_len=args.seq_len)
         tokenizer = test_dataset.get_tokenizer()
 
         test_loader = DataLoader(test_dataset, args.batch_size, num_workers=args.num_workers, drop_last=False)
