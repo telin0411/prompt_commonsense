@@ -176,11 +176,12 @@ def compute_acc(source, target):
     print(target)
     assert len(source) % 2 == 0, "source need a factor of 2"
     num_correct = []
-    for idx, sample in enumerate(source):
-        words = sample.split()
+    for idx, _ in enumerate(source):
+        words_source = source[idx].split()
+        words_target = target[idx].split()
         cnt_correct = 0
-        for word in words:
-            if word in target[idx]:
+        for word in words_source:
+            if word in words_target:
                 cnt_correct += 1
         num_correct.append(cnt_correct)
 
