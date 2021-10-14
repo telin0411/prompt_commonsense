@@ -53,7 +53,7 @@ class ExDataset(Dataset):
         # Output
         sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
                   'attention_mask': torch.tensor(text_tokens['attention_mask']),
-                  'label': label_tokens['input_ids']}
+                  'label': torch.tensor(label_tokens['input_ids'])}
         return sample
 
     def get_tokenizer(self):
