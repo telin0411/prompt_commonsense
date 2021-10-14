@@ -8,7 +8,7 @@ from torch.utils.data import Dataset, ConcatDataset
 
 
 class ExDataset(Dataset):
-    def __init__(self, data_path, tokenizer, max_seq_len=128):
+    def __init__(self, data_path, split, tokenizer, max_seq_len=128):
         """
         Processes raw dataset
 
@@ -17,6 +17,7 @@ class ExDataset(Dataset):
         :param int max_seq_len: tokenized sequence length (padded)
         """
         self.data_path = data_path
+        self.split = split
         self.max_seq_len = max_seq_len
         self.tok_name = tokenizer
 
@@ -60,5 +61,8 @@ class ExDataset(Dataset):
         self.data = []
         df = pd.read_json(self.data_path)
         for index, row in df.iterrows():
-            for word in row['entity']:
-                self.data.append({'text': row['sent'], 'label': word})
+            if self.split != 'test':
+                for word in row['entity']:
+                    self.data.append({'text': row['sent'], 'label': word})
+            elif self.split == 'test':
+                self.data.append({'text': row['sent'], 'label': row['entity']})
