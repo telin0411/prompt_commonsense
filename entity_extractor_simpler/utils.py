@@ -159,7 +159,7 @@ def pred_entity(model, dataloader, device, tokenizer):
         output_decoded += [decode(x) for x in indices]
         label += [batch['label']]
 
-    acc = compute_acc(output_decoded, label)
+    acc = compute_acc(output_decoded, input_decoded)
 
     metric = {'accuracy': acc,
               'statement': input_decoded,
