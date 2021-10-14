@@ -36,13 +36,13 @@ def main():
     parser = argparse.ArgumentParser(description=' Expt')
 
     # Experiment params
-    parser.add_argument('--mode', type=str, help='train or test mode', required=True, choices=['train', 'test'])
-    parser.add_argument('--expt_dir', type=str, help='root directory to save model & summaries')
-    parser.add_argument('--expt_name', type=str, help='expt_dir/expt_name: organize experiments')
-    parser.add_argument('--run_name', type=str, help='expt_dir/expt_name/run_name: organize training runs')
+    parser.add_argument('--mode', type=str, help='train or test mode', choices=['train', 'test'], default='train')
+    parser.add_argument('--expt_dir', type=str, help='root directory to save model & summaries', default='./exp')
+    parser.add_argument('--expt_name', type=str, help='expt_dir/expt_name: organize experiments', default='ex')
+    parser.add_argument('--run_name', type=str, help='expt_dir/expt_name/run_name: organize training runs', default='01')
 
     # Model params
-    parser.add_argument('--model', type=str, help='transformer model (e.g. roberta-base)', required=True)
+    parser.add_argument('--model', type=str, help='transformer model (e.g. roberta-base)', default='roberta-large')
     parser.add_argument('--seq_len', type=int, help='tokenized input sequence length', default=128)
     parser.add_argument('--num_layers', type=int,
                         help='Number of hidden layers in transformers (default number if not provided)', default=-1)
@@ -51,9 +51,9 @@ def main():
     parser.add_argument('--pretrained', type=str2bool, help='use pretrained encoder', default='true')
 
     # Data params
-    parser.add_argument('--train_path', type=str, help='path to dataset file (json/tsv)', required=True)
-    parser.add_argument('--dev_path', type=str, help='path to dataset file (json/tsv)', required=True)
-    parser.add_argument('--test_path', type=str, help='path to dataset file (json/tsv)', required=True)
+    parser.add_argument('--train_path', type=str, help='path to dataset file (json/tsv)', default='./datasets/sem-eval/sem-eval_train.json')
+    parser.add_argument('--dev_path', type=str, help='path to dataset file (json/tsv)', default='./datasets/sem-eval/sem-eval_dev.json')
+    parser.add_argument('--test_path', type=str, help='path to dataset file (json/tsv)', default='./datasets/sem-eval/sem-eval_test.json')
     parser.add_argument('--pred_file', type=str, help='prediction csv file, for "test" mode')
 
     # Training params

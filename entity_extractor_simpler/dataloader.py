@@ -46,12 +46,14 @@ class ExDataset(Dataset):
                                      truncation=True,
                                      add_special_tokens=False,
                                      return_attention_mask=True)
-        label_tokens = self.tokenizer(label)
+        label_tokens = self.tokenizer(text=label,
+                                      max_length=1,
+                                      add_special_tokens=False)
 
         # Output
         sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
                   'attention_mask': torch.tensor(text_tokens['attention_mask']),
-                  'label': label_tokens}
+                  'label': label_tokens['input_ids']}
         return sample
 
     def get_tokenizer(self):
