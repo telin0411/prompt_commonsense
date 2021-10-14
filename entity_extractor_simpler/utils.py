@@ -182,7 +182,7 @@ def compute_acc(source, target):
                 cnt_correct += 1
         num_correct.append(cnt_correct)
 
-    return torch.tensor(num_correct).mean() / 3
+    return torch.tensor(num_correct, dtype=torch.float).mean() / 2
 
 
 # ---------------------------------------------------------------------------
