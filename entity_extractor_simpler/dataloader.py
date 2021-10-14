@@ -66,5 +66,5 @@ class ExDataset(Dataset):
         self.data = []
         df = pd.read_json(self.data_path)
         for index, row in df.iterrows():
-            self.data.append({'text': row['sent'], 'label': " ".join(row['sent'])})
+            self.data.append({'text': row['sent'], 'label': " ".join(row['entity'])})
 
