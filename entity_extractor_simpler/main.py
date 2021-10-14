@@ -228,6 +228,7 @@ def main():
                         label_gt = batch['label']
 
                         # Compute Loss
+                        print(label_logits.shape, label_gt.shape)
                         loss = criterion(label_logits, label_gt)
 
                 if args.data_parallel:

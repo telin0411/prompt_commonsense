@@ -48,6 +48,7 @@ class ExDataset(Dataset):
                                      return_attention_mask=True)
         label_tokens = self.tokenizer(text=label,
                                       max_length=1,
+                                      truncation=True,
                                       add_special_tokens=False)
 
         # Output
