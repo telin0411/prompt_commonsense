@@ -229,7 +229,7 @@ def main():
 
                         # Compute Loss
                         print(label_logits.shape, label_gt.shape)
-                        loss = criterion(label_logits, label_gt)
+                        loss = criterion(label_logits, label_gt.squeeze())
 
                 if args.data_parallel:
                     loss = loss.mean()
