@@ -252,13 +252,11 @@ def main():
                         # Reset the mode to training
                         model.train()
 
-                        log_msg = 'Validation Accuracy: {:.2f} %  || Validation Loss: {:.4f}'.format(
-                            val_metrics['accuracy'], val_metrics['loss'])
+                        log_msg = 'Validation Accuracy: {:.2f} %'.format(val_metrics['accuracy'])
 
                         print_log(log_msg, log_file)
 
                         # Add summaries to TensorBoard
-                        writer.add_scalar('Val/Loss', val_metrics['loss'], curr_step)
                         writer.add_scalar('Val/Accuracy', val_metrics['accuracy'], curr_step)
 
                     # Add summaries to TensorBoard
