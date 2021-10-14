@@ -228,7 +228,6 @@ def main():
                         label_gt = batch['label']
 
                         # Compute Loss
-                        print(label_logits.shape, label_gt.shape)
                         loss = 0.5 * criterion(label_logits, label_gt[:, 0])
                         loss += 0.5 * criterion(label_logits, label_gt[:, 1])
 

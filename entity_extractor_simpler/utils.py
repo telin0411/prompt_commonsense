@@ -159,7 +159,7 @@ def pred_entity(model, dataloader, device, tokenizer):
         output_decoded += [decode(x) for x in indices]
         label += [decode(x) for x in batch['label']]
 
-    acc = compute_acc(output_decoded, input_decoded)
+    acc = compute_acc(output_decoded, label)
 
     metric = {'accuracy': acc,
               'statement': input_decoded,
@@ -170,7 +170,9 @@ def pred_entity(model, dataloader, device, tokenizer):
 
 
 def compute_acc(source, target):
+    print("===================source====================")
     print(source)
+    print("===================target====================")
     print(target)
     assert len(source) % 2 == 0, "source need a factor of 2"
     num_correct = []
