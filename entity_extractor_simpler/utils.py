@@ -158,10 +158,10 @@ def pred_entity(model, dataloader, device, tokenizer):
         input_decoded += [decode(x) for x in batch['input_ids']]
         indices = indices.to('cpu')
         for batch_token_id in indices:
-            word = []
+            word = ""
             for token_id in batch_token_id:
-                word.append(decode(token_id))
-            output_decoded += word
+                word += decode(token_id) + " "
+            output_decoded += [word]
 
         label += [decode(x) for x in batch['label']]
 
@@ -188,15 +188,14 @@ def compute_acc(source, target):
         words_source = source[idx].split()
         words_target = target[idx].split()
         cnt_correct = 0
-        cnt_numbers = 0
-        for word in words_source:
-            cnt_numbers += 1
+        for word in words_target:
             if word in words_target:
                 cnt_correct += 1
         print(words_source)
         print(words_target)
-        print(cnt_correct/cnt_numbers)
-        acc.append(cnt_correct/cnt_numbers)
+        print(cnt_correct/len(words_target))
+
+        acc.append(cnt_correct/len(words_target))
 
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
