@@ -170,10 +170,12 @@ def pred_entity(model, dataloader, device, tokenizer):
 
 
 def compute_acc(source, target):
+    """
     print("===================source====================")
     print(source)
     print("===================target====================")
     print(target)
+    """
     assert len(source) % 2 == 0, "source need a factor of 2"
     acc = []
     for idx, _ in enumerate(source):
@@ -185,9 +187,12 @@ def compute_acc(source, target):
             cnt_numbers += 1
             if word in words_target:
                 cnt_correct += 1
+        print(words_source)
+        print(words_target)
+        print(cnt_correct/cnt_numbers)
         acc.append(cnt_correct/cnt_numbers)
 
-    return torch.tensor(acc, dtype=torch.float).mean()
+    return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 
 # ---------------------------------------------------------------------------
