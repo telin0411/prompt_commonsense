@@ -175,17 +175,19 @@ def compute_acc(source, target):
     print("===================target====================")
     print(target)
     assert len(source) % 2 == 0, "source need a factor of 2"
-    num_correct = []
+    acc = []
     for idx, _ in enumerate(source):
         words_source = source[idx].split()
         words_target = target[idx].split()
         cnt_correct = 0
+        cnt_numbers = 0
         for word in words_source:
+            cnt_numbers += 1
             if word in words_target:
                 cnt_correct += 1
-        num_correct.append(cnt_correct)
+        acc.append(cnt_correct/cnt_numbers)
 
-    return torch.tensor(num_correct, dtype=torch.float).mean() / 2
+    return torch.tensor(acc, dtype=torch.float).mean()
 
 
 # ---------------------------------------------------------------------------
