@@ -151,7 +151,7 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         label_softmax = label_softmax * one_hot
 
-        values, indices = torch.topk(label_softmax, 3, dim=1)
+        values, indices = torch.topk(label_softmax, 2, dim=1)
 
         # TODO: add some heuristic threshold from values to limit indices
 
