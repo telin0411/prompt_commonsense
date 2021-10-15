@@ -155,7 +155,8 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         # TODO: add some heuristic threshold from values to limit indices
 
-        input_decoded += [decode(x) for x in batch['input_ids'].to('cpu')]
+        input_decoded += [decode(x) for x in batch['input_ids']]
+        indices = indices.to('cpu')
         print(indices)
         output_decoded += [decode(x) for x in indices]
         label += [decode(x) for x in batch['label']]
