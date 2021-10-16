@@ -200,7 +200,7 @@ class EntangledQADataset(BaseDataset):
     def __init__(self, split, tokenizer, max_seq_len, text2text,
                  uniqa=False, strip_sentence_prefix=False):
 
-        assert split in ["train",
+        assert split in ["train", "hard_few",
                          "dev-a", "dev-b",
                          "test-a", "test-b",
                          "released-a", "released-b",
@@ -216,6 +216,7 @@ class EntangledQADataset(BaseDataset):
             "test-b": "test_b",
             "released-a": "cycic3a_released",
             "released-b": "cycic3b_released",
+            "hard_few": "hard_few",
         }
 
         super().__init__(split, tokenizer, max_seq_len, text2text)

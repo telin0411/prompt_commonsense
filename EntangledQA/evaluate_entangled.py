@@ -78,7 +78,8 @@ def compute_accuracy(args):
         score = accuracy_score(cat_perf["preds"], cat_perf["labels"])
         pand_list.append([cat, score, len(cat_perf["preds"])])
     df = pd.DataFrame(pand_list, columns =["Category", "Accuracy", "Count"])
-    print(df[df["Count"] > 10])
+    # print(df[df["Count"] > 10])
+    print(df)
     pass
 
 def compute_accuracy_dataset(origin_labels, origin_preds, entailed_labels, entailed_preds, mapping):

@@ -370,7 +370,7 @@ def main():
         writer.close()
         log_file.close()
 
-    elif 'test' in args.mode or 'release' in args.mode or 'dev' in args.mode:
+    elif 'test' in args.mode or 'release' in args.mode or 'dev' in args.mode or "hard" in args.mode:
 
         # Dataloader
         args.mode = csv2list(args.mode)
@@ -416,6 +416,9 @@ def main():
             for pred in pred_list:
                 fp.write(str(pred)+'\n')
         fp.close()
+
+        for i in range(len(pred_list)):
+            print(pred_list[i], metrics['meta']['ground_truth'][i])
 
         print(f'Results for model {args.model}')
         print(f'Results evaluated on file {args.test_file}')

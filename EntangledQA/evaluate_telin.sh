@@ -12,8 +12,8 @@ LST="semeval20_comparative_com2sense80_pretrained_no_training_released"
 LST="semeval20_comparative_com2sense80_pretrained_devEQA_no_training_released"
 LST="semeval20_comparative_dev_EQA_no_training_released"
 LST="semeval20_all_comparative_pretrained_no_training_released"
-LST="semeval20_comparative_pretrained_no_training_released"
 LST="semeval20_comparative_com2sense70_pretrained_no_training_released"
+LST="semeval20_comparative_pretrained_no_training_released"
 
 python3 evaluate_entangled.py \
     --cycic3a_preds=prediction_lsts/${LST}-a-pred.lst \

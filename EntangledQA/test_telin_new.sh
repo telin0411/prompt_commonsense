@@ -6,6 +6,7 @@ python3 main.py \
     --mode dev-a \
     --mode released-a \
     --mode released-b \
+    --mode hard_few \
     --expt_dir ./results_log/EntangledQA \
     --expt_name unifiedqa_11b \
     --model "allenai/unifiedqa-t5-11b" \
@@ -38,11 +39,12 @@ python3 main.py \
     --run semeval20_comparative_dev_EQA_no_training_released-a \
     --run semeval20_comparative_com2sense70_pretrained_no_training_released-a \
     --run semeval20_comparative_com2sense70_pretrained_no_training_released-b \
+    --run semeval20_comparative_com2sense70_pretrained_no_training_hard_few \
     --seed 808 \
     --gpu 0 \
-    --gpu 0,1,2,3 \
     --gpu 0,1,2,3,4,5,6,7 \
     --gpu 0,1,2,3,4,5 \
+    --gpu 0,1,2,3 \
     --seq_len 128 \
     --seq_len 64 \
     --batch_size 1 \
