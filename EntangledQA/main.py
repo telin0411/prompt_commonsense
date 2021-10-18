@@ -370,7 +370,10 @@ def main():
         writer.close()
         log_file.close()
 
-    elif 'test' in args.mode or 'release' in args.mode or 'dev' in args.mode or "hard" in args.mode:
+    elif 'test' in args.mode or 'release' in args.mode or 'dev' in args.mode or "hard" in args.mode or "new_test" in args.mode:
+        new_test = False
+        if "new_test" in args.mode:
+            new_test = True
 
         # Dataloader
         args.mode = csv2list(args.mode)
@@ -412,19 +415,26 @@ def main():
         # For EntangledQA only
         # TODO: change the ground truth to prediction
         pred_list = metrics['meta']['prediction']
-        with open(f"./{args.run_name}-pred.lst", "a") as fp:
+        with open(f"./{args.run_name}-pred.lst", "w") as fp:
             for pred in pred_list:
+                if new_test:
+                    if "yes" not in pred and "no" not in pred:
+                        raise
+                    pred = pred.replace("yes", "True")
+                    pred = pred.replace("no", "False")
                 fp.write(str(pred)+'\n')
         fp.close()
 
-        for i in range(len(pred_list)):
-            print(pred_list[i], metrics['meta']['ground_truth'][i])
+        if not new_test:
+            for i in range(len(pred_list)):
+                print(pred_list[i], metrics['meta']['ground_truth'][i])
 
-        print(f'Results for model {args.model}')
-        print(f'Results evaluated on file {args.test_file}')
-        print('Sentence Accuracy: {:.4f}'.format(metrics['accuracy']))
-        if is_pairwise:
-            print('Pairwise Accuracy: {:.4f}'.format(metrics['pair_acc']))
+            print(f'Results for model {args.model}')
+            print(f'Results evaluated on file {args.test_file}')
+            print('Sentence Accuracy: {:.4f}'.format(metrics['accuracy']))
+            if is_pairwise:
+                print('Pairwise Accuracy: {:.4f}'.format(metrics['pair_acc']))
+        pass
 
 
 if __name__ == '__main__':

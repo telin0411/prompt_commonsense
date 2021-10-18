@@ -4,9 +4,11 @@
 python3 main.py \
     --mode dev-b \
     --mode dev-a \
-    --mode released-a \
-    --mode released-b \
     --mode hard_few \
+    --mode released-b \
+    --mode released-a \
+    --mode new_test_a \
+    --mode new_test_b \
     --expt_dir ./results_log/EntangledQA \
     --expt_name unifiedqa_11b \
     --model "allenai/unifiedqa-t5-11b" \
@@ -37,9 +39,11 @@ python3 main.py \
     --run semeval20_all_comparative_pretrained_no_training_released-a \
     --run semeval20_comparative_dev_EQA_no_training_released-b \
     --run semeval20_comparative_dev_EQA_no_training_released-a \
-    --run semeval20_comparative_com2sense70_pretrained_no_training_released-a \
-    --run semeval20_comparative_com2sense70_pretrained_no_training_released-b \
     --run semeval20_comparative_com2sense70_pretrained_no_training_hard_few \
+    --run semeval20_comparative_com2sense70_pretrained_no_training_released-b \
+    --run semeval20_comparative_com2sense70_pretrained_no_training_released-a \
+    --run semeval20_comparative_com2sense70_pretrained_no_training_new_test-a \
+    --run semeval20_comparative_com2sense70_pretrained_no_training_new_test-b \
     --seed 808 \
     --gpu 0 \
     --gpu 0,1,2,3,4,5,6,7 \

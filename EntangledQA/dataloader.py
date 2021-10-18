@@ -203,6 +203,7 @@ class EntangledQADataset(BaseDataset):
         assert split in ["train", "hard_few",
                          "dev-a", "dev-b",
                          "test-a", "test-b",
+                         "new_test_a", "new_test_b",
                          "released-a", "released-b",
                          "train_dev-a", "train_dev-b"]
 
@@ -214,6 +215,8 @@ class EntangledQADataset(BaseDataset):
             "train_dev-b": "train_dev_b",
             "test-a": "test_a",
             "test-b": "test_b",
+            "new_test_a": "new_test_a",
+            "new_test_b": "new_test_b",
             "released-a": "cycic3a_released",
             "released-b": "cycic3b_released",
             "hard_few": "hard_few",
@@ -274,10 +277,15 @@ class EntangledQADataset(BaseDataset):
             questions.append(json.loads(line.strip()))
         fq.close()
 
-        fl = open(l_path)
-        for line in fl:
-            labels.append(json.loads(line.strip()))
-        fl.close()
+        if not os.path.exists(l_path):
+            dummy_label = {"guid": "12345", "run_id": 12345, "correct_answer": 0}
+            for i in range(len(questions)):
+                labels.append(dummy_label)
+        else:
+            fl = open(l_path)
+            for line in fl:
+                labels.append(json.loads(line.strip()))
+            fl.close()
 
         assert len(questions) == len(labels)
 
@@ -287,15 +295,24 @@ class EntangledQADataset(BaseDataset):
         for i in range(len(questions)):
             qi = questions[i]
             li = labels[i]
-            assert qi["guid"] == li["guid"]
-            assert qi["run_id"] == li["run_id"]
+            if os.path.exists(l_path):
+                assert qi["guid"] == li["guid"]
+                assert qi["run_id"] == li["run_id"]
             correct_answer = li["correct_answer"]
             correct_label = qi["answer_option{}".format(correct_answer)]
             label = label2int[correct_label]
             run_id = qi["run_id"]
             question = qi["question"]
             if self.strip_sentence_prefix:
-                question = question.split("True or False:")[-1].strip()
+                if "True or False" in question:
+                    question = question.split("True or False:")[-1].strip()
+                elif "True or false" in question:
+                    question = question.split("True or false:")[-1].strip()
+                else:
+                    print("{} becomes:".format(question))
+                    question = "True or False: " + question
+                    print("{}".format(question))
+                    # raise ValueError("Question: {}".format(question))
             datum = dict(
                 _id=run_id,
                 text=question,
