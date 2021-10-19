@@ -42,8 +42,9 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         print(input_decoded_batch)
         print(output_decoded_batch)
-        print(label)
-        print(acc)
+        print(batch['label_string'])
+        print(batch['label_binary'])
+        print(accuracy)
 
     acc = torch.tensor(acc).mean()
 
