@@ -46,6 +46,7 @@ def pred_entity(model, dataloader, device, tokenizer):
         """
 
     acc = compute_acc(output_decoded, label)
+    print(acc)
 
     metric = {'accuracy': acc,
               'statement': input_decoded,
