@@ -81,8 +81,6 @@ def main():
 
     args = parser.parse_args()
 
-    data = ExDataset("./datasets/sem-eval/sem-eval_dev.json", 'train', 'roberta-large')
-
     # Multi-GPU
     device_ids = csv2list(args.gpu_ids, int)
     print('Selected GPUs: {}'.format(device_ids))
