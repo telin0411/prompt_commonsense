@@ -157,7 +157,7 @@ def main():
         model.train()
 
         # Loss & Optimizer
-        criterion = nn.CrossEntropyLoss()
+        criterion = nn.BCEWithLogitsLoss()
         optimizer = torch.optim.Adam(model.parameters(), lr)
         scaler = GradScaler(enabled=args.use_amp)
 
@@ -190,29 +190,6 @@ def main():
         steps_per_epoch = len(train_loader)
         start_time = time()
 
-        """
-        for epoch in range(start_epoch, start_epoch + n_epochs):
-            for batch in train_loader:
-                # Load batch to device
-                tokens = batch['tokens'].to(device)
-                attn_mask = batch['attn_mask'].to(device)
-                label = batch['label'].to(device)
-
-                # Forward Pass
-                label_logits = model(tokens, attn_mask)
-
-                # Compute Loss
-                loss = criterion(label_logits, label)
-
-                # Backward Pass
-                optimizer.zero_grad()
-
-                # with amp.scale_loss(loss, optimizer) as scaled_loss:
-                #     scaled_loss.backward()
-                loss.backward()
-
-                optimizer.step()
-        """
         for epoch in range(start_epoch, start_epoch + n_epochs):
             for batch in tqdm(train_loader):
                 # Load batch to device
@@ -230,8 +207,7 @@ def main():
                         label_gt = batch['label']
 
                         # Compute Loss
-                        loss = 0.5 * criterion(label_logits, label_gt[:, 0])
-                        loss += 0.5 * criterion(label_logits, label_gt[:, 1])
+                        loss = criterion(label_logits, label_gt)
 
                 if args.data_parallel:
                     loss = loss.mean()

@@ -13,6 +13,7 @@ def pred_entity(model, dataloader, device, tokenizer):
     input_decoded = []
     output_decoded = []
     label = []
+    acc = []
 
     def decode(token_ids):
         return tokenizer.decode(token_ids, skip_special_tokens=True)
@@ -23,29 +24,25 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         # Forward Pass
         label_logits = model(batch)
-        label_softmax = torch.nn.functional.softmax(label_logits, dim=1)
-
-        one_hot = torch.nn.functional.one_hot(batch['input_ids'], label_logits.shape[1])
-        one_hot = one_hot.sum(dim=1)
-        one_hot[one_hot > 0] = 1
-
-        label_softmax = label_softmax * one_hot
-
-        values, indices = torch.topk(label_softmax, 2, dim=1)
-
-        # TODO: add some heuristic threshold from values to limit indices
+        B, L = label_logits.shape
+        pred_mask = torch.zeros(label_logits.shape)
+        pred_mask[label_logits > 0] = 1
 
         input_decoded += [decode(x) for x in batch['input_ids']]
-        indices = indices.to('cpu')
-        for batch_token_id in indices:
-            word = ""
-            for token_id in batch_token_id:
-                word += decode(token_id) + " "
-            output_decoded += [word]
 
+        acc.append((1 - torch.logical_xor(batch['label'], pred_mask)).sum() / (B * L))
+
+        pred = batch['input_ids'] * pred_mask
+
+        output_decoded += [decode(x) for x in pred]
         label += [decode(x) for x in batch['label']]
 
-    acc = compute_acc(output_decoded, label)
+        print(input_decoded)
+        print(output_decoded)
+        print(label)
+        print(acc)
+
+    acc = torch.tensor(acc).mean()
 
     metric = {'accuracy': acc,
               'statement': input_decoded,
@@ -53,32 +50,6 @@ def pred_entity(model, dataloader, device, tokenizer):
               'label': label}
 
     return metric
-
-
-def compute_acc(source, target):
-    """
-    print("===================source====================")
-    print(source)
-    print("===================target====================")
-    print(target)
-    """
-    assert len(source) % 2 == 0, "source need a factor of 2"
-    acc = []
-    for idx, _ in enumerate(source):
-        words_source = source[idx].split()
-        words_target = target[idx].split()
-        cnt_correct = 0
-        for word in words_source:
-            if word in words_target:
-                cnt_correct += 1
-        print(words_source)
-        print(words_target)
-        print(cnt_correct/len(words_target))
-
-        acc.append(cnt_correct/len(words_target))
-
-    return 100 * torch.tensor(acc, dtype=torch.float).mean()
-
 
 # ---------------------------------------------------------------------------
 def setup_logger(parser, log_dir, file_name='train_log.txt'):

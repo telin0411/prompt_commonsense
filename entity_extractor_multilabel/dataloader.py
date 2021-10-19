@@ -37,9 +37,7 @@ class ExDataset(Dataset):
 
         text, label = record['text'], record['label']
 
-        mask = self.tokenizer.mask_token
-
-        text = f"{text}, because {mask}"
+        text = f"{text}"
 
         text_tokens = self.tokenizer(text=text,
                                      padding='max_length',
@@ -47,21 +45,16 @@ class ExDataset(Dataset):
                                      truncation=True,
                                      add_special_tokens=False,
                                      return_attention_mask=True)
-        label_tokens = self.tokenizer(text=label,
-                                      padding='max_length',
-                                      max_length=2,
-                                      truncation=True,
-                                      add_special_tokens=False)
+        label_tokens_ids = self.tokenizer(label, add_special_tokens=False)
 
-        label_token_tensor = torch.tensor(label_tokens['input_ids'])
-        one_hot = functional.one_hot(label_token_tensor, self.max_seq_len)
-        one_hot = one_hot.sum(dim=1)
-        one_hot[one_hot > 0] = 1
+        target = torch.zeros(self.max_seq_len)
+        for token_id in label_tokens_ids:
+            target[target == token_id] = 1
 
         # Output
         sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
                   'attention_mask': torch.tensor(text_tokens['attention_mask']),
-                  'label': torch.tensor(label_tokens['input_ids'])}
+                  'label': target}
         return sample
 
     def get_tokenizer(self):
@@ -72,6 +65,3 @@ class ExDataset(Dataset):
         df = pd.read_json(self.data_path)
         for index, row in df.iterrows():
             self.data.append({'text': row['sent'], 'label': " ".join(row['entity'])})
-
-
-data = ExDataset("./datasets/sem-eval/sem-eval_dev.json", 'train', 'roberta-large')

@@ -57,9 +57,7 @@ class Transformer(nn.Module):
             x = self.model(inp['input_ids'],
                            inp['attention_mask'])[0]  # [B, L, D]
 
-            x = self.logit_layer(x)  # [B, L, 1]
-
-            x = self.sigmoid_layer(x).squeeze()  # [B, L, 1] --> [B, L]
+            x = self.logit_layer(x).squeeze()  # [B, L, 1] --> [B, L]
 
             return x
 
