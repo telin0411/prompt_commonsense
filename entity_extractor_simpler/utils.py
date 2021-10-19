@@ -57,7 +57,6 @@ def pred_entity(model, dataloader, device, tokenizer):
 
     return metric
 
-
 def compute_acc(source, target):
     """
     print("===================source====================")
