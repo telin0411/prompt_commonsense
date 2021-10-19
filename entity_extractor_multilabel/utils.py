@@ -26,18 +26,18 @@ def pred_entity(model, dataloader, device, tokenizer):
         label_logits = model(batch)
         B, L = label_logits.shape
         pred_mask = torch.zeros(label_logits.shape, dtype=torch.int).to(device)
-        pred_mask[label_logits > 0] = 1
-        print(label_logits)
+        pred_mask[label_logits > 0.5] = 1
+        print(pred_mask)
 
         input_decoded_batch = [decode(x) for x in batch['input_ids']]
-        input_decoded += input_decoded_batch
+        input_decoded = input_decoded + input_decoded_batch
         accuracy = (~ torch.logical_xor(batch['label_binary'], pred_mask)).sum() / (B * L)
         acc.append(accuracy.item())
 
         pred = batch['input_ids'] * pred_mask
 
         output_decoded_batch = [decode(x) for x in pred]
-        output_decoded += output_decoded_batch
+        output_decoded = output_decoded + output_decoded_batch
         label += [batch['label_string']]
 
         print(input_decoded_batch)

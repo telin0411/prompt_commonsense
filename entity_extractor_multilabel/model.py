@@ -43,7 +43,6 @@ class Transformer(nn.Module):
             #     self.logit_layer = nn.Linear(hidden_dim,1)
             # else:
             self.logit_layer = nn.Linear(hidden_dim, 1)
-            self.sigmoid_layer = nn.Sigmoid()
 
     def forward(self, inp):
         if self.text2text:
