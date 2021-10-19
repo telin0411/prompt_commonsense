@@ -26,6 +26,7 @@ def pred_entity(model, dataloader, device, tokenizer):
         label_softmax = torch.nn.functional.softmax(label_logits, dim=1)
 
         one_hot = torch.nn.functional.one_hot(batch['input_ids'], label_logits.shape[1])
+        one_hot[:, : 0] = 0
         one_hot = one_hot.sum(dim=1)
         one_hot[one_hot > 0] = 1
 
