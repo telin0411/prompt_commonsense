@@ -22,8 +22,6 @@ def pred_entity(model, dataloader, device, tokenizer):
         batch = {k: v.to(device) for k, v in batch.items()}
 
         # Forward Pass
-        print(batch['input_ids'])
-        print(batch['label'])
         label_logits = model(batch)
         label_softmax = torch.nn.functional.softmax(label_logits, dim=1)
 
@@ -34,7 +32,7 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         label_softmax = label_softmax * one_hot
 
-        values, indices = torch.topk(label_softmax, 2, dim=1)
+        values, indices = torch.topk(label_softmax, 1, dim=1)
 
         # TODO: add some heuristic threshold from values to limit indices
 
@@ -73,9 +71,6 @@ def compute_acc(source, target):
         for word in words_source:
             if word in words_target:
                 cnt_correct += 1
-        print(words_source)
-        print(words_target)
-        print(cnt_correct/len(words_target))
 
         acc.append(cnt_correct/len(words_target))
 
