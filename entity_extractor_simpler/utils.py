@@ -141,11 +141,9 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         # Forward Pass
         label_logits = model(batch)
-        label_gt = batch['input_ids']
-
         label_softmax = torch.nn.functional.softmax(label_logits, dim=1)
 
-        one_hot = torch.nn.functional.one_hot(label_gt, label_logits.shape[1])
+        one_hot = torch.nn.functional.one_hot(batch['input_ids'], label_logits.shape[1])
         one_hot = one_hot.sum(dim=1)
         one_hot[one_hot > 0] = 1
 
@@ -188,7 +186,7 @@ def compute_acc(source, target):
         words_source = source[idx].split()
         words_target = target[idx].split()
         cnt_correct = 0
-        for word in words_target:
+        for word in words_source:
             if word in words_target:
                 cnt_correct += 1
         print(words_source)
