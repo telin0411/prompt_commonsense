@@ -31,8 +31,6 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         input_decoded_batch = [decode(x) for x in batch['input_ids']]
         input_decoded = input_decoded + input_decoded_batch
-        accuracy = (~ torch.logical_xor(batch['label_binary'], pred_mask)).sum() / (B * L)
-        acc.append(accuracy.item())
 
         pred = batch['input_ids'] * pred_mask
 
@@ -40,13 +38,14 @@ def pred_entity(model, dataloader, device, tokenizer):
         output_decoded = output_decoded + output_decoded_batch
         label += [batch['label_string']]
 
+        """
         print(input_decoded_batch)
         print(output_decoded_batch)
         print(batch['label_string'])
         print(batch['label_binary'])
-        print(accuracy)
+        """
 
-    acc = torch.tensor(acc).mean()
+    acc = compute_acc(output_decoded, label)
 
     metric = {'accuracy': acc,
               'statement': input_decoded,
@@ -54,6 +53,27 @@ def pred_entity(model, dataloader, device, tokenizer):
               'label': label}
 
     return metric
+
+def compute_acc(source, target):
+    """
+    print("===================source====================")
+    print(source)
+    print("===================target====================")
+    print(target)
+    """
+    assert len(source) % 2 == 0, "source need a factor of 2"
+    acc = []
+    for idx, _ in enumerate(source):
+        words_source = source[idx].split()
+        words_target = target[idx].split()
+        cnt_correct = 0
+        for word in words_source:
+            if word in words_target:
+                cnt_correct += 1
+
+        acc.append(cnt_correct/len(words_target))
+
+    return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 # ---------------------------------------------------------------------------
 def setup_logger(parser, log_dir, file_name='train_log.txt'):
