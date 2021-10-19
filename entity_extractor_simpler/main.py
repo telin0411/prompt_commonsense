@@ -55,6 +55,7 @@ def main():
     parser.add_argument('--dev_path', type=str, help='path to dataset file (json/tsv)', default='./datasets/sem-eval/sem-eval_dev.json')
     parser.add_argument('--test_path', type=str, help='path to dataset file (json/tsv)', default='./datasets/sem-eval/sem-eval_test.json')
     parser.add_argument('--pred_file', type=str, help='prediction csv file, for "test" mode')
+    parser.add_argument('--num_entity', type=int, help='number of key entities', default=2)
 
     # Training params
     parser.add_argument('--lr', type=float, help='learning rate', default=1e-5)
@@ -119,10 +120,12 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        train_dataset = ExDataset(args.train_path, args.mode, tokenizer=args.model, max_seq_len=args.seq_len)
+        train_dataset = ExDataset(args.train_path, args.mode,
+                                  tokenizer=args.model, max_seq_len=args.seq_len, num_entity=args.num_entity)
         train_loader = DataLoader(train_dataset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
 
-        val_dataset = ExDataset(args.dev_path, 'test', tokenizer=args.model, max_seq_len=args.seq_len)
+        val_dataset = ExDataset(args.dev_path, 'test',
+                                tokenizer=args.model, max_seq_len=args.seq_len, num_entity=args.num_entity)
         val_loader = DataLoader(val_dataset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
 
         tokenizer = train_dataset.get_tokenizer()
@@ -188,29 +191,6 @@ def main():
         steps_per_epoch = len(train_loader)
         start_time = time()
 
-        """
-        for epoch in range(start_epoch, start_epoch + n_epochs):
-            for batch in train_loader:
-                # Load batch to device
-                tokens = batch['tokens'].to(device)
-                attn_mask = batch['attn_mask'].to(device)
-                label = batch['label'].to(device)
-
-                # Forward Pass
-                label_logits = model(tokens, attn_mask)
-
-                # Compute Loss
-                loss = criterion(label_logits, label)
-
-                # Backward Pass
-                optimizer.zero_grad()
-
-                # with amp.scale_loss(loss, optimizer) as scaled_loss:
-                #     scaled_loss.backward()
-                loss.backward()
-
-                optimizer.step()
-        """
         for epoch in range(start_epoch, start_epoch + n_epochs):
             for batch in tqdm(train_loader):
                 # Load batch to device
@@ -228,8 +208,10 @@ def main():
                         label_gt = batch['label']
 
                         # Compute Loss
-                        loss = 0.5 * criterion(label_logits, label_gt[:, 0])
-                        loss += 0.5 * criterion(label_logits, label_gt[:, 1])
+                        B, L = label_gt.shape
+                        loss = 0
+                        for i in range(L):
+                            loss += (1/L) * criterion(label_logits, label_gt[:, i])
 
                 if args.data_parallel:
                     loss = loss.mean()

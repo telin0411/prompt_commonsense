@@ -8,7 +8,7 @@ from torch.utils.data import Dataset, ConcatDataset
 
 
 class ExDataset(Dataset):
-    def __init__(self, data_path, split, tokenizer, max_seq_len=128):
+    def __init__(self, data_path, split, tokenizer, max_seq_len=128, num_entity=2):
         """
         Processes raw dataset
 
@@ -20,6 +20,7 @@ class ExDataset(Dataset):
         self.split = split
         self.max_seq_len = max_seq_len
         self.tok_name = tokenizer
+        self.num_entity = num_entity
 
         # Tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(self.tok_name)
@@ -46,16 +47,13 @@ class ExDataset(Dataset):
                                      truncation=True,
                                      add_special_tokens=False,
                                      return_attention_mask=True)
-        label_tokens = self.tokenizer(text=label,
-                                      padding='max_length',
-                                      max_length=2,
-                                      truncation=True,
-                                      add_special_tokens=False)
+
+        label_input_ids = self.label_tokenize(label)
 
         # Output
         sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
                   'attention_mask': torch.tensor(text_tokens['attention_mask']),
-                  'label': torch.tensor(label_tokens['input_ids'])}
+                  'label': torch.tensor(label_input_ids)}
         return sample
 
     def get_tokenizer(self):
@@ -67,3 +65,13 @@ class ExDataset(Dataset):
         for index, row in df.iterrows():
             self.data.append({'text': row['sent'], 'label': " ".join(row['entity'])})
 
+    def label_tokenize(self, label):
+        label_token = self.tokenizer(text=label, add_special_tokens=False, return_attention_mask=True)
+        label_input_ids = label_token['input_ids']
+
+        if len(label) > self.num_entity:
+            return label_input_ids[0: self.num_entity]
+        elif len(label) < self.num_entity:
+            return torch.hstack((label_input_ids, label_input_ids[0].repeat(self.num_entity - len(label))))
+        else:
+            return label_input_ids
