@@ -29,21 +29,12 @@ def pred_entity(model, dataloader, device, tokenizer):
         pred_mask[label_logits > 0.5] = 1
         # print(pred_mask)
 
-        input_decoded_batch = [decode(x) for x in batch['input_ids']]
-        input_decoded = input_decoded + input_decoded_batch
+        input_decoded += [decode(x) for x in batch['input_ids']]
 
         pred = batch['input_ids'] * pred_mask
 
-        output_decoded_batch = [decode(x) for x in pred]
-        output_decoded = output_decoded + output_decoded_batch
+        output_decoded += [decode(x) for x in pred]
         label += [batch['label_string']]
-
-        """
-        print(input_decoded_batch)
-        print(output_decoded_batch)
-        print(batch['label_string'])
-        print(batch['label_binary'])
-        """
 
     acc = compute_acc(output_decoded, label)
     print(acc)
