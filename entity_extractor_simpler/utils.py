@@ -15,7 +15,7 @@ def pred_entity(model, dataloader, device, tokenizer):
     label = []
 
     def decode(token_ids):
-        return tokenizer.decode(token_ids, skip_special_tokens=True)
+        return tokenizer.decode(token_ids, skip_special_tokens=False)
 
     # Evaluate on mini-batches
     for batch in dataloader:
