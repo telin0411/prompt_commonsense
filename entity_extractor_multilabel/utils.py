@@ -30,8 +30,8 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         input_decoded_batch = [decode(x) for x in batch['input_ids']]
         input_decoded += input_decoded_batch
-
-        acc.append((~ torch.logical_xor(batch['label_binary'], pred_mask)).sum() / (B * L))
+        accuracy = (~ torch.logical_xor(batch['label_binary'], pred_mask)).sum() / (B * L)
+        acc.append(accuracy.to('cpu'))
 
         pred = batch['input_ids'] * pred_mask
 
