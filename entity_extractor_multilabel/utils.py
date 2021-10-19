@@ -56,12 +56,12 @@ def pred_entity(model, dataloader, device, tokenizer):
     return metric
 
 def compute_acc(source, target):
-    """
+
     print("===================source====================")
     print(source)
     print("===================target====================")
     print(target)
-    """
+
     assert len(source) % 2 == 0, "source need a factor of 2"
     acc = []
     for idx, _ in enumerate(source):
