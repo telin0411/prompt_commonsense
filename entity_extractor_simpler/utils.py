@@ -22,6 +22,8 @@ def pred_entity(model, dataloader, device, tokenizer):
         batch = {k: v.to(device) for k, v in batch.items()}
 
         # Forward Pass
+        print(batch['input_ids'])
+        print(batch['label'])
         label_logits = model(batch)
         label_softmax = torch.nn.functional.softmax(label_logits, dim=1)
 
