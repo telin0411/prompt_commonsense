@@ -48,10 +48,8 @@ class ExDataset(Dataset):
         label_tokens_ids = self.tokenizer(label, add_special_tokens=False)
 
         target = torch.zeros(self.max_seq_len)
-        print(text_tokens['input_ids'])
         for token_id in label_tokens_ids['input_ids']:
-            print(token_id)
-            target[text_tokens['input_ids'] == token_id] = 1
+            target[torch.tensor(text_tokens['input_ids']) == token_id] = 1
 
         # Output
         sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
