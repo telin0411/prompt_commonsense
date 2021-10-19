@@ -13,7 +13,6 @@ def pred_entity(model, dataloader, device, tokenizer):
     input_decoded = []
     output_decoded = []
     label = []
-    acc = []
 
     def decode(token_ids):
         return tokenizer.decode(token_ids, skip_special_tokens=True)
@@ -24,7 +23,6 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         # Forward Pass
         label_logits = model(batch)
-        B, L = label_logits.shape
         pred_mask = torch.zeros(label_logits.shape, dtype=torch.int).to(device)
         pred_mask[label_logits > 0.5] = 1
         # print(pred_mask)
@@ -34,7 +32,7 @@ def pred_entity(model, dataloader, device, tokenizer):
         pred = batch['input_ids'] * pred_mask
 
         output_decoded += [decode(x) for x in pred]
-        label += [batch['label_string']]
+        label += batch['label_string']
 
     acc = compute_acc(output_decoded, label)
     print(acc)
