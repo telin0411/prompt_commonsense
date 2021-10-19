@@ -35,7 +35,7 @@ def pred_entity(model, dataloader, device, tokenizer):
         pred = batch['input_ids'] * pred_mask
 
         output_decoded += [decode(x) for x in pred]
-        label += [decode(x) for x in batch['label']]
+        label += [batch['label_string']]
 
         print(input_decoded)
         print(output_decoded)

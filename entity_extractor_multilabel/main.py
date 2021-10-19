@@ -202,7 +202,7 @@ def main():
                     else:
                         # Forward Pass
                         label_logits = model(batch)
-                        label_gt = batch['label']
+                        label_gt = batch['label_binary']
 
                         # Compute Loss
                         loss = criterion(label_logits, label_gt)
