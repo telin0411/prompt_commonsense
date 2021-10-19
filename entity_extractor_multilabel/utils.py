@@ -25,7 +25,7 @@ def pred_entity(model, dataloader, device, tokenizer):
         # Forward Pass
         label_logits = model(batch)
         B, L = label_logits.shape
-        pred_mask = torch.zeros(label_logits.shape)
+        pred_mask = torch.zeros(label_logits.shape).to(device)
         pred_mask[label_logits > 0] = 1
 
         input_decoded += [decode(x) for x in batch['input_ids']]
