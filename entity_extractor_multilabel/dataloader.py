@@ -47,7 +47,7 @@ class ExDataset(Dataset):
                                      return_attention_mask=True)
         label_tokens_ids = self.tokenizer(label, add_special_tokens=False)
 
-        target = torch.zeros(self.max_seq_len)
+        target = torch.zeros(self.max_seq_len, dtype=torch.int)
         for token_id in label_tokens_ids:
             target[target == token_id] = 1
 
