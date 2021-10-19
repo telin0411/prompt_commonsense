@@ -49,7 +49,7 @@ class ExDataset(Dataset):
 
         target = torch.zeros(self.max_seq_len)
         for token_id in label_tokens_ids:
-            target[target == token_id] = 1
+            target[text_tokens == token_id] = 1
 
         # Output
         sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
