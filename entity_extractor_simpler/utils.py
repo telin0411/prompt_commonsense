@@ -14,6 +14,9 @@ def pred_entity(model, dataloader, device, tokenizer):
     output_decoded = []
     label = []
     mask_token = tokenizer('<mask>', add_special_tokens=False)['input_ids'][0]
+    becuz_token = tokenizer('because', add_special_tokens=False)['input_ids'][0]
+    coma_token = tokenizer(',', add_special_tokens=False)['input_ids'][0]
+
     acc = []
 
     def decode(token_ids):
@@ -34,6 +37,8 @@ def pred_entity(model, dataloader, device, tokenizer):
         # set special tokens = 0
         one_hot[:, 0:4] = 0
         one_hot[:, mask_token] = 0
+        one_hot[:, becuz_token] = 0
+        one_hot[:, coma_token] = 0
 
         label_softmax = label_softmax * one_hot
 
