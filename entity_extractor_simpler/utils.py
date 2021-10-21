@@ -21,7 +21,7 @@ def pred_entity(model, dataloader, device, tokenizer):
 
     # Evaluate on mini-batches
     for batch in dataloader:
-        batch = {k: v.to(device) if v != 'label_string' else v for k, v in batch.items()}
+        batch = {k: v.to(device) if k != 'label_string' else v for k, v in batch.items()}
 
         # Forward Pass
         label_logits = model(batch)
