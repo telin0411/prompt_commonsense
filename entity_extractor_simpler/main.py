@@ -226,9 +226,9 @@ def main():
 
                         # Compute Loss
                         B, L = label_gt.shape
-                        loss = 0
-                        for i in range(L):
-                            loss += (1 / L) * criterion(label_logits, label_gt[:, i])
+                        loss = criterion(label_logits, label_gt[:, 0])
+                        for i in range(1, L):
+                            loss += criterion(label_logits, label_gt[:, i])
 
                 if args.data_parallel:
                     loss = loss.mean()
