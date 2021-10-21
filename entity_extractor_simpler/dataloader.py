@@ -66,7 +66,7 @@ class ExDataset(Dataset):
 
     def label_tokenize(self, label):
         label_token = self.tokenizer(text=label, add_special_tokens=False, return_attention_mask=True)
-        label_input_ids = label_token['input_ids']
+        label_input_ids = torch.tensor(label_token['input_ids'])
 
         if len(label_input_ids) > 2*self.num_entity:
             return label_input_ids[0: 2*self.num_entity]
