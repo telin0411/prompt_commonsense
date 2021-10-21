@@ -15,7 +15,8 @@ def pred_entity(model, dataloader, device, tokenizer):
     label = []
     mask_token = tokenizer('<mask>', add_special_tokens=False)['input_ids'][0]
     becuz_token = tokenizer('because', add_special_tokens=False)['input_ids'][0]
-    coma_token = tokenizer(',', add_special_tokens=False)['input_ids'][0]
+    coma1_token = tokenizer(',', add_special_tokens=False)['input_ids'][0]
+    coma2_token = tokenizer('.,', add_special_tokens=False)['input_ids'][0]
 
     acc = []
 
@@ -38,7 +39,8 @@ def pred_entity(model, dataloader, device, tokenizer):
         one_hot[:, 0:4] = 0
         one_hot[:, mask_token] = 0
         one_hot[:, becuz_token] = 0
-        one_hot[:, coma_token] = 0
+        one_hot[:, coma1_token] = 0
+        one_hot[:, coma2_token] = 0
 
         label_softmax = label_softmax * one_hot
 
@@ -80,6 +82,7 @@ def compute_acc(source, target):
         for source_word in source_words:
             is_right = 0
             for target_word in target_words:
+                source_word = source_word.replace(' ', '')
                 if source_word in target_word:
                     is_right = 1
                     break
