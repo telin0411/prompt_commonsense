@@ -71,7 +71,6 @@ class ExDataset(Dataset):
         if len(label_input_ids) > 2*self.num_entity:
             return label_input_ids[0: 2*self.num_entity]
         elif len(label_input_ids) < 2*self.num_entity:
-            i = random.randint(0, len(label_input_ids))
-            return torch.hstack((label_input_ids, label_input_ids[i].repeat(2*self.num_entity - len(label_input_ids))))
+            return torch.hstack((label_input_ids, label_input_ids[0].repeat(2*self.num_entity - len(label_input_ids))))
         else:
             return label_input_ids
