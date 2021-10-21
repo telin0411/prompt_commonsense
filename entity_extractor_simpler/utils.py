@@ -14,6 +14,7 @@ def pred_entity(model, dataloader, device, tokenizer):
     output_decoded = []
     label = []
     mask_token = tokenizer('<mask>', add_special_tokens=False)['input_ids'][0]
+    acc = []
 
     def decode(token_ids):
         return tokenizer.decode(token_ids, skip_special_tokens=False)
@@ -49,11 +50,9 @@ def pred_entity(model, dataloader, device, tokenizer):
                 pred_words.append(decode(token_id))
             batch_pred_words.append(pred_words)
 
+        acc.append(compute_acc(batch_pred_words, batch['label_string']))
 
-
-    acc = compute_acc(batch_pred_words, batch['label_string'])
-
-    metric = {'accuracy': acc,
+    metric = {'accuracy': torch.tensor(acc).mean(),
               'statement': input_decoded,
               'entity': output_decoded,
               'label': label}
