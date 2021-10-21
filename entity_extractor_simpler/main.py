@@ -77,7 +77,7 @@ def main():
     parser.add_argument('--acc_step', type=int, help='gradient accumulation steps', default=1)
     parser.add_argument('--epochs', type=int, help='number of epochs', default=50)
     parser.add_argument('--batch_size', type=int, help='batch size', default=8)
-    parser.add_argument('--log_interval', type=int, help='interval size for logging training summaries', default=100)
+    parser.add_argument('--log_interval', type=int, help='interval size for logging training summaries', default=1000)
     parser.add_argument('--save_interval', type=int, help='save model after `n` weight update steps', default=10000)
     parser.add_argument('--val_size', type=int, help='validation set size for evaluating metrics', default=2048)
     parser.add_argument('--use_reason', type=str2bool, help='Using reasons (T/F)', default='T')
