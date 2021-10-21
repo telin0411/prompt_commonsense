@@ -77,7 +77,7 @@ def compute_acc(source, target):
                     is_right = 1
                     break
             acc.append(is_right)
-
+    print(acc)
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 
