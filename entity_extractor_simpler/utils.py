@@ -60,12 +60,12 @@ def pred_entity(model, dataloader, device, tokenizer):
     return metric
 
 def compute_acc(source, target):
-    """
+
     print("===================source====================")
     print(source)
     print("===================target====================")
     print(target)
-    """
+
     # source [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
     # target [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
     acc = []
@@ -79,6 +79,7 @@ def compute_acc(source, target):
                     is_right = 1
                     break
             acc.append(is_right)
+    print(acc)
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 
