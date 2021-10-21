@@ -13,13 +13,14 @@ def pred_entity(model, dataloader, device, tokenizer):
     input_decoded = []
     output_decoded = []
     label = []
+    mask_token = tokenizer('<mask>', add_special_tokens=False)['input_ids'][0]
 
     def decode(token_ids):
         return tokenizer.decode(token_ids, skip_special_tokens=False)
 
     # Evaluate on mini-batches
     for batch in dataloader:
-        batch = {k: v.to(device) for k, v in batch.items()}
+        batch = {k: v.to(device) if v != 'label_string' else v for k, v in batch.items()}
 
         # Forward Pass
         label_logits = model(batch)
@@ -30,25 +31,27 @@ def pred_entity(model, dataloader, device, tokenizer):
         one_hot[one_hot > 0] = 1
 
         # set special tokens = 0
-        one_hot[:, 0:10] = 0
+        one_hot[:, 0:4] = 0
+        one_hot[:, mask_token] = 0
 
         label_softmax = label_softmax * one_hot
 
-        values, indices = torch.topk(label_softmax, 1, dim=1)
+        values, indices = torch.topk(label_softmax, 4, dim=1)
 
         # TODO: add some heuristic threshold from values to limit indices
 
         input_decoded += [decode(x) for x in batch['input_ids']]
         indices = indices.to('cpu')
+        batch_pred_words = []
         for batch_token_id in indices:
-            word = ""
+            pred_words = []
             for token_id in batch_token_id:
-                word += decode(token_id) + " "
-            output_decoded += [word]
+                pred_words.append(decode(token_id))
+            batch_pred_words.append(pred_words)
 
-        label += [decode(x) for x in batch['label']]
 
-    acc = compute_acc(output_decoded, label)
+
+    acc = compute_acc(batch_pred_words, batch['label_string'])
 
     metric = {'accuracy': acc,
               'statement': input_decoded,
@@ -64,17 +67,19 @@ def compute_acc(source, target):
     print("===================target====================")
     print(target)
     """
-    assert len(source) % 2 == 0, "source need a factor of 2"
+    # source [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
+    # target [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
     acc = []
-    for idx, _ in enumerate(source):
-        words_source = source[idx].split()
-        words_target = target[idx].split()
-        cnt_correct = 0
-        for word in words_source:
-            if word in words_target:
-                cnt_correct += 1
-
-        acc.append(cnt_correct/len(words_target))
+    for idx in range(len(source)):
+        source_words = source[idx]
+        target_words = target[idx]
+        for source_word in source_words:
+            is_right = 0
+            for target_word in target_words:
+                if source_word in target_word:
+                    is_right = 1
+                    break
+            acc.append(is_right)
 
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
 

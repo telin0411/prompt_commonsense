@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import argparse
 import os
+import random
+import numpy as np
 import sys
 # import apex.amp as amp
 import torch.cuda.amp as amp
@@ -32,6 +34,14 @@ Test:
 """
 
 
+def setup_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
+
+
 def main():
     parser = argparse.ArgumentParser(description=' Expt')
 
@@ -39,7 +49,8 @@ def main():
     parser.add_argument('--mode', type=str, help='train or test mode', choices=['train', 'test'], default='train')
     parser.add_argument('--expt_dir', type=str, help='root directory to save model & summaries', default='./exp')
     parser.add_argument('--expt_name', type=str, help='expt_dir/expt_name: organize experiments', default='ex')
-    parser.add_argument('--run_name', type=str, help='expt_dir/expt_name/run_name: organize training runs', default='01')
+    parser.add_argument('--run_name', type=str, help='expt_dir/expt_name/run_name: organize training runs',
+                        default='01')
 
     # Model params
     parser.add_argument('--model', type=str, help='transformer model (e.g. roberta-base)', default='roberta-large')
@@ -51,9 +62,12 @@ def main():
     parser.add_argument('--pretrained', type=str2bool, help='use pretrained encoder', default='true')
 
     # Data params
-    parser.add_argument('--train_path', type=str, help='path to dataset file (json/tsv)', default='./datasets/sem-eval/sem-eval_train.json')
-    parser.add_argument('--dev_path', type=str, help='path to dataset file (json/tsv)', default='./datasets/sem-eval/sem-eval_dev.json')
-    parser.add_argument('--test_path', type=str, help='path to dataset file (json/tsv)', default='./datasets/sem-eval/sem-eval_test.json')
+    parser.add_argument('--train_path', type=str, help='path to dataset file (json/tsv)',
+                        default='./datasets/sem-eval/sem-eval_train.json')
+    parser.add_argument('--dev_path', type=str, help='path to dataset file (json/tsv)',
+                        default='./datasets/sem-eval/sem-eval_dev.json')
+    parser.add_argument('--test_path', type=str, help='path to dataset file (json/tsv)',
+                        default='./datasets/sem-eval/sem-eval_test.json')
     parser.add_argument('--pred_file', type=str, help='prediction csv file, for "test" mode')
     parser.add_argument('--num_entity', type=int, help='number of key entities', default=2)
 
@@ -67,6 +81,7 @@ def main():
     parser.add_argument('--save_interval', type=int, help='save model after `n` weight update steps', default=10000)
     parser.add_argument('--val_size', type=int, help='validation set size for evaluating metrics', default=2048)
     parser.add_argument('--use_reason', type=str2bool, help='Using reasons (T/F)', default='T')
+    parser.add_argument('--seed', type=int, default=919)
 
     # GPU params
     parser.add_argument('--gpu_ids', type=str, help='GPU IDs (0,1,2,..) else -1', default="0")
@@ -81,6 +96,8 @@ def main():
                         action='store_true')
 
     args = parser.parse_args()
+
+    setup_seed(args.seed)
 
     # Multi-GPU
     device_ids = csv2list(args.gpu_ids, int)
@@ -194,7 +211,7 @@ def main():
         for epoch in range(start_epoch, start_epoch + n_epochs):
             for batch in tqdm(train_loader):
                 # Load batch to device
-                batch = {k: v.to(device) for k, v in batch.items()}
+                batch = {k: v.to(device) if v != 'label_string' else v for k, v in batch.items()}
 
                 with autocast(args.use_amp):
                     if text2text:
@@ -211,7 +228,7 @@ def main():
                         B, L = label_gt.shape
                         loss = 0
                         for i in range(L):
-                            loss += (1/L) * criterion(label_logits, label_gt[:, i])
+                            loss += (1 / L) * criterion(label_logits, label_gt[:, i])
 
                 if args.data_parallel:
                     loss = loss.mean()

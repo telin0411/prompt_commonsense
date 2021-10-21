@@ -1,10 +1,8 @@
-import os
-import json
 import torch
 import random
 import pandas as pd
 from transformers import AutoTokenizer
-from torch.utils.data import Dataset, ConcatDataset
+from torch.utils.data import Dataset
 
 
 class ExDataset(Dataset):
@@ -53,7 +51,8 @@ class ExDataset(Dataset):
         # Output
         sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
                   'attention_mask': torch.tensor(text_tokens['attention_mask']),
-                  'label': torch.tensor(label_input_ids)}
+                  'label': torch.tensor(label_input_ids),
+                  'label_string': label}
         return sample
 
     def get_tokenizer(self):
@@ -69,9 +68,10 @@ class ExDataset(Dataset):
         label_token = self.tokenizer(text=label, add_special_tokens=False, return_attention_mask=True)
         label_input_ids = label_token['input_ids']
 
-        if len(label) > self.num_entity:
-            return label_input_ids[0: self.num_entity]
-        elif len(label) < self.num_entity:
-            return torch.hstack((label_input_ids, label_input_ids[0].repeat(self.num_entity - len(label))))
+        if len(label_input_ids) > 2*self.num_entity:
+            return label_input_ids[0: 2*self.num_entity]
+        elif len(label_input_ids) < 2*self.num_entity:
+            i = random.randint(0, len(label_input_ids))
+            return torch.hstack((label_input_ids, label_input_ids[i].repeat(2*self.num_entity - len(label))))
         else:
             return label_input_ids
