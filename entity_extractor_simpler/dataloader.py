@@ -37,9 +37,9 @@ class ExDataset(Dataset):
 
         mask = self.tokenizer.mask_token
 
-        text = f"{text}, because {mask}"
+        text_ = f"{text}, because {mask}"
 
-        text_tokens = self.tokenizer(text=text,
+        text_tokens = self.tokenizer(text=text_,
                                      padding='max_length',
                                      max_length=self.max_seq_len,
                                      truncation=True,
@@ -52,7 +52,8 @@ class ExDataset(Dataset):
         sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
                   'attention_mask': torch.tensor(text_tokens['attention_mask']),
                   'label': label_input_ids,
-                  'label_string': label}
+                  'label_string': label,
+                  'input_string': text}
         return sample
 
     def get_tokenizer(self):

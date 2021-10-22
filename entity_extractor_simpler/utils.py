@@ -25,7 +25,7 @@ def pred_entity(model, dataloader, device, tokenizer):
 
     # Evaluate on mini-batches
     for batch in dataloader:
-        batch = {k: v.to(device) if k != 'label_string' else v for k, v in batch.items()}
+        batch = {k: v.to(device) if type(v) == str else v for k, v in batch.items()}
 
         # Forward Pass
         label_logits = model(batch)
@@ -57,7 +57,7 @@ def pred_entity(model, dataloader, device, tokenizer):
                 pred_words.append(decode(token_id))
             batch_pred_words.append(pred_words)
 
-        acc.append(compute_acc_v1(batch_pred_words, batch['label_string']))
+        acc.append(compute_acc(batch_pred_words, batch['label_string'], batch['input_string']))
 
     metric = {'accuracy': torch.tensor(acc).mean(),
               'statement': input_decoded,
@@ -66,7 +66,7 @@ def pred_entity(model, dataloader, device, tokenizer):
 
     return metric
 
-def compute_acc(source, target):
+def compute_acc(source, target, statement_b):
     """
     print("===================source====================")
     print(source)
@@ -79,18 +79,20 @@ def compute_acc(source, target):
     for idx in range(len(source)):
         source_words = source[idx]
         target_words = target[idx].split()
+        statement = statement_b[idx]
         for source_word in source_words:
             is_right = 0
             for target_word in target_words:
                 source_word = source_word.replace(' ', '')
-                if source_word in target_word:
+                word_restore = string_match(source_word, statement)
+                if word_restore == target_word:
                     is_right = 1
                     break
             acc.append(is_right)
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 
-def compute_acc_v1(source, target):
+def compute_acc_v1(source, target, statement_b):
     """
     print("===================source====================")
     print(source)
@@ -103,11 +105,13 @@ def compute_acc_v1(source, target):
     for idx in range(len(source)):
         source_words = source[idx]
         target_words = target[idx].split()
+        statement = statement_b[idx]
         for target_word in target_words:
             is_right = 0
             for source_word in source_words:
                 source_word = source_word.replace(' ', '')
-                if source_word in target_word:
+                word_restore = string_match(source_word, statement)
+                if word_restore == target_word:
                     is_right = 1
                     break
             acc.append(is_right)
@@ -196,3 +200,11 @@ def train_val_split(data, train_ratio=0.6, dev_ratio=0.2, test_ratio=0.2):
     test_split = int(test_ratio * len(data))
     data_test = rest[:test_split]
     return data_train, data_val, data_test
+
+
+def string_match(sub_word: str, sentence: str):
+    sentence = sentence.split()
+    for word in sentence:
+        if sub_word in word:
+            return word
+    return None
