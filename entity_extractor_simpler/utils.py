@@ -85,6 +85,7 @@ def compute_acc(source, target, statement_b):
             for target_word in target_words:
                 source_word = source_word.replace(' ', '')
                 source_word = string_match(source_word, statement)
+                source_word = source_word.replace(' ', '')
                 if source_word == target_word:
                     is_right = 1
                     break
@@ -111,7 +112,9 @@ def compute_acc_v1(source, target, statement_b):
         statement = statement_b[idx]
         for target_word in target_words:
             is_right = 0
+            target_word = target_word.lower()
             for source_word in source_words:
+                source_word = source_word.lower()
                 source_word = source_word.replace(' ', '')
                 word_restore = string_match(source_word, statement)
                 if word_restore == target_word:
@@ -206,6 +209,8 @@ def train_val_split(data, train_ratio=0.6, dev_ratio=0.2, test_ratio=0.2):
 
 
 def string_match(sub_word: str, sentence: str):
+    sub_word = sub_word.lower()
+    sentence = sentence.lower()
     sentence = sentence.split()
     for word in sentence:
         if sub_word in word:
