@@ -93,9 +93,6 @@ def compute_acc(source, target, statement_b):
                     is_right = 1
                     break
             acc.append(is_right)
-        print(source_words)
-        print(target_words)
-        print(statement)
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 
