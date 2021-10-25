@@ -217,4 +217,4 @@ def string_match(sub_word: str, sentence: str):
     for word in sentence:
         if sub_word in word:
             return word
-    return None
+    return ''
