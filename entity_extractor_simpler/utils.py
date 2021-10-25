@@ -82,7 +82,9 @@ def compute_acc(source, target, statement_b):
         statement = statement_b[idx]
         for source_word in source_words:
             is_right = 0
+            source_word = source_word.lower()
             for target_word in target_words:
+                target_word = target_word.lower()
                 source_word = source_word.replace(' ', '')
                 source_word = string_match(source_word, statement)
                 source_word = source_word.replace(' ', '')
