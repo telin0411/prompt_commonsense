@@ -211,7 +211,7 @@ def main():
         for epoch in range(start_epoch, start_epoch + n_epochs):
             for batch in tqdm(train_loader):
                 # Load batch to device
-                batch = {k: v.to(device) if type(v) == str else v for k, v in batch.items()}
+                batch = {k: v.to(device) if type(v) != str else v for k, v in batch.items()}
 
                 with autocast(args.use_amp):
                     if text2text:
