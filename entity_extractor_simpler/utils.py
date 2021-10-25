@@ -66,6 +66,7 @@ def pred_entity(model, dataloader, device, tokenizer):
 
     return metric
 
+
 def compute_acc(source, target, statement_b):
     """
     print("===================source====================")
@@ -119,13 +120,12 @@ def compute_acc_v1(source, target, statement_b):
                 source_word = source_word.lower()
                 source_word = source_word.replace(' ', '')
                 word_restore = string_match(source_word, statement)
+                source_word = source_word.replace(' ', '')
                 if word_restore == target_word:
                     is_right = 1
                     break
             acc.append(is_right)
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
-
-
 
 
 # ---------------------------------------------------------------------------
