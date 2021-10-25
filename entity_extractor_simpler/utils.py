@@ -84,11 +84,14 @@ def compute_acc(source, target, statement_b):
             is_right = 0
             for target_word in target_words:
                 source_word = source_word.replace(' ', '')
-                word_restore = string_match(source_word, statement)
-                if word_restore == target_word:
+                source_word = string_match(source_word, statement)
+                if source_word == target_word:
                     is_right = 1
                     break
             acc.append(is_right)
+        print(source_words)
+        print(target_words)
+        print(statement)
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 
