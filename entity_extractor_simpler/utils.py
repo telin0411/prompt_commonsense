@@ -57,7 +57,7 @@ def pred_entity(model, dataloader, device, tokenizer):
                 pred_words.append(decode(token_id))
             batch_pred_words.append(pred_words)
 
-        acc.append(compute_acc(batch_pred_words, batch['label_string'], batch['input_string']))
+        acc.append(compute_precision(batch_pred_words, batch['label_string'], batch['input_string']))
 
     metric = {'accuracy': torch.tensor(acc).mean(),
               'statement': input_decoded,
@@ -96,7 +96,7 @@ def compute_acc(source, target, statement_b):
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 
-def compute_acc_v1(source, target, statement_b):
+def compute_precision(source, target, statement_b):
     """
     print("===================source====================")
     print(source)
@@ -114,11 +114,11 @@ def compute_acc_v1(source, target, statement_b):
             is_right = 0
             target_word = target_word.lower()
             for source_word in source_words:
-                source_word = source_word.lower()
+                target_word = target_word.lower()
                 source_word = source_word.replace(' ', '')
-                word_restore = string_match(source_word, statement)
+                source_word = string_match(source_word, statement)
                 source_word = source_word.replace(' ', '')
-                if word_restore == target_word:
+                if source_word == target_word:
                     is_right = 1
                     break
             acc.append(is_right)
