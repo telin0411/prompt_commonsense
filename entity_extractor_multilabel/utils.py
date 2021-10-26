@@ -13,13 +13,14 @@ def pred_entity(model, dataloader, device, tokenizer):
     input_decoded = []
     output_decoded = []
     label = []
+    acc = []
 
     def decode(token_ids):
         return tokenizer.decode(token_ids, skip_special_tokens=True)
 
     # Evaluate on mini-batches
     for batch in dataloader:
-        batch = {k: v.to(device) if k != 'label_string' else v for k, v in batch.items()}
+        batch = {k: v.to(device) if 'str' not in k else v for k, v in batch.items()}
 
         # Forward Pass
         label_logits = model(batch)
@@ -29,12 +30,13 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         input_decoded += [decode(x) for x in batch['input_ids']]
 
-        pred = batch['input_ids'] * pred_mask
+        pred = batch['input_ids'] * pred_mask * batch['attention_mask']
 
-        output_decoded += [decode(x) for x in pred]
+        output_decoded = [decode(x) for x in pred]
         label += batch['label_string']
 
-    acc = compute_acc(output_decoded, label)
+        acc.append(compute_acc(output_decoded, batch['label_string'], batch['input_string']))
+
     print(acc)
 
     metric = {'accuracy': acc,
@@ -44,26 +46,63 @@ def pred_entity(model, dataloader, device, tokenizer):
 
     return metric
 
-def compute_acc(source, target):
-
+def compute_acc(source, target, statement_b):
+    """
     print("===================source====================")
     print(source)
     print("===================target====================")
     print(target)
-
-    assert len(source) % 2 == 0, "source need a factor of 2"
+    """
+    # source [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
+    # target [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
     acc = []
-    for idx, _ in enumerate(source):
-        words_source = source[idx].split()
-        words_target = target[idx].split()
-        cnt_correct = 0
-        for word in words_source:
-            if word in words_target:
-                cnt_correct += 1
-
-        acc.append(cnt_correct/len(words_target))
-
+    for idx in range(len(source)):
+        source_words = source[idx]
+        target_words = target[idx].split()
+        statement = statement_b[idx]
+        for source_word in source_words:
+            is_right = 0
+            source_word = source_word.lower()
+            for target_word in target_words:
+                target_word = target_word.lower()
+                source_word = source_word.replace(' ', '')
+                source_word = string_match(source_word, statement)
+                source_word = source_word.replace(' ', '')
+                if source_word == target_word:
+                    is_right = 1
+                    break
+            acc.append(is_right)
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
+
+
+def compute_precision(source, target, statement_b):
+    """
+    print("===================source====================")
+    print(source)
+    print("===================target====================")
+    print(target)
+    """
+    # source [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
+    # target [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
+    acc = []
+    for idx in range(len(source)):
+        source_words = source[idx]
+        target_words = target[idx].split()
+        statement = statement_b[idx]
+        for target_word in target_words:
+            is_right = 0
+            target_word = target_word.lower()
+            for source_word in source_words:
+                target_word = target_word.lower()
+                source_word = source_word.replace(' ', '')
+                source_word = string_match(source_word, statement)
+                source_word = source_word.replace(' ', '')
+                if source_word == target_word:
+                    is_right = 1
+                    break
+            acc.append(is_right)
+    return 100 * torch.tensor(acc, dtype=torch.float).mean()
+
 
 # ---------------------------------------------------------------------------
 def setup_logger(parser, log_dir, file_name='train_log.txt'):
@@ -145,3 +184,13 @@ def train_val_split(data, train_ratio=0.6, dev_ratio=0.2, test_ratio=0.2):
     test_split = int(test_ratio * len(data))
     data_test = rest[:test_split]
     return data_train, data_val, data_test
+
+
+def string_match(sub_word: str, sentence: str):
+    sub_word = sub_word.lower()
+    sentence = sentence.lower()
+    sentence = sentence.split()
+    for word in sentence:
+        if sub_word in word:
+            return word
+    return ''

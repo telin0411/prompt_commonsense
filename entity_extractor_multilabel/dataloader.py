@@ -55,7 +55,8 @@ class ExDataset(Dataset):
         sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
                   'attention_mask': torch.tensor(text_tokens['attention_mask']),
                   'label_binary': target,
-                  'label_string': label}
+                  'label_string': label,
+                  'input_string': text}
         return sample
 
     def get_tokenizer(self):
