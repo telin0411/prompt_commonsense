@@ -55,7 +55,7 @@ def compute_acc(source, target, statement_b):
     # target [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
     acc = []
     for idx in range(len(source)):
-        source_words = source[idx]
+        source_words = source[idx].split()
         target_words = target[idx].split()
         statement = statement_b[idx]
         for source_word in source_words:
@@ -84,7 +84,7 @@ def compute_precision(source, target, statement_b):
     # target [['b0_word_0',..., 'b0_word_k'],..., ['bn_word_0',..., 'bn_word_k']]
     acc = []
     for idx in range(len(source)):
-        source_words = source[idx]
+        source_words = source[idx].split()
         target_words = target[idx].split()
         statement = statement_b[idx]
         for target_word in target_words:
