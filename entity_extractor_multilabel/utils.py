@@ -37,6 +37,7 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         acc.append(compute_acc(output_decoded, batch['label_string'], batch['input_string']))
 
+    print(acc)
     acc = torch.tensor(acc).mean()
     print(acc)
     metric = {'accuracy': acc,
@@ -74,7 +75,7 @@ def compute_acc(source, target, statement_b):
                     is_right = 1
                     break
             acc.append(is_right)
-    return 100 * torch.tensor(acc, dtype=torch.float).mean().item()
+    return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 
 def compute_precision(source, target, statement_b):
