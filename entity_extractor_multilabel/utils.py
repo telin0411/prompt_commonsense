@@ -61,6 +61,8 @@ def compute_acc(source, target, statement_b):
         source_words = source[idx].split()
         target_words = target[idx].split()
         statement = statement_b[idx]
+        if not source_words:
+            acc.append(0)
         for source_word in source_words:
             is_right = 0
             source_word = source_word.lower()
@@ -73,7 +75,6 @@ def compute_acc(source, target, statement_b):
                     is_right = 1
                     break
             acc.append(is_right)
-    print(acc)
     return 100 * torch.tensor(acc, dtype=torch.float).mean()
 
 
