@@ -6,7 +6,7 @@ from torch.utils.data import Dataset
 
 
 class ExDataset(Dataset):
-    def __init__(self, data_path, split, tokenizer, max_seq_len=128, num_entity=2):
+    def __init__(self, data_path, split, tokenizer, max_seq_len=128, num_entity=3):
         """
         Processes raw dataset
 
@@ -69,9 +69,9 @@ class ExDataset(Dataset):
         label_token = self.tokenizer(text=label, add_special_tokens=False, return_attention_mask=True)
         label_input_ids = torch.tensor(label_token['input_ids'])
 
-        if len(label_input_ids) > 2*self.num_entity:
-            return label_input_ids[0: 2*self.num_entity]
-        elif len(label_input_ids) < 2*self.num_entity:
-            return torch.hstack((label_input_ids, label_input_ids[0].repeat(2*self.num_entity - len(label_input_ids))))
+        if len(label_input_ids) > self.num_entity:
+            return label_input_ids[0: self.num_entity]
+        elif len(label_input_ids) < self.num_entity:
+            return torch.hstack((label_input_ids, label_input_ids[0].repeat(self.num_entity - len(label_input_ids))))
         else:
             return label_input_ids
