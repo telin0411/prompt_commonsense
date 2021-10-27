@@ -114,7 +114,6 @@ def compute_precision(source, target, statement_b):
             is_right = 0
             target_word = target_word.lower()
             for source_word in source_words:
-                target_word = target_word.lower()
                 source_word = source_word.replace(' ', '')
                 source_word = string_match(source_word, statement)
                 source_word = source_word.replace(' ', '')
