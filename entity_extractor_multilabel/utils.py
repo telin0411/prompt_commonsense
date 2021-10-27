@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, classification_report
 
 
 @torch.no_grad()
-def pred_entity(model, dataloader, device, tokenizer):
+def pred_entity(model, dataloader, device, tokenizer, args):
     model.eval()
     input_decoded = []
     output_decoded = []
@@ -25,7 +25,7 @@ def pred_entity(model, dataloader, device, tokenizer):
         # Forward Pass
         label_logits = model(batch)
         pred_mask = torch.zeros(label_logits.shape, dtype=torch.int).to(device)
-        pred_mask[label_logits > 0.5] = 1
+        pred_mask[label_logits > args.th] = 1
         # print(pred_mask)
 
         input_decoded += [decode(x) for x in batch['input_ids']]

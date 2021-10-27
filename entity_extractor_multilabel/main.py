@@ -66,6 +66,7 @@ def main():
     parser.add_argument('--save_interval', type=int, help='save model after `n` weight update steps', default=10000)
     parser.add_argument('--val_size', type=int, help='validation set size for evaluating metrics', default=2048)
     parser.add_argument('--use_reason', type=str2bool, help='Using reasons (T/F)', default='T')
+    parser.add_argument('--th', type=int, help='threshold of sigmoid', default=0.5)
 
     # GPU params
     parser.add_argument('--gpu_ids', type=str, help='GPU IDs (0,1,2,..) else -1', default="0")
@@ -222,7 +223,7 @@ def main():
                 if curr_step % args.log_interval == 0 or curr_step == 1:
                     # Validation set accuracy
                     if val_dataset:
-                        val_metrics = pred_entity(model, val_loader, device, tokenizer)
+                        val_metrics = pred_entity(model, val_loader, device, tokenizer, args)
 
                         # Reset the mode to training
                         model.train()
@@ -266,7 +267,7 @@ def main():
             # Validation accuracy on the entire set
             if val_dataset:
                 total_val_size = val_dataset.__len__()
-                val_metrics = pred_entity(model, val_loader, device, tokenizer)
+                val_metrics = pred_entity(model, val_loader, device, tokenizer, args)
                 log_msg = '\nAfter {} epoch:\n'.format(epoch)
                 log_msg += 'Validation Accuracy: {:.2f} % \n'.format(
                     val_metrics['accuracy'])
@@ -328,7 +329,7 @@ def main():
 
         # Inference
         # test_metrics = compute_eval_metrics(model, test_loader, device, test_dataset.__len__())
-        test_metrics = pred_entity(model, test_loader, device, tokenizer)
+        test_metrics = pred_entity(model, test_loader, device, tokenizer, args)
 
         print('Test Accuracy: {}'.format(test_metrics['accuracy']))
 
