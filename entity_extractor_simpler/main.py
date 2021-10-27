@@ -70,6 +70,8 @@ def main():
                         default='./datasets/sem-eval/sem-eval_test.json')
     parser.add_argument('--pred_file', type=str, help='prediction csv file, for "test" mode')
     parser.add_argument('--num_entity', type=int, help='number of key entities', default=2)
+    parser.add_argument('--topk', type=int, help='top k candidates', default=3)
+
 
     # Training params
     parser.add_argument('--lr', type=float, help='learning rate', default=1e-5)
@@ -245,7 +247,7 @@ def main():
                 if curr_step % args.log_interval == 0 or curr_step == 1:
                     # Validation set accuracy
                     if val_dataset:
-                        val_metrics = pred_entity(model, val_loader, device, tokenizer)
+                        val_metrics = pred_entity(model, val_loader, device, tokenizer, args)
 
                         # Reset the mode to training
                         model.train()
@@ -289,7 +291,7 @@ def main():
             # Validation accuracy on the entire set
             if val_dataset:
                 total_val_size = val_dataset.__len__()
-                val_metrics = pred_entity(model, val_loader, device, tokenizer)
+                val_metrics = pred_entity(model, val_loader, device, tokenizer, args)
                 log_msg = '\nAfter {} epoch:\n'.format(epoch)
                 log_msg += 'Validation Accuracy: {:.2f} % \n'.format(
                     val_metrics['accuracy'])
@@ -351,7 +353,7 @@ def main():
 
         # Inference
         # test_metrics = compute_eval_metrics(model, test_loader, device, test_dataset.__len__())
-        test_metrics = pred_entity(model, test_loader, device, tokenizer)
+        test_metrics = pred_entity(model, test_loader, device, tokenizer, args)
 
         print('Test Accuracy: {}'.format(test_metrics['accuracy']))
 

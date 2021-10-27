@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, classification_report
 
 
 @torch.no_grad()
-def pred_entity(model, dataloader, device, tokenizer):
+def pred_entity(model, dataloader, device, tokenizer, args):
     model.eval()
     input_decoded = []
     output_decoded = []
@@ -44,7 +44,7 @@ def pred_entity(model, dataloader, device, tokenizer):
 
         label_softmax = label_softmax * one_hot
 
-        values, indices = torch.topk(label_softmax, 4, dim=1)
+        values, indices = torch.topk(label_softmax, args.topk, dim=1)
 
         # TODO: add some heuristic threshold from values to limit indices
 
