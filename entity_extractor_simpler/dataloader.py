@@ -33,27 +33,34 @@ class ExDataset(Dataset):
     def __getitem__(self, idx):
         record = self.data[idx]
 
-        text, label = record['text'], record['label']
+        sent, entity, noun = record['text'], record['label'], record['noun']
 
         mask = self.tokenizer.mask_token
 
-        text_ = f"{text}, because {mask}"
+        text_ = f"{sent}, because {mask}"
 
-        text_tokens = self.tokenizer(text=text_,
+        sent_token = self.tokenizer(text=text_,
+                                    padding='max_length',
+                                    max_length=self.max_seq_len,
+                                    truncation=True,
+                                    add_special_tokens=False,
+                                    return_attention_mask=True)
+
+        noun_tokens = self.tokenizer(text=noun,
                                      padding='max_length',
                                      max_length=self.max_seq_len,
                                      truncation=True,
                                      add_special_tokens=False,
                                      return_attention_mask=True)
-
-        label_input_ids = self.label_tokenize(label)
-
+        entity_input_ids = self.label_tokenize(entity)
         # Output
-        sample = {'input_ids': torch.tensor(text_tokens['input_ids']),
-                  'attention_mask': torch.tensor(text_tokens['attention_mask']),
-                  'label': label_input_ids,
-                  'label_string': label,
-                  'input_string': text}
+        sample = {'input_ids': torch.tensor(sent_token['input_ids']),
+                  'attention_mask': torch.tensor(sent_token['attention_mask']),
+                  'entity_ids': entity_input_ids,
+                  'noun_ids': torch.tensor(noun_tokens['input_ids']),
+                  'entity_string': entity,
+                  'noun_string': noun,
+                  'sent_string': sent}
         return sample
 
     def get_tokenizer(self):
@@ -63,7 +70,7 @@ class ExDataset(Dataset):
         self.data = []
         df = pd.read_json(self.data_path)
         for index, row in df.iterrows():
-            self.data.append({'text': row['sent'], 'label': " ".join(row['entity'])})
+            self.data.append({'sent': row['sent'], 'entity': " ".join(row['entity']), 'noun': " ".join(row['noun'])})
 
     def label_tokenize(self, label):
         label_token = self.tokenizer(text=label, add_special_tokens=False, return_attention_mask=True)
