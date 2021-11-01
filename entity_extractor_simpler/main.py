@@ -224,7 +224,7 @@ def main():
                     else:
                         # Forward Pass
                         label_logits = model(batch)
-                        label_gt = batch['label']
+                        label_gt = batch['entity']
 
                         # Compute Loss
                         B, L = label_gt.shape

@@ -57,7 +57,7 @@ def pred_entity(model, dataloader, device, tokenizer, args):
                 pred_words.append(decode(token_id))
             batch_pred_words.append(pred_words)
 
-        acc.append(compute_precision(batch_pred_words, batch['label_string'], batch['input_string']))
+        acc.append(compute_precision(batch_pred_words, batch['entity_string'], batch['sent_string']))
 
     metric = {'accuracy': torch.tensor(acc).mean(),
               'statement': input_decoded,
