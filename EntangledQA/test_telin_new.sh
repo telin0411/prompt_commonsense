@@ -44,6 +44,10 @@ python3 main.py \
     --run semeval20_comparative_com2sense70_pretrained_no_training_released-a \
     --run semeval20_comparative_com2sense70_pretrained_no_training_new_test-a \
     --run semeval20_comparative_com2sense70_pretrained_no_training_new_test-b \
+    --run semeval20_comparative_com2sense80_pretrained_no_training_new_test-a \
+    --run semeval20_comparative_com2sense80_pretrained_no_training_new_test-b \
+    --run semeval20_comparative_no_training_released-a \
+    --run semeval20_comparative_no_training_released-b \
     --seed 808 \
     --gpu 0 \
     --gpu 0,1,2,3,4,5,6,7 \
@@ -68,3 +72,5 @@ python3 main.py \
     --ckpt "./results_log/com2sense/unifiedqa_11b/semeval20_comparative_com2sense80_v2/ep_4_stp_21.5k_acc_79.9623_allenai_unifiedqa_t5_11b.pth" \
     --ckpt "./results_log/EntangledQA/unifiedqa_11b/semeval20_dev_EQA/ep_9_stp_55.1k_acc_90.1163_allenai_unifiedqa_t5_11b.pth" \
     --ckpt "./results_log/com2sense/unifiedqa_11b/semeval20_comparative_com2sense70/ep_4_stp_21.1k_acc_81.0746_allenai_unifiedqa_t5_11b.pth" \
+    --ckpt "./results_log/com2sense/unifiedqa_11b/semeval20_comparative_com2sense80/ep_4_stp_21.5k_acc_80.6533_allenai_unifiedqa_t5_11b.pth" \
+    --ckpt "./results_log/SemEval20Comparative/unifiedqa_11b/semeval20_comparative/ep_3_stp_18.4k_acc_93.0447_allenai_unifiedqa_t5_11b.pth" \
