@@ -33,7 +33,7 @@ class ExDataset(Dataset):
     def __getitem__(self, idx):
         record = self.data[idx]
 
-        sent, entity, noun = record['sent'], record['label'], record['noun']
+        sent, entity, noun = record['sent'], record['entity'], record['noun']
 
         mask = self.tokenizer.mask_token
 
