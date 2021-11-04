@@ -154,7 +154,7 @@ class BaseDataset(Dataset):
         else:
 
             text, label = record['text'], record['label']
-      
+
             cls = self.tokenizer.cls_token
  
             text = f'{cls} {text}'
@@ -226,9 +226,6 @@ class Com2SenseDataset(BaseDataset):
         # Map labels
         label2int = {'True': 1, 'False': 0}
 
-        df['label_1'] = df['label_1'].apply(lambda l: label2int[l])
-        df['label_2'] = df['label_2'].apply(lambda l: label2int[l])
-
         raw_data = df.to_dict(orient='records')
 
         # add index for pairs       # TODO: Remove this, and use the database ID
@@ -237,39 +234,8 @@ class Com2SenseDataset(BaseDataset):
 
         data = []
         for pair in raw_data:
-            if pair['scenario'] == 'comparison':
-                pass
-            elif pair['scenario'] == 'causal':
-                sent_1 = pair['sent_1']
-                sent_2 = pair['sent_2']
-                is_qualified, entity_1, entity_2 = self._isOneWordDiff(sent_1, sent_2)
-                if not is_qualified:
-                    continue
-                else:
-                    # Get the index of the entity, ready to transform to comparison
-                    insert_loc_1 = sent_1.find(entity_1) + len(entity_1)
-                    insert_loc_2 = sent_2.find(entity_2) + len(entity_2)
 
-                    # Insert template concatenated by masks
-                    sent_1 = sent_1[:insert_loc_1] + " instead of" + " <mask>" + sent_1[insert_loc_1:]
-                    sent_2 = sent_2[:insert_loc_2] + " instead of" + " <mask>" + sent_2[insert_loc_2:]
-
-                    pair['sent_1'] = sent_1
-                    pair['sent_2'] = sent_2
-
-            sample_1 = dict(_id=pair['_id'], text=pair['sent_1'], label=pair['label_1'])
-            sample_2 = dict(_id=pair['_id'], text=pair['sent_2'], label=pair['label_2'])
-            if pair['label_1'] == 1: 
-                correct_sentence = pair['sent_1']
-                other_one = pair['sent_2']
-            else:
-                correct_sentence = pair['sent_2']
-                other_one = pair['sent_1']
-            # if self.mc:
-            #     sample = dict(_id = pair['_id'], correct= correct_sentence, incorrect = other_one)
-            #     data.append(sample)
-            # else:
-            data += [sample_1, sample_2]
+            data += [{'text': pair['sent'], 'label': pair['label']}]
         
         if self.split == 'train':
             random.seed(0)
