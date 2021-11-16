@@ -75,13 +75,10 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
             input_decoded += [decode(x) for x in batch['tokens']]
 
             # Loss
-            loss.append(F.cross_entropy(label_logits, label_gt, reduction='mean'))
+            loss.append(F.binary_cross_entropy_with_logits(label_logits, label_gt, reduction='mean'))
 
             label_pred = label_pred.detach().cpu().tolist()
             label_gt = label_gt.detach().cpu().tolist()
-
-            print("GT:", label_gt)
-            print("PR:", label_pred)
 
         # Append batch; list.extend()
         predicted += label_pred
@@ -107,6 +104,18 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
                            'prediction': predicted,
                            'ground_truth': ground_truth}
     return metrics
+
+
+def print_category(y_gt, y_pred):
+    assert len(y_gt) == len(y_pred) and len(y_gt) % 5 == 0, 'Invalid Inputs for Pairwise setup'
+    int2label = {0: 'physical', 1: 'social', 2: 'time', 3: 'causal', 4: 'comparison'}
+    for i in range(len(y_gt // 5)):
+        y_gt_i = y_gt[i: i+5]
+        y_pred_i = y_pred[i: i + 5]
+
+        y_gt_category = [int2label[i] for i, e in enumerate(y_gt_i) if e != 0]
+        y_pred_category = [int2label[i] for i, e in enumerate(y_pred_i) if e != 0]
+        print(y_gt_category, y_pred_category)
 
 
 def _pairwise_acc(y_gt, y_pred):
