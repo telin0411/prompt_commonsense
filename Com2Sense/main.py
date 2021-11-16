@@ -154,9 +154,8 @@ def main():
                model.to(device)
         model.train()
 
-
         # Loss & Optimizer
-        criterion = nn.BCELoss()
+        criterion = nn.BCEWithLogitsLoss()
         optimizer = torch.optim.Adam(model.parameters(), lr)
         optimizer.zero_grad()
 
