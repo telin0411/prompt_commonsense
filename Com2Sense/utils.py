@@ -91,9 +91,8 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
 
     # Compute metrics
     accuracy = 100 * accuracy_score(ground_truth, predicted)
-    if is_pairwise:
-        print_category(ground_truth, predicted)
     pair_acc = 100 * _pairwise_acc(ground_truth, predicted) if is_pairwise else None
+    print(accuracy)
 
     loss = torch.tensor(loss).mean()
 
@@ -102,22 +101,21 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
                'pair_acc': pair_acc}
 
     if is_test:
+        category_gt = category(ground_truth)
+        category_pred = category(predicted)
         metrics['meta'] = {'input': input_decoded,
-                           'prediction': predicted,
-                           'ground_truth': ground_truth}
+                           'prediction': category_pred,
+                           'ground_truth': category_gt}
     return metrics
 
 
-def print_category(y_gt, y_pred):
-    assert len(y_gt) == len(y_pred), 'Invalid Inputs for Pairwise setup'
+def category(y):
+    y_category = []
     int2label = {0: 'physical', 1: 'social', 2: 'time', 3: 'causal', 4: 'comparison'}
-    for i in range(len(y_gt) // 5):
-        y_gt_i = y_gt[i: i+5]
-        y_pred_i = y_pred[i: i + 5]
-
-        y_gt_category = [int2label[i] for i, e in enumerate(y_gt_i) if e != 0]
-        y_pred_category = [int2label[i] for i, e in enumerate(y_pred_i) if e != 0]
-        print(y_gt_category, y_pred_category)
+    for i in range(len(y) // 5):
+        y_i = y[i: i+5]
+        y_category.append([int2label[i] for i, e in enumerate(y_i) if e != 0])
+    return y_category
 
 
 def _pairwise_acc(y_gt, y_pred):
