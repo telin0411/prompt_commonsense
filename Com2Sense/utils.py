@@ -77,8 +77,8 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
             # Loss
             loss.append(F.binary_cross_entropy_with_logits(label_logits, label_gt, reduction='mean'))
 
-            label_pred = label_pred.detach().cpu().tolist()
-            label_gt = label_gt.detach().cpu().tolist()
+            label_pred = label_pred.flatten().detach().cpu().tolist()
+            label_gt = label_gt.flatten().detach().cpu().tolist()
 
         # Append batch; list.extend()
         predicted += label_pred
@@ -109,7 +109,7 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
 
 
 def print_category(y_gt, y_pred):
-    assert len(y_gt) == len(y_pred) and len(y_gt) % 5 == 0, 'Invalid Inputs for Pairwise setup'
+    assert len(y_gt) == len(y_pred), 'Invalid Inputs for Pairwise setup'
     int2label = {0: 'physical', 1: 'social', 2: 'time', 3: 'causal', 4: 'comparison'}
     for i in range(len(y_gt) // 5):
         y_gt_i = y_gt[i: i+5]
