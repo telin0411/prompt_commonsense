@@ -106,10 +106,12 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        dataset = BaseDataset('train', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa = uniqa)
+        dataset = BaseDataset('train', tokenizer=args.model, max_seq_len=args.seq_len,
+                              text2text=text2text, uniqa=uniqa, num_cls=args.num_cls)
         train_datasets = dataset.concat(dataset_names)
 
-        dataset = BaseDataset('dev', tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa = uniqa)
+        dataset = BaseDataset('dev', tokenizer=args.model, max_seq_len=args.seq_len,
+                              text2text=text2text, uniqa=uniqa, num_cls=args.num_cls)
         val_datasets = dataset.concat(dataset_names)
 
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
@@ -154,7 +156,7 @@ def main():
 
 
         # Loss & Optimizer
-        criterion = nn.CrossEntropyLoss()
+        criterion = nn.BCELoss()
         optimizer = torch.optim.Adam(model.parameters(), lr)
         optimizer.zero_grad()
 
@@ -203,10 +205,11 @@ def main():
                     else:
                         # Forward Pass
                         label_logits = model(batch)
+                        label_sigmoid = torch.sigmoid(label_logits)
                         label_gt = batch['label']
 
                         # Compute Loss
-                        loss = criterion(label_logits, label_gt)
+                        loss = criterion(label_sigmoid, label_gt)
 
                 if args.data_parallel:
                     loss = loss.mean()

@@ -14,7 +14,8 @@ class BaseDataset(Dataset):
     """
     Base class for Datasets
     """
-    def __init__(self, split, tokenizer, max_seq_len=128, text2text=True, uniqa = False):
+
+    def __init__(self, split, tokenizer, max_seq_len=128, text2text=True, uniqa=False, num_cls=5):
         """
         Processes raw dataset
 
@@ -29,6 +30,7 @@ class BaseDataset(Dataset):
         self.text2text = text2text
         self.tok_name = tokenizer
         self.uniqa = uniqa
+        self.num_cls = num_cls
         # Tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(self.tok_name)
 
@@ -76,7 +78,7 @@ class BaseDataset(Dataset):
         args = {'split': self.split,
                 'tokenizer': self.tok_name,
                 'max_seq_len': self.max_seq_len,
-                'text2text': self.text2text, 
+                'text2text': self.text2text,
                 'uniqa': self.uniqa}
 
         datasets = []
@@ -121,10 +123,10 @@ class BaseDataset(Dataset):
             # Format input & label
             text, label = self._prepare_text2text(record)
             if self.uniqa:
-              text = text.split(':')[1][1:]
-              text = 'Is the following sentence correct?\n' + text
-              label = label.replace('false', 'no')
-              label = label.replace('true', 'yes')
+                text = text.split(':')[1][1:]
+                text = 'Is the following sentence correct?\n' + text
+                label = label.replace('false', 'no')
+                label = label.replace('true', 'yes')
             target_len = 2
             # Tokenize
             input_encoded = self.tokenizer.encode_plus(text=text,
@@ -153,25 +155,28 @@ class BaseDataset(Dataset):
                       'target_attn_mask': target_attn_mask}
         else:
 
-            text, label = record['text'], record['label']
-      
+            text, domain, scenario = record['text'], record['domain'], record['scenario']
+
             cls = self.tokenizer.cls_token
- 
+
             text = f'{cls} {text}'
-  
+
             tokens = self.tokenizer(text=text,
-                              padding='max_length',
-                              max_length=self.max_seq_len,
-                              add_special_tokens=False,
-                              return_attention_mask=True)
+                                    padding='max_length',
+                                    max_length=self.max_seq_len,
+                                    add_special_tokens=False,
+                                    return_attention_mask=True)
+            target = torch.zeros(self.num_cls)
+            target[domain] = 1
+            target[scenario] = 1
 
             token_ids = torch.tensor(tokens['input_ids'])
             attn_mask = torch.tensor(tokens['attention_mask'])
 
-      # Output
+            # Output
             sample = {'tokens': token_ids,
-                'attn_mask': attn_mask,
-                'label': label}
+                      'attn_mask': attn_mask,
+                      'label': target}
         return sample
 
 
@@ -182,17 +187,18 @@ class Com2SenseDataset(BaseDataset):
     [True]  It's more comfortable to sleep on a mattress than the floor.
     [False] It's more comfortable to sleep on the floor than a mattress.
     """
-    def __init__(self, split, tokenizer, max_seq_len, text2text, uniqa = False):
+
+    def __init__(self, split, tokenizer, max_seq_len, text2text, uniqa=False):
 
         super().__init__(split, tokenizer, max_seq_len, text2text)
-        
+
         self.uniqa = uniqa
         self.text2text = text2text
         # Read dataset
         data_dir = self._get_path('com2sense')
-        
+
         self.data = self._preprocess(data_dir)
-    
+
     def _preprocess(self, data_dir):
         """
         Parses raw dataset file (jsonl). \n
@@ -224,10 +230,10 @@ class Com2SenseDataset(BaseDataset):
         df = pd.read_json(path)
 
         # Map labels
-        label2int = {'True': 1, 'False': 0}
+        label2int = {'physical': 0, 'social': 1, 'time': 2, 'causal': 3, 'comparison': 4}
 
-        df['label_1'] = df['label_1'].apply(lambda l: label2int[l])
-        df['label_2'] = df['label_2'].apply(lambda l: label2int[l])
+        df['domain'] = df['domain'].apply(lambda l: label2int[l])
+        df['scenario'] = df['scenario'].apply(lambda l: label2int[l])
 
         raw_data = df.to_dict(orient='records')
 
@@ -237,9 +243,9 @@ class Com2SenseDataset(BaseDataset):
 
         data = []
         for pair in raw_data:
-            sample_1 = dict(_id=pair['_id'], text=pair['sent_1'], label=pair['label_1'])
-            sample_2 = dict(_id=pair['_id'], text=pair['sent_2'], label=pair['label_2'])
-            if pair['label_1'] == 1: 
+            sample_1 = dict(_id=pair['_id'], text=pair['sent_1'], domain=pair['domain'], scenario=pair['scenario'])
+            sample_2 = dict(_id=pair['_id'], text=pair['sent_2'], domain=pair['domain'], scenario=pair['scenario'])
+            if pair['label_1'] == 1:
                 correct_sentence = pair['sent_1']
                 other_one = pair['sent_2']
             else:
@@ -250,7 +256,7 @@ class Com2SenseDataset(BaseDataset):
             #     data.append(sample)
             # else:
             data += [sample_1, sample_2]
-        
+
         if self.split == 'train':
             random.seed(0)
             random.shuffle(data)
@@ -278,4 +284,3 @@ class Com2SenseDataset(BaseDataset):
         label = f'{answer} </s>'
 
         return text, label
-
