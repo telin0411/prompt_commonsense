@@ -65,9 +65,12 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
         else:
             # Forward Pass
             label_logits = model(batch)
-            label_sigmoid = torch.sigmoid(label_logits)
+            label_pred = torch.sigmoid(label_logits)
             label_gt = batch['label']
-            label_pred = label_sigmoid[label_sigmoid > 0.5]
+            label_pred[label_pred < 0.5] = 0
+            label_pred[label_pred >= 0.5] = 1
+
+            label_pred = torch.tensor(label_pred, dtype=torch.int)
 
             input_decoded += [decode(x) for x in batch['tokens']]
 
