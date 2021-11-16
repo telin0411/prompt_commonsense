@@ -317,14 +317,15 @@ def main():
     elif args.mode == 'test':
 
         # Dataloader
-        dataset = BaseDataset(args.test_file, tokenizer=args.model, max_seq_len=args.seq_len, text2text=text2text, uniqa = uniqa)
+        dataset = BaseDataset(args.test_file, tokenizer=args.model, max_seq_len=args.seq_len,
+                              text2text=text2text, uniqa=uniqa, num_cls=args.num_cls)
         datasets = dataset.concat(dataset_names)
 
         loader = DataLoader(datasets, batch_size, num_workers=args.num_workers)
 
         tokenizer = dataset.get_tokenizer()
 
-        model = Transformer(args.model, args.num_cls, text2text, num_layers = args.num_layers)
+        model = Transformer(args.model, args.num_cls, text2text, num_layers=args.num_layers)
         model.eval()
         model.to(device)
 
@@ -338,7 +339,8 @@ def main():
         is_pairwise = 'com2sense' in dataset_names
 
         # Inference
-        metrics = compute_eval_metrics(model, loader, device, data_len, tokenizer,text2text, is_pairwise =is_pairwise, is_test=True, parallel = args.data_parallel)
+        metrics = compute_eval_metrics(model, loader, device, data_len, tokenizer,
+                                       text2text, is_pairwise=is_pairwise, is_test=True, parallel=args.data_parallel)
 
         df = pd.DataFrame(metrics['meta'])
         df.to_csv(args.pred_file)
