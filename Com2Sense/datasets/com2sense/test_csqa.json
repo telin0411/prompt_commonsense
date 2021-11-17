@@ -1,0 +1,57 @@
+[
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "You would put pans on backpack if you want to bring them with you.",
+        "sent_2": "You would put pans on kitchen if you want to bring them with you.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "social",
+        "scenario": "causal",
+        "numeracy": "False",
+        "split": "train_40_50"
+    },
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "You can find a number of wind instruments together in symphony in public.",
+        "sent_2": "You can find a number of wind instruments together in zoo in public.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "social",
+        "scenario": "causal",
+        "numeracy": "False",
+        "split": "train_40_50"
+    },
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "A person could avoid the rain in synagogue.",
+        "sent_2": "A person could avoid the rain at street corner.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "physical",
+        "scenario": "causal",
+        "numeracy": "False",
+        "split": "train_40_50"
+    },
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "Shortness of breath happens if someone kisses too long.",
+        "sent_2": "herpes happens if someone kisses too long.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "physical",
+        "scenario": "causal",
+        "numeracy": "False",
+        "split": "train_40_50"
+    },
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "You go on a night out on a restaurant before going to the bar.",
+        "sent_2": "You go on a night out on a park before going to the bar.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "social",
+        "scenario": "causal",
+        "numeracy": "False",
+        "split": "train_40_50"
+    }
+]
