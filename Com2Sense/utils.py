@@ -67,8 +67,12 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
             label_logits = model(batch)
             label_pred = torch.sigmoid(label_logits)
             label_gt = batch['label']
+            print(label_logits)
+            print(label_gt)
             label_pred[label_pred < 0.5] = 0
             label_pred[label_pred >= 0.5] = 1
+            print(label_pred)
+            print("================75===================")
 
             label_pred = torch.tensor(label_pred, dtype=torch.int)
 
