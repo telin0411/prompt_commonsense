@@ -1,0 +1,6002 @@
+[
+    {
+        "id":0,
+        "statement":"A chainsaw is used to cut diamonds",
+        "explanation":"Cutting diamonds with a chainsaw would break it",
+        "label":0
+    },
+    {
+        "id":1,
+        "statement":"The hangers bought the closet",
+        "explanation":"Hangers are inanimate things which cannot buy something",
+        "label":0
+    },
+    {
+        "id":2,
+        "statement":"Feathers in a pillow are hard.",
+        "explanation":"Feathers are always soft.",
+        "label":0
+    },
+    {
+        "id":3,
+        "statement":"Straight razors are great for cutting sheet metal",
+        "explanation":"The blades of Straight razors are too thin to cut sheet metal",
+        "label":0
+    },
+    {
+        "id":4,
+        "statement":"You are likely to find an orange tree in Antarctica.",
+        "explanation":"It is too cold for an orange tree to grow in Antarctica",
+        "label":0
+    },
+    {
+        "id":5,
+        "statement":"The boy ate the sky",
+        "explanation":"Sky is too large for the boy to eat",
+        "label":0
+    },
+    {
+        "id":6,
+        "statement":"An e-wallet is the only kind of payment",
+        "explanation":"Cash can also use to pay",
+        "label":0
+    },
+    {
+        "id":7,
+        "statement":"rob drives a train to work",
+        "explanation":"People take the train to work.",
+        "label":0
+    },
+    {
+        "id":8,
+        "statement":"We went to the restaurant to take a shower.",
+        "explanation":"There is no place to take a shower in a restaurant.",
+        "label":0
+    },
+    {
+        "id":9,
+        "statement":"I write a letter to my dog informing about his health.",
+        "explanation":"The dog unable to read a letter.",
+        "label":0
+    },
+    {
+        "id":10,
+        "statement":"A person uses a camera to write an e-mail to his friend",
+        "explanation":"Cameras don't have features of sending e-mail.",
+        "label":0
+    },
+    {
+        "id":11,
+        "statement":"cars have legs",
+        "explanation":"cars use wheels to go forward, instead of legs",
+        "label":0
+    },
+    {
+        "id":12,
+        "statement":"Sam bought a baby from the store",
+        "explanation":"No store will sell a baby",
+        "label":0
+    },
+    {
+        "id":13,
+        "statement":"Bob painted the fire yesterday",
+        "explanation":"Nothing can be painted on the fire",
+        "label":0
+    },
+    {
+        "id":14,
+        "statement":"Water contains helium.",
+        "explanation":"Only oxygen and hydrogen are the building blocks of water.",
+        "label":0
+    },
+    {
+        "id":15,
+        "statement":"She cleaned the kitchen floor with a rake.",
+        "explanation":"A rake would tear up the kitchen floor.",
+        "label":0
+    },
+    {
+        "id":16,
+        "statement":"It is snowing, Susan put on a bathing suit to go outside.",
+        "explanation":"Putting on a bathing suit will feel colder",
+        "label":0
+    },
+    {
+        "id":17,
+        "statement":"the ceiling fan is spreading light in the darkroom.",
+        "explanation":"a ceiling fan has no modules to light.",
+        "label":0
+    },
+    {
+        "id":18,
+        "statement":"We go to the library to buy food.",
+        "explanation":"The library doesn't sell food.",
+        "label":0
+    },
+    {
+        "id":19,
+        "statement":"The light is blowing cool air around the room",
+        "explanation":"The light is used to illuminate",
+        "label":0
+    },
+    {
+        "id":20,
+        "statement":"A circle has four corners.",
+        "explanation":"A circle has no corners",
+        "label":0
+    },
+    {
+        "id":21,
+        "statement":"You are likely to find a fish in a cruet",
+        "explanation":"cruet is used to contain seasoning",
+        "label":0
+    },
+    {
+        "id":22,
+        "statement":"The leaves on the tree are starting to turn blue.",
+        "explanation":"Trees do not have blue leaves.",
+        "label":0
+    },
+    {
+        "id":23,
+        "statement":"One of the things you do when facing the enemy is to analyze your weaknesses and tell them to your enemy.",
+        "explanation":"If you tell your weakness to your enemy, you will lose.",
+        "label":0
+    },
+    {
+        "id":24,
+        "statement":"I used the dog to open the door.",
+        "explanation":"A door can only be opened with a key",
+        "label":0
+    },
+    {
+        "id":25,
+        "statement":"the fly died because the air was well-conditioned",
+        "explanation":"well-conditioned air will make animals healthier",
+        "label":0
+    },
+    {
+        "id":26,
+        "statement":"The sun is very very cold.",
+        "explanation":"The sun is burning.",
+        "label":0
+    },
+    {
+        "id":27,
+        "statement":"An Eagle swim inside the water.",
+        "explanation":"Eagles have no organ fit to swim inside the water.",
+        "label":0
+    },
+    {
+        "id":28,
+        "statement":"Sarampo can kill all earth",
+        "explanation":"Earth cannot be killed by a virus",
+        "label":0
+    },
+    {
+        "id":29,
+        "statement":"A spoon can be used to chop a tree.",
+        "explanation":"A spoon is used to have a meal.",
+        "label":0
+    },
+    {
+        "id":30,
+        "statement":"He gave the thirsty man chocolate.",
+        "explanation":"chocolate makes the thirsty man more thirsty.",
+        "label":0
+    },
+    {
+        "id":31,
+        "statement":"Heavy noise made them sleep",
+        "explanation":"People sleep in a quiet environment",
+        "label":0
+    },
+    {
+        "id":32,
+        "statement":"The teacher told their students to submit their home this week",
+        "explanation":"It's impossible to submit home",
+        "label":0
+    },
+    {
+        "id":33,
+        "statement":"I ate lava",
+        "explanation":"lava is too hot to eat",
+        "label":0
+    },
+    {
+        "id":34,
+        "statement":"If you don't keep oil in your car, it will overheat",
+        "explanation":"oil will make your car heat but it's necessary.",
+        "label":0
+    },
+    {
+        "id":35,
+        "statement":"i ate pest for dinner",
+        "explanation":"Human don't eat pest as meal",
+        "label":0
+    },
+    {
+        "id":36,
+        "statement":"He swims over a table",
+        "explanation":"Table is solid",
+        "label":0
+    },
+    {
+        "id":37,
+        "statement":"Flags catch rabbits",
+        "explanation":"flags are put on flagpoles, and it doesn't have the function to catch",
+        "label":0
+    },
+    {
+        "id":38,
+        "statement":"Stones are falling from the sky.",
+        "explanation":"There is no stone in the sky",
+        "label":0
+    },
+    {
+        "id":39,
+        "statement":"The dog drove to the store.",
+        "explanation":"Dogs don't drive.",
+        "label":0
+    },
+    {
+        "id":40,
+        "statement":"jellyfish live high in trees",
+        "explanation":"jellyfish only survive in seawater",
+        "label":0
+    },
+    {
+        "id":41,
+        "statement":"Sara flew the city bus",
+        "explanation":"City buses are buses that people ride to get to get around",
+        "label":0
+    },
+    {
+        "id":42,
+        "statement":"I spent enough money to buy a dog.",
+        "explanation":"You cannot buy a dog without money.",
+        "label":0
+    },
+    {
+        "id":43,
+        "statement":"Carrot is a pocket-sized flat folding case for holding money and plastic cards",
+        "explanation":"Carrot is a vegetable used in cooking",
+        "label":0
+    },
+    {
+        "id":44,
+        "statement":"he wants to cook orange in hot oil.",
+        "explanation":"nobody cooks fruits especially orange in hot oil.",
+        "label":0
+    },
+    {
+        "id":45,
+        "statement":"The bug ate the moon",
+        "explanation":"A bug is an insect",
+        "label":0
+    },
+    {
+        "id":46,
+        "statement":"When you think that something is funny, you die",
+        "explanation":"Thinking that something is funny isn't bad for your body",
+        "label":0
+    },
+    {
+        "id":47,
+        "statement":"You are likely to find a lion at a musical instrument shop",
+        "explanation":"You will find real lions only in some forests and zoos",
+        "label":0
+    },
+    {
+        "id":48,
+        "statement":"Eating dough-nuts is a form of exercise",
+        "explanation":"Dough-nuts causes people to gain weight",
+        "label":0
+    },
+    {
+        "id":49,
+        "statement":"steak is transparent",
+        "explanation":"steak is typically opaque",
+        "label":0
+    },
+    {
+        "id":50,
+        "statement":"when you drink water you get dehydrated",
+        "explanation":"water makes you hydrated",
+        "label":0
+    },
+    {
+        "id":51,
+        "statement":"music causes severe cramps",
+        "explanation":"music doesn't cause physical pain",
+        "label":0
+    },
+    {
+        "id":52,
+        "statement":"The boy played fetch in his backyard with a fish.",
+        "explanation":"Fish do not have lungs to breathe on land.",
+        "label":0
+    },
+    {
+        "id":53,
+        "statement":"dry wood can put out fires",
+        "explanation":"dry wood is very flammable",
+        "label":0
+    },
+    {
+        "id":54,
+        "statement":"The avocado tastes bitter.",
+        "explanation":"The avocado is a kind of fruit that tastes sweet.",
+        "label":0
+    },
+    {
+        "id":55,
+        "statement":"I fell and got scrapped on my knee running outside and put dirt on it.",
+        "explanation":"Dirt makes wound worse.",
+        "label":0
+    },
+    {
+        "id":56,
+        "statement":"French and Latinos can communicate easy",
+        "explanation":"French can not communicate with Latinos because they don't speak the same language",
+        "label":0
+    },
+    {
+        "id":57,
+        "statement":"He used an apple to dry off after his shower.",
+        "explanation":"An apple won't dry a person off.",
+        "label":0
+    },
+    {
+        "id":58,
+        "statement":"Dust collects vacuum",
+        "explanation":"There are no dust if it's vacuum",
+        "label":0
+    },
+    {
+        "id":59,
+        "statement":"A tuna is a mammal.",
+        "explanation":"A tuna is a fish.",
+        "label":0
+    },
+    {
+        "id":60,
+        "statement":"She got a pedicure at church",
+        "explanation":"No one offers pedicures at church",
+        "label":0
+    },
+    {
+        "id":61,
+        "statement":"I filled up my car with orange juice",
+        "explanation":"A car will not run on orange juice",
+        "label":0
+    },
+    {
+        "id":62,
+        "statement":"Rockers play a vacuum",
+        "explanation":"vacuum is used to clean",
+        "label":0
+    },
+    {
+        "id":63,
+        "statement":"The moon sets at night.",
+        "explanation":"The moon rises at night.",
+        "label":0
+    },
+    {
+        "id":64,
+        "statement":"George broke the cat",
+        "explanation":"A cat cannot be broken",
+        "label":0
+    },
+    {
+        "id":65,
+        "statement":"Greg's bird wore a green shirt today",
+        "explanation":"Birds don't wear clothing",
+        "label":0
+    },
+    {
+        "id":66,
+        "statement":"The color of the grass is purple.",
+        "explanation":"Eggplants are purple and the grass is not the same color as an eggplant.",
+        "label":0
+    },
+    {
+        "id":67,
+        "statement":"The spider kills the water.",
+        "explanation":"water is unable to dying since it is inanimate",
+        "label":0
+    },
+    {
+        "id":68,
+        "statement":"Every day I use gel alcohol on my body and hands",
+        "explanation":"Alcohol gel is made to clean hands",
+        "label":0
+    },
+    {
+        "id":69,
+        "statement":"Medicine is a good entertainment",
+        "explanation":"When we are ill we use medicine to cure that illness",
+        "label":0
+    },
+    {
+        "id":70,
+        "statement":"He likes to play loud music at his library job",
+        "explanation":"He will be fired for playing music loudly at his library job",
+        "label":0
+    },
+    {
+        "id":71,
+        "statement":"Dancers are monks",
+        "explanation":"Dancers entertain people with their art",
+        "label":0
+    },
+    {
+        "id":72,
+        "statement":"Could you turn off the lights? It is very dark inside",
+        "explanation":"people cannot see well in dark areas",
+        "label":0
+    },
+    {
+        "id":73,
+        "statement":"She used a suitcase to take a picture.",
+        "explanation":"suitcases don't have the usage of taking a picture",
+        "label":0
+    },
+    {
+        "id":74,
+        "statement":"JOE WENT THE JAIL FOR SAVE THE MONEY",
+        "explanation":"SAVING MONEY NO ONE WILL GO TO THE JAIL",
+        "label":0
+    },
+    {
+        "id":75,
+        "statement":"He is watching his reflection on the wall.",
+        "explanation":"The wall surface is not shiny like a mirror to produce a reflection.",
+        "label":0
+    },
+    {
+        "id":76,
+        "statement":"She left the room with her dinosaur",
+        "explanation":"Dinosaurs are extinct",
+        "label":0
+    },
+    {
+        "id":77,
+        "statement":"you can fight fire with chocolate.",
+        "explanation":"fire melts chocolate.",
+        "label":0
+    },
+    {
+        "id":78,
+        "statement":"The supermarket goes into bags of groceries.",
+        "explanation":"The supermarket cannot fit into a bag.",
+        "label":0
+    },
+    {
+        "id":79,
+        "statement":"You can see the lights with your hands.",
+        "explanation":"Hands can see nothing.",
+        "label":0
+    },
+    {
+        "id":80,
+        "statement":"The duck swam across the lava.",
+        "explanation":"Lava will burn the duck.",
+        "label":0
+    },
+    {
+        "id":81,
+        "statement":"Towels are made of rubber.",
+        "explanation":"Towels absorb liquid better than rubber.",
+        "label":0
+    },
+    {
+        "id":82,
+        "statement":"She listens to rap music because she hates it",
+        "explanation":"If she hates rap music, she will likely avoid listening to it",
+        "label":0
+    },
+    {
+        "id":83,
+        "statement":"He cooked a pan with the egg.",
+        "explanation":"A pan is used to cook food like eggs.",
+        "label":0
+    },
+    {
+        "id":84,
+        "statement":"the fridge is stupid",
+        "explanation":"the fridge is inanimate",
+        "label":0
+    },
+    {
+        "id":85,
+        "statement":"Doritos are made from potatoes, that is why they are bad for a party.",
+        "explanation":"Doritos are made from corn.",
+        "label":0
+    },
+    {
+        "id":86,
+        "statement":"Mike wants an electric car because gas prices are so low.",
+        "explanation":"An electric car does not use gas.",
+        "label":0
+    },
+    {
+        "id":87,
+        "statement":"Apples hatch from eggs.",
+        "explanation":"Apples are a plant.",
+        "label":0
+    },
+    {
+        "id":88,
+        "statement":"Something you find in the street is dinosaurs.",
+        "explanation":"There were no street when the dinosaurs existed",
+        "label":0
+    },
+    {
+        "id":89,
+        "statement":"The mechanic can be repaired by a car.",
+        "explanation":"Car doesn't have a mind.",
+        "label":0
+    },
+    {
+        "id":90,
+        "statement":"White-headed birds are all bald eagles",
+        "explanation":"Not all birds with white heads are bald eagles",
+        "label":0
+    },
+    {
+        "id":91,
+        "statement":"You can sometimes find a rhinoceros in a fridge.",
+        "explanation":"The rhinoceros is much larger than the fridge.",
+        "label":0
+    },
+    {
+        "id":92,
+        "statement":"Leftover food goes on the roof.",
+        "explanation":"Typically, leftover food will only go in the fridge and never on the roof.",
+        "label":0
+    },
+    {
+        "id":93,
+        "statement":"Men always have a wallet in their handbags, unlike women.",
+        "explanation":"Men do not carry handbags",
+        "label":0
+    },
+    {
+        "id":94,
+        "statement":"My dog meows.",
+        "explanation":"Cats meow not dogs.",
+        "label":0
+    },
+    {
+        "id":95,
+        "statement":"Stone is as easy to break like glass.",
+        "explanation":"Stone has more density, causing the impact needed to break it greater than glass.",
+        "label":0
+    },
+    {
+        "id":96,
+        "statement":"My dog has a car around his neck.",
+        "explanation":"A car is too large to fit on a dog's neck.",
+        "label":0
+    },
+    {
+        "id":97,
+        "statement":"Trees dance and fall in disco clubs",
+        "explanation":"A tree cannot dance or attend disco clubs",
+        "label":0
+    },
+    {
+        "id":98,
+        "statement":"The dog took the man for a walk.",
+        "explanation":"The man is in control of the dog.",
+        "label":0
+    },
+    {
+        "id":99,
+        "statement":"I turned on the heater because I was hot",
+        "explanation":"Heater is used to giving you more heat",
+        "label":0
+    },
+    {
+        "id":100,
+        "statement":"The inchworm stopped at the station.",
+        "explanation":"An inchworm is never involved with a station.",
+        "label":0
+    },
+    {
+        "id":101,
+        "statement":"I drive sideways.",
+        "explanation":"A car can only drive straight, backward, or in circles.",
+        "label":0
+    },
+    {
+        "id":102,
+        "statement":"Drowning in water involves too much oxygen in the lungs.",
+        "explanation":"Lungs can not breath in the water",
+        "label":0
+    },
+    {
+        "id":103,
+        "statement":"The paint on the wall needs a new battery.",
+        "explanation":"Paint doesn't run on electricity.",
+        "label":0
+    },
+    {
+        "id":104,
+        "statement":"James weighs 300 kilometers",
+        "explanation":"Weight isn't measured in kilometers",
+        "label":0
+    },
+    {
+        "id":105,
+        "statement":"I bought a house from the car dealership.",
+        "explanation":"A car dealership sells automotive vehicles.",
+        "label":0
+    },
+    {
+        "id":106,
+        "statement":"You go to a concert for the lectures.",
+        "explanation":"Music bands are on the stage at a concert",
+        "label":0
+    },
+    {
+        "id":107,
+        "statement":"bread eat people",
+        "explanation":"bread is food",
+        "label":0
+    },
+    {
+        "id":108,
+        "statement":"Bahamas are eaten by monkeys",
+        "explanation":"Bahamas is a place so it cannot be eaten by monkeys",
+        "label":0
+    },
+    {
+        "id":109,
+        "statement":"He studied biology so he is a pilot",
+        "explanation":"A pilot's work is to fly a plane",
+        "label":0
+    },
+    {
+        "id":110,
+        "statement":"The girl was inside the computer",
+        "explanation":"There is no way a person can be inside a computer",
+        "label":0
+    },
+    {
+        "id":111,
+        "statement":"The Oreo threw the teacher.",
+        "explanation":"Oreo's are not sentient.",
+        "label":0
+    },
+    {
+        "id":112,
+        "statement":"He installed solar panels in his basement",
+        "explanation":"Solar panels would be rendered ineffective if placed in a basement",
+        "label":0
+    },
+    {
+        "id":113,
+        "statement":"I washed the hose with the car.",
+        "explanation":"The hose that throws water to wash the car.",
+        "label":0
+    },
+    {
+        "id":114,
+        "statement":"Basketballs are hit with golf clubs.",
+        "explanation":"Basketballs are too large to hit with golf clubs.",
+        "label":0
+    },
+    {
+        "id":115,
+        "statement":"He put the ice cream in the oven",
+        "explanation":"Ice cream needs to be cold",
+        "label":0
+    },
+    {
+        "id":116,
+        "statement":"The judge pleaded innocent.",
+        "explanation":"Judges do not make pleas of innocence or guilt.",
+        "label":0
+    },
+    {
+        "id":117,
+        "statement":"The local swimming pool has plenty of books in the water.",
+        "explanation":"Putting books in swimming pools ruins them.",
+        "label":0
+    },
+    {
+        "id":118,
+        "statement":"The dress is made of music",
+        "explanation":"Music isn't a clothing material",
+        "label":0
+    },
+    {
+        "id":119,
+        "statement":"I put a mitt inside of my baseball.",
+        "explanation":"Nothing can be put inside of a baseball.",
+        "label":0
+    },
+    {
+        "id":120,
+        "statement":"The sweater is turkey",
+        "explanation":"Sweaters aren't made of turkey",
+        "label":0
+    },
+    {
+        "id":121,
+        "statement":"The apple is orange",
+        "explanation":"Apples can't be orange",
+        "label":0
+    },
+    {
+        "id":122,
+        "statement":"The oven was placed on the table.",
+        "explanation":"An oven is too large to fit on the table.",
+        "label":0
+    },
+    {
+        "id":123,
+        "statement":"My phone told me to answer it",
+        "explanation":"A phone is an inanimate object",
+        "label":0
+    },
+    {
+        "id":124,
+        "statement":"People like things which make them feel nauseous",
+        "explanation":"People don't the things nauseous",
+        "label":0
+    },
+    {
+        "id":125,
+        "statement":"Street lights tell time",
+        "explanation":"Time determines when street lights will come on.",
+        "label":0
+    },
+    {
+        "id":126,
+        "statement":"Rock floated on the water.",
+        "explanation":"A rock is much heavier and will sink.",
+        "label":0
+    },
+    {
+        "id":127,
+        "statement":"glue is incohesive",
+        "explanation":"glue can make your hands stick together",
+        "label":0
+    },
+    {
+        "id":128,
+        "statement":"Type the letter then turn on the computer.",
+        "explanation":"The computer needs to be on to type the letter.",
+        "label":0
+    },
+    {
+        "id":129,
+        "statement":"The calculators are only for crunching numbers.",
+        "explanation":"Calculators can also be used to play games or graph.",
+        "label":0
+    },
+    {
+        "id":130,
+        "statement":"water enema is something that no human can live without.",
+        "explanation":"Enemas are usually not necessary for the continuation of life.",
+        "label":0
+    },
+    {
+        "id":131,
+        "statement":"The shark ate the broccoli.",
+        "explanation":"Broccoli doesn't grow in the ocean.",
+        "label":0
+    },
+    {
+        "id":132,
+        "statement":"Joe chooses to do what he likes because the future is predetermined.",
+        "explanation":"If the future is predetermined, then Joe does not have a choice.",
+        "label":0
+    },
+    {
+        "id":133,
+        "statement":"A fan is making me hotter",
+        "explanation":"Fans blow air which makes it cooler",
+        "label":0
+    },
+    {
+        "id":134,
+        "statement":"A car is normally made of wood",
+        "explanation":"Cars are usually metal",
+        "label":0
+    },
+    {
+        "id":135,
+        "statement":"The hunter shot a scarecrow.",
+        "explanation":"scarecrows are used to deceive animals",
+        "label":0
+    },
+    {
+        "id":136,
+        "statement":"You got dirty dishes for her birthday.",
+        "explanation":"Dirty dishes can not be sent as a present.",
+        "label":0
+    },
+    {
+        "id":137,
+        "statement":"the bones are part of a torso.",
+        "explanation":"a torso doesn't include blood.",
+        "label":0
+    },
+    {
+        "id":138,
+        "statement":"Paper money is made of iron",
+        "explanation":"Paper money's material can be found in its name",
+        "label":0
+    },
+    {
+        "id":139,
+        "statement":"the refrigerator's interior is hot",
+        "explanation":"The effect of the refrigerator is for cooling",
+        "label":0
+    },
+    {
+        "id":140,
+        "statement":"He went to the market to buy stars.",
+        "explanation":"no human can get stars and buy them now.",
+        "label":0
+    },
+    {
+        "id":141,
+        "statement":"monkeys are heavier than elephants",
+        "explanation":"monkeys are much smaller than elephants",
+        "label":0
+    },
+    {
+        "id":142,
+        "statement":"Texas is kind",
+        "explanation":"Texas is a location and cannot have emotional qualities",
+        "label":0
+    },
+    {
+        "id":143,
+        "statement":"Bank works with me",
+        "explanation":"Bank is an institution",
+        "label":0
+    },
+    {
+        "id":144,
+        "statement":"Toads are fond of cheese puffs and tango",
+        "explanation":"Toads can only eat insects",
+        "label":0
+    },
+    {
+        "id":145,
+        "statement":"There are trees in a breadbox.",
+        "explanation":"A forest is much bigger than a breadbox",
+        "label":0
+    },
+    {
+        "id":146,
+        "statement":"Ice cream melts in the freezer.",
+        "explanation":"It's cold inside the freezer.",
+        "label":0
+    },
+    {
+        "id":147,
+        "statement":"Eating Paint is good",
+        "explanation":"Eating paint can kill you",
+        "label":0
+    },
+    {
+        "id":148,
+        "statement":"The little girl ate pillowcases for dessert.",
+        "explanation":"Pillowcases aren't edible.",
+        "label":0
+    },
+    {
+        "id":149,
+        "statement":"I like to play drums at the art gallery",
+        "explanation":"There are no drums at the art gallery.",
+        "label":0
+    },
+    {
+        "id":150,
+        "statement":"If you have a job, then you lose money.",
+        "explanation":"Legally, one must get paid for working",
+        "label":0
+    },
+    {
+        "id":151,
+        "statement":"In summer we find snow everywhere",
+        "explanation":"In summer snow melts so no snow in any place",
+        "label":0
+    },
+    {
+        "id":152,
+        "statement":"Touristic places are always nobody here.",
+        "explanation":"Touristic places can be very crowded",
+        "label":0
+    },
+    {
+        "id":153,
+        "statement":"He put red ants into the dog food bowl",
+        "explanation":"Red ants sting dog",
+        "label":0
+    },
+    {
+        "id":154,
+        "statement":"The flowers grew beautifully down in the cave.",
+        "explanation":"Flowers need sunlight to grow and there isn't any sunlight in caves.",
+        "label":0
+    },
+    {
+        "id":155,
+        "statement":"The fan jumped quickly",
+        "explanation":"A fan cannot jump",
+        "label":0
+    },
+    {
+        "id":156,
+        "statement":"He washed plates in Washing Machine",
+        "explanation":"Washing machine is used for clothes",
+        "label":0
+    },
+    {
+        "id":157,
+        "statement":"A person can plant a star",
+        "explanation":"A star is too huge for a person to plant",
+        "label":0
+    },
+    {
+        "id":158,
+        "statement":"Lava is cold",
+        "explanation":"Lava is a heated substance and is super hot",
+        "label":0
+    },
+    {
+        "id":159,
+        "statement":"A bear was driving a car in Canada",
+        "explanation":"Bear don't have car license and are unable to drive",
+        "label":0
+    },
+    {
+        "id":160,
+        "statement":"He gets out a giraffe from the microwave",
+        "explanation":"a giraffe is much bigger than a kitchen microwave",
+        "label":0
+    },
+    {
+        "id":161,
+        "statement":"That boulder made me feel sick.",
+        "explanation":"I am not able to eat a boulder.",
+        "label":0
+    },
+    {
+        "id":162,
+        "statement":"I hate ice cream on a hot summer day",
+        "explanation":"Ice cream is enjoyable in warmer weather",
+        "label":0
+    },
+    {
+        "id":163,
+        "statement":"He takes a car on the bookshelf",
+        "explanation":"A car is much bigger than a bookshelf",
+        "label":0
+    },
+    {
+        "id":164,
+        "statement":"A doctor may prescribe poison to the patient's",
+        "explanation":"Poison can cause death, a doctor has to cure",
+        "label":0
+    },
+    {
+        "id":165,
+        "statement":"the phone is annoying",
+        "explanation":"the phone is inanimate and for people to talk on",
+        "label":0
+    },
+    {
+        "id":166,
+        "statement":"He opened the key with a lock",
+        "explanation":"A lock does not open a key",
+        "label":0
+    },
+    {
+        "id":167,
+        "statement":"The man put a tiger into the cup.",
+        "explanation":"The tiger is much larger than a cup.",
+        "label":0
+    },
+    {
+        "id":168,
+        "statement":"Blended up fruit makes a nacho",
+        "explanation":"Nachos are not made up of fruit",
+        "label":0
+    },
+    {
+        "id":169,
+        "statement":"You can go to the deserts and surf.",
+        "explanation":"You cannot surf in the sand.",
+        "label":0
+    },
+    {
+        "id":170,
+        "statement":"I place the Halloween candy in my mailbox",
+        "explanation":"Halloween candy goes into bags and not mailboxes",
+        "label":0
+    },
+    {
+        "id":171,
+        "statement":"He threw his lion at the spear",
+        "explanation":"One does not typically have a lion, nor could you throw it",
+        "label":0
+    },
+    {
+        "id":172,
+        "statement":"Something that you find in a pen is money.",
+        "explanation":"money can fit inside a pen",
+        "label":0
+    },
+    {
+        "id":173,
+        "statement":"The skateboarding competition won an award riding in my brother.",
+        "explanation":"A skateboarding competition is an event, while my brother is a human being.",
+        "label":0
+    },
+    {
+        "id":174,
+        "statement":"The repairer can be repaired by a car.",
+        "explanation":"Cars don't have a mind.",
+        "label":0
+    },
+    {
+        "id":175,
+        "statement":"Meals get hotter as you leave it out",
+        "explanation":"Being outside makes meals cool down",
+        "label":0
+    },
+    {
+        "id":176,
+        "statement":"We played a game of turquoise",
+        "explanation":"Turquoise isn't a game",
+        "label":0
+    },
+    {
+        "id":177,
+        "statement":"She enjoyed the art of death, and practiced in her spare time.",
+        "explanation":"Art of death cannot be practiced in her spare time.",
+        "label":0
+    },
+    {
+        "id":178,
+        "statement":"The British are table",
+        "explanation":"human aren't tables",
+        "label":0
+    },
+    {
+        "id":179,
+        "statement":"the summer months are the coolest of the year.",
+        "explanation":"winter and fall have the coolest days of the year",
+        "label":0
+    },
+    {
+        "id":180,
+        "statement":"The movie ran down the street.",
+        "explanation":"Movies don't run.",
+        "label":0
+    },
+    {
+        "id":181,
+        "statement":"she like to eat the garbage can",
+        "explanation":"No one eat garbage as food",
+        "label":0
+    },
+    {
+        "id":182,
+        "statement":"She cuts off her fingers every morning.",
+        "explanation":"No one would purposefully cut off their fingers.",
+        "label":0
+    },
+    {
+        "id":183,
+        "statement":"he likes to run in the shower",
+        "explanation":"you cannot run in the shower because you will hurt yourself",
+        "label":0
+    },
+    {
+        "id":184,
+        "statement":"You can use detergent to dye your hair.",
+        "explanation":"Detergent isn't a hair product.",
+        "label":0
+    },
+    {
+        "id":185,
+        "statement":"I ate a delicious cake made with flying paper chocolate",
+        "explanation":"There is no chocolate made of paper, let alone that it flies",
+        "label":0
+    },
+    {
+        "id":186,
+        "statement":"I prefer the tiger in my bag while walking.",
+        "explanation":"Tiger is a much bigger and wild animal.",
+        "label":0
+    },
+    {
+        "id":187,
+        "statement":"He spends leaves for dinner.",
+        "explanation":"No one accepts leaves as money",
+        "label":0
+    },
+    {
+        "id":188,
+        "statement":"The milkman delivered cars",
+        "explanation":"Milkmen deliver milk, as their names",
+        "label":0
+    },
+    {
+        "id":189,
+        "statement":"he likes to drink gasoline",
+        "explanation":"he will die if he drink gasoline",
+        "label":0
+    },
+    {
+        "id":190,
+        "statement":"Homestar Runner is Lazy and can't run",
+        "explanation":"Homestar runners body is mostly legs and he runs everywhere",
+        "label":0
+    },
+    {
+        "id":191,
+        "statement":"potatoes are not a breakfast item",
+        "explanation":"Many items can be considered breakfast",
+        "label":0
+    },
+    {
+        "id":192,
+        "statement":"Most cars have vending machines",
+        "explanation":"Vending machines are not typically found in cars",
+        "label":0
+    },
+    {
+        "id":193,
+        "statement":"She left a tiger in the car",
+        "explanation":"A tiger is bigger than a car",
+        "label":0
+    },
+    {
+        "id":194,
+        "statement":"Adam buys a bull and put it in the fridge, for lunch.",
+        "explanation":"A bull is much bigger than a fridge.",
+        "label":0
+    },
+    {
+        "id":195,
+        "statement":"Hummingbirds eat hard-boiled eggs",
+        "explanation":"Hummingbirds eat mostly nectar and small gnats",
+        "label":0
+    },
+    {
+        "id":196,
+        "statement":"the fan turned the man on",
+        "explanation":"a fan can not do human activities",
+        "label":0
+    },
+    {
+        "id":197,
+        "statement":"Seagulls have five feet.",
+        "explanation":"Seagulls have four feet.",
+        "label":0
+    },
+    {
+        "id":198,
+        "statement":"He ran eight hundred miles today",
+        "explanation":"It is impossible to run that distance in one day",
+        "label":0
+    },
+    {
+        "id":199,
+        "statement":"he gave birth to a baby",
+        "explanation":"men cannot give birth",
+        "label":0
+    },
+    {
+        "id":200,
+        "statement":"Pouring acid into the soil is a good way to grow vegetables.",
+        "explanation":"Pouring acid into the soil will kill vegetables.",
+        "label":0
+    },
+    {
+        "id":201,
+        "statement":"Boats fly in the sky",
+        "explanation":"Boats travel in water",
+        "label":0
+    },
+    {
+        "id":202,
+        "statement":"I broke the bacon and cut the egg.",
+        "explanation":"The egg has to be broken and the bacon cut to be fried.",
+        "label":0
+    },
+    {
+        "id":203,
+        "statement":"I opened the door with the hinges.",
+        "explanation":"The hinges are used to attach the boor to the frame.",
+        "label":0
+    },
+    {
+        "id":204,
+        "statement":"You use shampoo to clean your teeth.",
+        "explanation":"Shampoo is for cleaning your hair.",
+        "label":0
+    },
+    {
+        "id":205,
+        "statement":"He walked through the floor.",
+        "explanation":"Gravity makes people down.",
+        "label":0
+    },
+    {
+        "id":206,
+        "statement":"A dog plays baseball",
+        "explanation":"A dog has no hands to grab a bat",
+        "label":0
+    },
+    {
+        "id":207,
+        "statement":"The tree spit on the ground.",
+        "explanation":"A tree is a plant which cannot spit",
+        "label":0
+    },
+    {
+        "id":208,
+        "statement":"Apple makes weapons for the military.",
+        "explanation":"Apple is a technology company that sells personal products exclusively to public consumers.",
+        "label":0
+    },
+    {
+        "id":209,
+        "statement":"I turn on heater hot days in summer",
+        "explanation":"It's too hot to use heater in the summer",
+        "label":0
+    },
+    {
+        "id":210,
+        "statement":"I got a splinter when I was moving the PVC pipe.",
+        "explanation":"Splinters come from wood.",
+        "label":0
+    },
+    {
+        "id":211,
+        "statement":"I left my car in the desk drawer.",
+        "explanation":"A car won't fit in a desk drawer.",
+        "label":0
+    },
+    {
+        "id":212,
+        "statement":"I laugh when I'm sad",
+        "explanation":"People laugh when they are happy",
+        "label":0
+    },
+    {
+        "id":213,
+        "statement":"He drinks hot tea on the rocks.",
+        "explanation":"Many would prefer whiskey on the rocks, but not tea.",
+        "label":0
+    },
+    {
+        "id":214,
+        "statement":"The car parked here in the garage.",
+        "explanation":"The car can't drive.",
+        "label":0
+    },
+    {
+        "id":215,
+        "statement":"He started a match using a fire.",
+        "explanation":"A match is used to start a fire.",
+        "label":0
+    },
+    {
+        "id":216,
+        "statement":"Dogs cook their food",
+        "explanation":"the dogs don't cook",
+        "label":0
+    },
+    {
+        "id":217,
+        "statement":"Chocolate can be used to make a coffee pot",
+        "explanation":"A coffee pot would melt is made from chocolate",
+        "label":0
+    },
+    {
+        "id":218,
+        "statement":"A rubber chicken is an animal used to make dinner.",
+        "explanation":"A rubber chicken is a toy made of rubber used to play with and make people laugh.",
+        "label":0
+    },
+    {
+        "id":219,
+        "statement":"the eagles swim under the sea",
+        "explanation":"the eagles will die under the sea",
+        "label":0
+    },
+    {
+        "id":220,
+        "statement":"Machines need enough sleep to function optimally.",
+        "explanation":"Machines do not need sleep, it can work restlessly.",
+        "label":0
+    },
+    {
+        "id":221,
+        "statement":"The boy picked up a Fire Truck.",
+        "explanation":"A Fire Truck is much larger and heavier for a boy",
+        "label":0
+    },
+    {
+        "id":222,
+        "statement":"He laid outside under the stars and gazed up at the rug.",
+        "explanation":"The rug is inside on the floor.",
+        "label":0
+    },
+    {
+        "id":223,
+        "statement":"He put stones into the milkshake",
+        "explanation":"Stone will damage the milkshake",
+        "label":0
+    },
+    {
+        "id":224,
+        "statement":"slinky is used for coffins",
+        "explanation":"slinky is too small for coffins",
+        "label":0
+    },
+    {
+        "id":225,
+        "statement":"You can replace your intake of water with cheese-wiz and survive for three months",
+        "explanation":"After two weeks without water, the human body begins to shut down.",
+        "label":0
+    },
+    {
+        "id":226,
+        "statement":"He takes the airplane and goes to the supermarket",
+        "explanation":"airplanes are used to travel long distances",
+        "label":0
+    },
+    {
+        "id":227,
+        "statement":"Video games are real life",
+        "explanation":"Video games are virtual",
+        "label":0
+    },
+    {
+        "id":228,
+        "statement":"A bicycle is fast than a motorcycle.",
+        "explanation":"Motorcycle has an engine but a bicycle doesn't.",
+        "label":0
+    },
+    {
+        "id":229,
+        "statement":"Daniela is pooping on a cloud",
+        "explanation":"a cloud is made of gas therefore the poop will fall through.",
+        "label":0
+    },
+    {
+        "id":230,
+        "statement":"He drove his oven to the lake.",
+        "explanation":"It's impossible to drive an oven.",
+        "label":0
+    },
+    {
+        "id":231,
+        "statement":"I screamed when I grabbed the rose because there was a petal.",
+        "explanation":"Petals don't hurt.",
+        "label":0
+    },
+    {
+        "id":232,
+        "statement":"I screamed when I hit my foot against the pillow.",
+        "explanation":"A pillow is soft.",
+        "label":0
+    },
+    {
+        "id":233,
+        "statement":"She smashed her nails.",
+        "explanation":"No one would smash their nails.",
+        "label":0
+    },
+    {
+        "id":234,
+        "statement":"When diving, you should always stop at a stop sign.",
+        "explanation":"You usually don't see stop signs when you are diving.",
+        "label":0
+    },
+    {
+        "id":235,
+        "statement":"Linda put salt in pepper in her ice cream before eating it.",
+        "explanation":"Salt and pepper do not belong in ice cream.",
+        "label":0
+    },
+    {
+        "id":236,
+        "statement":"I went to the restaurant and we saw a monkey.",
+        "explanation":"Monkeys don't live at a restaurant.",
+        "label":0
+    },
+    {
+        "id":237,
+        "statement":"the fire is lit with ice",
+        "explanation":"Ice is not flammable",
+        "label":0
+    },
+    {
+        "id":238,
+        "statement":"They cook in the ocean.",
+        "explanation":"You can't cook while swimming in the ocean.",
+        "label":0
+    },
+    {
+        "id":239,
+        "statement":"The ocean looks blue because of chemicals",
+        "explanation":"The ocean looks blue because of the reflection of the sky",
+        "label":0
+    },
+    {
+        "id":240,
+        "statement":"Refrigerators are to keep food sad",
+        "explanation":"Food has no mood",
+        "label":0
+    },
+    {
+        "id":241,
+        "statement":"Bill broke his arm when he fell on his face.",
+        "explanation":"An arm wouldn't break in a fall to the face.",
+        "label":0
+    },
+    {
+        "id":242,
+        "statement":"The eel capsized in the river",
+        "explanation":"eels do not float",
+        "label":0
+    },
+    {
+        "id":243,
+        "statement":"The car was parked in the bathroom.",
+        "explanation":"The bathroom doesn't has an entrance large enough for the car.",
+        "label":0
+    },
+    {
+        "id":244,
+        "statement":"Aeroplanes can fly through mountains",
+        "explanation":"Mountains are hard to go through",
+        "label":0
+    },
+    {
+        "id":245,
+        "statement":"He mined petroleum with a shovel.",
+        "explanation":"It's impossible to mine using a shovel",
+        "label":0
+    },
+    {
+        "id":246,
+        "statement":"The rock band laid and egg on the stage.",
+        "explanation":"The rock band is consist of human.",
+        "label":0
+    },
+    {
+        "id":247,
+        "statement":"His skin is completely transparent.",
+        "explanation":"Skin has pigment so it is not transparent.",
+        "label":0
+    },
+    {
+        "id":248,
+        "statement":"A person should smoke to get a long life",
+        "explanation":"Smoke is dangerous for health",
+        "label":0
+    },
+    {
+        "id":249,
+        "statement":"A thief will buy your watch",
+        "explanation":"A thief will steal",
+        "label":0
+    },
+    {
+        "id":250,
+        "statement":"You can be free to use a toll road.",
+        "explanation":"Tolls cost money",
+        "label":0
+    },
+    {
+        "id":251,
+        "statement":"An hippo got into the house",
+        "explanation":"There is no way that a hippo could fit into a house",
+        "label":0
+    },
+    {
+        "id":252,
+        "statement":"The girl asked for a dinosaur instead of dessert.",
+        "explanation":"We do not consider dinosaurs to be a food item.",
+        "label":0
+    },
+    {
+        "id":253,
+        "statement":"I drank some soda from the fountain.",
+        "explanation":"Soda won't come from a fountain.",
+        "label":0
+    },
+    {
+        "id":254,
+        "statement":"Bricks are soft",
+        "explanation":"Bricks are hard as concrete.",
+        "label":0
+    },
+    {
+        "id":255,
+        "statement":"I took medicine to get taller.",
+        "explanation":"Medicine won't make you get taller.",
+        "label":0
+    },
+    {
+        "id":256,
+        "statement":"You eat soap",
+        "explanation":"Soap is used to clean and wash your hands",
+        "label":0
+    },
+    {
+        "id":257,
+        "statement":"All football players hit however they want.",
+        "explanation":"Football players must follow hitting guidelines and rules to play football with their team.",
+        "label":0
+    },
+    {
+        "id":258,
+        "statement":"My brother loves eating chicken nuggets. Nuggets are made from cats.",
+        "explanation":"The main ingredient of a chicken nugget is chicken",
+        "label":0
+    },
+    {
+        "id":259,
+        "statement":"She sings a speech",
+        "explanation":"speech is read by someone",
+        "label":0
+    },
+    {
+        "id":260,
+        "statement":"He drove his car into a can.",
+        "explanation":"The car is much bigger than a can.",
+        "label":0
+    },
+    {
+        "id":261,
+        "statement":"Some kids play with televisions in the tub.",
+        "explanation":"There are no televisions in the tub",
+        "label":0
+    },
+    {
+        "id":262,
+        "statement":"The table ate its meal",
+        "explanation":"tables are inanimate objects",
+        "label":0
+    },
+    {
+        "id":263,
+        "statement":"Hockey doesn't use a stick",
+        "explanation":"Hockey players use hockey sticks to push the puck",
+        "label":0
+    },
+    {
+        "id":264,
+        "statement":"He ate the metal rod after waking up.",
+        "explanation":"No one can eat a metal rod.",
+        "label":0
+    },
+    {
+        "id":265,
+        "statement":"I bought a jar of bread in the store.",
+        "explanation":"Bread comes in a loaf.",
+        "label":0
+    },
+    {
+        "id":266,
+        "statement":"passing your driving license exams requires studying for your classes.",
+        "explanation":"driving license exams needs to study for driving",
+        "label":0
+    },
+    {
+        "id":267,
+        "statement":"A tomato is a fruit, but people call it an animal",
+        "explanation":"No one calls tomatoes as an animal",
+        "label":0
+    },
+    {
+        "id":268,
+        "statement":"If he finds her number, he will give her a visit",
+        "explanation":"With the number, he can only make calls for visiting he needs to find her address",
+        "label":0
+    },
+    {
+        "id":269,
+        "statement":"Equestrianism is a sport where you ride a cheetah",
+        "explanation":"Equestrianism, often known as horse riding refers to the skill and sport of riding with horse",
+        "label":0
+    },
+    {
+        "id":270,
+        "statement":"She returned the octopus to the library.",
+        "explanation":"Octopus lives in the ocean.",
+        "label":0
+    },
+    {
+        "id":271,
+        "statement":"Electrical devices are the devices run on water",
+        "explanation":"usually devices run on water are called hydraulic devices",
+        "label":0
+    },
+    {
+        "id":272,
+        "statement":"My brother parked the garage in the car.",
+        "explanation":"A garage is much bigger than a car",
+        "label":0
+    },
+    {
+        "id":273,
+        "statement":"She turned off the rain",
+        "explanation":"It's impossible to stop the rain by any means",
+        "label":0
+    },
+    {
+        "id":274,
+        "statement":"He picked up the train.",
+        "explanation":"A train is too heavy to be picked up by a human.",
+        "label":0
+    },
+    {
+        "id":275,
+        "statement":"he drank coffee with the plate",
+        "explanation":"no one drinks coffee with plate",
+        "label":0
+    },
+    {
+        "id":276,
+        "statement":"he wore a cap to cover his eyes",
+        "explanation":"cap is usually worn on the head",
+        "label":0
+    },
+    {
+        "id":277,
+        "statement":"coffee depresses people",
+        "explanation":"coffee inspires people",
+        "label":0
+    },
+    {
+        "id":278,
+        "statement":"I moisturize my teeth every day",
+        "explanation":"You can't moisturize your teeth",
+        "label":0
+    },
+    {
+        "id":279,
+        "statement":"Nick is cooking on the floor.",
+        "explanation":"cooking on the floor is impossible.",
+        "label":0
+    },
+    {
+        "id":280,
+        "statement":"The orange was square",
+        "explanation":"Oranges usually come in round shapes",
+        "label":0
+    },
+    {
+        "id":281,
+        "statement":"He walked across the country in 5 minutes.",
+        "explanation":"It's impossible to walk cross country in 5 minutes",
+        "label":0
+    },
+    {
+        "id":282,
+        "statement":"He drinks seawater",
+        "explanation":"Seawater is too salty",
+        "label":0
+    },
+    {
+        "id":283,
+        "statement":"I was sick after I ate at the gym.",
+        "explanation":"Food is not served at the gym.",
+        "label":0
+    },
+    {
+        "id":284,
+        "statement":"a book is used for opening a door",
+        "explanation":"a book is much bigger thank a knob",
+        "label":0
+    },
+    {
+        "id":285,
+        "statement":"In order to have any job in the world, you must have all limbs.",
+        "explanation":"Not every job requires you to obtain all of your limbs.",
+        "label":0
+    },
+    {
+        "id":286,
+        "statement":"We jumped off the diving board into the bathtub.",
+        "explanation":"There is no diving board near a bathtub.",
+        "label":0
+    },
+    {
+        "id":287,
+        "statement":"we go every weekend to the disco to pray",
+        "explanation":"you pray at quiet places such as churches",
+        "label":0
+    },
+    {
+        "id":288,
+        "statement":"The mechanic romanced the car.",
+        "explanation":"Mechanics specialize in fixing cars.",
+        "label":0
+    },
+    {
+        "id":289,
+        "statement":"Sean liked to drink gasoline.",
+        "explanation":"Gasoline is deadly.",
+        "label":0
+    },
+    {
+        "id":290,
+        "statement":"The food bought the food",
+        "explanation":"Food is something that people eat",
+        "label":0
+    },
+    {
+        "id":291,
+        "statement":"WiFi only works for one person at a time.",
+        "explanation":"WiFi is for multi people to have access to the internet at one time.",
+        "label":0
+    },
+    {
+        "id":292,
+        "statement":"I saw a bird swimming under 20 feet of water.",
+        "explanation":"Birds can't swim that deep without air.",
+        "label":0
+    },
+    {
+        "id":293,
+        "statement":"She rode the dog home.",
+        "explanation":"Dogs are not traditional riding animals.",
+        "label":0
+    },
+    {
+        "id":294,
+        "statement":"A one-month-old baby put the laundry in the dryer.",
+        "explanation":"A one-month-old baby can't walk to the dryer.",
+        "label":0
+    },
+    {
+        "id":295,
+        "statement":"We saw the skyscrapers when we went to the farm.",
+        "explanation":"Skyscrapers are found in the city.",
+        "label":0
+    },
+    {
+        "id":296,
+        "statement":"From the speakers, water flowed to surrounding",
+        "explanation":"Speaker is device used to amplify sound",
+        "label":0
+    },
+    {
+        "id":297,
+        "statement":"I bought the DVD player at the cafe.",
+        "explanation":"A cafe serves food.",
+        "label":0
+    },
+    {
+        "id":298,
+        "statement":"potatoes grow on trees",
+        "explanation":"potatoes grow underground",
+        "label":0
+    },
+    {
+        "id":299,
+        "statement":"Sunlight and water help cars grow.",
+        "explanation":"Cars are mad made.",
+        "label":0
+    },
+    {
+        "id":300,
+        "statement":"The family watched a movie in the cupboard.",
+        "explanation":"Cupboards are too small for a family to fit.",
+        "label":0
+    },
+    {
+        "id":301,
+        "statement":"The child ate candy with a shovel.",
+        "explanation":"A shovel is much larger than a child's mouth.",
+        "label":0
+    },
+    {
+        "id":302,
+        "statement":"She called the emergency number seeking love",
+        "explanation":"An emergency number is usually used to get help",
+        "label":0
+    },
+    {
+        "id":303,
+        "statement":"The man put on his plane.",
+        "explanation":"A person cannot wear a plane.",
+        "label":0
+    },
+    {
+        "id":304,
+        "statement":"Cars can travel in the ocean.",
+        "explanation":"Cars would sink in the ocean",
+        "label":0
+    },
+    {
+        "id":305,
+        "statement":"She watched a show on the radio.",
+        "explanation":"radio only has audio.",
+        "label":0
+    },
+    {
+        "id":306,
+        "statement":"clock is show animals",
+        "explanation":"clock shows only time",
+        "label":0
+    },
+    {
+        "id":307,
+        "statement":"The sun explodes every morning",
+        "explanation":"If the sun explodes it will be fragmented and cannot re-explore every morning.",
+        "label":0
+    },
+    {
+        "id":308,
+        "statement":"Videocassette tape can be used to create a video",
+        "explanation":"A video can be created only by using a camera",
+        "label":0
+    },
+    {
+        "id":309,
+        "statement":"The remote control leads to a huge waste of time, as it has a direct correlation with the overuse of your fingertips.",
+        "explanation":"The remote control determines nothing, the user however does.",
+        "label":0
+    },
+    {
+        "id":310,
+        "statement":"An a is a tool used for planting wood",
+        "explanation":"Usually axes is used to cut wood",
+        "label":0
+    },
+    {
+        "id":311,
+        "statement":"He walked his fish",
+        "explanation":"A fish has no legs",
+        "label":0
+    },
+    {
+        "id":312,
+        "statement":"He went to patrol bunk to write the Exam",
+        "explanation":"Exams will be contacted in the Examination hall",
+        "label":0
+    },
+    {
+        "id":313,
+        "statement":"she cooked a giraffe in the pressure cooker",
+        "explanation":"giraffe is much bigger than the pressure cooker",
+        "label":0
+    },
+    {
+        "id":314,
+        "statement":"ships are large that roll in the water",
+        "explanation":"ships never rolling on the water",
+        "label":0
+    },
+    {
+        "id":315,
+        "statement":"We hung trees from the roof for Christmas.",
+        "explanation":"Trees are too large to hang from a roof.",
+        "label":0
+    },
+    {
+        "id":316,
+        "statement":"She chopped her fingers off and put them in the soup.",
+        "explanation":"No one is going to cut their fingers off for soup.",
+        "label":0
+    },
+    {
+        "id":317,
+        "statement":"Helmet is part of human body",
+        "explanation":"Helmet is used while driving bike",
+        "label":0
+    },
+    {
+        "id":318,
+        "statement":"With her pillow, she went to the bathroom",
+        "explanation":"Pillow is usually used while sleeping",
+        "label":0
+    },
+    {
+        "id":319,
+        "statement":"The lion used the liter box",
+        "explanation":"A domestic cat are tame and use litter boxes",
+        "label":0
+    },
+    {
+        "id":320,
+        "statement":"the whale sleeps in bed",
+        "explanation":"much bigger whale than the bed",
+        "label":0
+    },
+    {
+        "id":321,
+        "statement":"He poured paint for the plants",
+        "explanation":"No one pours paint for plant",
+        "label":0
+    },
+    {
+        "id":322,
+        "statement":"He built his house out of cooked spaghetti.",
+        "explanation":"Cooked spaghetti is limp.",
+        "label":0
+    },
+    {
+        "id":323,
+        "statement":"My car drives me",
+        "explanation":"Cars are built to be driven by humans",
+        "label":0
+    },
+    {
+        "id":324,
+        "statement":"The man bought a hotel from the grocery store.",
+        "explanation":"Hotels aren't something that can be purchased at grocery stores.",
+        "label":0
+    },
+    {
+        "id":325,
+        "statement":"She loves to ride horses at the gym.",
+        "explanation":"the gym is not for horse riding.",
+        "label":0
+    },
+    {
+        "id":326,
+        "statement":"Holy water is made of wine",
+        "explanation":"Holy water as its name suggests is made of blessed water",
+        "label":0
+    },
+    {
+        "id":327,
+        "statement":"a monkey eats gorillas",
+        "explanation":"a monkey doesn't eat other monkeys",
+        "label":0
+    },
+    {
+        "id":328,
+        "statement":"my child takes the plane to go to school",
+        "explanation":"schools don't usually have landing strips for planes",
+        "label":0
+    },
+    {
+        "id":329,
+        "statement":"Eggplants are used to contact people.",
+        "explanation":"Eggplants are a type of food.",
+        "label":0
+    },
+    {
+        "id":330,
+        "statement":"My wife eats boiled stones daily.",
+        "explanation":"Stones are very had and have no taste.",
+        "label":0
+    },
+    {
+        "id":331,
+        "statement":"Humans eat uncooked meat.",
+        "explanation":"Humans' digest system cannot absorb uncooked meat.",
+        "label":0
+    },
+    {
+        "id":332,
+        "statement":"The amusement park had a cemetery in it.",
+        "explanation":"No one would put a cemetery in an amusement park.",
+        "label":0
+    },
+    {
+        "id":333,
+        "statement":"she is going to the park for cooking",
+        "explanation":"cooking is not doing in the park",
+        "label":0
+    },
+    {
+        "id":334,
+        "statement":"the elephant was caught in the mousetrap",
+        "explanation":"the elephant is bigger than the mousetrap",
+        "label":0
+    },
+    {
+        "id":335,
+        "statement":"THE TEMPERATURE IS EMOTIONAL",
+        "explanation":"TEMPERATURES DO NOT HAVE EMOTIONS",
+        "label":0
+    },
+    {
+        "id":336,
+        "statement":"The boy hit the dog with a mountain.",
+        "explanation":"Mountain can't be lifted by hand.",
+        "label":0
+    },
+    {
+        "id":337,
+        "statement":"The deer sauntered into the window.",
+        "explanation":"Generally, deer do not walk calmly into windows.",
+        "label":0
+    },
+    {
+        "id":338,
+        "statement":"Ellen washed her head with excrements",
+        "explanation":"Excrements smell bad for the taste of Ellen",
+        "label":0
+    },
+    {
+        "id":339,
+        "statement":"Ill people go to doctors to play cards.",
+        "explanation":"A doctor's job is to cure illnesses",
+        "label":0
+    },
+    {
+        "id":340,
+        "statement":"He used a watering can to water his pants",
+        "explanation":"Nobody intentionally waters their pants with a watering can",
+        "label":0
+    },
+    {
+        "id":341,
+        "statement":"books are used to watch movie",
+        "explanation":"books can only used for read and write",
+        "label":0
+    },
+    {
+        "id":342,
+        "statement":"It was very hot out, so she put on her snowsuit and then ran and jumped into the pool.",
+        "explanation":"You don't swim in a snowsuit.",
+        "label":0
+    },
+    {
+        "id":343,
+        "statement":"Maria smokes weed at work",
+        "explanation":"Weed is forbidden at her work",
+        "label":0
+    },
+    {
+        "id":344,
+        "statement":"Cell phones can be eaten as a light snack",
+        "explanation":"Cell phones are designed to allow users to make phone calls",
+        "label":0
+    },
+    {
+        "id":345,
+        "statement":"He changed the oil in his piano.",
+        "explanation":"A piano is a musical instrument",
+        "label":0
+    },
+    {
+        "id":346,
+        "statement":"A chair has a screen.",
+        "explanation":"A chair is used for sitting",
+        "label":0
+    },
+    {
+        "id":347,
+        "statement":"Film making can be a pinnacle job in the summer",
+        "explanation":"Pinnacle does describe or compare to being stressful",
+        "label":0
+    },
+    {
+        "id":348,
+        "statement":"Metals are made up of fibers",
+        "explanation":"Fibers are very soft things, it is not used for making of metals",
+        "label":0
+    },
+    {
+        "id":349,
+        "statement":"The fish winked at the man",
+        "explanation":"Fish have no eyelids",
+        "label":0
+    },
+    {
+        "id":350,
+        "statement":"The stove was cleaned with a mop.",
+        "explanation":"A mop is too large to clean the stove.",
+        "label":0
+    },
+    {
+        "id":351,
+        "statement":"He hung a picture on the floor.",
+        "explanation":"You can hang a picture on the wall, you are unable to hang a picture on the floor.",
+        "label":0
+    },
+    {
+        "id":352,
+        "statement":"she ate her soup with a fork",
+        "explanation":"forks cannot hold liquid",
+        "label":0
+    },
+    {
+        "id":353,
+        "statement":"Hair screams when you cut it",
+        "explanation":"Hair does not have vocal cords",
+        "label":0
+    },
+    {
+        "id":354,
+        "statement":"When people call someone on the phone, they don't want to speak to them",
+        "explanation":"You wouldn't call someone if you didn't want to talk to them",
+        "label":0
+    },
+    {
+        "id":355,
+        "statement":"My brother eats toys after dinner every day",
+        "explanation":"No one eats toy as food",
+        "label":0
+    },
+    {
+        "id":356,
+        "statement":"the mama bear allowed humans to get close to the cubs",
+        "explanation":"mama bear wouldn't let humans hurt her cubs",
+        "label":0
+    },
+    {
+        "id":357,
+        "statement":"dolls are living things",
+        "explanation":"dolls are toys which don't have animation and energy in action or expression",
+        "label":0
+    },
+    {
+        "id":358,
+        "statement":"I bought a giraffe for my girlfriend",
+        "explanation":"it is illegal to trade wild animals, such as giraffes",
+        "label":0
+    },
+    {
+        "id":359,
+        "statement":"fans are made to produce water",
+        "explanation":"a fan is a device for creating a current of air",
+        "label":0
+    },
+    {
+        "id":360,
+        "statement":"he put a car in the lunchbox",
+        "explanation":"a lunchbox is usually smaller than a car",
+        "label":0
+    },
+    {
+        "id":361,
+        "statement":"the mousetrap can catch an elephant",
+        "explanation":"an elephant can destroy a small mousetrap",
+        "label":0
+    },
+    {
+        "id":362,
+        "statement":"the dog played catch with a bowling ball",
+        "explanation":"a bowling ball is too heavy for the dog to catch",
+        "label":0
+    },
+    {
+        "id":363,
+        "statement":"she drinks coffee from a plate",
+        "explanation":"few people drink from a plate",
+        "label":0
+    },
+    {
+        "id":364,
+        "statement":"the knight slays the armor",
+        "explanation":"the armor is inanimate",
+        "label":0
+    },
+    {
+        "id":365,
+        "statement":"he killed his enemy with the cotton bud",
+        "explanation":"the cotton bud is harmless",
+        "label":0
+    },
+    {
+        "id":366,
+        "statement":"a millionaire has a lot of rubbish",
+        "explanation":"rubbish often has no value",
+        "label":0
+    },
+    {
+        "id":367,
+        "statement":"an elephant rides a motorcycle",
+        "explanation":"an elephant is clumsiness and can't keep balance on a motorcycle",
+        "label":0
+    },
+    {
+        "id":368,
+        "statement":"a blind person can see the table",
+        "explanation":"a blind person has severe visual impairments",
+        "label":0
+    },
+    {
+        "id":369,
+        "statement":"she took a shower at the dresser",
+        "explanation":"the dresser is furniture with drawers for keeping clothe",
+        "label":0
+    },
+    {
+        "id":370,
+        "statement":"the neighbor's dog drove the car",
+        "explanation":"dogs aren't smart enough to drive the cars",
+        "label":0
+    },
+    {
+        "id":371,
+        "statement":"All the people in the world play football",
+        "explanation":"many people don't play football",
+        "label":0
+    },
+    {
+        "id":372,
+        "statement":"reading books can make you more stupid",
+        "explanation":"reading can enrich one's knowledge",
+        "label":0
+    },
+    {
+        "id":373,
+        "statement":"a mouse can be used for typing",
+        "explanation":"a mouse don't contain letter inputs",
+        "label":0
+    },
+    {
+        "id":374,
+        "statement":"when someone dies, their heart-rate increases",
+        "explanation":"When someone dies, their heart-rate goes down to zero",
+        "label":0
+    },
+    {
+        "id":375,
+        "statement":"drinking a glass of motor oil is good for you",
+        "explanation":"motor oil can't be consumed by people",
+        "label":0
+    },
+    {
+        "id":376,
+        "statement":"the helmet is part of the human body",
+        "explanation":"no one is born with a helmet",
+        "label":0
+    },
+    {
+        "id":377,
+        "statement":"to get food fast and cheap, you go to a gourmet restaurant",
+        "explanation":"food in the gourmet restaurant is expensive and takes a longer time to be served",
+        "label":0
+    },
+    {
+        "id":378,
+        "statement":"I read water with every meal",
+        "explanation":"water is liquid, it can`t be read",
+        "label":0
+    },
+    {
+        "id":379,
+        "statement":"you can also buy tickets online with an identity card",
+        "explanation":"the identity card has no payment function",
+        "label":0
+    },
+    {
+        "id":380,
+        "statement":"if you want to risk money to make money, then you should buy insurance",
+        "explanation":"there is little risk in buying insurance",
+        "label":0
+    },
+    {
+        "id":381,
+        "statement":"policemen usually work in the hospital",
+        "explanation":"a police station is a place where policemen work",
+        "label":0
+    },
+    {
+        "id":382,
+        "statement":"the weather in the arctic pole is hot",
+        "explanation":"the arctic pole receives less solar radiation",
+        "label":0
+    },
+    {
+        "id":383,
+        "statement":"a boulder is a precious gem",
+        "explanation":"boulders are common and cheap",
+        "label":0
+    },
+    {
+        "id":384,
+        "statement":"he dug a hole in the ground with a spoon",
+        "explanation":"a spoon is used for taking up food",
+        "label":0
+    },
+    {
+        "id":385,
+        "statement":"a microwave can keep ice cream cold",
+        "explanation":"a microwave is used to heat the food",
+        "label":0
+    },
+    {
+        "id":386,
+        "statement":"drama plays are often performed before cows",
+        "explanation":"a cow is unable to appreciate and understand the drama",
+        "label":0
+    },
+    {
+        "id":387,
+        "statement":"if you want to move fast, you must crawl",
+        "explanation":"a person crawls means he moves slowly",
+        "label":0
+    },
+    {
+        "id":388,
+        "statement":"People play near the volcano and swim in the lava",
+        "explanation":"people will burn themselves when touching the lava",
+        "label":0
+    },
+    {
+        "id":389,
+        "statement":"I left my chair in the desk drawer",
+        "explanation":"a chair can't fit in a desk drawer",
+        "label":0
+    },
+    {
+        "id":390,
+        "statement":"the boy ate a table",
+        "explanation":"a table is hard to eat",
+        "label":0
+    },
+    {
+        "id":391,
+        "statement":"rabbits like to eat meat",
+        "explanation":"rabbits are herbivores, not carnivores",
+        "label":0
+    },
+    {
+        "id":392,
+        "statement":"you don't need to fasten your seat belt to drive",
+        "explanation":"wearing a seat belt keeps you safe while driving",
+        "label":0
+    },
+    {
+        "id":393,
+        "statement":"bees are pests",
+        "explanation":"bees are helpful to human agriculture",
+        "label":0
+    },
+    {
+        "id":394,
+        "statement":"horses don't need to sleep",
+        "explanation":"sleep is an animal instinct",
+        "label":0
+    },
+    {
+        "id":395,
+        "statement":"the chicken cooked a delicious meal",
+        "explanation":"the chicken don't know how to cook",
+        "label":0
+    },
+    {
+        "id":396,
+        "statement":"eating some apples is bad for your health",
+        "explanation":"apples are rich in nutrients",
+        "label":0
+    },
+    {
+        "id":397,
+        "statement":"he walked through the wall",
+        "explanation":"the wall generally doesn't have holes",
+        "label":0
+    },
+    {
+        "id":398,
+        "statement":"the cactus spit on the ground",
+        "explanation":"a cactus has no mouth",
+        "label":0
+    },
+    {
+        "id":399,
+        "statement":"writing skills consists of having a basic knowledge of mathematics",
+        "explanation":"writing has absolutely nothing to do with math",
+        "label":0
+    },
+    {
+        "id":400,
+        "statement":"unicorns exist in our real lives",
+        "explanation":"the unicorn is an imaginary creature",
+        "label":0
+    },
+    {
+        "id":401,
+        "statement":"saliva began to spill out of the boy's eyes",
+        "explanation":"saliva flow out of the mouths",
+        "label":0
+    },
+    {
+        "id":402,
+        "statement":"it's totally safe to drive after drinking",
+        "explanation":"driving after drinking is unsafe",
+        "label":0
+    },
+    {
+        "id":403,
+        "statement":"a baby is driving a car",
+        "explanation":"driving a car is too complicated for a baby",
+        "label":0
+    },
+    {
+        "id":404,
+        "statement":"I am playing basketball with a chair",
+        "explanation":"chairs are inanimate objects",
+        "label":0
+    },
+    {
+        "id":405,
+        "statement":"you may find an egg in a CD",
+        "explanation":"CD can only accept data, not real-life objects",
+        "label":0
+    },
+    {
+        "id":406,
+        "statement":"elephants live at the north pole",
+        "explanation":"elephants live in warm regions while the north pole is cold",
+        "label":0
+    },
+    {
+        "id":407,
+        "statement":"I want to wear glasses on my feet",
+        "explanation":"people often wear glasses on the face",
+        "label":0
+    },
+    {
+        "id":408,
+        "statement":"John kicked a tennis ball into the net and scored a goal",
+        "explanation":"tennis balls are hit with rackets",
+        "label":0
+    },
+    {
+        "id":409,
+        "statement":"rotten cookies smell good",
+        "explanation":"rotten food smells bad",
+        "label":0
+    },
+    {
+        "id":410,
+        "statement":"the rabbit built a church",
+        "explanation":"only humans build churches",
+        "label":0
+    },
+    {
+        "id":411,
+        "statement":"a dog is bigger than a giraffe",
+        "explanation":"dogs are smaller than giraffes",
+        "label":0
+    },
+    {
+        "id":412,
+        "statement":"the teenager has never fallen off his skateboard",
+        "explanation":"every teenager has the possibility to fall off his skateboard",
+        "label":0
+    },
+    {
+        "id":413,
+        "statement":"he fed a table to the cat",
+        "explanation":"It is impossible for an ordinary person to own a planet",
+        "label":0
+    },
+    {
+        "id":414,
+        "statement":"radiation is safe for Dave and he can take his trip through the area",
+        "explanation":"Dave is not saved from radiation and is not safe to travel",
+        "label":0
+    },
+    {
+        "id":415,
+        "statement":"Amphibians are reptiles",
+        "explanation":"amphibians live in water and land unlike reptiles",
+        "label":0
+    },
+    {
+        "id":416,
+        "statement":"Jimmy was feeling full while standing watch due to all the food he ate",
+        "explanation":"Jimmy went to watch still hungry as he did not eat",
+        "label":0
+    },
+    {
+        "id":417,
+        "statement":"I finished reading the dining room table",
+        "explanation":"a dining room table is unreadable",
+        "label":0
+    },
+    {
+        "id":418,
+        "statement":"the dog drank all the water in the pond",
+        "explanation":"drinking so much water will kill the dog",
+        "label":0
+    },
+    {
+        "id":419,
+        "statement":"Jerry went to school for eating",
+        "explanation":"a school is a place where students receive education",
+        "label":0
+    },
+    {
+        "id":420,
+        "statement":"he tied his socks",
+        "explanation":"there is no string in the sock",
+        "label":0
+    },
+    {
+        "id":421,
+        "statement":"George is law-abiding and he stole the necklace from a big city store last night",
+        "explanation":"it is against the law to steal",
+        "label":0
+    },
+    {
+        "id":422,
+        "statement":"She eats a 12-inch cake before dinner every day",
+        "explanation":"a 12-inch cake is too plentiful for one person to eat before dinner",
+        "label":0
+    },
+    {
+        "id":423,
+        "statement":"vegetarians like eating meat",
+        "explanation":"vegetarians only eat vegetables instead of meat",
+        "label":0
+    },
+    {
+        "id":424,
+        "statement":"he can complete writing a page in a second",
+        "explanation":"no one can write very fast",
+        "label":0
+    },
+    {
+        "id":425,
+        "statement":"we do our physics exam in the kitchen",
+        "explanation":"no one does physics exam in the kitchen",
+        "label":0
+    },
+    {
+        "id":426,
+        "statement":"working in a gym might help people gain weight",
+        "explanation":"exercising in the gym can make people lose weight",
+        "label":0
+    },
+    {
+        "id":427,
+        "statement":"photosynthesis is the process of energy synthesis in electric generator",
+        "explanation":"photosynthesis is not a mechanical activity",
+        "label":0
+    },
+    {
+        "id":428,
+        "statement":"it must mean you're a millionaire if you can afford to go on vacation",
+        "explanation":"ordinary people also go on vacation",
+        "label":0
+    },
+    {
+        "id":429,
+        "statement":"my bunny just caught a mouse in my closet",
+        "explanation":"bunnies don't catch mice",
+        "label":0
+    },
+    {
+        "id":430,
+        "statement":"He slept in the pool",
+        "explanation":"it is uncomfortable to sleep in the pool",
+        "label":0
+    },
+    {
+        "id":431,
+        "statement":"all cookies need chocolate chips",
+        "explanation":"there are many types of cookies, lots of them don't have chocolate chips",
+        "label":0
+    },
+    {
+        "id":432,
+        "statement":"she put a tiger into the basket",
+        "explanation":"there is too little room in the basket for a tiger",
+        "label":0
+    },
+    {
+        "id":433,
+        "statement":"an equilateral triangle may have three unequal sides",
+        "explanation":"an equilateral triangle has three equal sides",
+        "label":0
+    },
+    {
+        "id":434,
+        "statement":"nobody buys flights",
+        "explanation":"anyone with enough money can flights",
+        "label":0
+    },
+    {
+        "id":435,
+        "statement":"the titanic flew into the sky after it hit an iceberg",
+        "explanation":"The ship cannot fly whatever happens",
+        "label":0
+    },
+    {
+        "id":436,
+        "statement":"he needed his car repaired so he took it to a heart surgeon",
+        "explanation":"heart surgeons couldn't repair cars",
+        "label":0
+    },
+    {
+        "id":437,
+        "statement":"you attend a lecture while sleeping",
+        "explanation":"people don't move when they're asleep",
+        "label":0
+    },
+    {
+        "id":438,
+        "statement":"at the restaurant police came for taking orders",
+        "explanation":"the police don't work in the restaurant",
+        "label":0
+    },
+    {
+        "id":439,
+        "statement":"he takes his car into his bedroom",
+        "explanation":"no one takes a car inside a room",
+        "label":0
+    },
+    {
+        "id":440,
+        "statement":"the man went to jail after eating a candy",
+        "explanation":"it's not illegal to eat a candy",
+        "label":0
+    },
+    {
+        "id":441,
+        "statement":"when you handling dangerous chemicals, you should taste it",
+        "explanation":"tasting dangerous chemicals will kill you",
+        "label":0
+    },
+    {
+        "id":442,
+        "statement":"cereal is only for breakfast",
+        "explanation":"cereal is a popular breakfast meal but can be eaten anytime",
+        "label":0
+    },
+    {
+        "id":443,
+        "statement":"a rabbit is driving a car",
+        "explanation":"A rabbit does not reach the pedals of a car",
+        "label":0
+    },
+    {
+        "id":444,
+        "statement":"we saw the skyscrapers when we visited the farm",
+        "explanation":"there are usually no skyscrapers on the farm",
+        "label":0
+    },
+    {
+        "id":445,
+        "statement":"ducks are usually found in office buildings",
+        "explanation":"ducks don't usually show up in office buildings",
+        "label":0
+    },
+    {
+        "id":446,
+        "statement":"fish have feet to swim",
+        "explanation":"fish usually have no feet",
+        "label":0
+    },
+    {
+        "id":447,
+        "statement":"Money is made from food",
+        "explanation":"no one makes money from food",
+        "label":0
+    },
+    {
+        "id":448,
+        "statement":"spiders don't have legs",
+        "explanation":"a spider has 8 legs",
+        "label":0
+    },
+    {
+        "id":449,
+        "statement":"you can eat mercury",
+        "explanation":"Mercury is toxic",
+        "label":0
+    },
+    {
+        "id":450,
+        "statement":"there were dinosaurs at the pond",
+        "explanation":"dinosaurs no longer exist",
+        "label":0
+    },
+    {
+        "id":451,
+        "statement":"Tommy used a computer to cook dinner",
+        "explanation":"a computer would break if it was used to make dinner",
+        "label":0
+    },
+    {
+        "id":452,
+        "statement":"table sugar is made from seawater",
+        "explanation":"seawater is salty in taste while sugar is sweet",
+        "label":0
+    },
+    {
+        "id":453,
+        "statement":"mom is cooking poison",
+        "explanation":"mom doesn't usually cook poisonous food",
+        "label":0
+    },
+    {
+        "id":454,
+        "statement":"he put a case of the bottle in his cap",
+        "explanation":"the cap cannot hold the case of bottle",
+        "label":0
+    },
+    {
+        "id":455,
+        "statement":"a coffee shop is a good place to have a boxing match",
+        "explanation":"coffee shops aren't used for boxing matches",
+        "label":0
+    },
+    {
+        "id":456,
+        "statement":"he likes to wear a blouse",
+        "explanation":"blouses are usually used by girls",
+        "label":0
+    },
+    {
+        "id":457,
+        "statement":"I accidentally hit a dolphin with my car while driving",
+        "explanation":"dolphins cannot be on land like cars",
+        "label":0
+    },
+    {
+        "id":458,
+        "statement":"water is extracted from crude oil",
+        "explanation":"crude oil contains very little water",
+        "label":0
+    },
+    {
+        "id":459,
+        "statement":"fire is used to extinguish the fire",
+        "explanation":"you can't extinguish the fire with fire",
+        "label":0
+    },
+    {
+        "id":460,
+        "statement":"she rode the soup can",
+        "explanation":"the soup can isn't transportation",
+        "label":0
+    },
+    {
+        "id":461,
+        "statement":"the lady put a basketball in a wooden picture frame",
+        "explanation":"basketballs do not fit in the dimensions of most, if not all, picture frames",
+        "label":0
+    },
+    {
+        "id":462,
+        "statement":"the girl was wearing a newspaper dress every day",
+        "explanation":"there are few clothes made of newspapers in the world",
+        "label":0
+    },
+    {
+        "id":463,
+        "statement":"the turtle ran fast across the street",
+        "explanation":"turtles move slowly",
+        "label":0
+    },
+    {
+        "id":464,
+        "statement":"the pig delivered a package to the small child",
+        "explanation":"animals like pigs don't behave like humans",
+        "label":0
+    },
+    {
+        "id":465,
+        "statement":"she washed the clothes in the dryer",
+        "explanation":"a dryer is used to dry clothes",
+        "label":0
+    },
+    {
+        "id":466,
+        "statement":"he went to the tailor to have a hair cut",
+        "explanation":"a tailor stitches clothes and does not cut hair",
+        "label":0
+    },
+    {
+        "id":467,
+        "statement":"the father gave birth to a baby boy",
+        "explanation":"men don't get pregnant",
+        "label":0
+    },
+    {
+        "id":468,
+        "statement":"the dog dug a hole in the concrete",
+        "explanation":"the concrete is too hard to dig",
+        "label":0
+    },
+    {
+        "id":469,
+        "statement":"puppies will lay a dozen eggs a day",
+        "explanation":"the puppy is a viviparous animal",
+        "label":0
+    },
+    {
+        "id":470,
+        "statement":"the sandwich contains sadness",
+        "explanation":"sadness isn't a sandwich ingredient",
+        "label":0
+    },
+    {
+        "id":471,
+        "statement":"carpenter paints the house",
+        "explanation":"carpenter's job is to make or repair wooden objects",
+        "label":0
+    },
+    {
+        "id":472,
+        "statement":"the rock ate a nut",
+        "explanation":"rocks are lifeless and cannot eat",
+        "label":0
+    },
+    {
+        "id":473,
+        "statement":"cavities are caused by not believing in the Creation Theory",
+        "explanation":"cavities have nothing to do with religion, and everything to do with your oral hygiene",
+        "label":0
+    },
+    {
+        "id":474,
+        "statement":"the bear ate a car",
+        "explanation":"a bear can't chew metal",
+        "label":0
+    },
+    {
+        "id":475,
+        "statement":"Mike walked to Italy from Florida",
+        "explanation":"there's an ocean between Italy and Florida",
+        "label":0
+    },
+    {
+        "id":476,
+        "statement":"I saw a chicken flying outside the window",
+        "explanation":"chickens do not fly",
+        "label":0
+    },
+    {
+        "id":477,
+        "statement":"we pushed a tank at the store",
+        "explanation":"a tank is too heavy to push",
+        "label":0
+    },
+    {
+        "id":478,
+        "statement":"going to a party is for working",
+        "explanation":"a party is made to stop working for a while",
+        "label":0
+    },
+    {
+        "id":479,
+        "statement":"the ant ate the anteater",
+        "explanation":"anteater can eat ants",
+        "label":0
+    },
+    {
+        "id":480,
+        "statement":"school bus attends school early in the morning",
+        "explanation":"school bus drops the kids to the school",
+        "label":0
+    },
+    {
+        "id":481,
+        "statement":"to stew spaghetti you need boiling vegetable oil",
+        "explanation":"vegetable oil is used to fry food",
+        "label":0
+    },
+    {
+        "id":482,
+        "statement":"he vacuumed up the piles of wood",
+        "explanation":"a vacuum cleaner can only clean tiny particles",
+        "label":0
+    },
+    {
+        "id":483,
+        "statement":"my brother is sleeping in the kitchen",
+        "explanation":"the kitchen is for preparing food",
+        "label":0
+    },
+    {
+        "id":484,
+        "statement":"wild boars are one of the most dangerous kinds of dogs",
+        "explanation":"a boar is not a kind of dog",
+        "label":0
+    },
+    {
+        "id":485,
+        "statement":"he brought a car with all the love he had",
+        "explanation":"We cannot buy a car with love",
+        "label":0
+    },
+    {
+        "id":486,
+        "statement":"the ball kicked the athlete",
+        "explanation":"balls don't have legs and can't kick people",
+        "label":0
+    },
+    {
+        "id":487,
+        "statement":"rock climbers climb oceans",
+        "explanation":"an ocean is made of water",
+        "label":0
+    },
+    {
+        "id":488,
+        "statement":"a ball is square and can roll",
+        "explanation":"a ball is a round object",
+        "label":0
+    },
+    {
+        "id":489,
+        "statement":"the bank keeps your money dangerous",
+        "explanation":"The bank is a highly secured facility with high-security measures to keep money and information safe",
+        "label":0
+    },
+    {
+        "id":490,
+        "statement":"he put a cigarette in his ear and lighted up",
+        "explanation":"no one smokes by ear",
+        "label":0
+    },
+    {
+        "id":491,
+        "statement":"she painted the earth red",
+        "explanation":"the earth is too big",
+        "label":0
+    },
+    {
+        "id":492,
+        "statement":"cars don't have tires",
+        "explanation":"a car can't move without tires",
+        "label":0
+    },
+    {
+        "id":493,
+        "statement":"you will not be fit if you exercise daily",
+        "explanation":"People who exercise daily tend to have less health problems and are more fit than people who do not exercise daily",
+        "label":0
+    },
+    {
+        "id":494,
+        "statement":"the world is just a ball filled with nothing",
+        "explanation":"there is scientific proof that the world is filled with energy and that there are many lives on it",
+        "label":0
+    },
+    {
+        "id":495,
+        "statement":"he put a scarf around his ear",
+        "explanation":"the scarf is too long for the ear",
+        "label":0
+    },
+    {
+        "id":496,
+        "statement":"the automotive magazine featured tips and tricks for maintaining a healthy complexion",
+        "explanation":"automotive magazines are usually written by car experts who don't know anything about skincare",
+        "label":0
+    },
+    {
+        "id":497,
+        "statement":"babies are born with clothes on",
+        "explanation":"there can be no clothes in the womb",
+        "label":0
+    },
+    {
+        "id":498,
+        "statement":"cars drive on railroads",
+        "explanation":"cars only drive on roads",
+        "label":0
+    },
+    {
+        "id":499,
+        "statement":"he likes to ride horses at the gym",
+        "explanation":"big animals are forbidden into the gym",
+        "label":0
+    },
+    {
+        "id":500,
+        "statement":"a refrigerator is used to keep things warm",
+        "explanation":"a refrigerator is usually used to keep things cool or cold",
+        "label":0
+    },
+    {
+        "id":501,
+        "statement":"She bakes a cake in the dishwasher",
+        "explanation":"the dishwasher is used for washing dishes",
+        "label":0
+    },
+    {
+        "id":502,
+        "statement":"the rat killed the cat",
+        "explanation":"cats are predators of rat",
+        "label":0
+    },
+    {
+        "id":503,
+        "statement":"Jason drank the motor oil in front of his car",
+        "explanation":"motor oil is harmful to people",
+        "label":0
+    },
+    {
+        "id":504,
+        "statement":"whales are one of the smallest animals in the ocean",
+        "explanation":"a whale is a huge sea creature so it can't be the smallest",
+        "label":0
+    },
+    {
+        "id":505,
+        "statement":"cars can float in the ocean just like a boat",
+        "explanation":"cars only can drive on the road",
+        "label":0
+    },
+    {
+        "id":506,
+        "statement":"The ditch jumped in front of him and caused him to wreck.",
+        "explanation":"Ditches don't move and cause wrecks.",
+        "label":0
+    },
+    {
+        "id":507,
+        "statement":"The sky is always one color.",
+        "explanation":"It is clear that the sky changes colors at different times of the day.",
+        "label":0
+    },
+    {
+        "id":508,
+        "statement":"He put a dog in the fridge.",
+        "explanation":"A dog would die in the fridge.",
+        "label":0
+    },
+    {
+        "id":509,
+        "statement":"He gives money to the dog.",
+        "explanation":"The dog is an animal that couldn't need money.",
+        "label":0
+    },
+    {
+        "id":510,
+        "statement":"She took a jet plane from her bedroom to her kitchen for a snack.",
+        "explanation":"a jet plane is much larger than a house",
+        "label":0
+    },
+    {
+        "id":511,
+        "statement":"An elephant get in the car.",
+        "explanation":"An elephant is much bigger than a car.",
+        "label":0
+    },
+    {
+        "id":512,
+        "statement":"Smoking is good to health.",
+        "explanation":"As smoking is a bad habit",
+        "label":0
+    },
+    {
+        "id":513,
+        "statement":"The piano played a song on him.",
+        "explanation":"Pianos are inanimate objects.",
+        "label":0
+    },
+    {
+        "id":514,
+        "statement":"An axes is a tool used for planting wood.",
+        "explanation":"Usually axes is used to cut wood.",
+        "label":0
+    },
+    {
+        "id":515,
+        "statement":"The bus has been idling outside my window for an hour.",
+        "explanation":"A city bus is constantly in motion, so barring a calamitous event, it would not be idling for an hour.",
+        "label":0
+    },
+    {
+        "id":516,
+        "statement":"Bikes are made for swimming.",
+        "explanation":"Human uses bikes for transportation on the road.",
+        "label":0
+    },
+    {
+        "id":517,
+        "statement":"He put a swimsuit on and went to bed.",
+        "explanation":"a swimsuit is for swimming",
+        "label":0
+    },
+    {
+        "id":518,
+        "statement":"A dishwasher is a band instrument.",
+        "explanation":"Dishwashers are used to clean dishes.",
+        "label":0
+    },
+    {
+        "id":519,
+        "statement":"The lion went to the movies.",
+        "explanation":"Movies is a place were people go to watch movies.",
+        "label":0
+    },
+    {
+        "id":520,
+        "statement":"I store my cats in a kitchen drawer.",
+        "explanation":"the cat is uncomfortable in the drawer",
+        "label":0
+    },
+    {
+        "id":521,
+        "statement":"Spiders are found in the ocean.",
+        "explanation":"Spiders can't live in the ocean.",
+        "label":0
+    },
+    {
+        "id":522,
+        "statement":"He cooked a pot inside of spaghetti.",
+        "explanation":"A pot is a cooking tool that cannot be cooked.",
+        "label":0
+    },
+    {
+        "id":523,
+        "statement":"Cats know how to use a shower.",
+        "explanation":"Cats are incapable of these human behaviors",
+        "label":0
+    },
+    {
+        "id":524,
+        "statement":"He opened a can opener with a can of worms.",
+        "explanation":"The can opener don't need to be opened",
+        "label":0
+    },
+    {
+        "id":525,
+        "statement":"TV's are found in the ocean.",
+        "explanation":"TV would be broke in the ocean",
+        "label":0
+    },
+    {
+        "id":526,
+        "statement":"I'll ask a friend to help me to commit suicide right now.",
+        "explanation":"committing suicide doesn't need assistance",
+        "label":0
+    },
+    {
+        "id":527,
+        "statement":"Cars are made from food.",
+        "explanation":"food is too soft to make cars",
+        "label":0
+    },
+    {
+        "id":528,
+        "statement":"She put the moon inside the mashing machine.",
+        "explanation":"Ordinary people can't get the moon",
+        "label":0
+    },
+    {
+        "id":529,
+        "statement":"She put her grandfather in the cot.",
+        "explanation":"An adult is much bigger than a cot.",
+        "label":0
+    },
+    {
+        "id":530,
+        "statement":"He parked his house in the garage.",
+        "explanation":"A house is bigger than garage.",
+        "label":0
+    },
+    {
+        "id":531,
+        "statement":"She jumped over the Grand Canyon.",
+        "explanation":"The Grand Canyon is much too large for a human to jump over.",
+        "label":0
+    },
+    {
+        "id":532,
+        "statement":"She wore the soup.",
+        "explanation":"Soup isn't clothes",
+        "label":0
+    },
+    {
+        "id":533,
+        "statement":"He replaced the phone in his battery.",
+        "explanation":"The phone is bigger than the battery.",
+        "label":0
+    },
+    {
+        "id":534,
+        "statement":"Sarah ran to her kitchen to make a grilled cheese in response to the fire alarm.",
+        "explanation":"Sarah would be in danger if she stayed in the house while the fire alarm is sounding.",
+        "label":0
+    },
+    {
+        "id":535,
+        "statement":"Chicken can swim in water.",
+        "explanation":"Chickens are afraid of water",
+        "label":0
+    },
+    {
+        "id":536,
+        "statement":"If you freeze water, it becomes angry.",
+        "explanation":"Water doesn't have emotion.",
+        "label":0
+    },
+    {
+        "id":537,
+        "statement":"Canada is in outer space.",
+        "explanation":"Canada is a country on earth.",
+        "label":0
+    },
+    {
+        "id":538,
+        "statement":"Cats can play hockey.",
+        "explanation":"Hockey is a sport that humans play.",
+        "label":0
+    },
+    {
+        "id":539,
+        "statement":"Cats have scales.",
+        "explanation":"Fish have scales but cats don't",
+        "label":0
+    },
+    {
+        "id":540,
+        "statement":"most people would be happy, if they saw a snake.",
+        "explanation":"Snake is highly poisonous",
+        "label":0
+    },
+    {
+        "id":541,
+        "statement":"Bananas are only for monkeys.",
+        "explanation":"Human and other animals love bananas too.",
+        "label":0
+    },
+    {
+        "id":542,
+        "statement":"People don't need glasses if they have vision problems.",
+        "explanation":"The purpose of glasses is to correct vision.",
+        "label":0
+    },
+    {
+        "id":543,
+        "statement":"He ate a cow in one bite.",
+        "explanation":"A cow is too big to be eaten in one bite.",
+        "label":0
+    },
+    {
+        "id":544,
+        "statement":"robber should be rewarded",
+        "explanation":"robbing violates relevant laws",
+        "label":0
+    },
+    {
+        "id":545,
+        "statement":"Coffee can wake you up but also makes you tired.",
+        "explanation":"There is caffeine in coffee can keep you from feeling tired",
+        "label":0
+    },
+    {
+        "id":546,
+        "statement":"He drove a car into the sky.",
+        "explanation":"A car only can run on the road.",
+        "label":0
+    },
+    {
+        "id":547,
+        "statement":"The secretary ate the desk.",
+        "explanation":"Desks are inedible.",
+        "label":0
+    },
+    {
+        "id":548,
+        "statement":"Our dog laid an egg this morning.",
+        "explanation":"Dogs are mammals and they don't lay eggs.",
+        "label":0
+    },
+    {
+        "id":549,
+        "statement":"I brought a book to play in a garden.",
+        "explanation":"book is used to read.",
+        "label":0
+    },
+    {
+        "id":550,
+        "statement":"The girl was sit on the fan for her school",
+        "explanation":"No one sit on the fan as like a bench",
+        "label":0
+    },
+    {
+        "id":551,
+        "statement":"Nobody owns the company other than the founder",
+        "explanation":"Once a company goes public on the stock exchange, shareholders can buy and own stock in a company",
+        "label":0
+    },
+    {
+        "id":552,
+        "statement":"Everyone can afford luxury cars",
+        "explanation":"Luxury cars are expensive not everyone can cover it",
+        "label":0
+    },
+    {
+        "id":553,
+        "statement":"He took the train in the bar",
+        "explanation":"The bar doesn't have the rails",
+        "label":0
+    },
+    {
+        "id":554,
+        "statement":"She had a giraffe in her backpack.",
+        "explanation":"A giraffe is too large to put into a backpack",
+        "label":0
+    },
+    {
+        "id":555,
+        "statement":"Humans breath air and live on Venus and Mars.",
+        "explanation":"There isn't any air for humans to breath on Venus and Mars.",
+        "label":0
+    },
+    {
+        "id":556,
+        "statement":"She put the freezer in the microwave.",
+        "explanation":"Freezers are usually bigger than the microwaves",
+        "label":0
+    },
+    {
+        "id":557,
+        "statement":"You can earn money if you rest.",
+        "explanation":"No one can make money by resting",
+        "label":0
+    },
+    {
+        "id":558,
+        "statement":"He walked on the lake.",
+        "explanation":"No one can walk on water.",
+        "label":0
+    },
+    {
+        "id":559,
+        "statement":"He put new cement tires on the car.",
+        "explanation":"tires aren't made of cement.",
+        "label":0
+    },
+    {
+        "id":560,
+        "statement":"He likes to go to the park to shop for food.",
+        "explanation":"Park is a piece of open land for recreational use",
+        "label":0
+    },
+    {
+        "id":561,
+        "statement":"She loaded the car into the box.",
+        "explanation":"A car is usually bigger than a box.",
+        "label":0
+    },
+    {
+        "id":562,
+        "statement":"He put a rocket inside a toy rocket.",
+        "explanation":"The rocket is to big than the toy rocket.",
+        "label":0
+    },
+    {
+        "id":563,
+        "statement":"He ran into an ocean at the crosswalk",
+        "explanation":"There are no crosswalks in the ocean.",
+        "label":0
+    },
+    {
+        "id":564,
+        "statement":"The woman was reading a sponge.",
+        "explanation":"Sponges contain no text to read.",
+        "label":0
+    },
+    {
+        "id":565,
+        "statement":"He was good at impressions because he was tall.",
+        "explanation":"Being tall does not impact your ability to do impressions.",
+        "label":0
+    },
+    {
+        "id":566,
+        "statement":"My friend drank milk from the sea.",
+        "explanation":"In the sea is salt water.",
+        "label":0
+    },
+    {
+        "id":567,
+        "statement":"strong acid solution can be touched",
+        "explanation":"strong acid solution is corrosive",
+        "label":0
+    },
+    {
+        "id":568,
+        "statement":"a tiger is eating straw there",
+        "explanation":"tigers are carnivores",
+        "label":0
+    },
+    {
+        "id":569,
+        "statement":"Leaves can leave their trees anytime, this is why they are called leaves.",
+        "explanation":"Leaves only leave the trees during the right time",
+        "label":0
+    },
+    {
+        "id":570,
+        "statement":"Dollar can be used in China",
+        "explanation":"Dollar is the common currency in the United States,  not China",
+        "label":0
+    },
+    {
+        "id":571,
+        "statement":"I go to the grocery store every week to buy pets",
+        "explanation":"Pets can be bought in pet stores rather than grocery stores",
+        "label":0
+    },
+    {
+        "id":572,
+        "statement":"Each item in the grocery store is taxable.",
+        "explanation":"The tax of items depending on where you live.",
+        "label":0
+    },
+    {
+        "id":573,
+        "statement":"Grocery stores usually provide an itemized check with each purchase.",
+        "explanation":"Stores will provide receipts instead of checks for their customers",
+        "label":0
+    },
+    {
+        "id":574,
+        "statement":"The dog barks when the moon is green.",
+        "explanation":"The moon will never be green.",
+        "label":0
+    },
+    {
+        "id":575,
+        "statement":"The sun rises every morning at dusk",
+        "explanation":"The sun falls at dusk",
+        "label":0
+    },
+    {
+        "id":576,
+        "statement":"terrorists are innocent peoples",
+        "explanation":"innocent people never can be terrorists",
+        "label":0
+    },
+    {
+        "id":577,
+        "statement":"The public library sells live fish and birds",
+        "explanation":"Libraries have books instead of pets",
+        "label":0
+    },
+    {
+        "id":578,
+        "statement":"A gardener can follow a suspect",
+        "explanation":"A gardener is responsible for keeping the flowers rather than follow a suspect",
+        "label":0
+    },
+    {
+        "id":579,
+        "statement":"glass is edible",
+        "explanation":"eating glass would cause injury",
+        "label":0
+    },
+    {
+        "id":580,
+        "statement":"shoes can fly",
+        "explanation":"Shoes do not have wings",
+        "label":0
+    },
+    {
+        "id":581,
+        "statement":"Seawater contains high amount of sugar",
+        "explanation":"There is no sugar in seawater",
+        "label":0
+    },
+    {
+        "id":582,
+        "statement":"The mountain is smaller than the man",
+        "explanation":"the Mountains are bigger than people",
+        "label":0
+    },
+    {
+        "id":583,
+        "statement":"It's bedtime so I should start cooking dinner.",
+        "explanation":"At bedtime, you go to sleep,  and you cook before dinnertime.",
+        "label":0
+    },
+    {
+        "id":584,
+        "statement":"Cages are monkeys' best friends.",
+        "explanation":"Monkeys do not like cages because they do not want to be locked up.",
+        "label":0
+    },
+    {
+        "id":585,
+        "statement":"My reflection can see me in the mirror",
+        "explanation":"My reflection cannot see",
+        "label":0
+    },
+    {
+        "id":586,
+        "statement":"mosquito bite causes rabies",
+        "explanation":"rabies is caused due to biting from mad dog",
+        "label":0
+    },
+    {
+        "id":587,
+        "statement":"Stonehenge is in Poland",
+        "explanation":"Stonehenge is a commonly known monument in England",
+        "label":0
+    },
+    {
+        "id":588,
+        "statement":"It is fun to ride bikes for all people",
+        "explanation":"Not everyone likes to bike",
+        "label":0
+    },
+    {
+        "id":589,
+        "statement":"You are likely to find a fungus in dry places",
+        "explanation":"fungus actually dwells in damp places",
+        "label":0
+    },
+    {
+        "id":590,
+        "statement":"Horses can only be male.",
+        "explanation":"Horses have both genders",
+        "label":0
+    },
+    {
+        "id":591,
+        "statement":"It takes years to learn how to clap hands.",
+        "explanation":"Clapping hands is very easy and even babies can do it.",
+        "label":0
+    },
+    {
+        "id":592,
+        "statement":"Walking makes you fat.",
+        "explanation":"Walking is a good exercise that keeps you thin and fit.",
+        "label":0
+    },
+    {
+        "id":593,
+        "statement":"Mike moves the desk with his fin.",
+        "explanation":"Humans do not have fins",
+        "label":0
+    },
+    {
+        "id":594,
+        "statement":"He ate the egg before peeling it",
+        "explanation":"Eggs need to be peeled before eaten",
+        "label":0
+    },
+    {
+        "id":595,
+        "statement":"Enemies celebrate on Valentine's day.",
+        "explanation":"Valentine's day is for lovers",
+        "label":0
+    },
+    {
+        "id":596,
+        "statement":"I can smell the flowers by my eyes",
+        "explanation":"People smell by a nose and see by eyes",
+        "label":0
+    },
+    {
+        "id":597,
+        "statement":"Lying is the best policy.",
+        "explanation":"Lying is a bad thing",
+        "label":0
+    },
+    {
+        "id":598,
+        "statement":"Dishonesty is one of the best characteristics of a person.",
+        "explanation":"Dishonesty is a bad characteristic",
+        "label":0
+    },
+    {
+        "id":599,
+        "statement":"Something that might happen as a consequence of doing regular exercise is you improve your study",
+        "explanation":"Exercising regularly will help you improve health,  rather than study",
+        "label":0
+    },
+    {
+        "id":600,
+        "statement":"My sister wants to raise a horse at home",
+        "explanation":"A horse is not raised in houses",
+        "label":0
+    },
+    {
+        "id":601,
+        "statement":"He lived without food for about a year",
+        "explanation":"People cannot live long without food",
+        "label":0
+    },
+    {
+        "id":602,
+        "statement":"Students need flowers and plants to study",
+        "explanation":"Students cannot study using flowers and plants",
+        "label":0
+    },
+    {
+        "id":603,
+        "statement":"bathroom cleaner can be used to clean body",
+        "explanation":"bathroom cleaner is used to clean the toilet",
+        "label":0
+    },
+    {
+        "id":604,
+        "statement":"She drives the bus to work everyday",
+        "explanation":"A bus is a public transportation and no one drives it to work every day",
+        "label":0
+    },
+    {
+        "id":605,
+        "statement":"Antelopes are predators that prey on lions.",
+        "explanation":"In the Savannah ecosystem lions are apex predators and antelopes herbivores.",
+        "label":0
+    },
+    {
+        "id":606,
+        "statement":"My grandparents stay at the kindergarten",
+        "explanation":"The kindergarten is for children rather than old people",
+        "label":0
+    },
+    {
+        "id":607,
+        "statement":"Electricity is a harmful resource for cities and towns.",
+        "explanation":"Electricity is very important for cities and towns",
+        "label":0
+    },
+    {
+        "id":608,
+        "statement":"All fruits are yellow",
+        "explanation":"Fruits are of various colors",
+        "label":0
+    },
+    {
+        "id":609,
+        "statement":"ships are large vehicles that roll in water",
+        "explanation":"ships never roll on water",
+        "label":0
+    },
+    {
+        "id":610,
+        "statement":"She is a superstar and has no fans",
+        "explanation":"A superstar always has lots of fans",
+        "label":0
+    },
+    {
+        "id":611,
+        "statement":"Pork comes from cows.",
+        "explanation":"Pork is the correct term for meat from pigs",
+        "label":0
+    },
+    {
+        "id":612,
+        "statement":"She put a room on her car",
+        "explanation":"A room is quite bigger than a car",
+        "label":0
+    },
+    {
+        "id":613,
+        "statement":"Breakfast is not important.",
+        "explanation":"Breakfast is very important for our health.",
+        "label":0
+    },
+    {
+        "id":614,
+        "statement":"he built a treehouse on the rooftop.",
+        "explanation":"a treehouse is built on the tree instead of the rooftop",
+        "label":0
+    },
+    {
+        "id":615,
+        "statement":"We like to die every day.",
+        "explanation":"Death is undesirable and can only happen once.",
+        "label":0
+    },
+    {
+        "id":616,
+        "statement":"He put a camel on a table",
+        "explanation":"a camel is much bigger than a table",
+        "label":0
+    },
+    {
+        "id":617,
+        "statement":"He works for a computer company because he studies art history",
+        "explanation":"A computer company needs employees who study computer science",
+        "label":0
+    },
+    {
+        "id":618,
+        "statement":"He played piano in the marching band.",
+        "explanation":"Pianos are not portable enough to play in a marching band.",
+        "label":0
+    },
+    {
+        "id":619,
+        "statement":"A car is only driven at night",
+        "explanation":"People can drive their cars during the day and night",
+        "label":0
+    },
+    {
+        "id":620,
+        "statement":"A bone can eat a dog",
+        "explanation":"A bone cannot eat a dog",
+        "label":0
+    },
+    {
+        "id":621,
+        "statement":"boys wear menstrual pad",
+        "explanation":"girls need to wear a menstrual pad to absorb menstrual flow and boys don't need because they don't undergo menstrual cycle",
+        "label":0
+    },
+    {
+        "id":622,
+        "statement":"The cleaner is in charge of the money at the store",
+        "explanation":"The cleaner is in charge of keeping the store clean",
+        "label":0
+    },
+    {
+        "id":623,
+        "statement":"You should eat at least 5 portions of candy and soda a day",
+        "explanation":"A lot of sugary food is unhealthy",
+        "label":0
+    },
+    {
+        "id":624,
+        "statement":"A bald man brushed his hair every day",
+        "explanation":"A bald man does not need to brush his hair",
+        "label":0
+    },
+    {
+        "id":625,
+        "statement":"Breakfast is served at night.",
+        "explanation":"Breakfast is the first meal of a day and it is usually served in the morning",
+        "label":0
+    },
+    {
+        "id":626,
+        "statement":"I put the phone into the fridge.",
+        "explanation":"You never put electronic devices inside the fridge.",
+        "label":0
+    },
+    {
+        "id":627,
+        "statement":"I use cotton to make big muscles body",
+        "explanation":"cotton is not heavy so it cannot make big muscles body",
+        "label":0
+    },
+    {
+        "id":628,
+        "statement":"He can swim so he uses a swimming ring",
+        "explanation":"Swimming rings are for those who cannot swim",
+        "label":0
+    },
+    {
+        "id":629,
+        "statement":"sausage is made of stone",
+        "explanation":"There is no food that is made of stone",
+        "label":0
+    },
+    {
+        "id":630,
+        "statement":"SHE DRAWS A PICTURE WITH FORK.",
+        "explanation":"FORKS ARE NOT USED FOR DRAWING.",
+        "label":0
+    },
+    {
+        "id":631,
+        "statement":"doing some exercises makes you cold",
+        "explanation":"people feel hot and swear while exercising",
+        "label":0
+    },
+    {
+        "id":632,
+        "statement":"socks are always worn on hands",
+        "explanation":"Wearing socks keeps the feet dry and gloves are usually worn on hands.",
+        "label":0
+    },
+    {
+        "id":633,
+        "statement":"I  SAW A SPACESHIP.",
+        "explanation":"SPACESHIP DOES NOT APPEAR.",
+        "label":0
+    },
+    {
+        "id":634,
+        "statement":"He put lion into a glass",
+        "explanation":"a lion is much bigger than a glass",
+        "label":0
+    },
+    {
+        "id":635,
+        "statement":"Birds often hitchhike to Miami.",
+        "explanation":"Birds cant hitchhike.",
+        "label":0
+    },
+    {
+        "id":636,
+        "statement":"An earthquake can cure people",
+        "explanation":"earthquakes can cause many people to die.",
+        "label":0
+    },
+    {
+        "id":637,
+        "statement":"Christians curse God in churches",
+        "explanation":"The Christians respect the god and will not hurt the god",
+        "label":0
+    },
+    {
+        "id":638,
+        "statement":"A smile denotes that the person is sad.",
+        "explanation":"A frown or a cry denotes that the person is sad.",
+        "label":0
+    },
+    {
+        "id":639,
+        "statement":"Sam saw a rabbit in the sea",
+        "explanation":"There are no rabbits in the sea",
+        "label":0
+    },
+    {
+        "id":640,
+        "statement":"I feel hungry and watch movies",
+        "explanation":"people will eat food when they feel hungry",
+        "label":0
+    },
+    {
+        "id":641,
+        "statement":"we planned to go to England from India by bike",
+        "explanation":"The distance between England and India is too far to go by bike",
+        "label":0
+    },
+    {
+        "id":642,
+        "statement":"All trees produce fruits",
+        "explanation":"There are trees that do not produce fruits",
+        "label":0
+    },
+    {
+        "id":643,
+        "statement":"Sometimes thinking does not require a brain",
+        "explanation":"The brain is essential for thinking",
+        "label":0
+    },
+    {
+        "id":644,
+        "statement":"She had a baby with her robot",
+        "explanation":"A robot doesn't have reproductive functions",
+        "label":0
+    },
+    {
+        "id":645,
+        "statement":"Everyone loves reading horror novels.",
+        "explanation":"Not everyone likes to read horror novels.",
+        "label":0
+    },
+    {
+        "id":646,
+        "statement":"She washed the quilt in the dishwasher",
+        "explanation":"The dishwasher can only be used to wash dishes",
+        "label":0
+    },
+    {
+        "id":647,
+        "statement":"Playing computer games is good for eyes",
+        "explanation":"People stare at the screen for long when playing computer games,  which is bad for eyes",
+        "label":0
+    },
+    {
+        "id":648,
+        "statement":"She washes her hair with detergent",
+        "explanation":"People use shampoo to wash the hair",
+        "label":0
+    },
+    {
+        "id":649,
+        "statement":"Water is in liquid form while cold",
+        "explanation":"Water turns into the ice while cold",
+        "label":0
+    },
+    {
+        "id":650,
+        "statement":"all politicians are lawyers",
+        "explanation":"Not are politicians are lawyers,  they can do other works",
+        "label":0
+    },
+    {
+        "id":651,
+        "statement":"There is only one room in a normal house",
+        "explanation":"A house must have more than one room counting with the kitchen and the bathroom",
+        "label":0
+    },
+    {
+        "id":652,
+        "statement":"The Injuries escaped with the people in the car after the accident",
+        "explanation":"Since injury is not a living organism it cannot escape from a car accident",
+        "label":0
+    },
+    {
+        "id":653,
+        "statement":"Planes are cheaper than trains.",
+        "explanation":"Planes require more fuel and energy than trains that's why they are expensive.",
+        "label":0
+    },
+    {
+        "id":654,
+        "statement":"Building wants freedom",
+        "explanation":"Building has a fixed location",
+        "label":0
+    },
+    {
+        "id":655,
+        "statement":"wood is made of paper",
+        "explanation":"wood is the material to make paper",
+        "label":0
+    },
+    {
+        "id":656,
+        "statement":"He put ostrich in the oven.",
+        "explanation":"An ostrich is much bigger than the oven.",
+        "label":0
+    },
+    {
+        "id":657,
+        "statement":"A table is on the ball.",
+        "explanation":"Ball's shape is round we cannot place a table on it.",
+        "label":0
+    },
+    {
+        "id":658,
+        "statement":"The bed is in the dog.",
+        "explanation":"A dog can not eat his bed.",
+        "label":0
+    },
+    {
+        "id":659,
+        "statement":"Dinosaurs still live today",
+        "explanation":"Dinosaurs had extinct millions of years ago",
+        "label":0
+    },
+    {
+        "id":660,
+        "statement":"A tree looked at me",
+        "explanation":"Trees don't have eyes",
+        "label":0
+    },
+    {
+        "id":661,
+        "statement":"Trees are usually shy",
+        "explanation":"Trees don't have brain and emotions",
+        "label":0
+    },
+    {
+        "id":662,
+        "statement":"He parked the garage in the car.",
+        "explanation":"a garage cannot be parked in a car.",
+        "label":0
+    },
+    {
+        "id":663,
+        "statement":"The refrigerator warmed the water",
+        "explanation":"Refrigerators cool things",
+        "label":0
+    },
+    {
+        "id":664,
+        "statement":"The TV show started at 10 and finished at 9",
+        "explanation":"A TV show can't be finished before it starts",
+        "label":0
+    },
+    {
+        "id":665,
+        "statement":"He was drunk because of drinking water",
+        "explanation":"There is no alcohol in the water",
+        "label":0
+    },
+    {
+        "id":666,
+        "statement":"Seagulls live in the desert",
+        "explanation":"Seagulls need to catch food in the sea",
+        "label":0
+    },
+    {
+        "id":667,
+        "statement":"the dog feed him",
+        "explanation":"people take care of their dogs and feed them",
+        "label":0
+    },
+    {
+        "id":668,
+        "statement":"I've been lifting my spirits to strengthen my arms.",
+        "explanation":"lifting one's spirits refers to emotion while lifting weights refers to physical strength.",
+        "label":0
+    },
+    {
+        "id":669,
+        "statement":"he put some money in the oven",
+        "explanation":"money can nor be heated and stored in the oven",
+        "label":0
+    },
+    {
+        "id":670,
+        "statement":"The refrigerator rejects bad blueberries.",
+        "explanation":"A refrigerator is incapable of rejecting or accepting damaged fruit.",
+        "label":0
+    },
+    {
+        "id":671,
+        "statement":"Do your homework while eating lunch.",
+        "explanation":"people should concentrate on their food while eating",
+        "label":0
+    },
+    {
+        "id":672,
+        "statement":"The sun rises in the evening.",
+        "explanation":"The sunsets in the evening,  and rises in the morning",
+        "label":0
+    },
+    {
+        "id":673,
+        "statement":"fishes are bought in a fruit stall",
+        "explanation":"Fruits are bought from a fruit stall.",
+        "label":0
+    },
+    {
+        "id":674,
+        "statement":"I eat a play with friends today",
+        "explanation":"people can watch but not eat a play",
+        "label":0
+    },
+    {
+        "id":675,
+        "statement":"If you want to relax your mind then you must listen to music.",
+        "explanation":"many things can help people relax",
+        "label":0
+    },
+    {
+        "id":676,
+        "statement":"Summer in North America is great for skiing,  snowshoeing,  and making a snowman.",
+        "explanation":"The temperature in North America during the summer is too hot to snow.",
+        "label":0
+    },
+    {
+        "id":677,
+        "statement":"He put a dinosaur in the fridge",
+        "explanation":"A dinosaur has extincted",
+        "label":0
+    },
+    {
+        "id":678,
+        "statement":"The blue man got into the car",
+        "explanation":"A man cannot be blue",
+        "label":0
+    },
+    {
+        "id":679,
+        "statement":"she watched a movie in her refrigerator",
+        "explanation":"on refrigerator we cant watch movie",
+        "label":0
+    },
+    {
+        "id":680,
+        "statement":"A food is opposite of the truth",
+        "explanation":"Food is for eating",
+        "label":0
+    },
+    {
+        "id":681,
+        "statement":"killing people is our willing",
+        "explanation":"killing people for no reason is a crime",
+        "label":0
+    },
+    {
+        "id":682,
+        "statement":"An apple has handled.",
+        "explanation":"Apples do not have handles or whiskers like a grocery",
+        "label":0
+    },
+    {
+        "id":683,
+        "statement":"Trees are a burden to nature",
+        "explanation":"Trees have many benefits to nature",
+        "label":0
+    },
+    {
+        "id":684,
+        "statement":"a match can put out a candle",
+        "explanation":"people use a match to set up the candle",
+        "label":0
+    },
+    {
+        "id":685,
+        "statement":"people can cross the street illegally",
+        "explanation":"When you cross the street illegally a car might hit you.",
+        "label":0
+    },
+    {
+        "id":686,
+        "statement":"A windmill could power the whole U.S.",
+        "explanation":"the power provided by windmills is not enough to power a country",
+        "label":0
+    },
+    {
+        "id":687,
+        "statement":"People often wear parkas and hats in the summer in North America.",
+        "explanation":"Parkas are too hot for the summer in North America.",
+        "label":0
+    },
+    {
+        "id":688,
+        "statement":"Working in an office is one way to spend leisure time",
+        "explanation":"Leisure time is when one finishes the office work",
+        "label":0
+    },
+    {
+        "id":689,
+        "statement":"The man drooled with a frog.",
+        "explanation":"No one would shave with a frog.",
+        "label":0
+    },
+    {
+        "id":690,
+        "statement":"He hates to hear music.",
+        "explanation":"Listening to music is great.",
+        "label":0
+    },
+    {
+        "id":691,
+        "statement":"My dog has two noses.",
+        "explanation":"An animal cannot have two noses.",
+        "label":0
+    },
+    {
+        "id":692,
+        "statement":"people do business only for earnings",
+        "explanation":"some business can not earn money for people",
+        "label":0
+    },
+    {
+        "id":693,
+        "statement":"it is very hot in the freezer.",
+        "explanation":"the function of the freezer is to freeze food, so it is cold",
+        "label":0
+    },
+    {
+        "id":694,
+        "statement":"When you have fever your body temperature drops",
+        "explanation":"You are considered to have fever when your body temperature is above normal",
+        "label":0
+    },
+    {
+        "id":695,
+        "statement":"He put the moon in his backyard shed",
+        "explanation":"The moon is a star outside the earth",
+        "label":0
+    },
+    {
+        "id":696,
+        "statement":"The man flapped his wings and flew.",
+        "explanation":"Humans don't have wings.",
+        "label":0
+    },
+    {
+        "id":697,
+        "statement":"people use air conditioners during winter to be cold",
+        "explanation":"no need of air conditioners to feel cold during winter",
+        "label":0
+    },
+    {
+        "id":698,
+        "statement":"a little league baseball team is playing in an orchestra.",
+        "explanation":"Orchestras do not need baseball.players.",
+        "label":0
+    },
+    {
+        "id":699,
+        "statement":"He goes to a hospital for praying the god",
+        "explanation":"only in the temple we can pray",
+        "label":0
+    },
+    {
+        "id":700,
+        "statement":"since he is good man police jailed him",
+        "explanation":"police never hurts good people",
+        "label":0
+    },
+    {
+        "id":701,
+        "statement":"Plants can only grow underwater.",
+        "explanation":"many plants are living on the land",
+        "label":0
+    },
+    {
+        "id":702,
+        "statement":"Billy married a dog named Sam.",
+        "explanation":"It is illegal to marry dogs.",
+        "label":0
+    },
+    {
+        "id":703,
+        "statement":"A favorite menu item at my local Chinese restaurant is boiled rocks.",
+        "explanation":"No one could eat a rock, boiled or otherwise.",
+        "label":0
+    },
+    {
+        "id":704,
+        "statement":"drugs taken can cause a clone to develop.",
+        "explanation":"There are no such things as a clone.",
+        "label":0
+    },
+    {
+        "id":705,
+        "statement":"A rabbit typically weighs 200 pounds.",
+        "explanation":"A rabbit typically weighs no more than four or five pounds.",
+        "label":0
+    },
+    {
+        "id":706,
+        "statement":"Disposable plates are dishwasher safe.",
+        "explanation":"A dishwasher would destroy a paper plate.",
+        "label":0
+    },
+    {
+        "id":707,
+        "statement":"a mouse eats the cat",
+        "explanation":"cats prey on mouses",
+        "label":0
+    },
+    {
+        "id":708,
+        "statement":"he gets good score by skipping all questions",
+        "explanation":"skipping questions won't earn score",
+        "label":0
+    },
+    {
+        "id":709,
+        "statement":"She is going to a party to kill",
+        "explanation":"people can not kill others randomly",
+        "label":0
+    },
+    {
+        "id":710,
+        "statement":"Carrots make good coffee.",
+        "explanation":"Carrots have no relationship with coffee",
+        "label":0
+    },
+    {
+        "id":711,
+        "statement":"Florida hit the coast of the hurricane",
+        "explanation":"Florida is the name of a place and a hurricane does not have coast",
+        "label":0
+    },
+    {
+        "id":712,
+        "statement":"Pigs can become birds.",
+        "explanation":"pigs and birds are different animals",
+        "label":0
+    },
+    {
+        "id":713,
+        "statement":"A boat sits in me",
+        "explanation":"people sit in the boat to drive on the water",
+        "label":0
+    },
+    {
+        "id":714,
+        "statement":"Something you might do while going on the internet is open an envelope.",
+        "explanation":"No physical objects are on the internet.",
+        "label":0
+    },
+    {
+        "id":715,
+        "statement":"He is a mother of two children",
+        "explanation":"Only Males will become a father for children",
+        "label":0
+    },
+    {
+        "id":716,
+        "statement":"I have to bring a dinosaur to my work.",
+        "explanation":"A dinosaur is extinct and it is impossible to bring it to work.",
+        "label":0
+    },
+    {
+        "id":717,
+        "statement":"there is a desk on the computer",
+        "explanation":"people put computers on desks",
+        "label":0
+    },
+    {
+        "id":718,
+        "statement":"she walked in the river for an hour",
+        "explanation":"people swim but not walk in the river",
+        "label":0
+    },
+    {
+        "id":719,
+        "statement":"He is going to the office to kill people",
+        "explanation":"Killing people is a crime",
+        "label":0
+    },
+    {
+        "id":720,
+        "statement":"An apple can voice an opinion",
+        "explanation":"An apple has no mouth",
+        "label":0
+    },
+    {
+        "id":721,
+        "statement":"One of the things you do when you play cricket is using two legs to hit the ball with a bat",
+        "explanation":"We can use only arms not legs to hold the bat.",
+        "label":0
+    },
+    {
+        "id":722,
+        "statement":"Sam stayed in the cinema when the movie ended",
+        "explanation":"people should leave the cinema when the movie shuts down",
+        "label":0
+    },
+    {
+        "id":723,
+        "statement":"He drove to work on his piano.",
+        "explanation":"A piano is a musical instrument and can not be driven",
+        "label":0
+    },
+    {
+        "id":724,
+        "statement":"Yesterday the sky was purple",
+        "explanation":"The sky cannot be purple",
+        "label":0
+    },
+    {
+        "id":725,
+        "statement":"I am baking people",
+        "explanation":"it is illegal to bake people",
+        "label":0
+    },
+    {
+        "id":726,
+        "statement":"It was late, so she stopped and had a rest",
+        "explanation":"people will hurry up when there do not have too much time left",
+        "label":0
+    },
+    {
+        "id":727,
+        "statement":"She jumped to the bottom of the road",
+        "explanation":"The distance is too far to jump",
+        "label":0
+    },
+    {
+        "id":728,
+        "statement":"The horse gave birth to a puppy",
+        "explanation":"Horses and puppies are different species",
+        "label":0
+    },
+    {
+        "id":729,
+        "statement":"He eats dirt for breakfast",
+        "explanation":"Eating dirt makes people sick",
+        "label":0
+    },
+    {
+        "id":730,
+        "statement":"Monkeys like insects",
+        "explanation":"Monkeys eat bananas but not insects",
+        "label":0
+    },
+    {
+        "id":731,
+        "statement":"He put a pig in the fridge.",
+        "explanation":"the pig is living and can not be put in the fridge",
+        "label":0
+    },
+    {
+        "id":732,
+        "statement":"I was distracted by a squirrel appearing to eat a dog.",
+        "explanation":"A squirrel can't eat a dog.",
+        "label":0
+    },
+    {
+        "id":733,
+        "statement":"Shredded or diced lasagna is typical",
+        "explanation":"Lasagna is a casserole",
+        "label":0
+    },
+    {
+        "id":734,
+        "statement":"My grandmother is already 300 years old",
+        "explanation":"people can't live to 300 years",
+        "label":0
+    },
+    {
+        "id":735,
+        "statement":"Australia is giant ice cream",
+        "explanation":"Australia is the name of the place",
+        "label":0
+    },
+    {
+        "id":736,
+        "statement":"They put the apple pie in the oven to freeze.",
+        "explanation":"An oven cannot freeze a pie.",
+        "label":0
+    },
+    {
+        "id":737,
+        "statement":"the grass is purple",
+        "explanation":"the Grass is green,  and it is never purple.",
+        "label":0
+    },
+    {
+        "id":738,
+        "statement":"1 Hour of sleep a day is recommended",
+        "explanation":"Studies show fewer than 6 hours of sleep is unhealthy for most people",
+        "label":0
+    },
+    {
+        "id":739,
+        "statement":"Cold oven can bake the cake.",
+        "explanation":"You need the hot temperature to carry out the chemical reactions of the ingredients in order to bake the cake.",
+        "label":0
+    },
+    {
+        "id":740,
+        "statement":"The Escaping Thief Gave final warning to the Cops",
+        "explanation":"The Thief cannot give Warning to the Cops",
+        "label":0
+    },
+    {
+        "id":741,
+        "statement":"I am having a flight inside my house.",
+        "explanation":"Flight is much bigger than the house.",
+        "label":0
+    },
+    {
+        "id":742,
+        "statement":"The garden needs to be watered because it is raining.",
+        "explanation":"Rain will water the garden so it does not make sense to water it",
+        "label":0
+    },
+    {
+        "id":743,
+        "statement":"The sun is black",
+        "explanation":"the sun is always bright and can not be black",
+        "label":0
+    },
+    {
+        "id":744,
+        "statement":"we put out the fire with the wind from a trombone",
+        "explanation":"you cannot blow out a fire using a trombone",
+        "label":0
+    },
+    {
+        "id":745,
+        "statement":"the basketball loves to play Steven",
+        "explanation":"Steven wants to play with his brother basketball game",
+        "label":0
+    },
+    {
+        "id":746,
+        "statement":"A manicurist will remove your fingernails.",
+        "explanation":"It is painful to remove fingernails.",
+        "label":0
+    },
+    {
+        "id":747,
+        "statement":"I will run on a donkey",
+        "explanation":"the donkey won't allow me to run on it",
+        "label":0
+    },
+    {
+        "id":748,
+        "statement":"sheep have blue wool",
+        "explanation":"sheeps' wool is originally white",
+        "label":0
+    },
+    {
+        "id":749,
+        "statement":"humans eat on flowers",
+        "explanation":"Human don't eat on flowers, but the bee do",
+        "label":0
+    },
+    {
+        "id":750,
+        "statement":"He poured cake into a cup",
+        "explanation":"Cake isn't a liquid\uff0cbut coffee is",
+        "label":0
+    },
+    {
+        "id":751,
+        "statement":"She sat on the apple",
+        "explanation":"people don't sit on apples, but eat them",
+        "label":0
+    },
+    {
+        "id":752,
+        "statement":"My sister had breakfast at 8 PM in evening and then she went to school.",
+        "explanation":"Breakfast is usually done in morning time.",
+        "label":0
+    },
+    {
+        "id":753,
+        "statement":"People jump when they find a joke to be funny.",
+        "explanation":"There is no need to jump when something is funny.",
+        "label":0
+    },
+    {
+        "id":754,
+        "statement":"The cat drank the food",
+        "explanation":"people cannot drink food",
+        "label":0
+    },
+    {
+        "id":755,
+        "statement":"A reptile can fly",
+        "explanation":"A reptile has no wings",
+        "label":0
+    },
+    {
+        "id":756,
+        "statement":"The man used cheese to make the building.",
+        "explanation":"Cheese is too soft to make a building from.",
+        "label":0
+    },
+    {
+        "id":757,
+        "statement":"She swam a lap around the track field.",
+        "explanation":"The track field is associated with running.",
+        "label":0
+    },
+    {
+        "id":758,
+        "statement":"he walked in front of a car",
+        "explanation":"the cars were waiting at the pedestrian light for him to cross the road",
+        "label":0
+    },
+    {
+        "id":759,
+        "statement":"Switching the fridge on when you want to boil water",
+        "explanation":"fridge used to store food and eatables for freshness",
+        "label":0
+    },
+    {
+        "id":760,
+        "statement":"sleeping exercises body",
+        "explanation":"swimming burn lots of calories and make healthy\uff0c but sleep not",
+        "label":0
+    },
+    {
+        "id":761,
+        "statement":"SHE PUT A HEN INTO THE FRIDGE.",
+        "explanation":"NO ONE CAN PUT A LIVING HEN INTO THE FRIDGE",
+        "label":0
+    },
+    {
+        "id":762,
+        "statement":"he try to give a powerful hit by some cotton",
+        "explanation":"no one can make a power hit by some cotton",
+        "label":0
+    },
+    {
+        "id":763,
+        "statement":"I want to fly to the lake and go fishing.",
+        "explanation":"Humans walk or run and do not fly.",
+        "label":0
+    },
+    {
+        "id":764,
+        "statement":"Vegetables should eat a healthy diet.",
+        "explanation":"Vegetables cannot eat food and therefore do not need to eat a healthy diet.",
+        "label":0
+    },
+    {
+        "id":765,
+        "statement":"Man have to eat meat to live",
+        "explanation":"Men can survive with other protein sources",
+        "label":0
+    },
+    {
+        "id":766,
+        "statement":"Food store sells pets",
+        "explanation":"Pet stores sell pets",
+        "label":0
+    },
+    {
+        "id":767,
+        "statement":"A shoe store is used for selling food",
+        "explanation":"Food is usually sold in food store",
+        "label":0
+    },
+    {
+        "id":768,
+        "statement":"he cooked food in toilet",
+        "explanation":"No one cooks food in toilet",
+        "label":0
+    },
+    {
+        "id":769,
+        "statement":"a toilet seat is used for eating",
+        "explanation":"No one eats in the toilet",
+        "label":0
+    },
+    {
+        "id":770,
+        "statement":"Watch tv with your eyes closed",
+        "explanation":"You have to have your eyes opened to watch tv",
+        "label":0
+    },
+    {
+        "id":771,
+        "statement":"There were a million participants in the competition",
+        "explanation":"A competition cannot be as large as a minion participants",
+        "label":0
+    },
+    {
+        "id":772,
+        "statement":"Many people eat coffee grounds from a mug.",
+        "explanation":"People don't eat coffee grounds.",
+        "label":0
+    },
+    {
+        "id":773,
+        "statement":"Humans don't have hands",
+        "explanation":"Usually everyone has two hands",
+        "label":0
+    },
+    {
+        "id":774,
+        "statement":"A bus is only needed for dropping kids off at school",
+        "explanation":"A bus can be used by everyone in the society",
+        "label":0
+    },
+    {
+        "id":775,
+        "statement":"Dogs falls from the sky",
+        "explanation":"Dogs aren't in the sky",
+        "label":0
+    },
+    {
+        "id":776,
+        "statement":"The deer flied into the window.",
+        "explanation":"Generally, deers can not fly",
+        "label":0
+    },
+    {
+        "id":777,
+        "statement":"If you want carbohydrates you can eat beans all day",
+        "explanation":"The nutritional components of beans is mainly protein",
+        "label":0
+    },
+    {
+        "id":778,
+        "statement":"I'm working on a box",
+        "explanation":"a box doesn't have internet connection",
+        "label":0
+    },
+    {
+        "id":779,
+        "statement":"Bob kicked the boulder up the hill",
+        "explanation":"a boulder is too heavy to be kicked up",
+        "label":0
+    },
+    {
+        "id":780,
+        "statement":"Dogs ride the subway.",
+        "explanation":"A dog has no reason to ride the subway.",
+        "label":0
+    },
+    {
+        "id":781,
+        "statement":"the ocean is very noisy",
+        "explanation":"ocean is always silent",
+        "label":0
+    },
+    {
+        "id":782,
+        "statement":"Narcotic Anonymous is for drug dealers.",
+        "explanation":"Narcotic Anonymous is a group whose only purpose is to help addicts stop using drugs.",
+        "label":0
+    },
+    {
+        "id":783,
+        "statement":"i use my biscuits to buy tickets for bus",
+        "explanation":"No one bus conductor is giving tickets for biscuits",
+        "label":0
+    },
+    {
+        "id":784,
+        "statement":"A television plays audio-only.",
+        "explanation":"A television plays audio,  as well as video.",
+        "label":0
+    },
+    {
+        "id":785,
+        "statement":"I can go to school whenever I like.",
+        "explanation":"You are obligated by the government to go to school.",
+        "label":0
+    },
+    {
+        "id":786,
+        "statement":"humans can live forever",
+        "explanation":"humans are mortal",
+        "label":0
+    },
+    {
+        "id":787,
+        "statement":"Trees can not live on the ground",
+        "explanation":"some kinds of trees can also live in the water",
+        "label":0
+    },
+    {
+        "id":788,
+        "statement":"Light bulbs help generate electricity.",
+        "explanation":"Light bulbs consume rather than generate electricity.",
+        "label":0
+    },
+    {
+        "id":789,
+        "statement":"When the weather is hot we turn the air conditioning off in our houses.",
+        "explanation":"Air conditioning makes the rooms in our houses colder",
+        "label":0
+    },
+    {
+        "id":790,
+        "statement":"The car flew away",
+        "explanation":"Cars don't fly",
+        "label":0
+    },
+    {
+        "id":791,
+        "statement":"A toast is for mourning someone's death",
+        "explanation":"a toast happens during a celebration",
+        "label":0
+    },
+    {
+        "id":792,
+        "statement":"he buys patrol from the bank for his bike",
+        "explanation":"no bank sells patrol for bikes",
+        "label":0
+    },
+    {
+        "id":793,
+        "statement":"A MAN STORE MONEY INTO THE DUSTBIN.",
+        "explanation":"DUSTBIN IS THE PLACE TO STORE TRASH BUT NOT MONEY",
+        "label":0
+    },
+    {
+        "id":794,
+        "statement":"A rich man never leaves his money to his child",
+        "explanation":"Money can be passed down through inheritance.",
+        "label":0
+    },
+    {
+        "id":795,
+        "statement":"Baking is easier underwater.",
+        "explanation":"Water will be harmful to baking equipment.",
+        "label":0
+    },
+    {
+        "id":796,
+        "statement":"Cocks are swimming in the river.",
+        "explanation":"Cocks cannot Swim, but ducks can",
+        "label":0
+    },
+    {
+        "id":797,
+        "statement":"Life does not require water.",
+        "explanation":"Water provides an efficient way to transfer nutrients to cells, so it is necessary",
+        "label":0
+    },
+    {
+        "id":798,
+        "statement":"Sunflowers are orange",
+        "explanation":"Sunflowers are yellow and not orange",
+        "label":0
+    },
+    {
+        "id":799,
+        "statement":"She listened to the water because she was thirsty",
+        "explanation":"Listening to water doesn't quench thirst",
+        "label":0
+    },
+    {
+        "id":800,
+        "statement":"she put a whale on the stove to bake",
+        "explanation":"a whale is much bigger than a stove",
+        "label":0
+    },
+    {
+        "id":801,
+        "statement":"she put a car in the bag",
+        "explanation":"A car is bigger than a bag",
+        "label":0
+    },
+    {
+        "id":802,
+        "statement":"Aliens are said to be bound to their terrestrial place.",
+        "explanation":"Aliens travel outside of their territory.",
+        "label":0
+    },
+    {
+        "id":803,
+        "statement":"The barber trimmed his lips with scissors",
+        "explanation":"Lips don't need to be trimmed",
+        "label":0
+    },
+    {
+        "id":804,
+        "statement":"HE FILLS THE PEN WITH WATER.",
+        "explanation":"WATER CAN NOT BE USED FOR WRITING.",
+        "label":0
+    },
+    {
+        "id":805,
+        "statement":"he uses this head to touch the keyboards",
+        "explanation":"the head can not type the correct letters in the keyboards",
+        "label":0
+    },
+    {
+        "id":806,
+        "statement":"Evolution never exists",
+        "explanation":"Evolution is necessary for a species to survive",
+        "label":0
+    },
+    {
+        "id":807,
+        "statement":"The building moved on its own.",
+        "explanation":"Buildings are inanimate objects.",
+        "label":0
+    },
+    {
+        "id":808,
+        "statement":"SHE PLACE A TRAIN IN THE BEDROOM",
+        "explanation":"TRAIN IS MUCH BIGGER THAN THE BEDROOM",
+        "label":0
+    },
+    {
+        "id":809,
+        "statement":"Giraffes live in the Arctic",
+        "explanation":"The arctic is too cold for giraffes to live and find food",
+        "label":0
+    },
+    {
+        "id":810,
+        "statement":"They write their's exam by a water bottle.",
+        "explanation":"no one uses the water bottle to write the exams at exam hall",
+        "label":0
+    },
+    {
+        "id":811,
+        "statement":"THE EFFECT OF RUNNING A MARATHON IS VERY ENERGETIC",
+        "explanation":"MARATHON IS A LONG DISTANCE RUNNING SO IT WILL BE  VERY TIRED",
+        "label":0
+    },
+    {
+        "id":812,
+        "statement":"A HURRICANE IS VERY WEAK.",
+        "explanation":"HURRICANE ARE ALWAYS VERY POWERFUL",
+        "label":0
+    },
+    {
+        "id":813,
+        "statement":"the sun rises in the north every day",
+        "explanation":"there is no chance for the sun to rise in the north",
+        "label":0
+    },
+    {
+        "id":814,
+        "statement":"He put one hundred thousand dollars in his back pocket",
+        "explanation":"His pocket is unable to contain hundred thousand dollars",
+        "label":0
+    },
+    {
+        "id":815,
+        "statement":"There is no restaurant available in the business districts.",
+        "explanation":"Restaurants should be common in business districts",
+        "label":0
+    },
+    {
+        "id":816,
+        "statement":"The last thing to do before sleeping is to get dressed.",
+        "explanation":"It is silly to get dressed for the day when you are going to sleep.",
+        "label":0
+    },
+    {
+        "id":817,
+        "statement":"Tofu is a ufo substitute",
+        "explanation":"Ufot is something I made up",
+        "label":0
+    },
+    {
+        "id":818,
+        "statement":"I SAW MOON AT 11.30 A.AM every day",
+        "explanation":"MOON DOES NOT ALWAYS APPEAR IN DAY TIME.",
+        "label":0
+    },
+    {
+        "id":819,
+        "statement":"The largest animal  is the elephant",
+        "explanation":"Some animals living in the water is larger than the elephant",
+        "label":0
+    },
+    {
+        "id":820,
+        "statement":"He put a horse into the oven",
+        "explanation":"a horse is much bigger than oven",
+        "label":0
+    },
+    {
+        "id":821,
+        "statement":"today I went to the Mars",
+        "explanation":"Mars is a star in the universe",
+        "label":0
+    },
+    {
+        "id":822,
+        "statement":"I am looking up a phone number in the Red Pages",
+        "explanation":"in the US the yellow page stores the phone numbers",
+        "label":0
+    },
+    {
+        "id":823,
+        "statement":"japan is a planet",
+        "explanation":"japan is a country",
+        "label":0
+    },
+    {
+        "id":824,
+        "statement":"he smelled a flower in his finger",
+        "explanation":"the finger is nor a correct organ to smell anything.",
+        "label":0
+    },
+    {
+        "id":825,
+        "statement":"She went to a library to buy a dress.",
+        "explanation":"Libraries don't sell dresses but sell books",
+        "label":0
+    },
+    {
+        "id":826,
+        "statement":"A clock can be made by anyone",
+        "explanation":"Clocks are difficult artifacts that need a lot of preparation to be made",
+        "label":0
+    },
+    {
+        "id":827,
+        "statement":"It's very cold in Arizona.",
+        "explanation":"It's actually hot in Arizona.",
+        "label":0
+    },
+    {
+        "id":828,
+        "statement":"My aunt drank a cup of sand.",
+        "explanation":"People don't drink the sand.",
+        "label":0
+    },
+    {
+        "id":829,
+        "statement":"When someone plays the drums, it is a silent activity.",
+        "explanation":"When the drums are played, a lot of noise is generated.",
+        "label":0
+    },
+    {
+        "id":830,
+        "statement":"the spoon is used in the mining industry",
+        "explanation":"mining industry use excavator",
+        "label":0
+    },
+    {
+        "id":831,
+        "statement":"Cartoons are fact",
+        "explanation":"A cartoon is a simple drawing showing the features of its subjects in a humorously exaggerated way. Therefore, they cannot be fact",
+        "label":0
+    },
+    {
+        "id":832,
+        "statement":"Clothes can be washed in a microwave",
+        "explanation":"Washing clothes is mostly carried out with a washing machine",
+        "label":0
+    },
+    {
+        "id":833,
+        "statement":"He put alligator into the pan",
+        "explanation":"an alligator is much bigger than a pan",
+        "label":0
+    },
+    {
+        "id":834,
+        "statement":"He worked while sleeping",
+        "explanation":"No one can work and sleep at the same time",
+        "label":0
+    },
+    {
+        "id":835,
+        "statement":"My car runs on water.",
+        "explanation":"Cars usually run on gasoline.",
+        "label":0
+    },
+    {
+        "id":836,
+        "statement":"you will find clothes in a workshop",
+        "explanation":"it's impossible to find clothes in a workshop",
+        "label":0
+    },
+    {
+        "id":837,
+        "statement":"A small frog has four feet",
+        "explanation":"Young frogs have only two feet",
+        "label":0
+    },
+    {
+        "id":838,
+        "statement":"i used a ball to wash my clothes",
+        "explanation":"we can not wash the dresses by a ball",
+        "label":0
+    },
+    {
+        "id":839,
+        "statement":"The man is living on the moon",
+        "explanation":"No one can live on the moon",
+        "label":0
+    },
+    {
+        "id":840,
+        "statement":"I eat all the supermarket",
+        "explanation":"In the supermarket, there is too much food to eat",
+        "label":0
+    },
+    {
+        "id":841,
+        "statement":"You have three fingers on one hand.",
+        "explanation":"Usually, people have five fingers on one hand",
+        "label":0
+    },
+    {
+        "id":842,
+        "statement":"Lightning comes after thunder",
+        "explanation":"The speed of sound is slower than the speed of light, so light comes first",
+        "label":0
+    },
+    {
+        "id":843,
+        "statement":"my boyfriend drinks petrol for breakfast every day",
+        "explanation":"nobody drinks petrol for breakfast because it will kill you",
+        "label":0
+    },
+    {
+        "id":844,
+        "statement":"Rabbits sometimes howls at night.",
+        "explanation":"Rabbits are generally mute animals and they can only produce squeak sound sometimes.",
+        "label":0
+    },
+    {
+        "id":845,
+        "statement":"Slides want to play on the kids.",
+        "explanation":"Slides can't play on kids.",
+        "label":0
+    },
+    {
+        "id":846,
+        "statement":"he microwaved his empty bowl",
+        "explanation":"an empty bowl is an object that does not need to be microwaved, dislikes the popcorn",
+        "label":0
+    },
+    {
+        "id":847,
+        "statement":"they decided to give some money to rich peoples.",
+        "explanation":"Rich peoples would have more money ever",
+        "label":0
+    },
+    {
+        "id":848,
+        "statement":"I am going to a computer store to buy a mobile phone",
+        "explanation":"There is no mobile phone selling in the computer store",
+        "label":0
+    },
+    {
+        "id":849,
+        "statement":"she put a giraffe in the pan",
+        "explanation":"giraffe is much bigger than the pan",
+        "label":0
+    },
+    {
+        "id":850,
+        "statement":"An Airplane can fit in a car",
+        "explanation":"Airplanes are bigger than cars",
+        "label":0
+    },
+    {
+        "id":851,
+        "statement":"You can heal your leg playing football",
+        "explanation":"If your leg is damaged, playing football can damage it more",
+        "label":0
+    },
+    {
+        "id":852,
+        "statement":"he threw the gold in dust bin",
+        "explanation":"Gold is valuable and no one will throw them",
+        "label":0
+    },
+    {
+        "id":853,
+        "statement":"I saw a lion bark a few days ago",
+        "explanation":"Dogs bark and lions don't",
+        "label":0
+    },
+    {
+        "id":854,
+        "statement":"He drove the car into a house.",
+        "explanation":"A garage is typically where cars are kept.",
+        "label":0
+    },
+    {
+        "id":855,
+        "statement":"house addresses are great to attract customer service",
+        "explanation":"businesses are conducted from a nonresidential address",
+        "label":0
+    },
+    {
+        "id":856,
+        "statement":"The cat used the toilet.",
+        "explanation":"Cats are not able to use toilets designed for humans.",
+        "label":0
+    },
+    {
+        "id":857,
+        "statement":"he put books in his pencil box",
+        "explanation":"a book is much bigger than a pencil box",
+        "label":0
+    },
+    {
+        "id":858,
+        "statement":"A ring is a rectangle in shape",
+        "explanation":"Ring is usually circular in shape",
+        "label":0
+    },
+    {
+        "id":859,
+        "statement":"The workers implemented regulations to protect the government.",
+        "explanation":"Regulations are made by the authority of government.",
+        "label":0
+    },
+    {
+        "id":860,
+        "statement":"An electrical charge comes only from batteries.",
+        "explanation":"Electrical charges can be supplied by things other than batteries.",
+        "label":0
+    },
+    {
+        "id":861,
+        "statement":"My cell phone battery is fully charged, so i put it on charging.",
+        "explanation":"You do not need to charge your phone when it is already fully charged.",
+        "label":0
+    },
+    {
+        "id":862,
+        "statement":"Tanks are made of mostly paper.",
+        "explanation":"Tanks need to be sturdy.",
+        "label":0
+    },
+    {
+        "id":863,
+        "statement":"fencing is a dangerous sport",
+        "explanation":"all fencing players use protection",
+        "label":0
+    },
+    {
+        "id":864,
+        "statement":"A player can easily place his own king in check.",
+        "explanation":"It is impossible to put your own king in check or checkmate as it would be redundant to the game: it would be killing your own team.",
+        "label":0
+    },
+    {
+        "id":865,
+        "statement":"Amy drinks pee when she is tired",
+        "explanation":"Nowadays human society do not drink their own piss",
+        "label":0
+    },
+    {
+        "id":866,
+        "statement":"I will plant a big tree in my room",
+        "explanation":"a room is too small for a tree to live in",
+        "label":0
+    },
+    {
+        "id":867,
+        "statement":"When I get tired I go to gym with my friends",
+        "explanation":"People would like to have a rest when they feel tired",
+        "label":0
+    },
+    {
+        "id":868,
+        "statement":"The park is near the factory",
+        "explanation":"No parks are constructed near the factories because they would be polluted",
+        "label":0
+    },
+    {
+        "id":869,
+        "statement":"Walking is faster than driving somewhere.",
+        "explanation":"The top speed of a car is much higher than walking speed, so driving is faster than walking.",
+        "label":0
+    },
+    {
+        "id":870,
+        "statement":"An apple can never be green.",
+        "explanation":"Apples are either red or green so it is possible for an apple to be green if it is not red.",
+        "label":0
+    },
+    {
+        "id":871,
+        "statement":"A ship will never float on water and always sinks.",
+        "explanation":"Ships are made to float on water and commonly do so to transport goods and people.",
+        "label":0
+    },
+    {
+        "id":872,
+        "statement":"jerry springer is his favorite cartoon",
+        "explanation":"jerry springer is not a cartoon, but sponge bob is",
+        "label":0
+    },
+    {
+        "id":873,
+        "statement":"You will never find a baseball at a baseball game.",
+        "explanation":"Baseballs are required to play baseball and thus would have to be at a baseball game.",
+        "label":0
+    },
+    {
+        "id":874,
+        "statement":"Every Sunday my grandpa goes to a restaurant to check his teeth.",
+        "explanation":"There is no service for teeth in the restaurant.",
+        "label":0
+    },
+    {
+        "id":875,
+        "statement":"Step on the broken glass",
+        "explanation":"It would be painful to step on broken glass, it makes no sense to do it.",
+        "label":0
+    },
+    {
+        "id":876,
+        "statement":"If you like birds, you should watch the action movies.",
+        "explanation":"Birds have nothing to do with action movies.",
+        "label":0
+    },
+    {
+        "id":877,
+        "statement":"the printer is out of water",
+        "explanation":"printer use ink instead of water",
+        "label":0
+    },
+    {
+        "id":878,
+        "statement":"On Monday morning, the hen mooed like a cow.",
+        "explanation":"Hens do not moo like cows.",
+        "label":0
+    },
+    {
+        "id":879,
+        "statement":"fish live in outer space",
+        "explanation":"Nothing we found on the earth can live in the outer space",
+        "label":0
+    },
+    {
+        "id":880,
+        "statement":"When I am tired and sleepy I run.",
+        "explanation":"When tired and sleepy,one naturally sleeps",
+        "label":0
+    },
+    {
+        "id":881,
+        "statement":"She doesn't need food or water to survive.",
+        "explanation":"Both the water and the food are essentials for human beings to survive",
+        "label":0
+    },
+    {
+        "id":882,
+        "statement":"A stick wants to have sex",
+        "explanation":"A stick has no reproductive organs",
+        "label":0
+    },
+    {
+        "id":883,
+        "statement":"people usually shop for a new place to live once a week",
+        "explanation":"Most people have a stable house to live in and will not change their living place frequently",
+        "label":0
+    },
+    {
+        "id":884,
+        "statement":"He put the book in the bookmark",
+        "explanation":"A bookmark is too thin for a book to be put in",
+        "label":0
+    },
+    {
+        "id":885,
+        "statement":"it is said that Santa comes on Thanksgiving Days",
+        "explanation":"Santa comes on Christmas day, not Thanksgiving Day",
+        "label":0
+    },
+    {
+        "id":886,
+        "statement":"We use fire to run a television",
+        "explanation":"A television runs on electricity",
+        "label":0
+    },
+    {
+        "id":887,
+        "statement":"I use my pen to listen to music",
+        "explanation":"A pen is a thing used to write",
+        "label":0
+    },
+    {
+        "id":888,
+        "statement":"There was a pop singer running in the sky.",
+        "explanation":"Pop singers don't run in the sky.",
+        "label":0
+    },
+    {
+        "id":889,
+        "statement":"Baseball is only for boys.",
+        "explanation":"Girls can play baseball.",
+        "label":0
+    },
+    {
+        "id":890,
+        "statement":"He is playing cricket on his own rules.",
+        "explanation":"there are specific rules to play  the cricket which everybody follows in the world.",
+        "label":0
+    },
+    {
+        "id":891,
+        "statement":"cat watches tv",
+        "explanation":"cat relaxes in front of tv",
+        "label":0
+    },
+    {
+        "id":892,
+        "statement":"You would never have a shower even if you smelled bad.",
+        "explanation":"People normally have showers to clean themselves and remove bad smell.",
+        "label":0
+    },
+    {
+        "id":893,
+        "statement":"She put a horse in the drawer.",
+        "explanation":"A horse is much larger than a drawer.",
+        "label":0
+    },
+    {
+        "id":894,
+        "statement":"A judge governs the nation",
+        "explanation":"the duty of the judge is to make decisions in court rather than govern the nation",
+        "label":0
+    },
+    {
+        "id":895,
+        "statement":"prisons are for innocent people",
+        "explanation":"prisons are used to punish the criminals",
+        "label":0
+    },
+    {
+        "id":896,
+        "statement":"He put a yacht in bed.",
+        "explanation":"A yacht is much larger than a bed.",
+        "label":0
+    },
+    {
+        "id":897,
+        "statement":"Harry eats stone.",
+        "explanation":"stones are too hard for people to eat",
+        "label":0
+    },
+    {
+        "id":898,
+        "statement":"The table in the dining room is made out of butter.",
+        "explanation":"Butter is a food and is too soft to make a table out of.",
+        "label":0
+    },
+    {
+        "id":899,
+        "statement":"She put a giraffe in the pan.",
+        "explanation":"A giraffe is much larger than a pan.",
+        "label":0
+    },
+    {
+        "id":900,
+        "statement":"There are streets on Jupiter",
+        "explanation":"There are no construction companies building streets on Jupiter",
+        "label":0
+    },
+    {
+        "id":901,
+        "statement":"A king must always have a queen",
+        "explanation":"A king doesn't have to marry",
+        "label":0
+    },
+    {
+        "id":902,
+        "statement":"The woman painted a portrait on a camel.",
+        "explanation":"Camels aren't something people paint on.",
+        "label":0
+    },
+    {
+        "id":903,
+        "statement":"Houses built with wooden frames are more resistant to damage than houses built with steel frames",
+        "explanation":"Steel is harder and stabler than the wood",
+        "label":0
+    },
+    {
+        "id":904,
+        "statement":"You would never wash clothes even if they get dirty.",
+        "explanation":"Washing dirty clothes are common practice and are required to eliminate the bacteria and the smell of dirty clothes.",
+        "label":0
+    },
+    {
+        "id":905,
+        "statement":"A chicken gives birth to live chicks that are not encased in eggs.",
+        "explanation":"A chicken is not a mammal so it cannot give birth to live young",
+        "label":0
+    },
+    {
+        "id":906,
+        "statement":"milky way galaxy is a part of the earth",
+        "explanation":"the earth is in the milky way galaxy",
+        "label":0
+    },
+    {
+        "id":907,
+        "statement":"everyone in the world needs a helmet",
+        "explanation":"the heart but not the helmet is the essential for human to live",
+        "label":0
+    },
+    {
+        "id":908,
+        "statement":"Pills are shaped to make them hard to swallow.",
+        "explanation":"Shaping a pill to make it hard to swallow would be counter-intuitive because pills are made to be swallowed so this is wrong.",
+        "label":0
+    },
+    {
+        "id":909,
+        "statement":"My tractor went to school today.",
+        "explanation":"Tractors are a vehicle and don't go to school.",
+        "label":0
+    },
+    {
+        "id":910,
+        "statement":"He went hunting the deer in the desert.",
+        "explanation":"deer won't live in desert.",
+        "label":0
+    },
+    {
+        "id":911,
+        "statement":"The woman holds a hippo in her arms.",
+        "explanation":"A hippo is too heavy to be held by a human.",
+        "label":0
+    },
+    {
+        "id":912,
+        "statement":"he puts a fire in a cooler",
+        "explanation":"a fire will melt the cooler",
+        "label":0
+    },
+    {
+        "id":913,
+        "statement":"The woman got a receipt from the water fountain.",
+        "explanation":"Water fountains are free and  don't give receipts.",
+        "label":0
+    },
+    {
+        "id":914,
+        "statement":"The soda evaporated as soon as she opened it.",
+        "explanation":"Soda would take a long time to evaporate.",
+        "label":0
+    },
+    {
+        "id":915,
+        "statement":"You will never find a farmer on a farm.",
+        "explanation":"Farmers need to be on the farm to tend to livestock and take care of the vegetation and so would likely be at the farm.",
+        "label":0
+    },
+    {
+        "id":916,
+        "statement":"the wood is pretty",
+        "explanation":"the word 'pretty' is used to describe a girl but not wood",
+        "label":0
+    },
+    {
+        "id":917,
+        "statement":"The woman made juice glass.",
+        "explanation":"Glass is much harder than the apple.",
+        "label":0
+    },
+    {
+        "id":918,
+        "statement":"you should close umbrellas when it rains when umbrellas are closed they don't protect you from the rain",
+        "explanation":"umbrellas do not open",
+        "label":0
+    },
+    {
+        "id":919,
+        "statement":"He put a table on a TV.",
+        "explanation":"A TV could be crushed by a table.",
+        "label":0
+    },
+    {
+        "id":920,
+        "statement":"The couple married and went for courtship.",
+        "explanation":"Courtship comes before marriage.",
+        "label":0
+    },
+    {
+        "id":921,
+        "statement":"you put bins in rubbish",
+        "explanation":"Bins are the container where the rubbish can be put in",
+        "label":0
+    },
+    {
+        "id":922,
+        "statement":"the lava was warm and soft",
+        "explanation":"lava is too hot to be warm or soft",
+        "label":0
+    },
+    {
+        "id":923,
+        "statement":"He took the refrigerator for a walk.",
+        "explanation":"No one walks their refrigerators",
+        "label":0
+    },
+    {
+        "id":924,
+        "statement":"There is a refrigerator in the freezer",
+        "explanation":"Appliances don't fit into each other",
+        "label":0
+    },
+    {
+        "id":925,
+        "statement":"Every dog is purple",
+        "explanation":"Not every dog is purple",
+        "label":0
+    },
+    {
+        "id":926,
+        "statement":"You can not listen to music on a phone.",
+        "explanation":"Many people do listen to music on their phone through apps like Spotify.",
+        "label":0
+    },
+    {
+        "id":927,
+        "statement":"EAGLE EATS LION",
+        "explanation":"LION IS more AGGRESSIVE ANIMAL THAN EAGLE",
+        "label":0
+    },
+    {
+        "id":928,
+        "statement":"poop is lovely",
+        "explanation":"poop is gross",
+        "label":0
+    },
+    {
+        "id":929,
+        "statement":"Cats have got seven lives",
+        "explanation":"The saying about a cat has seven lives is not true",
+        "label":0
+    },
+    {
+        "id":930,
+        "statement":"He put a camel on his head.",
+        "explanation":"A camel is much bigger than ahead.",
+        "label":0
+    },
+    {
+        "id":931,
+        "statement":"I am going to work so I can lose money.",
+        "explanation":"People go to work because they can be paid",
+        "label":0
+    },
+    {
+        "id":932,
+        "statement":"Fruit is bad for you and for your health.",
+        "explanation":"Fruit contains many vitamins and minerals that are healthy for you and so it is good to eat.",
+        "label":0
+    },
+    {
+        "id":933,
+        "statement":"the man tries to fit into cat cage",
+        "explanation":"a man is much bigger than a cat cage",
+        "label":0
+    },
+    {
+        "id":934,
+        "statement":"The door flies to Spain",
+        "explanation":"Doors don't fly",
+        "label":0
+    },
+    {
+        "id":935,
+        "statement":"She put a car on the barbecue grill.",
+        "explanation":"A car is much larger than a barbecue grill.",
+        "label":0
+    },
+    {
+        "id":936,
+        "statement":"The dog lifted the house",
+        "explanation":"Houses are too heavy for a dog to lift up",
+        "label":0
+    },
+    {
+        "id":937,
+        "statement":"Some people only sleep when it rains",
+        "explanation":"People need to sleep every day no matter what the weather is",
+        "label":0
+    },
+    {
+        "id":938,
+        "statement":"I like to walk my t-rex every morning",
+        "explanation":"t-rexes are long extinct",
+        "label":0
+    },
+    {
+        "id":939,
+        "statement":"babies love to crawl on top of airplanes",
+        "explanation":"Nobody can crawl on top of airplanes",
+        "label":0
+    },
+    {
+        "id":940,
+        "statement":"My sister ate a pink apple",
+        "explanation":"There are no pink apples",
+        "label":0
+    },
+    {
+        "id":941,
+        "statement":"Use the shovel to cut grass.",
+        "explanation":"Shovels are used to digging holes, not for cutting grass.",
+        "label":0
+    },
+    {
+        "id":942,
+        "statement":"Square wheels go faster",
+        "explanation":"Only round wheels can roll",
+        "label":0
+    },
+    {
+        "id":943,
+        "statement":"She put pots into plants.",
+        "explanation":"Plants are usually solid and can not be used to store",
+        "label":0
+    },
+    {
+        "id":944,
+        "statement":"Boxes are spheres",
+        "explanation":"A cube is the shape of a box",
+        "label":0
+    },
+    {
+        "id":945,
+        "statement":"all the old want to color white hair to black",
+        "explanation":"Not all the old people want to color their hairs",
+        "label":0
+    },
+    {
+        "id":946,
+        "statement":"A bone buried its dog.",
+        "explanation":"A bone cannot bury anything.",
+        "label":0
+    },
+    {
+        "id":947,
+        "statement":"Water is toxic and should not be consumed",
+        "explanation":"Water is important to remain healthy",
+        "label":0
+    },
+    {
+        "id":948,
+        "statement":"She put plants into the egg tray.",
+        "explanation":"A plant is much bigger than an egg tray.",
+        "label":0
+    },
+    {
+        "id":949,
+        "statement":"Oranges provide a good source of mozzarella",
+        "explanation":"Oranges contain no mozzarella",
+        "label":0
+    },
+    {
+        "id":950,
+        "statement":"humans can exist in outer space without protected environments",
+        "explanation":"People need protected equipment when they are in outer space",
+        "label":0
+    },
+    {
+        "id":951,
+        "statement":"people usually pray in noisy places",
+        "explanation":"people usually need somewhere quiet to pray",
+        "label":0
+    },
+    {
+        "id":952,
+        "statement":"You must go to New York by flight from Boston",
+        "explanation":"There are other ways to go to New York from Boston except by flight",
+        "label":0
+    },
+    {
+        "id":953,
+        "statement":"Using a computer always causes blurry vision",
+        "explanation":"Blurry  vision only occurs when you overuse or improperly use the computers",
+        "label":0
+    },
+    {
+        "id":954,
+        "statement":"A haircut will lengthen your hair",
+        "explanation":"your hair will be shorter after being cut",
+        "label":0
+    },
+    {
+        "id":955,
+        "statement":"I am larger than my house",
+        "explanation":"People live in their house, so they should be smaller than their house",
+        "label":0
+    },
+    {
+        "id":956,
+        "statement":"A woman went to the fish market to buy Pizza",
+        "explanation":"No pizza is selling in the Fishmarket",
+        "label":0
+    },
+    {
+        "id":957,
+        "statement":"Some mammals are born with two paws",
+        "explanation":"Not every mammal has two paws",
+        "label":0
+    },
+    {
+        "id":958,
+        "statement":"the NBA is the football league.",
+        "explanation":"The NBA is for the professional basketball players",
+        "label":0
+    },
+    {
+        "id":959,
+        "statement":"I am going to the circus for prey",
+        "explanation":"the temple is the place for prey, not the circus",
+        "label":0
+    },
+    {
+        "id":960,
+        "statement":"People who are likely full will visit a restaurant",
+        "explanation":"People go to restaurants when they feel hungry",
+        "label":0
+    },
+    {
+        "id":961,
+        "statement":"She likes eating in the gas station",
+        "explanation":"A gas station is for vehicles and will not offer food",
+        "label":0
+    },
+    {
+        "id":962,
+        "statement":"A good house can be built without the use of skilled technicians",
+        "explanation":"Only skilled technicians know what it takes to build a good home",
+        "label":0
+    },
+    {
+        "id":963,
+        "statement":"Jack ate a porch",
+        "explanation":"Porches are inedible",
+        "label":0
+    },
+    {
+        "id":964,
+        "statement":"There are nine planets in the solar system",
+        "explanation":"Pluton is no longer a planet in the solar system",
+        "label":0
+    },
+    {
+        "id":965,
+        "statement":"He parked the train in the garage",
+        "explanation":"a train is longer than a garage",
+        "label":0
+    },
+    {
+        "id":966,
+        "statement":"Cats like alcohol",
+        "explanation":"Cats don't drink alcohol, only humans drink",
+        "label":0
+    },
+    {
+        "id":967,
+        "statement":"the bleach cleaned the house",
+        "explanation":"bleach cannot clean a house by itself",
+        "label":0
+    },
+    {
+        "id":968,
+        "statement":"Astronauts can breathe in open space.",
+        "explanation":"Space is not suitable for breathing without a spacesuit.",
+        "label":0
+    },
+    {
+        "id":969,
+        "statement":"The sky is sunny when it's raining.",
+        "explanation":"You can't have rain without clouds.",
+        "label":0
+    },
+    {
+        "id":970,
+        "statement":"She danced on the water.",
+        "explanation":"You cannot sit on the water.",
+        "label":0
+    },
+    {
+        "id":971,
+        "statement":"Soccer is needed to stay alive",
+        "explanation":"Soccer is not a basic need",
+        "label":0
+    },
+    {
+        "id":972,
+        "statement":"I dreamed of an invisible rainbow of black color",
+        "explanation":"Invisible things cannot be black",
+        "label":0
+    },
+    {
+        "id":973,
+        "statement":"The boat drove down the street",
+        "explanation":"Boats can not drive on streets",
+        "label":0
+    },
+    {
+        "id":974,
+        "statement":"She is going for a ride on a horsefly.",
+        "explanation":"Horseflies are too small to ride.",
+        "label":0
+    },
+    {
+        "id":975,
+        "statement":"He wrote an exam in knife",
+        "explanation":"knife is not supported to write in paper",
+        "label":0
+    },
+    {
+        "id":976,
+        "statement":"The television is powered by heat",
+        "explanation":"Television cannot be powered by heat",
+        "label":0
+    },
+    {
+        "id":977,
+        "statement":"She bought a matching pair of black skates for the funeral.",
+        "explanation":"Skates are not proper attire for a funeral.",
+        "label":0
+    },
+    {
+        "id":978,
+        "statement":"The murder remained a happy event.",
+        "explanation":"Murders are not considered happy by most people.",
+        "label":0
+    },
+    {
+        "id":979,
+        "statement":"He rides a footstool on the freeway",
+        "explanation":"Footstools cannot be ridden on the freeways",
+        "label":0
+    },
+    {
+        "id":980,
+        "statement":"he parked a hippopotamus in garage",
+        "explanation":"hippopotamus cannot be parked",
+        "label":0
+    },
+    {
+        "id":981,
+        "statement":"He rides a bicycle on a water",
+        "explanation":"water does not support the bicycle ride it will grasp",
+        "label":0
+    },
+    {
+        "id":982,
+        "statement":"Mom is preparing poison for lunch.",
+        "explanation":"We cannot able to eat poison during lunch.",
+        "label":0
+    },
+    {
+        "id":983,
+        "statement":"all people suffer from cancer",
+        "explanation":"not everyone has cancer in the world",
+        "label":0
+    },
+    {
+        "id":984,
+        "statement":"I make some dish to see the dentist",
+        "explanation":"making some dish is no help to see the dentist",
+        "label":0
+    },
+    {
+        "id":985,
+        "statement":"a tree can walk",
+        "explanation":"trees can't move by themselves",
+        "label":0
+    },
+    {
+        "id":986,
+        "statement":"everyone hates her because she's kind,patient,gentle and calm",
+        "explanation":"People do not hate good attributes",
+        "label":0
+    },
+    {
+        "id":987,
+        "statement":"The submarine drove down the street.",
+        "explanation":"Submarines go into the ocean and not the street.",
+        "label":0
+    },
+    {
+        "id":988,
+        "statement":"The dog ate the shark.",
+        "explanation":"The dog cannot eat a shark .",
+        "label":0
+    },
+    {
+        "id":989,
+        "statement":"He poured the coffee into a hat",
+        "explanation":"A hat cannot hold coffee",
+        "label":0
+    },
+    {
+        "id":990,
+        "statement":"The fish ran through the street.",
+        "explanation":"Fish cannot run on the road",
+        "label":0
+    },
+    {
+        "id":991,
+        "statement":"An apple a day keeps death away.",
+        "explanation":"Death cannot be avoided.",
+        "label":0
+    },
+    {
+        "id":992,
+        "statement":"He drank poison to become healthy.",
+        "explanation":"Poison will not make a person healthy. The poison will kill him.",
+        "label":0
+    },
+    {
+        "id":993,
+        "statement":"cars can sit in people",
+        "explanation":"cars are a method of transportation,  so they can't sit in people",
+        "label":0
+    },
+    {
+        "id":994,
+        "statement":"oranges like eating her",
+        "explanation":"oranges can not eat people",
+        "label":0
+    },
+    {
+        "id":995,
+        "statement":"Lamps can convert peanut butter for energy.",
+        "explanation":"Peanut butter is not directly convertible to light energy.",
+        "label":0
+    },
+    {
+        "id":996,
+        "statement":"He ride a bicycle on water",
+        "explanation":"water cant not support the bicycle",
+        "label":0
+    },
+    {
+        "id":997,
+        "statement":"The boy wore uniform to go to restaurant",
+        "explanation":"People do not wear uniform for restaurant",
+        "label":0
+    },
+    {
+        "id":998,
+        "statement":"my giraffe is driving a car",
+        "explanation":"giraffes do not know how to drive a car",
+        "label":0
+    },
+    {
+        "id":999,
+        "statement":"he used water to cook food",
+        "explanation":"water cannot produce heat",
+        "label":0
+    }
+]
