@@ -1,0 +1,57 @@
+[
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "He poured milk on his cereal.",
+        "sent_2": "He poured orange juice on his cereal.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "physical",
+        "scenario": "causal",
+        "numeracy": "False",
+        "split": "train_40_50"
+    },
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "A mosquito stings me.",
+        "sent_2": "I sting a mosquito.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "physical",
+        "scenario": "causal",
+        "numeracy": "False",
+        "split": "train_40_50"
+    },
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "She lifted a chair.",
+        "sent_2": "She lifted a tractor.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "physical",
+        "scenario": "comparison",
+        "numeracy": "False",
+        "split": "train_40_50"
+    },
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "A passport is necessary to travel from one country to another.",
+        "sent_2": "A passport is necessary to travel from one restaurant to another.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "social",
+        "scenario": "causal",
+        "numeracy": "False",
+        "split": "train_40_50"
+    },
+    {
+        "id": "5fc9805c463d6fba10b68eaa",
+        "sent_1": "Some monkeys jump from one branch to another on a tree.",
+        "sent_2": "Some dogs jump from one branch to another on a tree.",
+        "label_1": "True",
+        "label_2": "False",
+        "domain": "social",
+        "scenario": "causal",
+        "numeracy": "False",
+        "split": "train_40_50"
+    }
+]
