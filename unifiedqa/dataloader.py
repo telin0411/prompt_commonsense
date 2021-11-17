@@ -174,7 +174,7 @@ class BaseDataset(Dataset):
             # Output
             sample = {'tokens': token_ids,
                       'attn_mask': attn_mask,
-                      'label': 1 if random.uniform(0, 1) > 0.5 else 0}
+                      'label': label}
         return sample
 
 
