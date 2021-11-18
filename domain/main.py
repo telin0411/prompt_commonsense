@@ -215,13 +215,14 @@ def main():
 
                         # Compute Loss
                         loss = criterion(label_logits, label_gt)
+                        loss.backward()
                         print(loss)
 
                 if args.data_parallel:
                     loss = loss.mean()
                 # Backward Pass
-                loss /= accumulation_steps
-                scaler.scale(loss).backward()
+                #loss /= accumulation_steps
+                #scaler.scale(loss).backward()
 
                 if curr_step % accumulation_steps == 0:
                     scaler.step(optimizer)
