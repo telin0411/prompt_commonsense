@@ -210,12 +210,14 @@ def main():
 
                     else:
                         # Forward Pass
+                        optimizer.zero_grad()
                         label_logits = model(batch)
                         label_gt = batch['label']
 
                         # Compute Loss
                         loss = criterion(label_logits, label_gt)
                         loss.backward()
+                        optimizer.step()
                         print(loss)
 
                 if args.data_parallel:
@@ -224,10 +226,10 @@ def main():
                 #loss /= accumulation_steps
                 #scaler.scale(loss).backward()
 
-                if curr_step % accumulation_steps == 0:
-                    scaler.step(optimizer)
-                    scaler.update()
-                    optimizer.zero_grad()
+                #if curr_step % accumulation_steps == 0:
+                    #scaler.step(optimizer)
+                    #scaler.update()
+                    #optimizer.zero_grad()
 
                 # Print Results - Loss value & Validation Accuracy
                 if curr_step % args.log_interval == 0:
