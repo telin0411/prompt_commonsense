@@ -232,7 +232,7 @@ class Com2SenseDataset(BaseDataset):
         label2int = {'False': 0, 'True': 1}
 
         df['label_1'] = df['label_1'].apply(lambda l: label2int[l])
-        df['label_2'] = df['Label_2'].apply(lambda l: label2int[l])
+        df['label_2'] = df['label_2'].apply(lambda l: label2int[l])
 
         raw_data = df.to_dict(orient='records')
 
