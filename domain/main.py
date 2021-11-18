@@ -155,7 +155,7 @@ def main():
         model.train()
 
         # Loss & Optimizer
-        criterion = nn.BCEWithLogitsLoss()
+        criterion = nn.CrossEntropyLoss()
         optimizer = torch.optim.Adam(model.parameters(), lr)
         optimizer.zero_grad()
 
