@@ -204,11 +204,10 @@ def main():
                     else:
                         # Forward Pass
                         label_logits = model(batch)
-                        label_sigmoid = torch.sigmoid(label_logits)
                         label_gt = batch['label']
 
                         # Compute Loss
-                        loss = criterion(label_sigmoid, label_gt)
+                        loss = criterion(label_logits, label_gt)
 
                 if args.data_parallel:
                     loss = loss.mean()
