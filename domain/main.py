@@ -218,7 +218,7 @@ def main():
                         loss = criterion(label_logits, label_gt)
                         loss.backward()
                         optimizer.step()
-                        print(loss)
+                        print(label_gt, label_logits)
 
                 if args.data_parallel:
                     loss = loss.mean()
