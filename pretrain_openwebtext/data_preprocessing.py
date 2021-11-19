@@ -39,8 +39,8 @@ def select_k_samples(text: list, keywords: dict, k=500):
 
 
 if __name__ == '__main__':
-    keywords = get_key_words_from('./sample.json', 5)
-    data_dir = './text/'
+    keywords = get_key_words_from('/nas/home/yixiaoli/sample.json', 5)
+    data_dir = '/nas/home/yixiaoli/text/'
 
     file_name_list = os.listdir(data_dir)
     file_path_list = [os.path.join(data_dir, file_name) for file_name in file_name_list]
