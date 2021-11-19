@@ -40,7 +40,7 @@ def select_k_samples(text: list, keywords: dict, k=500):
 
 if __name__ == '__main__':
     keywords = get_key_words_from('/nas/home/yixiaoli/datasets/sample.json', 5)
-    data_dir = '/nas/home/yixiaoli/datasets/text/'
+    data_dir = '/nas/home/yixiaoli/datasets/test/'
 
     file_name_list = os.listdir(data_dir)
     file_path_list = [os.path.join(data_dir, file_name) for file_name in file_name_list]
@@ -49,11 +49,12 @@ if __name__ == '__main__':
         # print(file_path.split('/')[-1])
         with open(file_path, 'r') as fp:
             text = fp.read()
-            sent = sent_tokenize(text)  # ["This is a sentence", "This is another sentence", ..., "Last sentence?"]
+            sent_list = sent_tokenize(text)  # ["This is a sentence", "This is another sentence", ..., "Last sentence?"]
             for keyword in keywords.keys():
-                state_exp = match(sent, keyword)
-                if state_exp:
-                    keywords[keyword].append(state_exp)
+                for sent in sent_list:
+                    state_exp = match(sent, keyword)
+                    if state_exp:
+                        keywords[keyword].append(state_exp)
 
     with open('./data.json', 'w') as fp:
         json.dump(keywords, fp, indent=4)
