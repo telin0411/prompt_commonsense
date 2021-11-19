@@ -17,15 +17,16 @@ def get_key_words_from(data_path, topk=5):
 
 
 def match(sent, word):
-    pattern_list = [f"because {word} ",
-                    f"because the {word} ",
-                    f"because a {word} ",
-                    f"because an {word} "]
-    is_match = False
-    for pattern in pattern_list:
-        if pattern in sent.lower():
-            is_match = True
-    return is_match
+    sent = sent.lower()
+    word = word.lower()
+
+    if 'because' in sent:
+        sent = sent.split('becuase')
+        statement = sent[0]
+        explanation = "".join(sent[1:])
+        return {'statement': statement, 'explanation': explanation}
+    else:
+        return None
 
 
 def select_k_samples(text: list, keywords: dict, k=500):
@@ -50,8 +51,9 @@ if __name__ == '__main__':
             text = fp.read()
             sent = sent_tokenize(text)  # ["This is a sentence", "This is another sentence", ..., "Last sentence?"]
             for keyword in keywords.keys():
-                if match(sent, keyword):
-                    keywords[keyword].append(sent)
+                state_exp = match(sent, keyword)
+                if state_exp:
+                    keywords[keyword].append(state_exp)
 
     with open('./data.json', 'w') as fp:
         json.dump(keywords, fp, indent=4)
