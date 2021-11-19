@@ -24,7 +24,10 @@ def match(sent, word):
         sent = sent.split('becuase')
         statement = sent[0]
         explanation = "".join(sent[1:])
-        return {'statement': statement, 'explanation': explanation}
+        if word in statement and word in explanation:
+            return {'statement': statement, 'explanation': explanation}
+        else:
+            return None
     else:
         return None
 
