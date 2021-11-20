@@ -7,6 +7,7 @@ import argparse
 import pandas as pd
 from time import time
 from model import Transformer
+from transformers import AutoTokenizer
 from dataloader import BaseDataset
 try:
     from torch.utils.tensorboard import SummaryWriter
@@ -16,9 +17,17 @@ from utils import *
 from torch.utils.data import DataLoader
 from torch.cuda.amp import GradScaler, autocast
 from tqdm import tqdm
+import random
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
+
+def setup_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
 
 def main():
     parser = argparse.ArgumentParser(description='Commonsense Dataset Dev')
@@ -49,9 +58,10 @@ def main():
     parser.add_argument('--log_interval',   type=int,       help='interval size for logging training summaries', default=100)
     parser.add_argument('--save_interval',  type=int,       help='save model after `n` weight update steps', default=30000)
     parser.add_argument('--val_size',       type=int,       help='validation set size for evaluating metrics', default=2048)
+    parser.add_argument('--seed', type=int, help='validation set size for evaluating metrics', default=808)
 
     # GPU params
-    parser.add_argument('--gpu_ids',        type=str,       help='GPU IDs (0,1,2,..) seperated by comma', default='0')
+    parser.add_argument('--gpu_ids',        type=str,       help='GPU IDs (0,1,2,..) seperated by comma', default='3')
     parser.add_argument('-data_parallel',       help='Whether to use nn.dataparallel (currently available for BERT-based models)', action = 'store_true')
     parser.add_argument('--use_amp',        type=str2bool,  help='Automatic-Mixed Precision (T/F)', default='T')
     parser.add_argument('-cpu',       help='use cpu only (for test)', action = 'store_true')
@@ -61,6 +71,9 @@ def main():
 
     # Parse Args
     args = parser.parse_args()
+
+    # Random seed
+    setup_seed(args.seed) 
 
     # Dataset list
     dataset_names = csv2list(args.dataset)
@@ -153,10 +166,33 @@ def main():
         model.train()
 
 
+        prompts=[]      #included 2 kinds of prompt tokens: 15 input prompts + 2 output prompts + 2 bias for output prompts + 1 fixed mask token
+        temp=model.hand_embed(torch.tensor([50264]).to(device))[0].tolist()     #Initialize with <mask> token  (input prompt)
+        for num_t in range(16):
+            tem=torch.tensor(temp).to(device).requires_grad_()   #In this way , is_leaf==TRUE
+            prompts.append(tem)
+
+        temp=model.hand_embed(torch.tensor([1593]).to(device))[0].tolist()    #wrong token
+        tem=torch.tensor(temp).to(device).requires_grad_()
+        prompts.append(tem)
+
+        tem=torch.tensor(0.0).to(device).requires_grad_()    #bias_1
+        prompts.append(tem)
+
+        temp=model.hand_embed(torch.tensor([4070]).to(device))[0].tolist()    #right token
+        tem=torch.tensor(temp).to(device).requires_grad_()
+        prompts.append(tem)
+
+        tem=torch.tensor(0.0).to(device).requires_grad_()         #bias_2
+        prompts.append(tem)
+
+
+
         # Loss & Optimizer
         criterion = nn.CrossEntropyLoss()
-        optimizer = torch.optim.Adam(model.parameters(), lr)
+        optimizer = torch.optim.Adam(prompts, lr)
         optimizer.zero_grad()
+        model.zero_grad()
 
         scaler = GradScaler(enabled=args.use_amp)
 
@@ -193,6 +229,37 @@ def main():
             for batch in tqdm(train_loader):
                 # Load batch to device
                 batch = {k: v.to(device) for k, v in batch.items()}
+  
+
+                embeds=model.hand_embed(batch['tokens'])
+                embeddings=torch.zeros(batch_size,args.seq_len+16,1024).to(device)
+                atten=torch.zeros(batch_size,args.seq_len+16,dtype=int).to(device)
+                zero=torch.zeros(1024).to(device)
+
+                for num_emb in range(batch_size):
+                    temp=embeds[num_emb]
+                    temp_att=batch['attn_mask'][num_emb]
+                    embedding=embeddings[num_emb]
+                    att=atten[num_emb]
+                    for ii in range(args.seq_len+16):
+                        if ii==0:
+                            embedding[ii]=temp[ii]
+                            att[ii]=temp_att[ii]
+                        elif 1<=ii<=5:
+                            embedding[ii]=zero+prompts[ii-1]
+                            att[ii]=torch.tensor(1).to(device)
+                        elif 6<=ii<=19:
+                            embedding[ii]=temp[ii-5]
+                            att[ii]=temp_att[ii-5]
+                        elif 20<=ii<=25:
+                            embedding[ii]=zero+prompts[ii-15]
+                            att[ii]=torch.tensor(1).to(device)
+                        elif 26<=ii<=args.seq_len+10:
+                            embedding[ii]=temp[ii-11]
+                            att[ii]=temp_att[ii-11]
+                        else:
+                            embedding[ii]=zero+prompts[ii-args.seq_len]
+                            att[ii]=torch.tensor(1).to(device)
 
                 with autocast(args.use_amp):
                     if text2text:
@@ -202,12 +269,16 @@ def main():
 
                     else:
                         # Forward Pass
-                        label_logits = model(batch)
+                        outs = model(atten,embeddings)
+                        label_logits=torch.zeros(batch_size,2).to(device)
+                        
+                        label_logits[:,0]=(outs*prompts[16]).sum(1)+prompts[17]
+                        label_logits[:,1]=(outs*prompts[18]).sum(1)+prompts[19]
                         label_gt = batch['label']
+                        
 
                         # Compute Loss
                         loss = criterion(label_logits, label_gt)
-
                 if args.data_parallel:
                     loss = loss.mean()
                 # Backward Pass
@@ -218,6 +289,8 @@ def main():
                     scaler.step(optimizer)
                     scaler.update()
                     optimizer.zero_grad()
+                    model.zero_grad()
+                     
 
                 # Print Results - Loss value & Validation Accuracy
                 if curr_step % args.log_interval == 0:
@@ -262,7 +335,7 @@ def main():
                     print_log(log_msg, log_file)
 
                 curr_step += 1
-
+     
             # Validation accuracy on the entire set
             if val_datasets:
                 log_msg = '-------------------------------------------------------------------------\n'

@@ -42,8 +42,8 @@ class Transformer(nn.Module):
             #     self.logit_layer = nn.Linear(hidden_dim,1)
             # else:
             self.logit_layer = nn.Linear(hidden_dim, num_cls)
-
-    def forward(self, inp):
+        self.hand_embed=self.model.get_input_embeddings()
+    def forward(self, inp,embeds):
         if self.text2text:
             out = self.model(input_ids=inp['input_tokens'],
                              attention_mask=inp['input_attn_mask'],
@@ -52,15 +52,17 @@ class Transformer(nn.Module):
 
         else:
             # tokens: [B, L], mask: [B, L]
-            x = self.model(inp['tokens'],
-                           inp['attn_mask'])[0]     # [B, L, D]
-            cls_emb = x[:, 0, :]                    # [B, D]
+            x = self.model(attention_mask=inp,
+                           inputs_embeds=embeds)[0]     # [B, L, D]
+ #           x = self.model(inp['tokens'],
+  #                         inp['attn_mask'])[0]     # [B, L, D]
+            mask_emb = x[:, 23, :]                    # [B, D]
 
             # logits
-            logit = self.logit_layer(cls_emb)       # [B, C]
+           # logit = self.logit_layer(cls_emb)       # [B, C]
 
-            return logit
-
+            return mask_emb
+#
     def generate(self, **kwargs):
         return self.model.generate(**kwargs)
 
@@ -98,3 +100,12 @@ class Transformer(nn.Module):
                     device_ids[5]: list(range(15,18)), device_ids[6]: list(range(18,21)), device_ids[7]: list(range(21,24))
                     }
         self.model.parallelize(device_map)
+
+
+
+
+
+if __name__ =='__main__':
+    #
+    pass
+    
