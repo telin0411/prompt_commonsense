@@ -9,8 +9,9 @@ from torch.utils.data import Dataset
 
 
 class BaseDataset(Dataset):
-    def __init__(self, text_path, tokenizer, max_seq_len=128):
+    def __init__(self, text_path, data_name, tokenizer, max_seq_len=128):
         self.text_path = text_path
+        self.data_name = data_name
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer)
         self.max_seq_len = max_seq_len
         self.data = []
@@ -19,11 +20,10 @@ class BaseDataset(Dataset):
 
     def __getitem__(self, idx):
         record = self.data[idx]
-        loc_because = record.lower().find('because ')
-        statement, explanation = record[0: loc_because], record[loc_because+8:]
+        statement, explanation = record['statement'], record['explanation']
 
         # Tokenize
-        input_encoded = self.tokenizer.encode_plus(text=statement+", because",
+        input_encoded = self.tokenizer.encode_plus(text=statement + ", because",
                                                    add_special_tokens=False,
                                                    padding='max_length',
                                                    max_length=self.max_seq_len,
@@ -54,7 +54,18 @@ class BaseDataset(Dataset):
         return len(self.data)
 
     def data_process(self):
-        with open(self.text_path, "r") as fp:
-            data = json.load(fp)
-            self.data.append(data)
-            fp.close()
+        if self.data_name == 'openwebtext':
+            data = []
+            with open(self.text_path, "r") as fp:
+                text = json.load(fp)
+                for sentence in text:
+                    sentence = sentence.lower()
+                    loc_because = sentence.find('because ')
+                    statement = sentence[0: loc_because]
+                    explanation = sentence[loc_because+8:]
+                    self.data.append({'statement': statement,
+                                      'explanation': explanation})
+                fp.close()
+
+        elif self.data_name == 'sem-eval':
+            pass
