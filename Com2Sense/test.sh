@@ -12,8 +12,8 @@
 # ** RoBerta-large || Com2Sense **
 python3 main.py \
 --mode test \
---ckpt ./results_log/com2sense/roberta_large/bs_16_seed_808/ep_43_stp_4.3k_acc_53.8750_roberta_large.pth \
+--ckpt ./results_log/com2sense/roberta_large/bs_4/ep_93_stp_37.4k_acc_61.6915_roberta_large.pth \
 --model roberta-large \
 --dataset com2sense \
 --batch_size 32 \
---gpu 2
+--gpu 3
