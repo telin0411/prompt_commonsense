@@ -53,11 +53,11 @@ def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
     str2int = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
     for idx_csqa, row_csqa in df_csqa.iterrows():
         for idx_cose, row_cose in df_cose.iterrows():
-            if row_cose['ids'] == row_csqa['ids']:
+            if row_cose['id'] == row_csqa['id']:
                 question = row_csqa['question']['stem']
                 choices = {k: row_csqa['question']['choices'][str2int[k]]['text'] for k in ['A', 'B', 'C', 'D', 'E']}
                 explanation = row_cose['explanation']['open-ended']
-                answer = row_csqa['question']['choices'][str2int[row_cose['answerKey']]]['text']
+                answer = row_csqa['question']['choices'][str2int[row_csqa['answerKey']]]['text']
                 data.append({'id': row_csqa['id'],
                              'question': question,
                              'choices': choices,
