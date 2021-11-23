@@ -13,7 +13,7 @@ generated data saved at ucla plus-a100 `/data1/yixiao/datasets/cose_t5_generated
 
 * Fine-tune UnifiedQA-3B on CSQA only
 
-model saved at ucla plus-a100 '/data1/yixiao/ckpt/verify_cose_unified_csqa/unifiedqa_sta_plus_exp.pth'
+model saved at ucla plus-a100 `/data1/yixiao/ckpt/verify_cose_unified_csqa/unifiedqa_sta_plus_exp.pth`
 
-model saved at ucla plus-a100 '/data1/yixiao/ckpt/verify_cose_unified_csqa/unifiedqa_sta_only.pth'
+model saved at ucla plus-a100 `/data1/yixiao/ckpt/verify_cose_unified_csqa/unifiedqa_sta_only.pth`
 
