@@ -64,7 +64,7 @@ class COSE(T5Dataset):
         self.data_preprocessing()
 
     def data_preprocessing(self):
-        df = pd.read_json(self.file_path, lines=True)
+        df = pd.read_json(self.file_path)
         for idx, row in df.iterrows():
             question = row['question']
             choice0 = row['choices']['A']

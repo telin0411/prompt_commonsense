@@ -70,9 +70,6 @@ def main():
     # Parse Args
     args = parser.parse_args()
 
-    # Dataset list
-    dataset_names = csv2list(args.dataset)
-
     # Multi-GPU
     device_ids = csv2list(args.gpu_ids, int)
     print('Selected GPUs: {}'.format(device_ids))
@@ -122,14 +119,6 @@ def main():
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,
                                   num_workers=args.num_workers)
         val_loader = DataLoader(val_datasets, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
-
-        # In multi-dataset setups, also track dataset-specific loaders for validation metrics
-        val_dataloaders = []
-        if len(dataset_names) > 1:
-            for val_dset in val_datasets.datasets:
-                loader = DataLoader(val_dset, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
-
-                val_dataloaders.append(loader)
 
         # Tokenizer
         tokenizer = train_datasets.get_tokenizer()
@@ -281,17 +270,6 @@ def main():
                 log_msg += 'Validation Accuracy: {:.2f} %  || Validation Loss: {:.4f}\n'.format(
                     val_metrics['accuracy'], val_metrics['loss'])
 
-                # For Multi-Dataset setup:
-                if len(dataset_names) > 1:
-                    # compute validation set metrics on each dataset independently
-                    for loader in val_dataloaders:
-                        metrics = compute_eval_metrics(model, loader, device, val_size, tokenizer, text2text,
-                                                       parallel=args.data_parallel)
-
-                        log_msg += '\n --> {}\n'.format(loader.dataset.get_classname())
-                        log_msg += 'Validation Accuracy: {:.2f} %  || Validation Loss: {:.4f}\n'.format(
-                            metrics['accuracy'], metrics['loss'])
-
                 # Save best model after every epoch
                 if val_metrics["accuracy"] > best_val_acc:
                     best_val_acc = val_metrics["accuracy"]
@@ -344,10 +322,8 @@ def main():
         data_len = test_dataset.__len__()
         print('Total Samples: {}'.format(data_len))
 
-        is_pairwise = 'com2sense' in dataset_names
-
         # Inference
-        metrics = compute_eval_metrics(model, loader, device, data_len, tokenizer, text2text, is_pairwise=is_pairwise,
+        metrics = compute_eval_metrics(model, loader, device, data_len, tokenizer, text2text, is_pairwise=False,
                                        is_test=True, parallel=args.data_parallel)
 
         df = pd.DataFrame(metrics['meta'])
@@ -356,8 +332,6 @@ def main():
         print(f'Results for model {args.model}')
         print(f'Results evaluated on file {args.test_file}')
         print('Sentence Accuracy: {:.4f}'.format(metrics['accuracy']))
-        if is_pairwise:
-            print('Pairwise Accuracy: {:.4f}'.format(metrics['pair_acc']))
 
 
 if __name__ == '__main__':
