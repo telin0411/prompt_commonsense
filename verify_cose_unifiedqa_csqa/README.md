@@ -1,5 +1,24 @@
 # Verify Cos-E on CSQA with Unified QA
 
+## step 0 Prepare datasets
+Combine questions from csqa and explanations from cose
+
+data file saved at ucla plus-a100 `/data1/yixiao/datasets/cose_for_generation`
+
+file structure
+
+```python
+{
+    "question": "fefefaefgg",
+    "choices":{
+        "A": "gery",
+        "B": "frg",
+        "C": "few"
+    },
+    "explanation": "gnerghi",
+    "answer": "gnerghi"
+}
+```
 
 ## step 1
 Train T5 on Cos-E to generate explanations for Common Sense QA
