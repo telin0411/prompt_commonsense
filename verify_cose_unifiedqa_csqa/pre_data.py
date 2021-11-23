@@ -1,4 +1,5 @@
 import pandas as pd
+from tqdm import tqdm
 
 
 def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
@@ -53,7 +54,7 @@ def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
     print("Loaded cose: ", file_cose)
     data = []
     str2int = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
-    for idx_csqa, row_csqa in df_csqa.iterrows():
+    for idx_csqa, row_csqa in tqdm(df_csqa.iterrows()):
         for idx_cose, row_cose in df_cose.iterrows():
             if row_cose['id'] == row_csqa['id']:
                 question = row_csqa['question']['stem']
@@ -67,7 +68,7 @@ def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
                              'answer': answer})
 
     cose_for_generation = pd.DataFrame(data)
-    cose_for_generation.to_json(save_path, orient='record', indent=4)
+    cose_for_generation.to_json(save_path, orient='records', indent=4)
     print("Saved combined file at ", save_path)
 
 
