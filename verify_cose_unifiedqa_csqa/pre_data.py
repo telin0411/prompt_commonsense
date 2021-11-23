@@ -49,6 +49,8 @@ def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
     """
     df_csqa = pd.read_json(file_csqa, lines=True)
     df_cose = pd.read_json(file_cose, lines=True)
+    print("Loaded csqa: ", file_csqa)
+    print("Loaded cose: ", file_cose)
     data = []
     str2int = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
     for idx_csqa, row_csqa in df_csqa.iterrows():
@@ -66,6 +68,7 @@ def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
 
     cose_for_generation = pd.DataFrame(data)
     cose_for_generation.to_json(save_path, orient='record', indent=4)
+    print("Saved combined file at ", save_path)
 
 
 if __name__ == '__main__':
