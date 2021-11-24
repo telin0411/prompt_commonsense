@@ -5,13 +5,15 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score, classification_report
+from nltk.translate.bleu_score import sentence_bleu
 
 
 @torch.no_grad()
-def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text = False, is_pairwise=False, is_test=False, parallel = False):
+def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=False, is_test=False):
     """
     For the given model, computes accuracy & loss on validation/test set.
 
+    :param text2text: if T5 true
     :param model: model to evaluate
     :param dataloader: validation/test set dataloader
     :param device: cuda/cpu device where the model resides
@@ -23,6 +25,8 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text =
     :rtype: dict
     """
     model.eval()
+
+    max_len = dataloader.max_seq_len
 
     # Store predicted & ground-truth labels
     _ids = []
@@ -41,20 +45,15 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text =
         # T5 inference
         if text2text:
             # Forward Pass (predict)
-            if parallel:
-                label_pred = model.module.generate(input_ids=batch['input_tokens'],
+            label_pred = model.generate(input_ids=batch['input_token_ids'],
                                         attention_mask=batch['input_attn_mask'],
-                                        max_length=2)
-            else:
-                label_pred = model.generate(input_ids=batch['input_tokens'],
-                                        attention_mask=batch['input_attn_mask'],
-                                        max_length=2)
+                                        max_length=max_len)
             label_pred = [decode(x).strip() for x in label_pred]
 
-            label_gt = batch['target_tokens']
+            label_gt = batch['target_token_ids']
             label_gt = [decode(x).strip() for x in label_gt]
 
-            input_decoded += [decode(x) for x in batch['input_tokens']]
+            input_decoded += [decode(x) for x in batch['input_token_ids']]
 
             # Forward Pass (loss)
             out = model(batch)
@@ -85,14 +84,12 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text =
             break
 
     # Compute metrics
-    accuracy = 100 * accuracy_score(ground_truth, predicted)
-    pair_acc = 100 * _pairwise_acc(ground_truth, predicted) if is_pairwise else None
+    accuracy = 100 * bleu_score(ground_truth, predicted)
 
     loss = torch.tensor(loss).mean()
 
     metrics = {'loss': loss,
-               'accuracy': accuracy,
-               'pair_acc': pair_acc}
+               'accuracy': accuracy}
 
     if is_test:
         metrics['meta'] = {'input': input_decoded,
@@ -101,8 +98,20 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text =
     return metrics
 
 
-def _pairwise_acc(y_gt, y_pred):
+def bleu_score(reference: list, candidate: list):
+    assert len(reference) == len(candidate), "expected equal input size, but got different"
+    score_list = []
+    for re, ca in zip(reference, candidate):
+        """
+        re: str
+        ca: str
+        """
+        score_list.append(sentence_bleu([re.split()], ca.split))
+    score = np.array(score_list).mean()
+    return score
 
+
+def _pairwise_acc(y_gt, y_pred):
     assert len(y_gt) == len(y_pred) and len(y_gt) % 2 == 0, 'Invalid Inputs for Pairwise setup'
 
     res = [y_gt[i] == y_pred[i] for i in range(len(y_gt))]
@@ -180,7 +189,7 @@ def _shuffle(lst):
     return lst
 
 
-def train_val_split(data, train_ratio=0.6 , dev_ratio = 0.2, test_ratio = 0.2):
+def train_val_split(data, train_ratio=0.6, dev_ratio=0.2, test_ratio=0.2):
     # Shuffle & Split data
     _shuffle(data)
     split_idx = int(len(data) * train_ratio)
@@ -192,7 +201,7 @@ def train_val_split(data, train_ratio=0.6 , dev_ratio = 0.2, test_ratio = 0.2):
     rest = data[split_idx:]
     dev_split = int(dev_ratio * len(data))
     data_val = rest[:dev_split]
-    rest = rest[dev_split: ]
+    rest = rest[dev_split:]
     test_split = int(test_ratio * len(data))
     data_test = rest[:test_split]
     return data_train, data_val, data_test

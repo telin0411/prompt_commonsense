@@ -83,7 +83,7 @@ def main():
     text2text = ('t5' in args.model)
     uniqa = ('unified' in args.model)
 
-    assert not (text2text and (args.use_amp) == 'T'), 'use_amp should be F when using T5-based models.'
+    assert not (text2text and args.use_amp == 'T'), 'use_amp should be F when using T5-based models.'
     # Train params
     n_epochs = args.epochs
     batch_size = args.batch_size
@@ -220,7 +220,7 @@ def main():
                     # Validation set accuracy
                     if val_datasets:
                         val_metrics = compute_eval_metrics(model, val_loader, device, val_used_size, tokenizer,
-                                                           text2text, parallel=args.data_parallel)
+                                                           text2text)
 
                         # Reset the mode to training
                         model.train()
@@ -263,8 +263,7 @@ def main():
             # Validation accuracy on the entire set
             if val_datasets:
                 log_msg = '-------------------------------------------------------------------------\n'
-                val_metrics = compute_eval_metrics(model, val_loader, device, val_size, tokenizer, text2text,
-                                                   parallel=args.data_parallel)
+                val_metrics = compute_eval_metrics(model, val_loader, device, val_size, tokenizer, text2text)
 
                 log_msg += '\nAfter {} epoch:\n'.format(epoch)
                 log_msg += 'Validation Accuracy: {:.2f} %  || Validation Loss: {:.4f}\n'.format(
@@ -323,8 +322,7 @@ def main():
         print('Total Samples: {}'.format(data_len))
 
         # Inference
-        metrics = compute_eval_metrics(model, loader, device, data_len, tokenizer, text2text, is_pairwise=False,
-                                       is_test=True, parallel=args.data_parallel)
+        metrics = compute_eval_metrics(model, loader, device, data_len, tokenizer, text2text, is_test=True)
 
         df = pd.DataFrame(metrics['meta'])
         df.to_csv(args.pred_file)
