@@ -106,7 +106,7 @@ def bleu_score(reference: list, candidate: list):
         re: str
         ca: str
         """
-        score_list.append(sentence_bleu([re.split()], ca.split))
+        score_list.append(sentence_bleu([re.split()], ca.split()))
     score = np.array(score_list).mean()
     return score
 
