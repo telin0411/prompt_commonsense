@@ -219,7 +219,7 @@ def main():
                 if curr_step % args.log_interval == 0:
                     # Validation set accuracy
                     if val_datasets:
-                        val_metrics = compute_eval_metrics(model, val_loader, device, val_used_size, tokenizer,
+                        val_metrics = compute_eval_metrics(model, val_loader, device, val_used_size, tokenizer, args,
                                                            text2text)
 
                         # Reset the mode to training
@@ -263,7 +263,7 @@ def main():
             # Validation accuracy on the entire set
             if val_datasets:
                 log_msg = '-------------------------------------------------------------------------\n'
-                val_metrics = compute_eval_metrics(model, val_loader, device, val_size, tokenizer, text2text)
+                val_metrics = compute_eval_metrics(model, val_loader, device, val_size, tokenizer, args, text2text)
 
                 log_msg += '\nAfter {} epoch:\n'.format(epoch)
                 log_msg += 'Validation Accuracy: {:.2f} %  || Validation Loss: {:.4f}\n'.format(
@@ -322,7 +322,7 @@ def main():
         print('Total Samples: {}'.format(data_len))
 
         # Inference
-        metrics = compute_eval_metrics(model, loader, device, data_len, tokenizer, text2text, is_test=True)
+        metrics = compute_eval_metrics(model, loader, device, data_len, tokenizer, args, text2text, is_test=True)
 
         df = pd.DataFrame(metrics['meta'])
         df.to_csv(args.pred_file)

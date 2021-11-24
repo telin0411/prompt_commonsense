@@ -9,7 +9,7 @@ from nltk.translate.bleu_score import sentence_bleu
 
 
 @torch.no_grad()
-def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=False, is_test=False):
+def compute_eval_metrics(model, dataloader, device, size, tokenizer, args, text2text=False, is_test=False):
     """
     For the given model, computes accuracy & loss on validation/test set.
 
@@ -26,7 +26,7 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, text2text=F
     """
     model.eval()
 
-    max_len = dataloader.max_seq_len
+    max_len = args.seq_len
 
     # Store predicted & ground-truth labels
     _ids = []
