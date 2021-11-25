@@ -84,7 +84,7 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, args, text2
             break
 
     # Compute metrics
-    accuracy = 100 * bleu_score(ground_truth, predicted)
+    accuracy = bleu_score(ground_truth, predicted)
 
     loss = torch.tensor(loss).mean()
 
