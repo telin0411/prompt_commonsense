@@ -10,7 +10,7 @@ from torch.utils.data import Dataset
 
 
 class T5Dataset(Dataset):
-    def __init__(self, file_path, tokenizer, input_seq_len=128, target_seq_len=20):
+    def __init__(self, file_path, tokenizer, input_seq_len=128, target_seq_len=2):
         self.file_path = file_path
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer)
         self.input_seq_len = input_seq_len
@@ -59,7 +59,7 @@ class T5Dataset(Dataset):
 
 class COSE(T5Dataset):
     def __init__(self, file_path, tokenizer, mode, input_seq_len):
-        super().__init__(file_path, tokenizer, input_seq_len)
+        super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=20)
         assert mode == 'predict_first' or mode == 'explain_first', "mode should choose from [predict_first, " \
                                                                    "explain_first], but got others "
         self.mode = mode
@@ -105,7 +105,7 @@ class CSQA(T5Dataset):
     """
 
     def __init__(self, file_path, tokenizer, input_seq_len, has_explanation=False):
-        super().__init__(file_path, tokenizer, input_seq_len)
+        super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=2)
 
         self.has_explanation = has_explanation
         self.data_preprocessing()
