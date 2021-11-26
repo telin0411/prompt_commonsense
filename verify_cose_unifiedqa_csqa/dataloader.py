@@ -115,7 +115,7 @@ class CSQA(T5Dataset):
         str2int = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
         for idx, row in df.iterrows():
             question = row['question']['stem']
-            choices = row['choices']['choices']
+            choices = row['question']['choices']
             answer = row['question']['choices'][str2int[row['answerKey']]]['text']
             choices = [f"({choice['label']}) {choice['text']} " for choice in choices]
 

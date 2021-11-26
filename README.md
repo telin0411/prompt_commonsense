@@ -12,3 +12,4 @@
 - transformers-4.12.5
 - pandas-1.3.4
 - tensorboard-2.7.0
+- sentencepiece-0.1.96 (very important)
