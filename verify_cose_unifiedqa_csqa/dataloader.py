@@ -105,7 +105,7 @@ class CSQA(T5Dataset):
     """
 
     def __init__(self, file_path, tokenizer, input_seq_len, has_explanation=False):
-        super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=2)
+        super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=8)
 
         self.has_explanation = has_explanation
         self.data_preprocessing()
