@@ -111,10 +111,10 @@ def main():
 
         # Dataset & Dataloader
         train_datasets = COSE(file_path=args.train_file, tokenizer=args.model,
-                              mode=args.generate_mode, max_seq_len=args.seq_len)
+                              mode=args.generate_mode, input_seq_len=args.seq_len)
 
         val_datasets = COSE(file_path=args.dev_file, tokenizer=args.model,
-                            mode=args.generate_mode, max_seq_len=args.seq_len)
+                            mode=args.generate_mode, input_seq_len=args.seq_len)
 
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,
                                   num_workers=args.num_workers)
