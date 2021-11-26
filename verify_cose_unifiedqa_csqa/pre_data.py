@@ -2,6 +2,17 @@ import pandas as pd
 from tqdm import tqdm
 
 
+def format_t5_generated_explanation(file_path, save_path):
+    """
+    :param file_path:
+    :param save_path:
+    :return:
+    """
+    df = pd.read_csv(file_path)
+    for idx, row in df.iterrows():
+        pass
+
+
 def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
     """
     :param save_path: the path to save the combined data

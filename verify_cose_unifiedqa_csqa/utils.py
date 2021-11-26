@@ -47,7 +47,7 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, args, text2
             # Forward Pass (predict)
             label_pred = model.generate(input_ids=batch['input_token_ids'],
                                         attention_mask=batch['input_attn_mask'],
-                                        max_length=max_len)
+                                        max_length=20)
             label_pred = [decode(x).strip() for x in label_pred]
 
             label_gt = batch['target_token_ids']
