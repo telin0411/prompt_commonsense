@@ -2,15 +2,39 @@ import pandas as pd
 from tqdm import tqdm
 
 
-def format_t5_generated_explanation(file_path, save_path):
+def format_t5_generated_explanation(raw_path, prediction_path, save_path):
+    """raw
+    {
+        "id": "3d0f8824ea83ddcc9ab03055658b89d3"
+        "question": "fefefaefgg",
+        "choices":{
+                  "A": "gery",
+                  "B": "frg",
+                  "C": "ytf",
+                  "D": "fw",
+                  "E": "hrt"
+                  },
+        "explanation": "gnerghi",
+        "answer": "gnerghi"
+        }
     """
-    :param file_path:
-    :param save_path:
-    :return:
+    """pred
+    {
+        "input": "fefwfw"
+        "prediction": "fewfwegt"
+        "ground_truth": "fq"
+    }
+        
     """
-    df = pd.read_csv(file_path)
-    for idx, row in df.iterrows():
-        pass
+
+    df_raw = pd.read_json(raw_path)
+    df_pre = pd.read_csv(prediction_path)
+    data = []
+    for _, row_raw, _, row_pre in zip(df_raw.iterrows(), df_pre.iterrows()):
+        row_raw = row_raw.update({"explanation": row_pre['prediction']})
+        data.append(row_raw)
+    data = pd.DataFrame(data)
+    data.to_json(save_path, orient='records', indent=4)
 
 
 def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
@@ -84,6 +108,6 @@ def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
 
 
 if __name__ == '__main__':
-    combine_CSQA_and_COSE(file_csqa='/data1/yixiao/datasets/csqa/train_rand_split.jsonl',
-                          file_cose='/data1/yixiao/datasets/cose/v1.11/cose_train_v1.11_processed.jsonl',
-                          save_path='/data1/yixiao/datasets/cose_for_generation/train.json')
+    format_t5_generated_explanation(raw_path='',
+                                    prediction_path='',
+                                    save_path='')

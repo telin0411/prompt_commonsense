@@ -7,7 +7,7 @@ import argparse
 import pandas as pd
 from time import time
 from model import Transformer
-from dataloader import COSE, CSQA
+from dataloader import COSE, CSQA, COSE_T5_gen
 
 try:
     from torch.utils.tensorboard import SummaryWriter

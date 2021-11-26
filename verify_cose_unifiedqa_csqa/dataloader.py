@@ -128,3 +128,42 @@ class CSQA(T5Dataset):
 
             self.data.append({'input_text': input_text,
                               'output_text': answer})
+
+
+class COSE_T5_gen(T5Dataset):
+    """
+    {
+        "id": "3d0f8824ea83ddcc9ab03055658b89d3"
+        "question": "fefefaefgg",
+        "choices":{
+                  "A": "gery",
+                  "B": "frg",
+                  "C": "ytf",
+                  "D": "fw",
+                  "E": "hrt"
+                  },
+        "explanation_gt": "gnerghi",
+        "explanation_gen": "gnerghfei",
+        "answer": "gnerghi"
+        }
+    """
+    def __init__(self, file_path, tokenizer, input_seq_len, has_explanation=False):
+        super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=8)
+        self.has_explanation = has_explanation
+        self.data_preprocessing()
+
+    def data_preprocessing(self):
+        df = pd.read_json(self.file_path)
+        for idx, row in df.iterrows():
+            question = row['question']
+            choices = [f"({k}){v}" for k, v in row['choices'].items()]
+            choices = "".join(choices)
+            answer = row['answer']
+            explanation = row['explanation_gen']
+            if self.has_explanation:
+                text = f'{explanation}\n{question}\n{choices}'
+            else:
+                text = f'{question}\n{choices}'
+
+            self.data.append({'input_text': text,
+                              'output_text': answer})
