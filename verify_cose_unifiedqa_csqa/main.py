@@ -302,7 +302,7 @@ def main():
 
         # Dataloader
         test_dataset = COSE(args.test_file, tokenizer=args.model,
-                            mode=args.generate_mode, max_seq_len=args.seq_len)
+                            mode=args.generate_mode, input_seq_len=args.seq_len)
 
         loader = DataLoader(test_dataset, batch_size, num_workers=args.num_workers)
 
