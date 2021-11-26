@@ -111,7 +111,7 @@ class CSQA(T5Dataset):
         self.data_preprocessing()
 
     def data_preprocessing(self):
-        df = pd.read_json(self.file_path)
+        df = pd.read_json(self.file_path, lines=True)
         str2int = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
         for idx, row in df.iterrows():
             question = row['question']['stem']

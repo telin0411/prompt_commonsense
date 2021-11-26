@@ -45,7 +45,7 @@ def main():
     parser.add_argument('--test_file', type=str, default='test')
     parser.add_argument('--train_file', type=str, help='list of datasets seperated by commas', required=True)
     parser.add_argument('--dev_file', type=str, help='list of datasets seperated by commas', required=True)
-    parser.add_argument('--generate_mode', type=str, default='predict_first', required=True)
+    parser.add_argument('--generate_mode', type=str, default='predict_first')
 
     # Training params
     parser.add_argument('--lr', type=float, help='learning rate', default=1e-5)
