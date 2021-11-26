@@ -118,6 +118,7 @@ class CSQA(T5Dataset):
             choices = row['question']['choices']
             answer = row['question']['choices'][str2int[row['answerKey']]]['text']
             choices = [f"({choice['label']}) {choice['text']} " for choice in choices]
+            choices = "".join(choices)
 
             if self.has_explanation:
                 explanation = row['explanation']
