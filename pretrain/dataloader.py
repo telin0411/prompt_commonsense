@@ -59,6 +59,9 @@ class T5Dataset(Dataset):
 
 
 class corpus(T5Dataset):
+    def __init__(self, file_path, tokenizer, input_seq_len=128, target_seq_len=128):
+        super().__init__(file_path, tokenizer, input_seq_len, target_seq_len)
+        self.pre_data()
     """
     "statement": str,
     "positive_explanations": [str],  # can be empty list
