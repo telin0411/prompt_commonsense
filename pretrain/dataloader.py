@@ -79,6 +79,6 @@ class corpus(T5Dataset):
             explanations = positive_explanations + negative_explanations
             input_text = f"{statement} {row['answers']}. Because "
 
-            self.data += [{'input_text': input_text, 'target_text': explanation} for explanation in explanations]
+            self.data += [{'input_text': input_text, 'output_text': explanation} for explanation in explanations]
 
 
