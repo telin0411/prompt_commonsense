@@ -20,6 +20,17 @@ from tqdm import tqdm
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
+def set_random_seed(random_seed: int):
+    # set random seed for PyTorch and CUDA
+    torch.manual_seed(random_seed)
+    torch.cuda.manual_seed_all(random_seed)
+    torch.backends.cudnn.deterministic = True
+
+    # set random seed for Numpy
+    #np.random.seed(random_seed)
+
+    # set random seed for random
+    #random.seed(random_seed)
 
 def main():
     parser = argparse.ArgumentParser(description='Commonsense Dataset Dev')
@@ -46,8 +57,10 @@ def main():
     parser.add_argument('--train_file', type=str, help='list of datasets seperated by commas', required=True)
     parser.add_argument('--dev_file', type=str, help='list of datasets seperated by commas', required=True)
     parser.add_argument('--generate_mode', type=str, default='predict_first')
+    parser.add_argument('--has_explanation', type=bool, default=False)
 
     # Training params
+    parser.add_argument('--seed', type=int, help='random seed', default=888) 
     parser.add_argument('--lr', type=float, help='learning rate', default=1e-5)
     parser.add_argument('--epochs', type=int, help='number of epochs', default=100)
     parser.add_argument('--batch_size', type=int, help='batch size', default=8)
@@ -69,6 +82,8 @@ def main():
 
     # Parse Args
     args = parser.parse_args()
+
+    set_random_seed(args.seed)
 
     # Multi-GPU
     device_ids = csv2list(args.gpu_ids, int)
@@ -110,9 +125,9 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        train_datasets = CSQA(file_path=args.train_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        train_datasets = COSE_T5_gen(file_path=args.train_file, tokenizer=args.model, input_seq_len=args.seq_len, has_explanation=args.has_explanation)
 
-        val_datasets = CSQA(file_path=args.dev_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        val_datasets = COSE_T5_gen(file_path=args.dev_file, tokenizer=args.model, input_seq_len=args.seq_len, has_explanation=args.has_explanation)
 
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,
                                   num_workers=args.num_workers)
@@ -301,7 +316,7 @@ def main():
     elif args.mode == 'test':
 
         # Dataloader
-        test_dataset = CSQA(args.test_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        test_dataset = COSE_T5_gen(file_path=args.test_file, tokenizer=args.model, input_seq_len=args.seq_len, has_explanation=args.has_explanation)
 
         loader = DataLoader(test_dataset, batch_size, num_workers=args.num_workers)
 
