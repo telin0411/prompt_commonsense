@@ -176,6 +176,7 @@ def format_t5_generated_explanation(raw_path, prediction_path, save_path):
     data = []
     for index, row_raw in df_raw.iterrows():
         row_pre = df_pre.iloc[index]
+        row_pre = row_pre.to_ditc()
         row_raw = row_raw.update({"explanation": row_pre['prediction']})
         data.append(row_raw)
     data = pd.DataFrame(data)
