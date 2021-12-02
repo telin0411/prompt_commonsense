@@ -1,19 +1,13 @@
 #!/usr/bin/env bash
 
-# ** T5-large || SemEval **
+# ** T5-large **
 python3 main.py \
 --mode test \
---ckpt ./results_log/semeval/t5_large/bs_16/ep_7_stp_8.74k_acc_87.7016_t5_large.pth \
+--ckpt /local1/telinwu/yixiao/results/pretrain_eqasc/t5_large/bs_16/model_81000.pth \
 --model t5-large \
---dataset semeval \
---batch_size 32 \
---gpu 0
-
-# ** RoBerta-large || Com2Sense **
-python3 main.py \
---mode test \
---ckpt ./model_ckpt/ep_13_16k_acc_87.2984_roberta_large.pth \
---model roberta-large \
---dataset com2sense \
+--train_file "" \
+--dev_file "" \
+--test_file /local1/telinwu/yixiao/datasets/corpus/corpus_eQASC.jsonl \
+--seq_len 128 \
 --batch_size 32 \
 --gpu 0
