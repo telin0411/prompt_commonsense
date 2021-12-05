@@ -7,7 +7,7 @@ import argparse
 import pandas as pd
 from time import time
 from model import Transformer
-from dataloader import COSE
+from dataloader import Com2Sense
 
 try:
     from torch.utils.tensorboard import SummaryWriter
@@ -124,9 +124,9 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        train_datasets = COSE(file_path=args.train_file, tokenizer=args.model, input_seq_len=args.seq_len, mode=args.generate_mode)
+        train_datasets = Com2Sense(file_path=args.train_file, tokenizer=args.model, input_seq_len=args.seq_len)
 
-        val_datasets = COSE(file_path=args.dev_file, tokenizer=args.model, input_seq_len=args.seq_len, mode=args.generate_mode)
+        val_datasets = Com2Sense(file_path=args.dev_file, tokenizer=args.model, input_seq_len=args.seq_len)
 
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,
                                   num_workers=args.num_workers)
@@ -315,7 +315,7 @@ def main():
     elif args.mode == 'test':
 
         # Dataloader
-        test_dataset = COSE(file_path=args.test_file, tokenizer=args.model, input_seq_len=args.seq_len, mode=args.generate_mode)
+        test_dataset = Com2Sense(file_path=args.test_file, tokenizer=args.model, input_seq_len=args.seq_len)
 
         loader = DataLoader(test_dataset, batch_size, num_workers=args.num_workers)
 
@@ -327,7 +327,7 @@ def main():
 
         # Load model weights
         if args.ckpt:
-            checkpoint = torch.load(args.ckpt, map_location=device)
+            checkpoint = torch.load(args.ckpt, map_location='cpu')
             model.load_state_dict(checkpoint['model_state_dict'])
         data_len = test_dataset.__len__()
         print('Total Samples: {}'.format(data_len))

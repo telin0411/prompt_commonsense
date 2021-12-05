@@ -167,3 +167,20 @@ class COSE_T5_gen(T5Dataset):
 
             self.data.append({'input_text': text,
                               'output_text': answer})
+
+
+class Com2Sense(T5Dataset):
+    def __init__(self, file_path, tokenizer, input_seq_len):
+        super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=20)
+
+        self.data_preprocessing()
+
+    def data_preprocessing(self):
+        df = pd.read_json(self.file_path)
+        for idx, row in df.iterrows():
+            sent_1 = row['sent_1']
+            sent_2 = row['sent_2']
+            self.data.append({'input_text': f"{sent_1} My common sense tells me",
+                              'output_text': ""})
+            self.data.append({'input_text': f"{sent_2} My common sense tells me",
+                              'output_text': ""})
