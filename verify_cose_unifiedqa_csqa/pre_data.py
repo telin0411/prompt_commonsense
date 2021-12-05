@@ -175,9 +175,16 @@ def format_t5_generated_explanation(raw_path, prediction_path, save_path):
     df_pre = pd.read_csv(prediction_path)
     data = []
     for index, row_raw in df_raw.iterrows():
-        row_pre = df_pre.iloc[index]
+        row_pre_1 = df_pre.iloc[2*index]
+        row_pre_2 = df_pre.iloc[2*index+1]
+
+        row_pre_1 = row_pre_1.to_dict()
+        row_pre_2 = row_pre_2.to_dict()
         row_raw = row_raw.to_dict()
-        row_raw = row_raw.update({"explanation": row_pre['prediction']})
+
+        row_raw.update({"expl_1": row_pre_1['prediction']})
+        row_raw.update({"expl_2": row_pre_2['prediction']})
+
         data.append(row_raw)
     data = pd.DataFrame(data)
     data.to_json(save_path, orient='records', indent=4)
@@ -254,6 +261,6 @@ def combine_CSQA_and_COSE(file_csqa, file_cose, save_path):
 
 
 if __name__ == '__main__':
-    format_t5_generated_explanation(raw_path='',
-                                    prediction_path='',
-                                    save_path='')
+    format_t5_generated_explanation(raw_path='/local1/telinwu/yixiao/datasets/com2sense/dev.json',
+                                    prediction_path='../T0pp_CSQA/dev_com2sense_pred.csv',
+                                    save_path='/local1/telinwu/yixiao/datasets/com2sense/dev_expl.json')
