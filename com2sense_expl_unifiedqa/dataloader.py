@@ -78,7 +78,7 @@ class Com2Sense(T5Dataset):
             else:
                 expl_1 = ""
                 expl_2 = ""
-            self.data.append({'input_text': f"{expl_1} Is the following statement correct?\n{sent_1}",
+            self.data.append({'input_text': f"{expl_1}\n Is the following statement correct?\n{sent_1}",
                               'output_text': label_1})
-            self.data.append({'input_text': f"{expl_2} Is the following statement correct?\n{sent_2}",
+            self.data.append({'input_text': f"{expl_2}\n Is the following statement correct?\n{sent_2}",
                               'output_text': label_2})
