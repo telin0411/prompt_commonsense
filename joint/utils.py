@@ -118,8 +118,8 @@ def joint_metrics(sent_gt, sent_pr):
         else:
             num_no_because += 1
             ans_pr.append(s_pr.split()[0])  # the first word is the answer by default
-            ans_pr.append("".join(s_pr.split()[1:]))    # the rest words are the explanation by default
-
+            expl_pr.append("".join(s_pr.split()[1:]))    # the rest words are the explanation by default
+    
     acc = 100 * accuracy_score(ans_gt, ans_pr)
     bleu = bleu_score(ans_gt, ans_pr)
 
