@@ -175,16 +175,10 @@ def format_t5_generated_explanation(raw_path, prediction_path, save_path):
     df_pre = pd.read_csv(prediction_path)
     data = []
     for index, row_raw in df_raw.iterrows():
-        row_pre_1 = df_pre.iloc[2*index]
-        row_pre_2 = df_pre.iloc[2*index+1]
-
-        row_pre_1 = row_pre_1.to_dict()
-        row_pre_2 = row_pre_2.to_dict()
-        row_raw = row_raw.to_dict()
-
-        row_raw.update({"expl_1": row_pre_1['prediction']})
-        row_raw.update({"expl_2": row_pre_2['prediction']})
-
+        row_pre = df_pre.iloc[index]
+        row_pre = row_pre.to_ditc()
+        row_raw = row_raw.to_ditc()
+        row_raw.update({"explanation": row_pre['prediction']})
         data.append(row_raw)
     data = pd.DataFrame(data)
     data.to_json(save_path, orient='records', indent=4)
