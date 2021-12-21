@@ -165,7 +165,7 @@ def main():
 
         # Load pre-trained BART weights
         pretrain_weights = torch.load(args.weights_path, map_location=device)
-        netG_real.load_state_dict(pretrain_weights, strict=False)
+        netG_real.load_state_dict(pretrain_weights['model_state_dict'], strict=False)
 
         # Loss & Optimizer
         criterion = nn.BCELoss()
