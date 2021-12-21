@@ -56,8 +56,11 @@ def main():
     parser.add_argument('--pred_file', type=str, default='results.csv')
     parser.add_argument('--append_test_file', type=str, default='results_append.json')
     parser.add_argument('--test_file', type=str, default='test')
-    parser.add_argument('--train_file', type=str, help='list of datasets seperated by commas', required=True)
-    parser.add_argument('--dev_file', type=str, help='list of datasets seperated by commas', required=True)
+
+    parser.add_argument('--real_train_file', type=str, required=True)
+    parser.add_argument('--fake_train_file', type=str, required=True)
+    parser.add_argument('--real_valid_file', type=str)
+    parser.add_argument('--fake_valid_file', type=str)
 
     # Training params
     parser.add_argument('--seed', type=int, help='random seed', default=888)
