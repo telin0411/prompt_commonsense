@@ -113,9 +113,6 @@ def ecqa2schema(ecqa_file_path, csqa_file_path, save_file_path):
 
         data[row_ecqa['id']].update({'explanations': explanations})
 
-
-
-
     ecqa_processed = pd.DataFrame(data)
     ecqa_processed.to_json(save_file_path, orient='records', indent=4)
     print("Saved combined file at ", save_file_path)
