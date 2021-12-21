@@ -23,7 +23,7 @@ class Transformer(nn.Module):
         self.softmax = torch.nn.Softmax(dim=1)
         self.parallelized = False
 
-        if 'bart' in self.model_name:
+        if 'bart' in self.name:
             self.model = Bart.from_pretrained(model_name)
 
         # T5 Model

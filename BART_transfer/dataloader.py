@@ -189,8 +189,10 @@ class Com2Sense(T2TDataset):
 class BartTransfer(T2TDataset):
     def __init__(self, file_path, tokenizer, input_seq_len):
         super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=20)
-
-        if 'csqa' in file_path:
+        self.data = []
+        print(file_path)
+        if 'ecqa' in file_path:
+            print(195)
             self.data_preprocessing_ecqa()
         elif 'com2sense' in file_path:
             self.data_preprocessing_com2sense()

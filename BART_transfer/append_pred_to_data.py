@@ -31,8 +31,8 @@ def append_to_data(raw_path, prediction_path, save_path):
     data = []
     for index, row_raw in df_raw.iterrows():
         row_pre = df_pre.iloc[index]
-        row_pre = row_pre.to_ditc()
-        row_raw = row_raw.to_ditc()
+        row_pre = row_pre.to_dict()
+        row_raw = row_raw.to_dict()
         row_raw.update({"explanation_gen": row_pre['prediction']})
         data.append(row_raw)
     data = pd.DataFrame(data)
