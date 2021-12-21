@@ -2,11 +2,11 @@
 Preprocessing for statement and explanation pretraining
 """
 
-import json
 import pandas as pd
 import torch
 from transformers import AutoTokenizer
 from torch.utils.data import Dataset
+import random
 
 
 class T2TDataset(Dataset):
@@ -147,6 +147,7 @@ class COSE_T5_gen(T2TDataset):
         "answer": "gnerghi"
         }
     """
+
     def __init__(self, file_path, tokenizer, input_seq_len, has_explanation=False):
         super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=8)
         self.has_explanation = has_explanation
@@ -187,12 +188,12 @@ class Com2Sense(T2TDataset):
 
 
 class BartTransfer(T2TDataset):
-    def __init__(self, file_path, tokenizer, input_seq_len):
+    def __init__(self, file_path, tokenizer, input_seq_len, is_test=False):
         super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=20)
         self.data = []
-        print(file_path)
-        if 'ecqa' in file_path:
-            print(195)
+        if is_test:
+            self.data_preprocessing_ecqa_test()
+        elif 'ecqa' in file_path:
             self.data_preprocessing_ecqa()
         elif 'com2sense' in file_path:
             self.data_preprocessing_com2sense()
@@ -219,7 +220,7 @@ class BartTransfer(T2TDataset):
                 if key == row['answer_key']:
                     text = f'{question} {choices[key]}. It is a true answer because'
                     expl = f'{explanations[key]}'
-                    for key in range(len(explanations) - 1):
+                    for _ in range(len(explanations) - 1):
                         self.data.append({'input_text': text,
                                           'output_text': expl})
                 else:
@@ -227,3 +228,115 @@ class BartTransfer(T2TDataset):
                     expl = f'{explanations[key]}'
                     self.data.append({'input_text': text,
                                       'output_text': expl})
+
+    def data_preprocessing_ecqa_test(self):
+        df = pd.read_json(self.file_path)
+        for idx, row in df.iterrows():
+            question = row['question']
+            choices = row['choices']
+            explanations = row['explanations']
+
+            for key in explanations.keys():
+                if key == row['answer_key']:
+                    text = f'{question} {choices[key]}. It is a true answer because'
+                else:
+                    text = f'{question} {choices[key]}. It is a false answer because'
+
+                expl = f'{explanations[key]}'
+                self.data.append({'input_text': text,
+                                  'output_text': expl})
+
+
+class GANPair(Dataset):
+    def __init__(self, real_file, fake_file, tokenizer, input_seq_len, target_seq_len=32):
+        self.real_file = real_file
+        self.fake_file = fake_file
+        self.tokenizer = AutoTokenizer.from_pretrained(tokenizer)
+        self.input_seq_len = input_seq_len
+        self.target_seq_len = target_seq_len
+        self.real_data = None
+        self.fake_data = None
+        self.pre_data()
+
+    def __len__(self):
+        return max(len(self.real_data), len(self.fake_data))
+
+    def __getitem__(self, idx):
+        real_record = self.real_data[idx]
+        fake_record = self.fake_data[idx]
+
+        # Tokenize
+        real_token_input = self.tokenize(real_record['input_text'], self.input_seq_len)
+        real_token_target = self.tokenize(real_record['output_text'], self.target_seq_len)
+
+        fake_token_input = self.tokenize(fake_record['input_text'], self.input_seq_len)
+        fake_token_target = self.tokenize(fake_record['output_text'], self.target_seq_len)
+
+        # Output
+        sample = {'real': {'input_token_ids': real_token_input['input_ids'],
+                           'input_attn_mask': real_token_input['attention_mask'],
+                           'target_token_ids': real_token_target['input_ids'],
+                           'target_attn_mask': real_token_target['attention_mask']},
+                  'fake': {'input_token_ids': fake_token_input['input_ids'],
+                           'input_attn_mask': fake_token_input['attention_mask'],
+                           'target_token_ids': fake_token_target['input_ids'],
+                           'target_attn_mask': fake_token_target['attention_mask']}
+                  }
+
+        return sample
+
+    def get_tokenizer(self):
+        return self.tokenizer
+
+    def tokenize(self, text, length):
+        token_dict = self.tokenizer.encode_plus(text=text,
+                                                add_special_tokens=False,
+                                                padding='max_length',
+                                                max_length=length,
+                                                truncation=True,
+                                                return_attention_mask=True)
+        return token_dict
+
+    def pre_data(self):
+        self.real_data = []
+        self.fake_data = []
+
+        # load real data, i.e., ecqa
+        df = pd.read_json(self.real_file)
+        for idx, row in df.iterrows():
+            question = row['question']
+            choices = row['choices']
+            explanations = row['explanations']
+
+            for key in explanations.keys():
+                if key == row['answer_key']:
+                    text = f'{question} {choices[key]}. It is a true answer because'
+                else:
+                    text = f'{question} {choices[key]}. It is a false answer because'
+
+                expl = f'{explanations[key]}'
+                self.real_data.append({'input_text': text,
+                                       'output_text': expl})
+        # load fake data, i.e., com2sense
+        df = pd.read_json(self.fake_file)
+        for idx, row in df.iterrows():
+            sent_1, sent_2 = row['sent_1'], row['sent_2']
+            label_1, label_2 = row['label_1'], row['label_2']
+
+            self.fake_data.append({'input_text': f"{sent_1} It is a {label_1} statement because",
+                                   'output_text': ""})
+            self.fake_data.append({'input_text': f"{sent_2} It is a {label_2} statement because",
+                                   'output_text': ""})
+
+        # align length
+        size = max(len(self.real_data), len(self.fake_data))
+        real_data_margin = size - len(self.real_data)
+        fake_data_margin = size - len(self.fake_data)
+
+        self.real_data += random.choices(self.real_data, k=real_data_margin)
+        self.fake_data += random.choices(self.fake_data, k=fake_data_margin)
+
+        # shuffle pair
+        random.shuffle(self.real_data)
+        random.shuffle(self.fake_data)
+
