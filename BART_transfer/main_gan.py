@@ -51,6 +51,7 @@ def main():
     parser.add_argument('--seq_len', type=int, help='tokenized input sequence length', default=256)
     parser.add_argument('--num_cls', type=int, help='model number of classes', default=2)
     parser.add_argument('--ckpt', type=str, help='path to model checkpoint .pth file')
+    parser.add_argument('--weights_path', type=str, help='the bart weights to generate embeddings')
 
     # Data params
     parser.add_argument('--pred_file', type=str, default='results.csv')
