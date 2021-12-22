@@ -186,6 +186,7 @@ def main():
 
             netG.to(device)
             netD.to(device)
+            netG_real.to(device)
 
             log_msg = 'Resuming Training...\n'
             log_msg += 'Model successfully loaded from {}\n'.format(args.ckpt)
