@@ -264,7 +264,7 @@ class GANPair(Dataset):
     def __getitem__(self, idx):
         real_record = self.real_data[idx]
         fake_record = self.fake_data[idx]
-
+        print("read record and fake record", idx)
         # Tokenize
         real_token_input = self.tokenize(real_record['input_text'], self.input_seq_len)
         real_token_target = self.tokenize(real_record['output_text'], self.target_seq_len)

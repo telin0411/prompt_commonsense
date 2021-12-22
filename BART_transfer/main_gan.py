@@ -1,6 +1,7 @@
 import os
 import sys
 import torch
+import torch.multiprocessing
 import torch.nn as nn
 import csv
 import argparse
@@ -88,15 +89,16 @@ def main():
     args = parser.parse_args()
 
     set_random_seed(args.seed)
+    torch.multiprocessing.set_sharing_strategy('file_system') 
 
     # Multi-GPU
     device_ids = csv2list(args.gpu_ids, int)
     print('Selected GPUs: {}'.format(device_ids))
 
     # Device for loading dataset (batches)
-    device = torch.device(device_ids[0])
-    if args.cpu:
-        device = torch.device('cpu')
+    #device = torch.device(device_ids[0])
+    #if args.cpu:
+    device = torch.device('cpu')
 
     # Text-to-Text
     text2text = 't5' in args.model or 'T0' in args.model or 'bart' in args.model
@@ -132,7 +134,6 @@ def main():
                                  tokenizer=args.model, input_seq_len=args.seq_len)
         valid_datasets = GANPair(real_file=args.real_valid_file, fake_file=args.fake_valid_file,
                                  tokenizer=args.model, input_seq_len=args.seq_len)
-
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True,
                                   drop_last=True, num_workers=args.num_workers)
         valid_loader = DataLoader(valid_datasets, batch_size, shuffle=True,
@@ -205,8 +206,10 @@ def main():
         print("Starting Training Loop...")
         # For each epoch
         for epoch in range(args.epochs):
+            i = -1
             # For each batch in the dataloader
-            for i, data in enumerate(train_loader, 0):
+            for data in tqdm(train_loader):
+                i += 1
                 real_data = data['real']
                 fake_data = data['fake']
                 real_data = {k: v.to(device) for k, v in real_data.items()}
