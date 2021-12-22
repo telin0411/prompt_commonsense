@@ -97,9 +97,9 @@ def main():
     print('Selected GPUs: {}'.format(device_ids))
 
     # Device for loading dataset (batches)
-    #device = torch.device(device_ids[0])
-    #if args.cpu:
-    device = torch.device('cpu')
+    device = torch.device(device_ids[0])
+    if args.cpu:
+        device = torch.device('cpu')
 
     # Text-to-Text
     text2text = 't5' in args.model or 'T0' in args.model or 'bart' in args.model
@@ -219,7 +219,8 @@ def main():
                 # Format batch
                 b_size = real_data['input_token_ids'].shape[0]
                 # real label
-                label = F.one_hot(torch.ones(b_size, dtype=torch.long), 2, dtype=torch.float, device=device)
+                label = F.one_hot(torch.ones(b_size, dtype=torch.long), 2)
+                label = torch.tensor(label, dtype=torch.float, device=device)
                 # Get real embedding by G
                 with torch.no_grad():
                     real_embeddings = netG_real(real_data)
@@ -236,7 +237,8 @@ def main():
                 with torch.no_grad():
                     fake_embeddings = netG(fake_data)
                 # fake label
-                label = F.one_hot(torch.zeros(b_size, dtype=torch.long), 2, dtype=torch.float, device=device)
+                label = F.one_hot(torch.zeros(b_size, dtype=torch.long), 2)
+                label = torch.tensor(label, dtype=torch.float, device=device)
                 # Classify all fake batch with D
                 output = netD(fake_embeddings)
                 # Calculate D's loss on the all-fake batch
@@ -256,7 +258,8 @@ def main():
                 # Generate fake embeddings with grad
                 fake_embeddings = netG(fake_data)
                 # fake labels are real for generator cost
-                label = F.one_hot(torch.ones(b_size, dtype=torch.long), 2, dtype=torch.float, device=device)
+                label = F.one_hot(torch.ones(b_size, dtype=torch.long))
+                label = torch.tensor(label, dtype=torch.float, device=device)
                 # Since we just updated D, perform another forward pass of all-fake batch through D
                 output = netD(fake_embeddings)
                 # Calculate G's loss based on this output
