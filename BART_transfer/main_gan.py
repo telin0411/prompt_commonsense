@@ -277,9 +277,10 @@ def main():
 
                 # Output training stats
                 if i % 50 == 0:
-                    print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f'
-                          % (epoch, args.epochs, i, len(train_loader),
-                             errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
+                    writer.add_scalar('Loss/D', errD.item(), iters)
+                    writer.add_scalar('Loss/G', errG.item(), iters)
+                    writer.add_scalar('Dis/D(x)', D_G_z1, iters)
+                    writer.add_scalar('Dis/D(G(x))', D_G_z2, iters)
 
                 # Save Losses for plotting later
                 G_losses.append(errG.item())
