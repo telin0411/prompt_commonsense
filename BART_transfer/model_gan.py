@@ -17,8 +17,7 @@ class Discriminator(nn.Module):
 
     def forward(self, inp):
         # tokens: [B, L], mask: [B, L]
-        x = self.model(inp['input_token_ids'],
-                       inp['input_attn_mask'])[0]  # [B, L, D]
+        x = self.model(inputs_embeds=inp)[0]  # [B, L, D]
         cls_emb = x[:, 0, :]  # [B, D]
 
         # softmax
