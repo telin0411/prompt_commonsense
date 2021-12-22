@@ -272,14 +272,14 @@ class GANPair(Dataset):
         fake_token_target = self.tokenize(fake_record['output_text'], self.target_seq_len)
 
         # Output
-        sample = {'real': {'input_token_ids': real_token_input['input_ids'],
-                           'input_attn_mask': real_token_input['attention_mask'],
-                           'target_token_ids': real_token_target['input_ids'],
-                           'target_attn_mask': real_token_target['attention_mask']},
-                  'fake': {'input_token_ids': fake_token_input['input_ids'],
-                           'input_attn_mask': fake_token_input['attention_mask'],
-                           'target_token_ids': fake_token_target['input_ids'],
-                           'target_attn_mask': fake_token_target['attention_mask']}
+        sample = {'real': {'input_token_ids': real_token_input['input_ids'].squeeze(),
+                           'input_attn_mask': real_token_input['attention_mask'].squeeze(),
+                           'target_token_ids': real_token_target['input_ids'].squeeze(),
+                           'target_attn_mask': real_token_target['attention_mask'].squeeze()},
+                  'fake': {'input_token_ids': fake_token_input['input_ids'].squeeze(),
+                           'input_attn_mask': fake_token_input['attention_mask'].squeeze(),
+                           'target_token_ids': fake_token_target['input_ids'].squeeze(),
+                           'target_attn_mask': fake_token_target['attention_mask'].squeeze()}
                   }
 
         return sample

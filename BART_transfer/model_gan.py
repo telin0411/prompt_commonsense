@@ -13,7 +13,6 @@ class Discriminator(nn.Module):
         self.model = AutoModel.from_pretrained(discriminator_model)
         hidden_dim = self.model.config.hidden_size
         self.logit_layer = nn.Linear(hidden_dim, 2)
-        self.softmax = torch.nn.Softmax(dim=1)
 
     def forward(self, inp):
         # tokens: [B, L], mask: [B, L]
@@ -22,12 +21,11 @@ class Discriminator(nn.Module):
 
         # softmax
         logit = self.logit_layer(cls_emb)  # [B, C] in R
-        softmax = self.softmax(logit)      # [B, C] in 0~1
-        return softmax
+        return logit
 
 
 class Generator(nn.Module):
-    def __init__(self, generator_model, num_cls=2):
+    def __init__(self, generator_model):
         super().__init__()
         self.model = Bart.from_pretrained(generator_model)
 

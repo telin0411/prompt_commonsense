@@ -223,14 +223,11 @@ def main():
                 # Format batch
                 b_size = real_data['input_token_ids'].shape[0]
                 label = torch.full((b_size,), real_label, dtype=torch.float, device=device)
-                print("label shape", label.shape)
                 # Get real embedding by G
                 with torch.no_grad():
-                    real_embeddings = netG_real(real_data)#['encoder_last_hidden_state']
-                    print("real embeddings", real_embeddings.shape)
+                    real_embeddings = netG_real(real_data)
                 # Forward pass real embeddings through D
-                output = netD(real_embeddings)#.view(-1)
-                print("output", output.shape)
+                output = netD(real_embeddings)
                 # Calculate loss on all-real batch
                 errD_real = criterion(output, label)
                 # Calculate gradients for D in backward pass
@@ -239,10 +236,10 @@ def main():
 
                 ## Train with all-fake batch
                 # Generate fake embeddings
-                fake_embeddings = netG(fake_data)['encoder_last_hidden_state']
+                fake_embeddings = netG(fake_data)
                 label.fill_(fake_label)
                 # Classify all fake batch with D
-                output = netD(fake_embeddings)#.view(-1)
+                output = netD(fake_embeddings)
                 # Calculate D's loss on the all-fake batch
                 errD_fake = criterion(output, label)
                 # Calculate the gradients for this batch, accumulated (summed) with previous gradients
@@ -259,7 +256,7 @@ def main():
                 netG.zero_grad()
                 label.fill_(real_label)  # fake labels are real for generator cost
                 # Since we just updated D, perform another forward pass of all-fake batch through D
-                output = netD(fake_embeddings)#.view(-1)
+                output = netD(fake_embeddings)
                 # Calculate G's loss based on this output
                 errG = criterion(output, label)
                 # Calculate gradients for G
