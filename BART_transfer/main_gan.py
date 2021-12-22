@@ -165,6 +165,10 @@ def main():
         netD.train()
         netG_real.eval()
 
+        netG.to(device)
+        netD.to(device)
+        netG_real.to(device)
+
         # Load pre-trained BART weights
         pretrain_weights = torch.load(args.weights_path, map_location=device)
         netG_real.load_state_dict(pretrain_weights['model_state_dict'], strict=False)
