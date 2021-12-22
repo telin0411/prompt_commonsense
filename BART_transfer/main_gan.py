@@ -176,8 +176,8 @@ def main():
         optimizerD.zero_grad()
 
         # Establish convention for real and fake labels during training
-        real_label = 1.0
-        fake_label = 0.0
+        real_label = 1
+        fake_label = 0
 
         # Load model checkpoint file (if specified)
         if args.ckpt:
@@ -222,7 +222,7 @@ def main():
                 netD.zero_grad()
                 # Format batch
                 b_size = real_data['input_token_ids'].shape[0]
-                label = torch.full((b_size,), real_label, dtype=torch.float, device=device)
+                label = torch.full((b_size,), real_label, dtype=torch.long, device=device)
                 # Get real embedding by G
                 with torch.no_grad():
                     real_embeddings = netG_real(real_data)
