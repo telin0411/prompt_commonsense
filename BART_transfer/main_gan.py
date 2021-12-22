@@ -3,6 +3,7 @@ import sys
 import torch
 import torch.multiprocessing
 import torch.nn as nn
+import torch.nn.functional as F
 import csv
 import argparse
 import pandas as pd
@@ -169,15 +170,11 @@ def main():
         netG_real.load_state_dict(pretrain_weights['model_state_dict'], strict=False)
 
         # Loss & Optimizer
-        criterion = nn.CrossEntropyLoss()
+        criterion = nn.BCEWithLogitsLoss()
         optimizerG = torch.optim.Adam(netG.parameters(), lr)
         optimizerD = torch.optim.Adam(netD.parameters(), lr)
         optimizerG.zero_grad()
         optimizerD.zero_grad()
-
-        # Establish convention for real and fake labels during training
-        real_label = 1
-        fake_label = 0
 
         # Load model checkpoint file (if specified)
         if args.ckpt:
@@ -198,7 +195,6 @@ def main():
         # Training Loop
 
         # Lists to keep track of progress
-        img_list = []
         G_losses = []
         D_losses = []
         iters = 0
@@ -222,7 +218,8 @@ def main():
                 netD.zero_grad()
                 # Format batch
                 b_size = real_data['input_token_ids'].shape[0]
-                label = torch.full((b_size,), real_label, dtype=torch.long, device=device)
+                # real label
+                label = F.one_hot(torch.ones(b_size, dtype=torch.long), 2, dtype=torch.float, device=device)
                 # Get real embedding by G
                 with torch.no_grad():
                     real_embeddings = netG_real(real_data)
@@ -236,8 +233,10 @@ def main():
 
                 ## Train with all-fake batch
                 # Generate fake embeddings
-                fake_embeddings = netG(fake_data)
-                label.fill_(fake_label)
+                with torch.no_grad():
+                    fake_embeddings = netG(fake_data)
+                # fake label
+                label = F.one_hot(torch.zeros(b_size, dtype=torch.long), 2, dtype=torch.float, device=device)
                 # Classify all fake batch with D
                 output = netD(fake_embeddings)
                 # Calculate D's loss on the all-fake batch
@@ -254,7 +253,10 @@ def main():
                 # (2) Update G network: maximize log(D(G(z)))
                 ###########################
                 netG.zero_grad()
-                label.fill_(real_label)  # fake labels are real for generator cost
+                # Generate fake embeddings with grad
+                fake_embeddings = netG(fake_data)
+                # fake labels are real for generator cost
+                label = F.one_hot(torch.ones(b_size, dtype=torch.long), 2, dtype=torch.float, device=device)
                 # Since we just updated D, perform another forward pass of all-fake batch through D
                 output = netD(fake_embeddings)
                 # Calculate G's loss based on this output
