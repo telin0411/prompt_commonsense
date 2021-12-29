@@ -7,6 +7,7 @@ import pandas as pd
 import torch
 from transformers import AutoTokenizer
 from torch.utils.data import Dataset
+import random
 
 
 class T5Dataset(Dataset):
@@ -83,3 +84,74 @@ class COSE(T5Dataset):
             self.data.append({'input_text': input_text,
                               'output_text': target_text})
 
+
+class ECQA(T5Dataset):
+    def __init__(self, file_path, tokenizer, input_seq_len):
+        super().__init__(file_path, tokenizer, input_seq_len, target_seq_len=24)
+        self.data_pos = None
+        self.data_neg = None
+
+        self.data_preprocessing()
+
+    def data_preprocessing(self):
+        self.data_pos = []
+        self.data_neg = []
+        df = pd.read_json(self.file_path)
+        for idx, row in df.iterrows():
+            question = row['question']
+            answer = row['answer']
+            answer_key = row['answer_key']
+            choices = row['choices']
+            # positive explanations and the true answer
+            explanation_pos = row['explanations'][answer_key]
+            input_text = f"{question}\n{choices[answer_key]}"
+            target_text = f"True, because {explanation_pos}"
+            self.data_pos.append({'input_text': input_text,
+                                  'target_text': target_text})
+            # negative explanations and the false answer
+            row['explanations'].pop(answer_key)  # pop the true answer and remain the false
+            for k, v in row['explanations'].items():
+                input_text = f"{question}\n{choices[k]}"
+                target_text = f"False, because {v}"
+                self.data_neg.append({'input_text': input_text,
+                                      'target_text': target_text})
+        self.data = self.data_neg + self.data_pos
+
+    def __getitem__(self, index):
+        if index >= len(self.data_pos) + len(self.data_neg):
+            index = random.randint(len(self.data_pos), len(self.data_pos) + len(self.data_neg) - 1)
+
+        record = self.data[index]
+        input_text, output_text = record['input_text'], record['output_text']
+
+        # Tokenize
+        input_encoded = self.tokenizer.encode_plus(text=input_text,
+                                                   add_special_tokens=False,
+                                                   padding='max_length',
+                                                   max_length=self.input_seq_len,
+                                                   truncation=True,
+                                                   return_attention_mask=True)
+
+        target_encoded = self.tokenizer.encode_plus(text=output_text,
+                                                    add_special_tokens=False,
+                                                    padding='max_length',
+                                                    max_length=self.target_seq_len,
+                                                    truncation=True,
+                                                    return_attention_mask=True)
+
+        input_token_ids = torch.tensor(input_encoded['input_ids'])
+        input_attn_mask = torch.tensor(input_encoded['attention_mask'])
+
+        target_token_ids = torch.tensor(target_encoded['input_ids'])
+        target_attn_mask = torch.tensor(target_encoded['attention_mask'])
+
+        # Output
+        sample = {'input_token_ids': input_token_ids,
+                  'input_attn_mask': input_attn_mask,
+                  'target_token_ids': target_token_ids,
+                  'target_attn_mask': target_attn_mask}
+
+        return sample
+
+    def len(self):
+        return 2 * max(len(self.data_pos), len(self.data_neg))

@@ -7,7 +7,7 @@ import argparse
 import pandas as pd
 from time import time
 from model import Transformer
-from dataloader import COSE
+from dataloader import COSE, ECQA
 
 try:
     from torch.utils.tensorboard import SummaryWriter
@@ -125,9 +125,9 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        train_datasets = COSE(file_path=args.train_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        train_datasets = ECQA(file_path=args.train_file, tokenizer=args.model, input_seq_len=args.seq_len)
 
-        val_datasets = COSE(file_path=args.dev_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        val_datasets = ECQA(file_path=args.dev_file, tokenizer=args.model, input_seq_len=args.seq_len)
 
         train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,
                                   num_workers=args.num_workers)
@@ -317,7 +317,7 @@ def main():
     elif args.mode == 'test':
 
         # Dataloader
-        test_dataset = COSE(file_path=args.test_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        test_dataset = ECQA(file_path=args.test_file, tokenizer=args.model, input_seq_len=args.seq_len)
 
         loader = DataLoader(test_dataset, batch_size, num_workers=args.num_workers)
 
