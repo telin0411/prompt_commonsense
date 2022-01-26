@@ -255,8 +255,8 @@ def main():
                         # Reset the mode to training
                         model.train()
 
-                        log_msg = 'Validation Accuracy: {:.6f} %  || Validation Loss: {:.6f} || Validation BLEU: {:.6f}'.format(
-                            val_metrics['accuracy'], val_metrics['loss'], val_metrics['BLEU'])
+                        log_msg = 'Validation Acc: {:.6f} %  || Loss: {:.6f} || BLEU: {:.6f} || ROUGE: {:.6f}'.format(
+                            val_metrics['accuracy'], val_metrics['loss'], val_metrics['bleu_score'], val_metrics['rouge_score'])
 
                         print_log(log_msg, log_file)
 
@@ -264,6 +264,7 @@ def main():
                         writer.add_scalar('Val/Loss', val_metrics['loss'], curr_step)
                         writer.add_scalar('Val/Accuracy', val_metrics['accuracy'], curr_step)
                         writer.add_scalar('Val/BLEU', val_metrics['bleu_score'], curr_step)
+                        writer.add_scalar('Val/ROUGE', val_metrics['rouge_score'], curr_step)
 
                     # Add summaries to TensorBoard
                     writer.add_scalar('Train/Loss', loss.item(), curr_step)
@@ -297,8 +298,8 @@ def main():
                 val_metrics = compute_eval_metrics(model, val_loader, device, val_size, tokenizer, args, text2text)
 
                 log_msg += '\nAfter {} epoch:\n'.format(epoch)
-                log_msg += 'Validation Accuracy: {:.6f} %  || Validation Loss: {:.6f} || Validation BLEU: {:.6f}\n'.format(
-                    val_metrics['accuracy'], val_metrics['loss'], val_metrics['BLEU'])
+                log_msg += 'Validation Accuracy: {:.6f} %  || Loss: {:.6f} || BLEU: {:.6f} || ROUGE: {:.6f}\n'.format(
+                    val_metrics['accuracy'], val_metrics['loss'], val_metrics['bleu_score'], val_metrics['rouge_score'])
 
                 # Save best model after every epoch
                 if val_metrics["accuracy"] > best_val_acc:
@@ -361,6 +362,7 @@ def main():
         print(f'Results evaluated on file {args.test_file}')
         print('Sentence Accuracy: {:.6f}'.format(metrics['accuracy']))
         print('Explanation BLEU Score: {:.6f}'.format(metrics['bleu_score']))
+        print('Explanation ROUGE Score: {:.6f}'.format(metrics['rouge_score']))
 
 
 if __name__ == '__main__':

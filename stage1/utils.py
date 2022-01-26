@@ -6,6 +6,7 @@ import torch.nn.functional as F
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score, classification_report
 from nltk.translate.bleu_score import sentence_bleu
+from rouge import Rouge
 
 
 @torch.no_grad()
@@ -122,9 +123,20 @@ def joint_metrics(sent_gt, sent_pr):
     
     acc = 100 * accuracy_score(ans_gt, ans_pr)
     bleu = bleu_score(ans_gt, ans_pr)
+    rouge = rouge_score(ans_gt, ans_pr)
 
     return {'accuracy': acc,
-            'bleu_score': bleu}
+            'bleu_score': bleu,
+            'rouge_score': rouge}
+
+
+def rouge_score(ref, hyp):
+    rouge = Rouge()
+    metrics = rouge.get_scores(ref, hyp, avg=True)
+    r1 = 100 * metrics['rouge-1']['r']
+    r2 = 100 * metrics['rouge-2']['r']
+    rl = 100 * metrics['rouge-l']['r']
+    return rl
 
 
 def bleu_score(reference: list, candidate: list):

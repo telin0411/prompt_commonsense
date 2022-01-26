@@ -66,6 +66,6 @@ class ECQA(T5Dataset):
         self.data = []
         df = pd.read_json(self.file_path)
         for index, row in df.iterrows():
-            input_text = f"{row['statement']}\n{row['label']}, because"
-            output_text = f"{row['explanation']}"
+            input_text = f"{row['statement']}"
+            output_text = f"{row['label']}, because {row['explanation']}"
             self.data.append({'input_text': input_text, 'output_text': output_text})
