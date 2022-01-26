@@ -53,7 +53,6 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, args, text2
 
             label_gt = batch['target_token_ids']
             label_gt = [decode(x).strip() for x in label_gt]
-
             input_decoded += [decode(x) for x in batch['input_token_ids']]
 
             # Forward Pass (loss)
@@ -120,10 +119,9 @@ def joint_metrics(sent_gt, sent_pr):
             num_no_because += 1
             ans_pr.append("".join(s_pr.split()[0:1]))    # the first word is the answer by default
             expl_pr.append("".join(s_pr.split()[1:]))    # the rest words are the explanation by default
-    
     acc = 100 * accuracy_score(ans_gt, ans_pr)
-    bleu = bleu_score(ans_gt, ans_pr)
-    rouge = rouge_score(ans_gt, ans_pr)
+    bleu = bleu_score(expl_gt, expl_pr)
+    rouge = rouge_score(expl_gt, expl_pr)
 
     return {'accuracy': acc,
             'bleu_score': bleu,
