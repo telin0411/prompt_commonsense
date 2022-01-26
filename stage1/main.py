@@ -7,18 +7,19 @@ import argparse
 import pandas as pd
 from time import time
 from model import Transformer
-from dataloader import COSE, ECQA
+from dataloader import ECQA
 
 try:
     from torch.utils.tensorboard import SummaryWriter
 except:
     from tensorboardX import SummaryWriter
 from utils import *
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, ConcatDataset, WeightedRandomSampler
 from torch.cuda.amp import GradScaler, autocast
 from tqdm import tqdm
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 
 def set_random_seed(random_seed: int):
     # set random seed for PyTorch and CUDA
@@ -32,6 +33,7 @@ def set_random_seed(random_seed: int):
     # set random seed for random
     #random.seed(random_seed)
 
+
 def main():
     parser = argparse.ArgumentParser(description='Commonsense Dataset Dev')
 
@@ -40,7 +42,7 @@ def main():
     parser.add_argument('--expt_dir', type=str, help='root directory to save model & summaries')
     parser.add_argument('--expt_name', type=str, help='expt_dir/expt_name: organize experiments')
     parser.add_argument('--run_name', type=str, help='expt_dir/expt_name/run_name: organize training runs')
-
+    parser.add_argument('--stage', type=int, help='which stage: 1, 2, 3')
 
     # Model params
     parser.add_argument('--model', type=str, help='transformer model (e.g. roberta-base)', required=True)
@@ -54,10 +56,13 @@ def main():
     parser.add_argument('--pred_file', type=str, help='address of prediction csv file, for "test" mode',
                         default='results.csv')
     parser.add_argument('--test_file', type=str, default='test')
-    parser.add_argument('--train_file', type=str, help='list of datasets seperated by commas', required=True)
-    parser.add_argument('--dev_file', type=str, help='list of datasets seperated by commas', required=True)
-    parser.add_argument('--generate_mode', type=str, default='predict_first')
-    parser.add_argument('--has_explanation', type=bool, default=False)
+    parser.add_argument('--train_pos_file', type=str, help='list of datasets seperated by commas')
+    parser.add_argument('--train_neg_file', type=str, help='list of datasets seperated by commas')
+    parser.add_argument('--dev_pos_file', type=str, help='list of datasets seperated by commas')
+    parser.add_argument('--dev_neg_file', type=str, help='list of datasets seperated by commas')
+
+    parser.add_argument('--train_file', type=str, help='list of datasets seperated by commas')
+    parser.add_argument('--dev_file', type=str, help='list of datasets seperated by commas')
 
     # Training params
     parser.add_argument('--seed', type=int, help='random seed', default=888) 
@@ -125,11 +130,23 @@ def main():
         print('Training Log Directory: {}\n'.format(log_dir))
 
         # Dataset & Dataloader
-        train_datasets = ECQA(file_path=args.train_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        train_pos_datasets = ECQA(file_path=args.train_pos_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        train_neg_datasets = ECQA(file_path=args.train_neg_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        train_datasets = ConcatDataset([train_pos_datasets, train_neg_datasets])
 
-        val_datasets = ECQA(file_path=args.dev_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        # weighted sampler
+        train_pos_len = train_pos_datasets.__len__()
+        train_neg_len = train_neg_datasets.__len__()
+        train_pos_weight = 1 / train_pos_len
+        train_neg_weight = 1 / train_neg_len
+        weights = torch.cat([train_pos_weight, train_neg_weight])
+        sampler = WeightedRandomSampler(weights, 2 * min(train_pos_len, train_neg_len), replacement=False)
 
-        train_loader = DataLoader(train_datasets, batch_size, shuffle=True, drop_last=True,
+        val_pos_datasets = ECQA(file_path=args.dev_pos_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        val_neg_datasets = ECQA(file_path=args.dev_neg_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        val_datasets = ConcatDataset([val_pos_datasets, val_neg_datasets])
+
+        train_loader = DataLoader(train_datasets, batch_size, drop_last=True, sampler=sampler,
                                   num_workers=args.num_workers)
         val_loader = DataLoader(val_datasets, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
 
