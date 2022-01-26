@@ -137,8 +137,8 @@ def main():
         # weighted sampler
         train_pos_len = train_pos_datasets.__len__()
         train_neg_len = train_neg_datasets.__len__()
-        train_pos_weight = 1 / train_pos_len
-        train_neg_weight = 1 / train_neg_len
+        train_pos_weight = torch.ones(train_pos_len) / train_pos_len
+        train_neg_weight = torch.ones(train_neg_len) / train_neg_len
         weights = torch.cat([train_pos_weight, train_neg_weight])
         sampler = WeightedRandomSampler(weights, 2 * min(train_pos_len, train_neg_len), replacement=False)
 
@@ -151,7 +151,7 @@ def main():
         val_loader = DataLoader(val_datasets, batch_size, shuffle=True, drop_last=True, num_workers=args.num_workers)
 
         # Tokenizer
-        tokenizer = train_datasets.get_tokenizer()
+        tokenizer = train_pos_datasets.get_tokenizer()
 
         # Split sizes
         train_size = train_datasets.__len__()
