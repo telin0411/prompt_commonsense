@@ -88,12 +88,14 @@ def compute_eval_metrics(model, dataloader, device, size, tokenizer, args, text2
     # accuracy = 100 * accuracy_score(ground_truth, predicted)
     accuracy = metric['accuracy']
     bleu = metric['bleu_score']
+    rouge = metric['rouge_score']
 
     loss = torch.tensor(loss).mean()
 
     metrics = {'loss': loss,
                'accuracy': accuracy,
-               'bleu_score': bleu}
+               'bleu_score': bleu,
+               'rouge_score': rouge}
 
     if is_test:
         metrics['meta'] = {'input': input_decoded,
@@ -129,9 +131,6 @@ def joint_metrics(sent_gt, sent_pr):
 
 
 def rouge_score(ref, hyp):
-    print(ref)
-    print("\n")
-    print(hyp)
     rouge = Rouge()
     ref_new = []
     hyp_new = []
