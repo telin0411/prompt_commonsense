@@ -133,7 +133,16 @@ def rouge_score(ref, hyp):
     print("\n")
     print(hyp)
     rouge = Rouge()
-    metrics = rouge.get_scores(ref, hyp, avg=True)
+    ref_new = []
+    hyp_new = []
+    for str_ref, str_hyp in zip(ref, hyp):
+        if str_ref == "" or str_hyp == "":
+            print("Empty string")
+            continue
+        else:
+            ref_new.append(str_ref)
+            hyp_new.append(str_hyp)
+    metrics = rouge.get_scores(ref_new, hyp_new, avg=True)
     r1 = 100 * metrics['rouge-1']['r']
     r2 = 100 * metrics['rouge-2']['r']
     rl = 100 * metrics['rouge-l']['r']
