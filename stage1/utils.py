@@ -129,6 +129,9 @@ def joint_metrics(sent_gt, sent_pr):
 
 
 def rouge_score(ref, hyp):
+    print(ref)
+    print("\n")
+    print(hyp)
     rouge = Rouge()
     metrics = rouge.get_scores(ref, hyp, avg=True)
     r1 = 100 * metrics['rouge-1']['r']
