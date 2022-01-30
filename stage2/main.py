@@ -28,10 +28,10 @@ def set_random_seed(random_seed: int):
     torch.backends.cudnn.deterministic = True
 
     # set random seed for Numpy
-    #np.random.seed(random_seed)
+    # np.random.seed(random_seed)
 
     # set random seed for random
-    #random.seed(random_seed)
+    # random.seed(random_seed)
 
 
 def main():
@@ -65,7 +65,7 @@ def main():
     parser.add_argument('--dev_file', type=str, help='list of datasets seperated by commas')
 
     # Training params
-    parser.add_argument('--seed', type=int, help='random seed', default=888) 
+    parser.add_argument('--seed', type=int, help='random seed', default=888)
     parser.add_argument('--lr', type=float, help='learning rate', default=1e-5)
     parser.add_argument('--epochs', type=int, help='number of epochs', default=100)
     parser.add_argument('--batch_size', type=int, help='batch size', default=8)
@@ -218,11 +218,37 @@ def main():
         for epoch in range(start_epoch, start_epoch + n_epochs):
             for batch in tqdm(train_loader):
                 # Load batch to device
-                batch = {k: v.to(device) for k, v in batch.items()}
+                batch = {k: v.to(device) if torch.is_tensor(v) else v for k, v in batch.items()}
 
                 with autocast(args.use_amp):
                     if text2text:
                         # Forward + Loss
+                        # Generate pseudo labels
+                        model.eval()
+                        with torch.no_grad():
+                            label_pred_batch = model.generate(input_ids=batch['input_token_ids'],
+                                                              attention_mask=batch['input_attn_mask'],
+                                                              max_length=20)
+                            expl_batch = []
+                            for label_pred, expl in zip(label_pred_batch, batch['target_text']):
+                                label_pred = tokenizer.decode(label_pred, skip_special_tokens=True).strip()
+                                if ", because" in label_pred:
+                                    expl_rest = "".join(label_pred.split(", because")[1:])
+                                else:
+                                    expl_rest = "".join(label_pred.split()[1:])
+                                expl_rest = expl_rest[4:] if len(expl_rest) > 4 else expl_rest
+                                expl_batch.append(expl + expl_rest)
+
+                            target_encoded = tokenizer.encode_plus(text=expl_batch,
+                                                                   add_special_tokens=False,
+                                                                   padding='max_length',
+                                                                   max_length=args.seq_len,
+                                                                   truncation=True,
+                                                                   return_attention_mask=True)
+
+                            batch['target_token_ids'] = torch.tensor(target_encoded['input_ids'])
+
+                        model.train()
                         output = model(batch)
                         loss = output[0]
 
@@ -256,7 +282,8 @@ def main():
                         model.train()
 
                         log_msg = 'Validation Acc: {:.6f} %  || Loss: {:.6f} || BLEU: {:.6f} || ROUGE: {:.6f}'.format(
-                            val_metrics['accuracy'], val_metrics['loss'], val_metrics['bleu_score'], val_metrics['rouge_score'])
+                            val_metrics['accuracy'], val_metrics['loss'], val_metrics['bleu_score'],
+                            val_metrics['rouge_score'])
 
                         print_log(log_msg, log_file)
 

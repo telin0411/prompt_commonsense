@@ -45,7 +45,8 @@ class T5Dataset(Dataset):
         sample = {'input_token_ids': input_token_ids,
                   'input_attn_mask': input_attn_mask,
                   'target_token_ids': target_token_ids,
-                  'target_attn_mask': target_attn_mask}
+                  'target_attn_mask': target_attn_mask,
+                  'target_text': output_text}
 
         return sample
 
@@ -67,6 +68,14 @@ class ECQA(T5Dataset):
         df = pd.read_json(self.file_path)
         for index, row in df.iterrows():
             input_text = f"{row['statement']}"
-            expl_part = "".join(row['explanation'].split()[0:4])
-            output_text = f"{row['label']}, because {row['explanation']}"
+            if row['from'] == 'ecqa':
+                expl_part = "".join(row['explanation'].split()[0:4])
+                expl_rest = "".join(row['explanation'].split()[4:])
+                output_text = f"{row['label']}, because {expl_part} "
+            elif row['from'] == 'com2sense':
+                expl_part = ""
+                expl_rest = ""
+                output_text = f"{row['label']}, because "
+            else:
+                raise NameError("data must from either ecqa or com2sense")
             self.data.append({'input_text': input_text, 'output_text': output_text})
