@@ -254,7 +254,10 @@ def main():
                                 expl_input_ids = torch.tensor(expl_encoded['input_ids'])
                                 expl_batch.append(expl_input_ids)
                         expl_batch = torch.cat(expl_batch, dim=0)
-                        batch['target_token_ids'] = expl_batch
+                        batch['target_token_ids'] = expl_batch.to(device)
+                        for k, v in batch.items():
+                            if torch.is_tensor(v):
+                                print(k, "shape", v.shape)
 
                         model.train()
                         output = model(batch)
