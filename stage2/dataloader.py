@@ -68,11 +68,11 @@ class ECQA(T5Dataset):
         df = pd.read_json(self.file_path)
         for index, row in df.iterrows():
             input_text = f"{row['statement']}"
-            if row['from'] == 'ecqa':
+            if 'ecqa' in self.file_path:
                 expl_part = "".join(row['explanation'].split()[0:4])
                 expl_rest = "".join(row['explanation'].split()[4:])
                 output_text = f"{row['label']}, because {expl_part} "
-            elif row['from'] == 'com2sense':
+            elif 'com2sense' in self.file_path:
                 expl_part = ""
                 expl_rest = ""
                 output_text = f"{row['label']}, because "

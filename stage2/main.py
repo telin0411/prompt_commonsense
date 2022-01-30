@@ -58,8 +58,10 @@ def main():
     parser.add_argument('--test_file', type=str, default='test')
     parser.add_argument('--train_pos_file', type=str, help='list of datasets seperated by commas')
     parser.add_argument('--train_neg_file', type=str, help='list of datasets seperated by commas')
+    parser.add_argument('--train_com_file', type=str, help='list of datasets seperated by commas')
     parser.add_argument('--dev_pos_file', type=str, help='list of datasets seperated by commas')
     parser.add_argument('--dev_neg_file', type=str, help='list of datasets seperated by commas')
+    parser.add_argument('--dev_com_file', type=str, help='list of datasets seperated by commas')
 
     parser.add_argument('--train_file', type=str, help='list of datasets seperated by commas')
     parser.add_argument('--dev_file', type=str, help='list of datasets seperated by commas')
@@ -132,19 +134,23 @@ def main():
         # Dataset & Dataloader
         train_pos_datasets = ECQA(file_path=args.train_pos_file, tokenizer=args.model, input_seq_len=args.seq_len)
         train_neg_datasets = ECQA(file_path=args.train_neg_file, tokenizer=args.model, input_seq_len=args.seq_len)
-        train_datasets = ConcatDataset([train_pos_datasets, train_neg_datasets])
+        train_com_datasets = ECQA(file_path=args.train_com_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        train_datasets = ConcatDataset([train_pos_datasets, train_neg_datasets, train_com_datasets])
 
         # weighted sampler
         train_pos_len = train_pos_datasets.__len__()
         train_neg_len = train_neg_datasets.__len__()
+        train_com_len = train_com_datasets.__len__()
         train_pos_weight = torch.ones(train_pos_len) / train_pos_len
         train_neg_weight = torch.ones(train_neg_len) / train_neg_len
-        weights = torch.cat([train_pos_weight, train_neg_weight])
-        sampler = WeightedRandomSampler(weights, 2 * min(train_pos_len, train_neg_len), replacement=False)
+        train_com_weight = 2 * torch.ones(train_com_len) / train_com_len
+        weights = torch.cat([train_pos_weight, train_neg_weight, train_com_weight])
+        sampler = WeightedRandomSampler(weights, 2 * min(train_pos_len, train_neg_len) + train_com_len, replacement=False)
 
         val_pos_datasets = ECQA(file_path=args.dev_pos_file, tokenizer=args.model, input_seq_len=args.seq_len)
         val_neg_datasets = ECQA(file_path=args.dev_neg_file, tokenizer=args.model, input_seq_len=args.seq_len)
-        val_datasets = ConcatDataset([val_pos_datasets, val_neg_datasets])
+        val_com_datasets = ECQA(file_path=args.dev_com_file, tokenizer=args.model, input_seq_len=args.seq_len)
+        val_datasets = ConcatDataset([val_pos_datasets, val_neg_datasets, val_com_datasets])
 
         train_loader = DataLoader(train_datasets, batch_size, drop_last=True, sampler=sampler,
                                   num_workers=args.num_workers)
