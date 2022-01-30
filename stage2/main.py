@@ -239,20 +239,22 @@ def main():
                             for label_pred, expl in zip(label_pred_batch, batch['target_text']):
                                 label_pred = tokenizer.decode(label_pred, skip_special_tokens=True).strip()
                                 if ", because" in label_pred:
-                                    expl_rest = "".join(label_pred.split(", because")[1:])
+                                    expl_rest = " ".join(label_pred.split(", because")[1:])
                                 else:
-                                    expl_rest = "".join(label_pred.split()[1:])
+                                    expl_rest = " ".join(label_pred.split()[1:])
                                 expl_rest = expl_rest[4:] if len(expl_rest) > 4 else expl_rest
-                                expl_batch.append(expl + expl_rest)
 
-                            target_encoded = tokenizer.encode_plus(text=expl_batch,
-                                                                   add_special_tokens=False,
-                                                                   padding='max_length',
-                                                                   max_length=args.seq_len,
-                                                                   truncation=True,
-                                                                   return_attention_mask=True)
+                                expl_encoded = tokenizer.encode_plus(text=expl+expl_rest,
+                                                                     add_special_tokens=False,
+                                                                     padding='max_length',
+                                                                     max_length=args.seq_len,
+                                                                     truncation=True,
+                                                                     return_attention_mask=True)
 
-                            batch['target_token_ids'] = torch.tensor(target_encoded['input_ids'])
+                                expl_input_ids = torch.tensor(expl_encoded['input_ids'])
+                                expl_batch.append(expl_input_ids)
+                        expl_batch = torch.cat(expl_batch, dim=0)
+                        batch['target_token_ids'] = expl_batch
 
                         model.train()
                         output = model(batch)
