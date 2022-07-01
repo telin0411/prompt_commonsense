@@ -31,3 +31,6 @@ glove.*
 
 # outputs
 results_log
+
+eqasc
+eQASC_explanations.jsonl
